@@ -18,7 +18,9 @@ int main(void)
 
 
     //Is the card number a valid length (13-16 digits)?
-    if (cn < 999999999999 || cn > 9999999999999999, printf("INVALID\n"), break)
+    if (cn < 999999999999 || cn > 9999999999999999) {
+        printf("INVALID\n");
+    }
 
     printf("Success\n");
 
