@@ -28,7 +28,7 @@ int main(void)
 
         // Move to the next row
         printf("#");
-        printf("\n");
+        //printf("\n");
 
     }
 
