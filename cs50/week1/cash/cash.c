@@ -31,11 +31,15 @@ int main(void) {
     int coins = quarters + dimes + nickels + pennies;
 
     // Print total number of coins to give the customer
-    printf("%i coins is the minimum for the change owed\n", coins);
+    printf("%i\n", coins);
 }
 
 int get_cents(void) {
-    int cents = get_int("Change owed: ");
+    do {
+        int cents = get_int("Change owed: ");
+    }
+    while(int cents < 0)
+
     return cents;
 }
 
