@@ -9,9 +9,8 @@ int main(void)
     {
         n = get_int("Height: ");
     }
+    //Ensure n is between 1 and 8
     while ((n <= 0) || (n > 8));
-
-
 
 
 
