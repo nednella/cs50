@@ -5,8 +5,9 @@ int main(void)
 {
     do
     {
-        int height = get_int("Height: ");
+        int n = get_int("Height: ");
     }
-    while (0 <= height <= 8)
+    while (0 < n < 8)
 
+    printf("success\n")
 }
