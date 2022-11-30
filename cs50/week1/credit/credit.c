@@ -1,8 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int first_digit(n[i])
-
 int main(void)
 {
     //prompt user for input, and check if card number is valid (length)
