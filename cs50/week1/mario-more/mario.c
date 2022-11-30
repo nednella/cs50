@@ -12,27 +12,22 @@ int main(void)
     //Ensure n is between 1 and 8
     while ((n <= 0) || (n > 8));
 
+    //Leave a space below the entered height
     printf("\n");
 
-
+    //
     for(i=0; i < n; i++)
     {
-        //For each column
         for(j=(i+1); j < n; j++)
         {
             printf(" ");
         }
 
-        //For each column
         for(k=0; k <= i; k++)
         {
             printf("#");
         }
-
-
-
         printf("\n");
     }
-
     printf("\n");
 }
