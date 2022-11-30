@@ -21,7 +21,7 @@ int main(void)
     if (cn < 999999999999 || cn > 9999999999999999) {
         printf("INVALID\n");
     }
-
+    else
     printf("Success\n");
 
 
