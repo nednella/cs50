@@ -15,7 +15,9 @@ int main(void)
     }
     else {
         //The card number is valid
+
         //Luhn Algorithm
+        //Perform CHECKSUM
 
         //Create array of 9 elements
         int n[9];
@@ -55,13 +57,9 @@ int main(void)
         m[1] = first_digit(d[1])
 
 
-
-
-
         //printf("Success\n");
 
-
-
+        
 
 
 
