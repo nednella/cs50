@@ -3,21 +3,18 @@
 
 int main(void)
 {
-    //Prompt user for input
-    long cn = get_long("Card Number: ");
+    //Prompt user for input, and check if card number is valid (length)
+    long cn; //card number
 
-    //Is the card number valid (13-16 digits)?
     do {
-        if (cn < 100000000000 || cn > 9999999999999999, printf("INVALID\n"),break)
-
-
-
-
-
+        cn = get_long("Card Number: ");
     }
-    while
+    while (cn < 999999999999 || cn > 9999999999999999);
 
     printf("Success\n");
+
+
+
 
     //Perform CHECKSUM - is the card number valid?
     //checksum( )
@@ -27,18 +24,6 @@ int main(void)
 
     //If valid
     //Check for card length and 2 initial card digits
-
-
-do
-    {
-        if (!scanf("%lld", &cc) ||   // scanf returns 1 if valid
-           (cc < (long long)100000000000 && !(cc > LLONG_MAX))) // min/max CC number
-            printf("INVALID\n");
-        while (getchar() != '\n') ; // clear buffer
-    }
-    while (cc < (long long)100000000000 && !(cc > LLONG_MAX));  // min/max CC number
-
-
 
 
 
