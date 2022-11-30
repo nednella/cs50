@@ -44,15 +44,6 @@ int get_cents(void) {
     return cents;
 }
 
-int get_cents(void)
-{
-    int cents = get_int("Change owed: ");
-    return cents;
-}
-
-
-
-
 int calculate_quarters(int cents) {
     int quarters = cents/25;
     return quarters;
