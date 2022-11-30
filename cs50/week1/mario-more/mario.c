@@ -19,16 +19,17 @@ int main(void)
     //For each row
     for(i=0; i < n; i++)
     {
-        printf("#  #");
+
         //For each column
-        //for(j=0; j < n; j++)
-        //{
-        //    printf("##");
-        //}
+        for(j=0; j < n; j++)
+        {
+            printf("#  #");
+        }
 
         // Move to the next row
+        printf("\n");
 
     }
-    
+
     printf("\n");
 }
