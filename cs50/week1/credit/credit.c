@@ -19,6 +19,7 @@ int main(void)
 
         //create array of 9 elements
         int n[9];
+        
         for (int i = 0; i < 10; i++) {
             n[i] = 0; // Fill array with 0
         }
@@ -37,6 +38,7 @@ int main(void)
 
         //Multiply every 2nd number by 2
         int d[9];
+
         for (int d = 0; d < 10; d++) {
             d[i] = 0; //Fill aray with 0
         }
