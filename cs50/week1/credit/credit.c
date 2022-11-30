@@ -19,7 +19,7 @@ int main(void)
 
 
         //The card number is valid
-        //Luhn algorithm check - obtain every 2nd number
+        //Luhn Algorithm check - obtain every 2nd number
         //Create array of 9 elements
         //int n[9]; for (int i = 0; i < 10; i++) n[i]=0; // Fill array with 0
 
