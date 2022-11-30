@@ -5,29 +5,30 @@ int first_digit(n[i])
 
 int main(void)
 {
-    //Prompt user for input, and check if card number is valid (length)
+    //prompt user for input, and check if card number is valid (length)
     long cc = get_long("Card Number: ");
 
-    //Is the card number a valid length (13-16 digits)?
+    //is the card number a valid length (13-16 digits)?
     if (cc < 1000000000000 || cc > 10000000000000000) {
-        //The card number is invalid
+        //the card number is invalid
         printf("INVALID\n");
     }
     else {
-        //The card number is valid
+        //the card number is valid
 
         //Luhn Algorithm
-        //Perform CHECKSUM
+        //perform CHECKSUM
 
-        //Create array of 9 elements
+        //create array of 9 elements
         int n[9];
         for (int i = 0; i < 10; i++) {
             n[i] = 0; // Fill array with 0
         }
 
-        //Obtain every 2nd number starting from the back
-        //Reduce elements to just 1 digit (the first digit of each number)
-        n[1] = (cc % 100)               / 10;               //Obtains 2nd last number
+        //obtain every 2nd number starting from the back
+        //set elements equal to last X numbers
+        //reduce elements to just the 1st digit
+        n[1] = (cc % 100)               / 10;               //obtains 2nd last number
         n[2] = (cc % 10000)             / 1000;             //obtains 4th last number
         n[3] = (cc % 1000000)           / 100000;           //obtains 6th last number
         n[4] = (cc % 100000000)         / 10000000;         //obtains 8th last number
@@ -59,7 +60,7 @@ int main(void)
 
         //printf("Success\n");
 
-        
+
 
 
 
