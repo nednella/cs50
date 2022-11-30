@@ -13,7 +13,7 @@ int main(void)
     }
     else {
 
-        int a = cc % 10;
+        int a = cc % 100;
         printf("%i\n", a);
 
 
@@ -26,7 +26,7 @@ int main(void)
         //Example cc number - 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1
         //n[1] = (cc % 10)                    //obtains 2nd last number
         //n[2] = (cc % 1000)                  //obtains 4th last number
-        //n[3] = (cc % 100000)                //obtains 6th last number
+        //n[3] = (cc % 1000000)               //obtains 6th last number
         //n[4] = (cc % 10000000)              //obtains 8th last number
         //n[5] = (cc % 1000000000)            //obtains 10th last number
         //n[6] = (cc % 100000000000)          //obtains 12th last number
