@@ -18,18 +18,11 @@ int main(void)
     //For each row
     for(i=0; i < n; i++)
     {
-
         for(j=0; j < n; j++)
         {
             printf("#");
         }
-
-
-
-
-        printf("#");
-        //printf("\n");
-
+        printf("\n");
     }
 
     printf("\n");
