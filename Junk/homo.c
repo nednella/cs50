@@ -3,21 +3,20 @@
 
 int main(void)
 {
-    printf("Are you gay? ");
-    scanf("%s", )
+    char ch = get_char("Are you gay? y/n: ");
 
-    switch(response)
+    switch(ch)
     {
-    case "yes":
-    printf("I knew you were gay/n");
+    case 'y':
+    printf("I knew you were gay\n");
     break;
 
-    case "no":
-    printf("Liar, you're mega gay/n");
+    case 'n':
+    printf("Liar, you're mega gay\n");
     break;
 
     default:
-    printf("Definitely gay/n");
+    printf("Can't get out of this one, you're so gay\n");
     break;
     }
 }
