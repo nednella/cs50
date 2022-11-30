@@ -6,12 +6,15 @@ int main(void)
     string response = get_string("Are you gay? ");
 
     switch(response)
-    case 'yes';
+    case "yes":
     printf("I knew you were gay/n");
+    break;
 
-    case 'no';
+    case "no":
     printf("Liar, you're mega gay/n");
+    break;
 
-    default
+    default:
     printf("Definitely gay/n");
+    break;
 }
