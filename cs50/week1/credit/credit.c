@@ -24,14 +24,14 @@ int main(void)
         //int n[9]; for (int i = 0; i < 10; i++) n[i]=0; // Fill array with 0
 
         //Example cc number - 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1
-        //n[1] = (cc % 10)                    //obtains 2nd last number
-        //n[2] = (cc % 1000)                  //obtains 4th last number
-        //n[3] = (cc % 1000000)               //obtains 6th last number
-        //n[4] = (cc % 10000000)              //obtains 8th last number
-        //n[5] = (cc % 1000000000)            //obtains 10th last number
-        //n[6] = (cc % 100000000000)          //obtains 12th last number
-        //n[7] = (cc % 10000000000000)        //obtains 14th last number
-        //n[8] = (cc % 1000000000000000)      //obtains 16th last number
+        //n[1] = (cc % 100)                    //obtains last 2  numbers - 10
+        //n[2] = (cc % 10000)                  //obtains last 4  numbers - 1000
+        //n[3] = (cc % 10000000)               //obtains lasr 6  numbers - 100000
+        //n[4] = (cc % 100000000)              //obtains last 8  numbers - 10000000
+        //n[5] = (cc % 10000000000)            //obtains last 10 numbers - 1000000000
+        //n[6] = (cc % 1000000000000)          //obtains last 12 numbers - 100000000000
+        //n[7] = (cc % 100000000000000)        //obtains last 14 numbers - 10000000000000
+        //n[8] = (cc % 10000000000000000)      //obtains last 16 numbers - 1000000000000000
 
 
 
