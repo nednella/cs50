@@ -25,13 +25,14 @@ int main(void)
 
         //Obtain every 2nd number starting from the back
         //Reduce elements to just 1 digit (the first digit of each number)
-        n[1] = (cc % 100                / 10);                    //obtains 2nd last number
-        n[2] = (cc % 10000              / 1000);                  //obtains 4th last number
-        n[3] = (cc % 10000000           / 100000);                //obtains 6th last number
-        n[4] = (cc % 1000000000          / 10000000);              //obtains 8th last number
-        n[5] = (cc % 100000000000        / 1000000000);            //obtains 10th last number
-        n[7] = (cc % 10000000000000    / 10000000000000);        //obtains 12th last number
-        n[8] = (cc % 1000000000000000  / 1000000000000000);      //obtains 14th last number
+        n[1] = (cc % 100)               / 10;               //Obtains 2nd last number
+        n[2] = (cc % 10000)             / 1000;             //obtains 4th last number
+        n[3] = (cc % 1000000)           / 100000;           //obtains 6th last number
+        n[4] = (cc % 100000000)         / 10000000;         //obtains 8th last number
+        n[5] = (cc % 10000000000)       / 1000000000;       //obtains 10th last number
+        n[6] = (cc % 1000000000000)     / 100000000000;     //obtains 12th last number
+        n[7] = (cc % 100000000000000)   / 10000000000000;   //obtains 14th last number
+        n[8] = (cc % 10000000000000000) / 1000000000000000; //obtains 16th last number
 
         //Multiply every 2nd number by 2
         int d[9];
@@ -48,7 +49,7 @@ int main(void)
         d[7] = (n[7] * 2);
         d[8] = (n[8] * 2);
 
-
+        //
 
 
         m[1] = first_digit(d[1])
