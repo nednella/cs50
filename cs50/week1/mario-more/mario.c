@@ -13,7 +13,7 @@ int main(void)
     while ((n <= 0) || (n > 8));
 
     //Leave a space below the entered height
-    printf("\n");
+    //printf("\n");
 
     for(i=0; i < n; i++)
     {
@@ -28,5 +28,5 @@ int main(void)
         }
         printf("\n");
     }
-    printf("\n");
+    //printf("\n");
 }
