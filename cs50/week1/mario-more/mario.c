@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    int n, i, j;
+    int n, i, j, k;
 
     do
     {
@@ -20,8 +20,17 @@ int main(void)
         //For each column
         for(j=0; j <= i; j++)
         {
+            printf(" ");
+        }
+
+        //For each column
+        for(k=0; k <= i; k++)
+        {
             printf("#");
         }
+
+
+
         printf("\n");
     }
 
