@@ -15,7 +15,7 @@ int main(void)
     }
     else {
         //The card number is valid
-        //Luhn Algorithm - obtain every 2nd number starting from the back
+        //Luhn Algorithm
 
         //Create array of 9 elements
         int n[9];
@@ -23,6 +23,8 @@ int main(void)
             n[i] = 0; // Fill array with 0
         }
 
+        //Obtain every 2nd number starting from the back
+        //Reduce elements to just 1 digit (the first digit of each number)
         n[1] = (cc % 100                / 10);                    //obtains 2nd last number
         n[2] = (cc % 10000              / 1000);                  //obtains 4th last number
         n[3] = (cc % 10000000           / 100000);                //obtains 6th last number
@@ -31,7 +33,7 @@ int main(void)
         n[7] = (cc % 100000000000000    / 10000000000000);        //obtains 12th last number
         n[8] = (cc % 10000000000000000  / 1000000000000000);      //obtains 14th last number
 
-        //Reduce elements to just 1 digit (the first digit of each number)
+
 
         int d[9];
         for (int d = 0; d < 10; d++) {
