@@ -29,7 +29,14 @@ int main(void)
     //Check for card length and 2 initial card digits
 
 
-
+do
+    {
+        if (!scanf("%lld", &cc) ||   // scanf returns 1 if valid
+           (cc < (long long)100000000000 && !(cc > LLONG_MAX))) // min/max CC number
+            printf("INVALID\n");
+        while (getchar() != '\n') ; // clear buffer
+    }
+    while (cc < (long long)100000000000 && !(cc > LLONG_MAX));  // min/max CC number
 
 
 
