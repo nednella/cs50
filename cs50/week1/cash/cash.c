@@ -35,11 +35,10 @@ int main(void)
     printf("%i\n", coins);
 }
 
-int get_cents("How many cents is the customer owed? ");
+int get_cents(void)
 {
     // TODO
-    return cents;
-    printf("%i\n", cents)
+    return 0;
 }
 
 int calculate_quarters(int cents)
