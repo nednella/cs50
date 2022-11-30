@@ -17,23 +17,26 @@ int main(void)
         //Luhn Algorithm
 
         //obtain every individual card number
-        int n1
-        int n2
-        int n3
-        int n4
-        int n5
-        int n6
-        int n7
-        int n8
-        int n9
-        int n10
-        int n11
-        int n12
-        int n13
-        int n14
-        int n15
-        int n16
-        //create array of 9 elements
+        int n1  = (cc % 10000000000000000) / 1000000000000000;
+        int n2  = (cc % 1000000000000000)  / 100000000000000;
+        int n3  = (cc % 100000000000000)   / 10000000000000;
+        int n4  = (cc % 10000000000000)    / 1000000000000;
+        int n5  = (cc % 1000000000000)     / 100000000000;
+        int n6  = (cc % 100000000000)      / 10000000000;
+        int n7  = (cc % 10000000000)       / 1000000000;
+        int n8  = (cc % 1000000000)        / 100000000;
+        int n9  = (cc % 100000000)         / 10000000;
+        int n10 = (cc % 10000000)          / 1000000;
+        int n11 = (cc % 1000000)           / 100000;
+        int n12 = (cc % 100000)            / 10000;
+        int n13 = (cc % 10000)             / 1000;
+        int n14 = (cc % 1000)              / 100;
+        int n15 = (cc % 100)               / 10;
+        int n16 = (cc % 10)                / 1;
+
+
+
+        //create rray of 9 elements
 
 
 
