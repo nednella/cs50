@@ -4,7 +4,7 @@
 int main(void)
 {
     //Prompt user for input
-    long card = get_long("Card Number: ");
+    long cn = get_long("Card Number: ");
 
     printf("Success\n");
 
