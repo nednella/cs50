@@ -12,7 +12,8 @@ int main(void)
     //Ensure n is between 1 and 8
     while ((n <= 0) || (n > 8));
 
-
+    for(i=0; i < n; i++)
+    
 
 
     printf("Success\n");
