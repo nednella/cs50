@@ -3,9 +3,7 @@
 
 int main(void)
 {
-    int n;
-    int i;
-    int j;
+    int n, i, j;
 
     do
     {
