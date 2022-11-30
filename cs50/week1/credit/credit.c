@@ -3,16 +3,25 @@
 
 int main(void)
 {
+    //Prompt user for input
     long card = get_long("Card Number: ");
 
-
-    checksum( )
-
-
-
-
-
     printf("Success\n");
+
+    //Perform CHECKSUM - is the card number valid?
+    //checksum( )
+
+    //If invalid
+    //printf("INVALID\n");
+
+    //If valid
+
+
+
+
+
+
+
 
 
     //Test Card Numbers
