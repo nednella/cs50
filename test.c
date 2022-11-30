@@ -14,7 +14,7 @@ int main(void)
     else {
 
 
-        int b = (cc % 10000000000000000  / 1000000000000000);
-        printf("%i is the result", b);
+        long b = (cc % 10000000000000000);//)  / 1000000000000000);
+        printf("%li is the result\n", b);
     }
 }
