@@ -8,7 +8,7 @@ int main(void)
 
     //Is the card number valid (13-16 digits)?
     do {
-        if (cc < 100000000000)
+        if (cn < 100000000000 || cn > 9999999999999999, printf("INVALID\n"),break)
 
 
 
