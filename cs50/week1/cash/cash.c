@@ -7,8 +7,6 @@ int calculate_dimes(int cents);
 int calculate_nickels(int cents);
 int calculate_pennies(int cents);
 
-int cents;
-
 int main(void) {
     // Ask how many cents the customer is owed
     int cents = get_cents();
@@ -42,7 +40,7 @@ int get_cents(void) {
         int cents = get_int("Change owed: ");
         return cents;
     }
-    while (cents < 1)
+    while (cents < 1);
 }
 
 int calculate_quarters(int cents) {
