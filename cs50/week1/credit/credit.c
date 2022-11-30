@@ -24,8 +24,8 @@ int main(void)
         }
 
         //obtain every 2nd number starting from the back
-        //set elements equal to last X numbers
-        //reduce elements to just the 1st digit
+            //set element equal to last X numbers
+            //reduce element to just the 1st digit of the last X numbers
         n[1] = (cc % 100)               / 10;               //obtains 2nd last number
         n[2] = (cc % 10000)             / 1000;             //obtains 4th last number
         n[3] = (cc % 1000000)           / 100000;           //obtains 6th last number
