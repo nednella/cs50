@@ -14,11 +14,11 @@ int main(void)
 
     printf("\n");
 
-    //For each row
+
     for(i=0; i < n; i++)
     {
         //For each column
-        for(j=i; j < n; j++)
+        for(j=(i+1); j < n; j++)
         {
             printf(" ");
         }
