@@ -7,8 +7,7 @@ int calculate_dimes(int cents);
 int calculate_nickels(int cents);
 int calculate_pennies(int cents);
 
-int main(void)
-{
+int main(void) {
     // Ask how many cents the customer is owed
     int cents = get_cents();
 
@@ -32,35 +31,30 @@ int main(void)
     int coins = quarters + dimes + nickels + pennies;
 
     // Print total number of coins to give the customer
-    printf("%i\n", coins);
+    printf("%i coins is the minimum for the change owed\n", coins);
 }
 
-int get_cents(void)
-{
+int get_cents(void) {
     int cents = get_int("Change owed: ");
     return cents;
 }
 
-int calculate_quarters(int cents)
-{
+int calculate_quarters(int cents) {
     int quarters = cents/25;
     return quarters;
 }
 
-int calculate_dimes(int cents)
-{
+int calculate_dimes(int cents) {
     int dimes = cents/10;
     return dimes;
 }
 
-int calculate_nickels(int cents)
-{
+int calculate_nickels(int cents) {
     int nickels = cents/5;
     return nickels;
 }
 
-int calculate_pennies(int cents)
-{
+int calculate_pennies(int cents) {
     int pennies = cents/1;
     return pennies;
 }
