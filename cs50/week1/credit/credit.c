@@ -6,6 +6,17 @@ int main(void)
     //Prompt user for input
     long cn = get_long("Card Number: ");
 
+    //Is the card number valid (13-16 digits)?
+    do {
+        if (cc < 100000000000)
+
+
+
+
+
+    }
+    while
+
     printf("Success\n");
 
     //Perform CHECKSUM - is the card number valid?
