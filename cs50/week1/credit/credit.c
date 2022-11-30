@@ -15,6 +15,7 @@ int main(void)
     //printf("INVALID\n");
 
     //If valid
+    //Check for card length and 2 initial card digits
 
 
 
@@ -24,7 +25,7 @@ int main(void)
 
 
 
-    //Test Card Numbers
+    //Test Card Numbers from PayPal
 
     //AMEX
     //378282246310005
