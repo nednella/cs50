@@ -15,7 +15,6 @@ int main(void)
     //Leave a space below the entered height
     printf("\n");
 
-    //
     for(i=0; i < n; i++)
     {
         for(j=(i+1); j < n; j++)
