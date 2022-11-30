@@ -28,13 +28,12 @@ int main(void)
         n[1] = (cc % 100                / 10);                    //obtains 2nd last number
         n[2] = (cc % 10000              / 1000);                  //obtains 4th last number
         n[3] = (cc % 10000000           / 100000);                //obtains 6th last number
-        n[4] = (cc % 100000000          / 10000000);              //obtains 8th last number
-        n[5] = (cc % 10000000000        / 1000000000);            //obtains 10th last number
-        n[7] = (cc % 100000000000000    / 10000000000000);        //obtains 12th last number
-        n[8] = (cc % 10000000000000000  / 1000000000000000);      //obtains 14th last number
+        n[4] = (cc % 1000000000          / 10000000);              //obtains 8th last number
+        n[5] = (cc % 100000000000        / 1000000000);            //obtains 10th last number
+        n[7] = (cc % 10000000000000    / 10000000000000);        //obtains 12th last number
+        n[8] = (cc % 1000000000000000  / 1000000000000000);      //obtains 14th last number
 
-
-
+        //Multiply every 2nd number by 2
         int d[9];
         for (int d = 0; d < 10; d++) {
             d[i] = 0; //Fill aray with 0
