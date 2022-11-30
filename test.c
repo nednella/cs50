@@ -31,22 +31,22 @@ int main(void)
         int n1 = (cc % 10)                / 1;
 
 
-        printf("%i is 1st digit\n", n1);
-        printf("%i is 2nd digit\n", n2);
-        printf("%i is 3rd digit\n", n3);
-        printf("%i is 4th digit\n", n4);
-        printf("%i is 5th digit\n", n5);
-        printf("%i is 6th digit\n", n6);
-        printf("%i is 7th digit\n", n7);
-        printf("%i is 8th digit\n", n8);
-        printf("%i is 9th digit\n", n9);
-        printf("%i is 10th digit\n", n10);
-        printf("%i is 11th digit\n", n11);
-        printf("%i is 12th digit\n", n12);
-        printf("%i is 13th digit\n", n13);
-        printf("%i is 14th digit\n", n14);
-        printf("%i is 15th digit\n", n15);
-        printf("%i is 16th digit\n", n16);
+        printf("%i is 16th digit from the back\n", n16);
+        printf("%i is 15th digit from the back\n", n15);
+        printf("%i is 14th digit from the back\n", n14);
+        printf("%i is 13th digit from the back\n", n13);
+        printf("%i is 12th digit from the back\n", n12);
+        printf("%i is 11th digit from the back\n", n11);
+        printf("%i is 10th digit from the back\n", n10);
+        printf("%i is 9th digit from the back\n", n9);
+        printf("%i is 8th digit from the back\n", n8);
+        printf("%i is 7th digit from the back\n", n7);
+        printf("%i is 6th digit from the back\n", n6);
+        printf("%i is 5th digit from the back\n", n5);
+        printf("%i is 4th digit from the back\n", n4);
+        printf("%i is 3rd digit from the back\n", n3);
+        printf("%i is 2nd digit from the back\n", n2);
+        printf("%i is 1st digit from the back\n", n1);
 
 
     }
