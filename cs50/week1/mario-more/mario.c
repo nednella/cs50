@@ -5,8 +5,7 @@ int main(void)
 {
     int n, i, j, k, l;
 
-    do
-    {
+    do {
         n = get_int("Height: ");
     }
     //Ensure n is between 1 and 8
@@ -15,16 +14,14 @@ int main(void)
 
 
 
-    for (i = 0; i < n; i++)
-    {
+    for (i = 0; i < n; i++) {
+
         //Code to produce right-aligned triangle
-        for (j = (i+1); j < n; j++)
-        {
+        for (j = (i+1); j < n; j++) {
             printf(" ");
         }
 
-        for (k = 0; k <= i; k++)
-        {
+        for (k = 0; k <= i; k++) {
             printf("#");
         }
 
@@ -32,12 +29,11 @@ int main(void)
         printf("  ");
 
         //Code to produce left-aligned triangle
-        for (l = 0; l <= i; l++)
-        {
+        for (l = 0; l <= i; l++) {
             printf("#");
         }
 
-
+        //Return prompt to new line when finished
         printf("\n");
     }
 
