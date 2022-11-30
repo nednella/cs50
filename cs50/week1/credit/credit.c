@@ -15,11 +15,32 @@ int main(void)
         //the card number is valid
 
         //Luhn Algorithm
-        //perform CHECKSUM
 
+        //obtain every individual card number
+        int n1
+        int n2
+        int n3
+        int n4
+        int n5
+        int n6
+        int n7
+        int n8
+        int n9
+        int n10
+        int n11
+        int n12
+        int n13
+        int n14
+        int n15
+        int n16
         //create array of 9 elements
+
+
+
+
+
         int n[9];
-        
+
         for (int i = 0; i < 10; i++) {
             n[i] = 0; // Fill array with 0
         }
