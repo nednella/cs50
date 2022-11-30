@@ -21,7 +21,7 @@ int main(void)
     {
 
         //For each column
-        for(j=1; j < n; j++)
+        for(j=0; j < n; j++)
         {
             printf("#");
         }
