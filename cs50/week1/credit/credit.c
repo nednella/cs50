@@ -4,19 +4,26 @@
 int main(void)
 {
     //Prompt user for input, and check if card number is valid (length)
-    long cn; //card number
+    long cn = get_long("Card Number: ");
+
 
     do {
-        cn = get_long("Card Number: ");
+
     }
     while (cn < 999999999999 || cn > 9999999999999999);
+
+
+
+
+
+
+    //Is the card number a valid length (13-16 digits)?
+    if (cn < 999999999999 || cn > 9999999999999999, printf("INVALID\n"), break)
 
     printf("Success\n");
 
 
 
-
-    //Perform CHECKSUM - is the card number valid?
     //checksum( )
 
     //If invalid
