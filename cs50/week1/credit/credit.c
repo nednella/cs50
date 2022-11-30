@@ -20,14 +20,14 @@ int main(void)
         //Create array of 9 elements
         int n[9]; for (int i = 0; i < 10; i++) n[i] = 0; // Fill array with 0
 
-        n[1] = (cc % 100)                    //obtains last 2  numbers - 10
-        n[2] = (cc % 10000)                  //obtains last 4  numbers - 1000
-        n[3] = (cc % 10000000)               //obtains last 6  numbers - 100000
-        n[4] = (cc % 100000000)              //obtains last 8  numbers - 10000000
-        n[5] = (cc % 10000000000)            //obtains last 10 numbers - 1000000000
-        n[6] = (cc % 1000000000000)          //obtains last 12 numbers - 100000000000
-        n[7] = (cc % 100000000000000)        //obtains last 14 numbers - 10000000000000
-        n[8] = (cc % 10000000000000000)      //obtains last 16 numbers - 1000000000000000
+        n[1] = (cc % 100                / 10);                    //obtains last 2  numbers - 10
+        n[2] = (cc % 10000              / 1000);                  //obtains last 4  numbers - 1000
+        n[3] = (cc % 10000000           / 100000);               //obtains last 6  numbers - 100000
+        n[4] = (cc % 100000000          / 10000000);              //obtains last 8  numbers - 10000000
+        n[5] = (cc % 10000000000        / 1000000000);            //obtains last 10 numbers - 1000000000
+        n[6] = (cc % 1000000000000      / 100000000000);          //obtains last 12 numbers - 100000000000
+        n[7] = (cc % 100000000000000    / 10000000000000);        //obtains last 14 numbers - 10000000000000
+        n[8] = (cc % 10000000000000000  / 1000000000000000);      //obtains last 16 numbers - 1000000000000000
 
         //Reduce elements to just 1 digit (the first digit of each number)
 
