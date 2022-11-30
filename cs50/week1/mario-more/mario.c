@@ -11,11 +11,7 @@ int main(void)
     }
     while (n <= 0);
 
-    do
-    {
-        n = get_int("Height: ");
-    }
-    while (n > 8);
+
 
 
 
