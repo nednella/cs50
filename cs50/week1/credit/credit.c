@@ -14,17 +14,11 @@ int main(void)
         printf("INVALID\n");
     }
     else {
-
-        int a = cc % 100;
-        printf("%i\n", a);
-
-
-
         //The card number is valid
         //Luhn Algorithm - obtain every 2nd number starting from the back
 
         //Create array of 9 elements
-        int n[9]; for (int i = 0; i < 10; i++) n[i]=0; // Fill array with 0
+        int n[9]; for (int i = 0; i < 10; i++) n[i] = 0; // Fill array with 0
 
         n[1] = (cc % 100)                    //obtains last 2  numbers - 10
         n[2] = (cc % 10000)                  //obtains last 4  numbers - 1000
@@ -37,7 +31,21 @@ int main(void)
 
         //Reduce elements to just 1 digit (the first digit of each number)
 
-        m[1] = first_digit(n[1])
+        int d[9]; for(int d = 0; d < 10; d++) d[i] = 0; //Fill aray with 0
+
+        d[1] = (n[1] * 2);
+        d[2] = (n[2] * 2);
+        d[3] = (n[3] * 2);
+        d[4] = (n[4] * 2);
+        d[5] = (n[5] * 2);
+        d[6] = (n[6] * 2);
+        d[7] = (n[7] * 2);
+        d[8] = (n[8] * 2);
+
+
+
+
+        m[1] = first_digit(d[1])
 
 
 
