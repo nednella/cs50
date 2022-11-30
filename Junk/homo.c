@@ -5,13 +5,13 @@ int main(void)
 {
     string response = get_string("Are you gay? ");
 
-    switch(operation)
+    switch(response)
     case 'yes';
+    printf("I knew you were gay/n");
 
     case 'no';
+    printf("Liar, you're mega gay/n");
 
     default
-
-    printf("Anthony: I promise I promise I'm not trying to be smart here, but technically- \n");
-    printf("Naked Pastor: No, no technically!\n");
+    printf("Definitely gay/n");
 }
