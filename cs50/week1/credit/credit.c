@@ -3,36 +3,36 @@
 
 int main(void)
 {
-    //prompt user for input, and check if card number is valid (length)
+    // Prompt user for input, and check if card number is valid (length)
     long cc = get_long("Card Number: ");
 
-    //is the card number a valid length (13-16 digits)?
+    // Is the card number a valid length (13-16 digits)?
     if (cc < 1000000000000 || cc > 10000000000000000) {
-        //the card number is invalid
+        // The card number is invalid
         printf("INVALID\n");
     }
     else {
-        //the card number is valid
+        // The card number is valid
 
-        //Luhn Algorithm
+        // Luhn Algorithm
 
-        //obtain every individual card number
-        int n1  = (cc % 10000000000000000) / 1000000000000000;
-        int n2  = (cc % 1000000000000000)  / 100000000000000;
-        int n3  = (cc % 100000000000000)   / 10000000000000;
-        int n4  = (cc % 10000000000000)    / 1000000000000;
-        int n5  = (cc % 1000000000000)     / 100000000000;
-        int n6  = (cc % 100000000000)      / 10000000000;
-        int n7  = (cc % 10000000000)       / 1000000000;
-        int n8  = (cc % 1000000000)        / 100000000;
-        int n9  = (cc % 100000000)         / 10000000;
-        int n10 = (cc % 10000000)          / 1000000;
-        int n11 = (cc % 1000000)           / 100000;
-        int n12 = (cc % 100000)            / 10000;
-        int n13 = (cc % 10000)             / 1000;
-        int n14 = (cc % 1000)              / 100;
-        int n15 = (cc % 100)               / 10;
-        int n16 = (cc % 10)                / 1;
+        // Obtain every individual card number, back -> front
+        int n16 = (cc % 10000000000000000) / 1000000000000000;  // 16th number from the back
+        int n15 = (cc % 1000000000000000)  / 100000000000000;   // 15th number from the back
+        int n14 = (cc % 100000000000000)   / 10000000000000;    // 14th number from the back
+        int n13 = (cc % 10000000000000)    / 1000000000000;     // 13th number from the back
+        int n12 = (cc % 1000000000000)     / 100000000000;      // 12th number from the back
+        int n11 = (cc % 100000000000)      / 10000000000;       // 11th number from the back
+        int n10 = (cc % 10000000000)       / 1000000000;        // 10th number from the back
+        int n9  = (cc % 1000000000)        / 100000000;         // 9th number from the back
+        int n8  = (cc % 100000000)         / 10000000;          // 8th number from the back
+        int n7  = (cc % 10000000)          / 1000000;           // 7th number from the back
+        int n6  = (cc % 1000000)           / 100000;            // 6th number from the back
+        int n5  = (cc % 100000)            / 10000;             // 5th number from the back
+        int n4  = (cc % 10000)             / 1000;              // 4th number from the back
+        int n3  = (cc % 1000)              / 100;               // 3rd number from the back
+        int n2  = (cc % 100)               / 10;                // 2nd number from the back
+        int n1  = (cc % 10)                / 1;                 // 1st number from the back
 
 
 
