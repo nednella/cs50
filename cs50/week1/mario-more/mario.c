@@ -12,9 +12,6 @@ int main(void)
     //Ensure n is between 1 and 8
     while ((n <= 0) || (n > 8));
 
-    //Leave a space below the entered height
-    //printf("\n");
-
     for(i=0; i < n; i++)
     {
         for(j=(i+1); j < n; j++)
@@ -28,5 +25,4 @@ int main(void)
         }
         printf("\n");
     }
-    //printf("\n");
 }
