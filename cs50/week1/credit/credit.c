@@ -20,7 +20,7 @@ int main(void)
         //Create array of 9 elements
         int n[9];
         for (int i = 0; i < 10; i++) {
-            n[i] = 0;               // Fill array with 0
+            n[i] = 0; // Fill array with 0
         }
 
         n[1] = (cc % 100                / 10);                    //obtains 2nd last number
@@ -33,7 +33,10 @@ int main(void)
 
         //Reduce elements to just 1 digit (the first digit of each number)
 
-        int d[9]; for(int d = 0; d < 10; d++) d[i] = 0; //Fill aray with 0
+        int d[9];
+        for (int d = 0; d < 10; d++) {
+            d[i] = 0; //Fill aray with 0
+        }
 
         d[1] = (n[1] * 2);
         d[2] = (n[2] * 2);
