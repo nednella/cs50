@@ -9,7 +9,16 @@ int main(void)
     {
         n = get_int("Height: ");
     }
-    while (n < 0, n > 8);
+    while (n <= 0);
 
-    printf("success\n");
+    do
+    {
+        n = get_int("Height: ");
+    }
+    while (n > 8);
+
+
+
+
+    printf("Success\n");
 }
