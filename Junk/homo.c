@@ -3,7 +3,8 @@
 
 int main(void)
 {
-    string response = get_string("Are you gay? ");
+    printf("Are you gay? ");
+    scanf("%s", )
 
     switch(response)
     {
