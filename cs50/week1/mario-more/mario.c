@@ -3,11 +3,13 @@
 
 int main(void)
 {
+    int n;
+
     do
     {
-        int n = get_int("Height: ");
+        n = get_int("Height: ");
     }
-    while (0 < n < 8)
+    while (0 < n < 8);
 
-    printf("success\n")
+    printf("success\n");
 }
