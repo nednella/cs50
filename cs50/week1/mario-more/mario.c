@@ -15,18 +15,17 @@ int main(void)
     while ((n <= 0) || (n > 8));
 
 
-
     //For each row
     for(i=0; i < n; i++)
     {
 
-        //For each column
+
        // for(j=0; j < n; j++)
         {
             //printf("#");
         }
 
-        // Move to the next row
+
         printf("#");
         //printf("\n");
 
