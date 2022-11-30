@@ -7,7 +7,7 @@ int main(void)
     long cc = get_long("Card Number: ");
 
     //Is the card number a valid length (13-16 digits)?
-    if (cc < 999999999999 || cc > 9999999999999999) {
+    if (cc < 1000000000000 || cc > 10000000000000000) {
         //The card number is invalid
         printf("INVALID\n");
     }
