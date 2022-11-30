@@ -3,6 +3,6 @@
 
 int main(void)
 {
-    string answer = get_string("Are you gay? ");
-    printf("%s? No way, you're definitely gay\n", answer);
+    string answer = get_string("Is Krep gay? ");
+    printf("%s? No way, he's definitely gay\n", answer);
 }
