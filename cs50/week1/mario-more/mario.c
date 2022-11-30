@@ -18,6 +18,7 @@ int main(void)
     //For each row
     for(i=0; i < n; i++)
     {
+        //For each column
         for(j=0; j < n; j++)
         {
             printf("#");
