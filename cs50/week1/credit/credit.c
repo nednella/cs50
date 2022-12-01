@@ -42,7 +42,7 @@ int main(void)
 
         int first_13 = (cc % 10000000000000)    / 1000000000000;       // First number of a 13-digit card
 
-        printf("First number of a 13 digit card: %i\n", first_13);
+        //printf("First number of a 13 digit card: %i\n", first_13);   // Test to check if 1st digit of a 13-digit card is calculated correctly
 
         // Luhn Algorithm
         // (1a) Multiply every 2nd number from the back by 2
@@ -77,7 +77,7 @@ int main(void)
 
         int sum = sum_pt1 + sum_pt2;
 
-        printf("Luhn Sum: %i\n", sum);
+        //printf("Luhn Sum: %i\n", sum);                               // Test to see if it uses the Luhm Algorithm correctly
 
         // (4) Validate that the last number of int_sum is a 0
         if (sum % 10 != 0) {
@@ -95,7 +95,7 @@ int main(void)
                 count++;
             }
 
-            printf("Card Length: %i\n", count); // Test, final count value == length
+            //printf("Card Length: %i\n", count);                      // Test, final count value == length
 
             // If length == 15...
             if (count == 15) {
