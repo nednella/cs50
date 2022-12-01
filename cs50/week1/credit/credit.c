@@ -81,6 +81,7 @@ int main(void)
             // The card number itself is not valid as per the Luhn Algorithm
             printf("INVALID\n");
         }
+
         else {
             // Check for exact card number length
             // Divide by 10 until cc = 0, where count value will depict the card number length
@@ -102,7 +103,7 @@ int main(void)
                     printf("INVALID");
                 }
             }
-            
+
             // If the length == 13
             else if (count == 13) {
                 // And the first digit is 4
@@ -132,6 +133,7 @@ int main(void)
         else {
             printf("INVALID");
         }
+     }
     //Test Card Numbers from PayPal
 
     //AMEX
@@ -153,4 +155,5 @@ int main(void)
     //4222222222222
     //4999991111111113
     //4999992222222229
+}
 }
