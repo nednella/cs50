@@ -81,7 +81,7 @@ int main(void)
             // The card number itself is not valid as per the Luhn Algorithm
             printf("INVALID\n");
         }
-        else if {
+        else {
             // Check for exact card number length
             // Divide by 10 until cc = 0, where count value will depict the card number length
             int count = 0;
@@ -94,7 +94,7 @@ int main(void)
             // If length == 15...
             if (count == 15) {
                 // And the first 2 digits are 34 or 37,
-                if (first_2_15 == 34 || first_2_15 = 37) {
+                if (first_2_15 == 34 || first_2_15 == 37) {
                     // The card is AMEX
                     printf("AMEX");
                 }
@@ -102,6 +102,7 @@ int main(void)
                     printf("INVALID");
                 }
             }
+            
             // If the length == 13
             else if (count == 13) {
                 // And the first digit is 4
@@ -113,6 +114,7 @@ int main(void)
                     printf("INVALID");
                 }
             }
+
             // Else if the length == 16
             else if (count == 16) {
                 // And the first digit is 4
@@ -125,7 +127,8 @@ int main(void)
                 else {
                     printf("INVALID");
                 }
-            }        }
+            }
+
         else {
             printf("INVALID");
         }
