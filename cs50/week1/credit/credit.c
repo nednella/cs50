@@ -32,6 +32,11 @@ int main(void)
         int n2  = (cc % 100)               / 10;                // 2nd number from the back
         int n1  = (cc % 10)                / 1;                 // 1st number from the back
 
+        // Obtain first 2 numbers for a 16-digit card only
+
+        int first_2_16 = (cc % 10000000000000000) / 1000000000000000;
+
+
         // Luhn Algorithm
         // (1a) Multiply every 2nd number from the back by 2
 

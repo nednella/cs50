@@ -13,8 +13,10 @@ int main(void)
     }
     else {
 
-        long n16 = (cc % 10000000000000000)/ 100000000000000;
-        long n15 = (cc % 1000000000000000) / 10000000000000;
+        int first_2_16 = (cc % 10000000000000000) / 100000000000000;
+
+        int n16 = (cc % 10000000000000000) / 1000000000000000;
+        int n15 = (cc % 1000000000000000)  / 100000000000000;
         int n14 = (cc % 100000000000000)   / 10000000000000;
         int n13 = (cc % 10000000000000)    / 1000000000000;
         int n12 = (cc % 1000000000000)     / 100000000000;
@@ -30,9 +32,10 @@ int main(void)
         int n2  = (cc % 100)               / 10;
         int n1  = (cc % 10)                / 1;
 
-
-        printf("%li is 16th digit from the back\n", n16);
-        printf("%li is 15th digit from the back\n", n15);
+        printf("%i are the first two digits, only applies to 16-digit cards\n", first_2_16);
+        printf("\n");
+        printf("%i is 16th digit from the back\n", n16);
+        printf("%i is 15th digit from the back\n", n15);
         printf("%i is 14th digit from the back\n", n14);
         printf("%i is 13th digit from the back\n", n13);
         printf("%i is 12th digit from the back\n", n12);
