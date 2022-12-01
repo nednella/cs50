@@ -37,6 +37,10 @@ int main(void)
         int first_2_16 = (cc % 10000000000000000) / 100000000000000; // First 2 numbers of 16-digit card
         int first_2_15 = (cc % 1000000000000000)  / 10000000000000; // First 2 numbers of 15-digit card
 
+        // Obtain first number of a 13-digit card
+
+        int first_13 = (cc % 10000000000000)    / 100000000000; // First number of a 13-digit card
+
         // Luhn Algorithm
         // (1a) Multiply every 2nd number from the back by 2
 
@@ -68,10 +72,10 @@ int main(void)
 
         // (3) Add together the two halves above
 
-        int_sum = sum_pt1 + sum_pt2;
+        int sum = sum_pt1 + sum_pt2;
 
         // (4) Validate that the last number of int_sum is a 0
-        if (int_sum % 10 != 0) {
+        if (sum % 10 != 0) {
             // The card number itself is not valid as per the Luhn Algorithm
             printf("INVALID\n");
         }
@@ -85,48 +89,45 @@ int main(void)
                 count++;
             }
 
-            // If length == 15, card is AMEX
+            // If length == 15...
             if (count == 15) {
+                // And the first 2 digits are 34 or 37,
                 if (first_2_15 == 34 || first_2_15 = 37) {
+                    // The card is AMEX
                     printf("AMEX");
                 }
                 else {
                     printf("INVALID");
                 }
             }
+            // If the length == 13
             else if (count == 13) {
-                printf("VISA");
+                // And the first digit is 4
+                if (first_13 == 4) {
+                    // The card is VISA
+                    printf("VISA");
+                }
+                else {
+                    printf("INVALID");
+                }
             }
-            else if (n16 == 4) {
-                printf("VISA");
+            // Else if the length == 16
+            else if (count == 16) {
+                // And the first digit is 4
+                if (n16 == 4) {
+                    printf("VISA");
+                }
+                else if (first_2_16 == 51 || first_2_16 == 52 || first_2_16 == 53 || first_2_16 == 54 || first_2_16 == 55) {
+                    printf("MASTERCARD");
+                }
+                else {
+                    printf("INVALID");
+                }
             }
-            else if (first_2_16 == 51 || first_2_16 == 52 || first_2_16 == 53 || first_2_16 == 54 || first_2_16 == 55) {
-                printf("MASTERCARD");
-            }
-
-
-
-
-
-            // If length != 15, card is Mastercard or VISA
-
-            // If first card number is 4, card is VISA
-
-            // Else, card is Mastercard
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
+        else {
+            printf("INVALID");
+        }
     //Test Card Numbers from PayPal
 
     //AMEX
