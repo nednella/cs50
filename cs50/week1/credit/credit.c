@@ -115,18 +115,6 @@ int main(void)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     //Test Card Numbers from PayPal
 
     //AMEX
