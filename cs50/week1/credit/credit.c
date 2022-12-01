@@ -46,14 +46,16 @@ int main(void)
 
         // Add together 1st and 2nd digits of the mX integers (some may be > 9)
 
-        int mm1 = ((m1 % 100) / 10) + (m1 % 10);
+        int mm1 = ((m1 % 100) / 10) + (m1 % 10);                // mm1 = 1st number of m1 + 2nd number of m1, etc.
         int mm2 = ((m2 % 100) / 10) + (m2 % 10);
-        int mm3 = ((m3 % 100) / 10) + (m3 % 10);
+        int mm3 = ((m3 % 100) / 10) + (m3 % 10);                // Remember, int doesn't store decimals, so altho
         int mm4 = ((m4 % 100) / 10) + (m4 % 10);
         int mm5 = ((m5 % 100) / 10) + (m5 % 10);
         int mm6 = ((m6 % 100) / 10) + (m6 % 10);
         int mm7 = ((m7 % 100) / 10) + (m7 % 10);
         int mm8 = ((m8 % 100) / 10) + (m8 % 10);
+
+
 
 
 
