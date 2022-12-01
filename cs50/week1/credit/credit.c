@@ -89,6 +89,17 @@ int main(void)
             printf("INVALID\n");
         }
 
+
+
+
+
+
+
+
+
+
+
+
         else {
             // Check for exact card number length
             // Divide by 10 until cc = 0, where count value will depict the card number length
@@ -147,6 +158,22 @@ int main(void)
                 printf("INVALID");
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
 
