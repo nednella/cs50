@@ -123,8 +123,7 @@ int main(void)
                 else {
                     printf("INVALID");
                 }
-            }
-        }
+            }        }
         else {
             printf("INVALID");
         }
