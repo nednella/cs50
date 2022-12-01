@@ -136,14 +136,14 @@ int main(void)
                 printf("VISA");
             }
 
-            // If the length is 16 first digit is not 4, but the first 2 digits are 51, 52, 53, 54 or 55
+            // If the length is 16 and first digit is NOT 4, but the first 2 digits are 51, 52, 53, 54 or 55
             else if (count == 16 && (first_2_16 == 51 || first_2_16 == 52 || first_2_16 == 53 || first_2_16 == 54 || first_2_16 == 55)) {
-                    printf("MASTERCARD");
+                printf("MASTERCARD");
             }
 
             // Else, card is invalid
             else {
-                    printf("INVALID");
+                printf("INVALID");
             }
 
 
