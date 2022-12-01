@@ -137,7 +137,7 @@ int main(void)
             }
 
             // Else if the length == 16
-            else if (count == 16) {
+            else if (count == 16 && n16 == 4) {
                 // And the first digit is 4
                 if (n16 == 4) {
                     // The card is VISA
