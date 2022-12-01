@@ -75,30 +75,13 @@ int main(void)
 
         int sum = sum_pt1 + sum_pt2;
 
-
-
-
-        printf("Luhn Sum: %i\n", sum);
-
-
-
+        //printf("Luhn Sum: %i\n", sum);
 
         // (4) Validate that the last number of int_sum is a 0
         if (sum % 10 != 0) {
             // The card number itself is not valid as per the Luhn Algorithm
             printf("INVALID\n");
         }
-
-
-
-
-
-
-
-
-
-
-
 
         else {
             // Check for exact card number length
@@ -110,40 +93,40 @@ int main(void)
                 count++;
             }
 
-            printf("Card Length: %i\n", count); // Test, final count value == length
+            //printf("Card Length: %i\n", count); // Test, final count value == length
 
             // If length == 15...
             if (count == 15) {
                 // And the first 2 digits are 34 or 37,
                 if (first_2_15 == 34 || first_2_15 == 37) {
                     // The card is AMEX
-                    printf("AMEX");
+                    printf("AMEX\n");
                 }
                 else {
-                    printf("INVALID");
+                    printf("INVALID\n");
                 }
             }
 
             // If the length == 13
             else if (count == 13 && first_13 == 4) {
                 // The card is VISA
-                printf("VISA");
+                printf("VISA\n");
             }
 
             // Else if the length is 16 and the first digit is 4
             else if (count == 16 && n16 == 4) {
                 // The card is VISA
-                printf("VISA");
+                printf("VISA\n");
             }
 
             // If the length is 16 and first digit is NOT 4, but the first 2 digits are 51, 52, 53, 54 or 55
             else if (count == 16 && (first_2_16 == 51 || first_2_16 == 52 || first_2_16 == 53 || first_2_16 == 54 || first_2_16 == 55)) {
-                printf("MASTERCARD");
+                printf("MASTERCARD\n");
             }
 
             // Else, card is invalid
             else {
-                printf("INVALID");
+                printf("INVALID\n");
             }
 
 
