@@ -8,11 +8,11 @@ int main(void)
 
     // Is the card number a valid length (13-16 digits)?
     if (cc < 1000000000000 || cc > 10000000000000000) {
-        // The card number is invalid
+        // The card number is an invalid length
         printf("INVALID\n");
     }
     else {
-        // The card number is valid
+        // The card number is a valid length
 
         // Obtain every individual card number, back -> front
         int n16 = (cc % 10000000000000000) / 1000000000000000;  // 16th number from the back
@@ -33,7 +33,7 @@ int main(void)
         int n1  = (cc % 10)                / 1;                 // 1st number from the back
 
         // Luhn Algorithm
-        // Multiply every 2nd number from the back by 2
+        // (1a) Multiply every 2nd number from the back by 2
 
         int m1 = n2 * 2;
         int m2 = n4 * 2;
@@ -44,16 +44,40 @@ int main(void)
         int m7 = n14 * 2;
         int m8 = n16 * 2;
 
-        // Add together 1st and 2nd digits of the mX integers (some may be > 9)
+        // (1b) Add together 1st and 2nd digits of the mX integers (some may be > 9)
 
         int mm1 = ((m1 % 100) / 10) + (m1 % 10);                // mm1 = 1st number of m1 + 2nd number of m1, etc.
         int mm2 = ((m2 % 100) / 10) + (m2 % 10);
-        int mm3 = ((m3 % 100) / 10) + (m3 % 10);                // Remember, int doesn't store decimals, so altho
+        int mm3 = ((m3 % 100) / 10) + (m3 % 10);                // Remember, int doesn't store decimals, so although 15 / 10 = 1.5, int only stores 1!
         int mm4 = ((m4 % 100) / 10) + (m4 % 10);
         int mm5 = ((m5 % 100) / 10) + (m5 % 10);
         int mm6 = ((m6 % 100) / 10) + (m6 % 10);
         int mm7 = ((m7 % 100) / 10) + (m7 % 10);
         int mm8 = ((m8 % 100) / 10) + (m8 % 10);
+
+        int sum_pt1 = mm1 + mm2 + mm3 + mm4 + mm5 + mm6 + mm7 + mm8;
+
+        // (2) Add together numbers that weren't multiplied by 2 in (1a)
+
+        int sum_pt2 = n15 + n13 + n11 + n9 + n7 + n5 + n3 + n1;
+
+        // (3) Add together the two halves above
+
+        int_sum = sum_pt1 + sum_pt2;
+
+        // (4) Validate that the last number of int_sum is a 0
+        if (int_sum % 10 != 0) {
+            // The card number itself is not valid as per the Luhn Algorithm
+            printf("INVALID\n");
+        }
+        else {
+            // (5) Check for first 2 digits of the card number to verify which type of card it is
+            
+
+        }
+
+
+
 
 
 
