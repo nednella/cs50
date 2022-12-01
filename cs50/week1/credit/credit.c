@@ -78,7 +78,7 @@ int main(void)
 
 
 
-        //printf("%i\n", sum);
+        printf("Luhn Sum: %i\n", sum);
 
 
 
