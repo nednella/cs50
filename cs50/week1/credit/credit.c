@@ -122,9 +122,11 @@ int main(void)
                 if (n16 == 4) {
                     printf("VISA");
                 }
+                
                 else if (first_2_16 == 51 || first_2_16 == 52 || first_2_16 == 53 || first_2_16 == 54 || first_2_16 == 55) {
                     printf("MASTERCARD");
                 }
+
                 else {
                     printf("INVALID");
                 }
