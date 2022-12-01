@@ -72,12 +72,11 @@ int main(void)
         }
         else {
             // Check for exact card number length
-            int n;
             int count = 0;
 
-            // Divide by 10 until n = 0, where count will depict the
+            // Divide by 10 until cc = 0, where count will depict the
             while (cc != 0) {
-                cc_length = cc / 10;
+                cc = cc / 10;
                 count++;
             }
 
