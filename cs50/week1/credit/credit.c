@@ -84,7 +84,10 @@ int main(void)
             if (count == 15) {
                 printf("AMEX");
             }
-            else if ()
+            else if (count == 13) {
+                printf("VISA");
+            }
+            
 
 
 
