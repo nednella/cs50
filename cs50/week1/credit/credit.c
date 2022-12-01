@@ -75,7 +75,13 @@ int main(void)
 
         int sum = sum_pt1 + sum_pt2;
 
-        printf("%i\n", sum);
+
+
+
+        //printf("%i\n", sum);
+
+
+
 
         // (4) Validate that the last number of int_sum is a 0
         if (sum % 10 != 0) {
