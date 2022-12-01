@@ -72,6 +72,19 @@ int main(void)
         }
         else {
             // Check for exact card number length
+            int n;
+            int count = 0;
+
+            while (n != 0) {
+                n = n / 10;
+                count++;
+            }
+
+            if (count == 15) {
+                printf("AMEX");
+            }
+            else if ()
+
 
             // If length == 15, card is AMEX
 
