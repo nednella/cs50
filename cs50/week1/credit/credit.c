@@ -35,14 +35,14 @@ int main(void)
 
         // Obtain first 2 numbers of the card number
 
-        int first_2_16 = (cc % 10000000000000000) / 100000000000000; // First 2 numbers of 16-digit card
-        int first_2_15 = (cc % 1000000000000000)  / 10000000000000; // First 2 numbers of 15-digit card
+        int first_2_16 = (cc % 10000000000000000) / 100000000000000;   // First 2 numbers of 16-digit card
+        int first_2_15 = (cc % 1000000000000000)  / 10000000000000;    // First 2 numbers of 15-digit card
 
         // Obtain first number of a 13-digit card
 
-        int first_13 = (cc % 10000000000000)    / 100000000000; // First number of a 13-digit card
-        
-        printf("First number of a 13 digit card: %i", first_13);
+        int first_13 = (cc % 10000000000000)    / 1000000000000;       // First number of a 13-digit card
+
+        printf("First number of a 13 digit card: %i\n", first_13);
 
         // Luhn Algorithm
         // (1a) Multiply every 2nd number from the back by 2
