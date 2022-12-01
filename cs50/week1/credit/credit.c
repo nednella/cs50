@@ -87,7 +87,11 @@ int main(void)
             else if (count == 13) {
                 printf("VISA");
             }
-            
+            else if (n16 == 4) {
+                printf("VISA");
+            }
+            else
+
 
 
 
