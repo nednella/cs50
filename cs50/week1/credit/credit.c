@@ -74,19 +74,20 @@ int main(void)
             // Check for exact card number length
             int count = 0;
 
-            // Divide by 10 until cc = 0, where count will depict the
+            // Divide by 10 until cc = 0, where count value will depict the card number length
             while (cc != 0) {
                 cc = cc / 10;
                 count++;
             }
 
+            // If length == 15, card is AMEX
             if (count == 15) {
                 printf("AMEX");
             }
             else if ()
 
 
-            // If length == 15, card is AMEX
+
 
             // If length != 15, card is Mastercard or VISA
 
