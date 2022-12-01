@@ -71,8 +71,19 @@ int main(void)
             printf("INVALID\n");
         }
         else {
-            // (5) Check for first 2 digits of the card number to verify which type of card it is
-            
+            // Check for exact card number length
+
+            // If length == 15, card is AMEX
+
+            // If length != 15, card is Mastercard or VISA
+
+            // If first card number is 4, card is VISA
+
+            // Else, card is Mastercard
+
+
+
+
 
         }
 
