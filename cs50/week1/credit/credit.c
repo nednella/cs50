@@ -56,7 +56,7 @@ int main(void)
         int m7 = n14 * 2;
         int m8 = n16 * 2;
 
-        // (1b) Add together 1st and 2nd digits of the mX integers (some may be > 9)
+        // (1b) Add together 1st and 2nd digits of the mX integers (some may be > 9, if they aren't then it's stored as equal to mX)
 
         int mm1 = ((m1 % 100) / 10) + (m1 % 10);                // mm1 = 1st number of m1 + 2nd number of m1, etc.
         int mm2 = ((m2 % 100) / 10) + (m2 % 10);
