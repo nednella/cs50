@@ -79,11 +79,11 @@ int main(void)
             // The card number itself is not valid as per the Luhn Algorithm
             printf("INVALID\n");
         }
-        else {
+        else if {
             // Check for exact card number length
+            // Divide by 10 until cc = 0, where count value will depict the card number length
             int count = 0;
 
-            // Divide by 10 until cc = 0, where count value will depict the card number length
             while (cc != 0) {
                 cc = cc / 10;
                 count++;
