@@ -90,7 +90,7 @@ int main(void)
             else if (n16 == 4) {
                 printf("VISA");
             }
-            else
+            else if
 
 
 
