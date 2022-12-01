@@ -32,10 +32,10 @@ int main(void)
         int n2  = (cc % 100)               / 10;                // 2nd number from the back
         int n1  = (cc % 10)                / 1;                 // 1st number from the back
 
-        // Obtain first 2 numbers for a 16-digit card only
+        // Obtain first 2 numbers of the card number
 
-        int first_2_16 = (cc % 10000000000000000) / 1000000000000000;
-
+        int first_2_16 = (cc % 10000000000000000) / 100000000000000; // First 2 numbers of 16-digit card
+        int first_2_15 = (cc % 1000000000000000)  / 10000000000000; // First 2 numbers of 15-digit card
 
         // Luhn Algorithm
         // (1a) Multiply every 2nd number from the back by 2
@@ -87,7 +87,12 @@ int main(void)
 
             // If length == 15, card is AMEX
             if (count == 15) {
-                printf("AMEX");
+                if (first_2_15 == 34 || first_2_15 = 37) {
+                    printf("AMEX");
+                }
+                else {
+                    printf("INVALID");
+                }
             }
             else if (count == 13) {
                 printf("VISA");
@@ -95,7 +100,9 @@ int main(void)
             else if (n16 == 4) {
                 printf("VISA");
             }
-            else if
+            else if (first_2_16 == 51 || first_2_16 == 52 || first_2_16 == 53 || first_2_16 == 54 || first_2_16 == 55) {
+                printf("MASTERCARD");
+            }
 
 
 
