@@ -41,6 +41,8 @@ int main(void)
         // Obtain first number of a 13-digit card
 
         int first_13 = (cc % 10000000000000)    / 100000000000; // First number of a 13-digit card
+        
+        printf("First number of a 13 digit card: %i", first_13);
 
         // Luhn Algorithm
         // (1a) Multiply every 2nd number from the back by 2
@@ -75,7 +77,7 @@ int main(void)
 
         int sum = sum_pt1 + sum_pt2;
 
-        //printf("Luhn Sum: %i\n", sum);
+        printf("Luhn Sum: %i\n", sum);
 
         // (4) Validate that the last number of int_sum is a 0
         if (sum % 10 != 0) {
@@ -93,7 +95,7 @@ int main(void)
                 count++;
             }
 
-            //printf("Card Length: %i\n", count); // Test, final count value == length
+            printf("Card Length: %i\n", count); // Test, final count value == length
 
             // If length == 15...
             if (count == 15) {
@@ -134,7 +136,6 @@ int main(void)
 
 
 
-
 // Test Card Numbers from PayPal
 
 // AMEX
@@ -156,3 +157,5 @@ int main(void)
 // 4222222222222
 // 4999991111111113
 // 4999992222222229
+
+
