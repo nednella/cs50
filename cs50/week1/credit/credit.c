@@ -108,7 +108,7 @@ int main(void)
             while (cc != 0) {
                 cc = cc / 10;
                 count++;
-                printf("Card Length: %i\n", count)
+                printf("Card Length: %i\n", count);
             }
 
             // If length == 15...
