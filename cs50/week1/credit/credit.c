@@ -75,8 +75,9 @@ int main(void)
             int n;
             int count = 0;
 
-            while (n != 0) {
-                n = n / 10;
+            // Divide by 10 until n = 0, where count will depict the
+            while (cc != 0) {
+                cc_length = cc / 10;
                 count++;
             }
 
