@@ -9,7 +9,7 @@ text = get_string = ("String: ");
 
 //count the number of letters in the string (a to z, lowercase AND uppercase)
 for (int i = 0, i < strlen(text), i++) {
-    
+    if (text[])
 }
 
 
