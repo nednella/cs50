@@ -7,7 +7,10 @@ int main(void) {
 //Prompt the user for a string (a few words/sentences from a book)
 text = get_string = ("String: ");
 
-//count the number of words in the string (a to z, lowercase AND uppercase)
+//count the number of letters in the string (a to z, lowercase AND uppercase)
+for (int i = 0, i < strlen(text), i++) {
+    
+}
 
 
 //count the number of words in the string (a string of characters separated by a space)
