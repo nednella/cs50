@@ -9,7 +9,7 @@ text = get_string = ("String: ");
 
 //count the number of letters in the string (a to z, lowercase AND uppercase)
 for (int i = 0, i < strlen(text), i++) {
-    if (text[])
+    if (text[i])
 }
 
 
@@ -27,7 +27,11 @@ for (int i = 0, i < strlen(text), i++) {
 
 //calculate the grade of the text using the Coleman-Liau index
 
-index = 0.0588 * L - 0.296 * S - 15.8
+
+
+//index = 0.0588 * L - 0.296 * S - 15.8
+
+
 
 //round off the calculated grade (index) to the nearest whole number
 
