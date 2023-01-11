@@ -25,29 +25,29 @@ int main(void) {
     float sentences = count_sentences(text);
 
     //print the resulting calculations
-    printf("%f letters\n", letters);
-    printf("%f words\n", words);
-    printf("%f sentences\n", sentences);
+    //printf("%f letters\n", letters);
+    //printf("%f words\n", words);
+    //printf("%f sentences\n", sentences);
 
     //calculate L, average number of letters per 100 words
     float L = (letters / words) * 100;
-    printf("%f letters per 100 words\n", L);
+    //printf("%f letters per 100 words\n", L);
 
     //calculate S, average number of sentences per 100 words
     float S = (sentences / words) * 100;
-    printf("%f sentences per 100 words\n", S);
+    //printf("%f sentences per 100 words\n", S);
 
     //calculate the grade of the text using the Coleman-Liau index
     float index = 0.0588 * L - 0.296 * S - 15.8;
 
     //if the index is < 1, it should be printed as "Before Grade 1"
     if (index < 1) {
-        printf("Before Grade 1");
+        printf("Before Grade 1\n");
     }
 
     //else if the index is > 16, it should be printed as "Grade 16+"
     else if (index > 16) {
-        printf("Grade 16+");
+        printf("Grade 16+\n");
     }
 
     //else if 1 < index < 16, round off the calculated grade (index) to the nearest whole number and print
