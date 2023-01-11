@@ -40,7 +40,18 @@ int main(void) {
     //calculate the grade of the text using the Coleman-Liau index
     index = 0.0588 * L - 0.296 * S - 15.8;
 
-    //round off the calculated grade (index) to the nearest whole number
+    //if the index is < 1, it should be printed as "Before Grade 1"
+    if (index < 1) {
+        printf("Before Grade 1");
+    }
+
+    //else if the index is > 16, it should be printed as "Grade 16+"
+    else if (index > 16) {
+        printf("Grade 16+");
+    }
+
+    //else if 1 < index < 16, round off the calculated grade (index) to the nearest whole number and print
+    else if (1 <= index <= 16)
 
 
     //print the rounded index as a grade (if <1 print "Before Grade 1", if >16 print "Grade 16+")
