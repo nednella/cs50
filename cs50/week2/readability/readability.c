@@ -38,7 +38,7 @@ int main(void) {
     printf("%f sentences per 100 words\n", S);
 
     //calculate the grade of the text using the Coleman-Liau index
-    index = 0.0588 * L - 0.296 * S - 15.8;
+    float index = 0.0588 * L - 0.296 * S - 15.8;
 
     //if the index is < 1, it should be printed as "Before Grade 1"
     if (index < 1) {
@@ -52,12 +52,8 @@ int main(void) {
 
     //else if 1 < index < 16, round off the calculated grade (index) to the nearest whole number and print
     else if (1 <= index <= 16) {
-        round 
+        printf("Grade %f", round(index));
     }
-
-
-    //print the rounded index as a grade (if <1 print "Before Grade 1", if >16 print "Grade 16+")
-
 }
 
 
