@@ -53,10 +53,35 @@ int count_words(string text) {
     //initialise counter
     int words = 0;
 
-    //count the number of words in the string [any sequence of characters separated by spaces]
+    //if something has been entered, continue, else, there are no words
     if (text[0] != '\0') {
-        words++; // if ANY character(s) have been entered, can assume a sentence will contain at least 1 word
+        words++; //can assume a sentence will contain at least 1 word
 
+        //count the number of words in the string [any sequence of characters separated by spaces]
+        for (int i = 0; i < length; i++) {
+            if (isgraph(text[i-1]) && isspace(text[i])) //defined a word as a character followed by a space
+                words++;
+        }
+    }
+
+    return words;
+}
+
+
+
+int count_sentences(string text) {
+
+    //calculate string length
+    int length = strlen(text);
+
+    //initialise counter
+    int sentences = 0;
+
+    //if something has been entered, continue, else, there are no words
+    if (text[0] != '\0') {
+        words++; //can assume a sentence will contain at least 1 word
+
+        //count the number of words in the string [any sequence of characters separated by spaces]
         for (int i = 0; i < length; i++) {
             if (isgraph(text[i-1]) && isspace(text[i])) //defined a word as a character followed by a space
                 words++;
