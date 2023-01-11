@@ -25,17 +25,17 @@ int main(void) {
     int sentences = count_sentences(text);
 
     //print the resulting calculations
-    //printf("%i letters\n", letters);
-    //printf("%i words\n", words);
-    //printf("%i sentences\n", sentences);
+    printf("%i letters\n", letters);
+    printf("%i words\n", words);
+    printf("%i sentences\n", sentences);
 
     //calculate L, average number of letters per 100 words
     float L = (letters / words) * 100;
-    printf("%f\n", L);
+    printf("%f letters per 100 words\n", L);
 
     //calculate S, average number of sentences per 100 words
     float S = (sentences / words) * 100;
-    printf("%f\n", S);
+    printf("%f sentences per 100 words\n", S);
 
     //calculate the grade of the text using the Coleman-Liau index
     //index = 0.0588 * L - 0.296 * S - 15.8
