@@ -6,7 +6,7 @@
 
 int count_letters(string text); //defining the function to be called in main
 int count_sentences(string text);
-
+int count_sentences(string text);
 
 
 int main(void) {
@@ -55,7 +55,7 @@ int count_sentences(string text) {
 
     //if something has been entered, continue, else, there are no sentences
     if (text[0] != '\0') {
-        sentences++; //can assume a sentence will contain at least 1 word
+        sentences++; //can assume the text will contain at least 1 word
 
         //count the number of sentences in the string [any sequence of characters separated by spaces]
         for (int i = 0; i < length; i++) {
@@ -79,18 +79,12 @@ int count_sentences(string text) {
 
     //if something has been entered, continue, else, there are no sentences
     if (text[0] != '\0') {
-        sentences++; //can assume a sentence will contain at least 1 word
+        sentences++; //can assume the text will contain at least 1 sentence
 
         //count the number of sentences in the string [any sequence of characters separated by spaces]
         for (int i = 0; i < length; i++) {
-
-
-
             if (text[i] == '.' || text[i] == '?' || text[i] == '!') //defined a word as a character followed by a space
                 sentences++;
-
-
-
         }
     }
 
