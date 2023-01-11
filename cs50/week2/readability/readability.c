@@ -51,7 +51,9 @@ int main(void) {
     }
 
     //else if 1 < index < 16, round off the calculated grade (index) to the nearest whole number and print
-    else if (1 <= index <= 16)
+    else if (1 <= index <= 16) {
+        round 
+    }
 
 
     //print the rounded index as a grade (if <1 print "Before Grade 1", if >16 print "Grade 16+")
