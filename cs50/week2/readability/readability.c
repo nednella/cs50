@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h> //has a useful string length function
 #include <ctype.h> //has useful character detection functions
+#include <math.h> //has some useful maths functions (e.g., rounding)
 
 
 int count_letters(string text); //defining the function to be called in main
@@ -28,11 +29,14 @@ int main(void) {
     //printf("%i words\n", words);
     //printf("%i sentences\n", sentences);
 
-    //calculate the grade of the text using the Coleman-Liau index
+    //calculate L, average number of letters per 100 words
+    L =
+
+    //calculate S, average number of sentences per 100 words
+    S =
     
-
-    //index = 0.0588 * L - 0.296 * S - 15.8
-
+    //calculate the grade of the text using the Coleman-Liau index
+    index = 0.0588 * L - 0.296 * S - 15.8
 
     //round off the calculated grade (index) to the nearest whole number
 
