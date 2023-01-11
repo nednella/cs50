@@ -51,8 +51,8 @@ int main(void) {
     }
 
     //else if 1 < index < 16, round off the calculated grade (index) to the nearest whole number and print
-    else if (1 <= index <= 16) {
-        printf("Grade %f", round(index));
+    else if (index >= 1 && index <= 16) {
+        printf("Grade %i\n", (int) round(index));
     }
 }
 
