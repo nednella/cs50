@@ -5,7 +5,7 @@
 
 
 int count_letters(string text); //defining the function to be called in main
-int count_sentences(string text);
+int count_words(string text);
 int count_sentences(string text);
 
 
@@ -17,6 +17,10 @@ int main(void) {
     //calculate and print the number of letters in the prompted string
     int letters = count_letters(text);
     printf("%i letters\n", letters);
+
+    //calculate and print the number of words in the prompted string
+    int words = count_words(text);
+    printf("%i words\n", words);
 
     //calculate and print the number of sentences in the prompted string
     int sentences = count_sentences(text);
@@ -45,26 +49,26 @@ int count_letters(string text) {
 
 
 
-int count_sentences(string text) {
+int count_words(string text) {
 
     //calculate string length
     int length = strlen(text);
 
     //initialise counter
-    int sentences = 0;
+    int words = 0;
 
     //if something has been entered, continue, else, there are no sentences
     if (text[0] != '\0') {
-        sentences++; //can assume the text will contain at least 1 word
+        words++; //can assume the text will contain at least 1 word
 
-        //count the number of sentences in the string [any sequence of characters separated by spaces]
+        //count the number of words in the string [any sequence of characters separated by spaces]
         for (int i = 0; i < length; i++) {
             if (isgraph(text[i-1]) && isspace(text[i])) //defined a word as a character followed by a space
-                sentences++;
+                words++;
         }
     }
 
-    return sentences;
+    return words;
 }
 
 
