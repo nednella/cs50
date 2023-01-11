@@ -59,6 +59,8 @@ int count_words(string text) {
 
     //if something has been entered, continue, else, there are no sentences
     if (text[0] != '\0') {
+        words++; //can assume the text will contain at least 1 word (number of spaces = n - 1, where n = number of words)
+
         //count the number of words in the string [any sequence of characters separated by spaces]
         for (int i = 0; i < length; i++) {
             if (isgraph(text[i-1]) && isspace(text[i])) //defined a word as a character followed by a space
@@ -81,8 +83,6 @@ int count_sentences(string text) {
 
     //if something has been entered, continue, else, there are no sentences
     if (text[0] != '\0') {
-        sentences++; //can assume the text will contain at least 1 sentence
-
         //count the number of sentences in the string [any sequence of characters separated by spaces]
         for (int i = 0; i < length; i++) {
             if (text[i] == '.' || text[i] == '?' || text[i] == '!') //defined a word as a character followed by a space
