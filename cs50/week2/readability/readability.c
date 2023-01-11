@@ -30,13 +30,15 @@ int main(void) {
     //printf("%i sentences\n", sentences);
 
     //calculate L, average number of letters per 100 words
-    L =
+    float L = (letters / words) * 100;
+    printf("%f\n", L);
 
     //calculate S, average number of sentences per 100 words
-    S =
-    
+    float S = (sentences / words) * 100;
+    printf("%f\n", S);
+
     //calculate the grade of the text using the Coleman-Liau index
-    index = 0.0588 * L - 0.296 * S - 15.8
+    //index = 0.0588 * L - 0.296 * S - 15.8
 
     //round off the calculated grade (index) to the nearest whole number
 
