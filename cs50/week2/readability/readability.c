@@ -51,13 +51,16 @@ int count_words(string text) {
     int length = strlen(text);
 
     //initialise counter
-    int words = 1; //can assume a sentence will contain at least 1 word
+    int words = 0; //can assume a sentence will contain at least 1 word
 
     //count the number of words in the string [any sequence of characters separated by spaces]
-    if ()
-    for (int i = 0; i < length; i++) {
-        if (isgraph(text[i-1]) && isspace(text[i]))
-            words++;
+    if (text[0] != \0) {
+        words++
+
+        for (int i = 0; i < length; i++) {
+            if (isgraph(text[i-1]) && isspace(text[i]))
+                words++;
+        }
     }
 
     return words;
