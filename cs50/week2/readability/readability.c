@@ -14,17 +14,30 @@ int main(void) {
     //prompt the user for a string (a few sentences/sentences from a book)
     string text = get_string("Text: ");
 
-    //calculate and print the number of letters in the prompted string
+    //calculate and the number of letters in the prompted string
     int letters = count_letters(text);
-    printf("%i letters\n", letters);
 
-    //calculate and print the number of words in the prompted string
+    //calculate and the number of words in the prompted string
     int words = count_words(text);
-    printf("%i words\n", words);
 
-    //calculate and print the number of sentences in the prompted string
+    //calculate and the number of sentences in the prompted string
     int sentences = count_sentences(text);
-    printf("%i sentences\n", sentences);
+
+    //print the resulting calculations
+    //printf("%i letters\n", letters);
+    //printf("%i words\n", words);
+    //printf("%i sentences\n", sentences);
+
+    //calculate the grade of the text using the Coleman-Liau index
+    
+
+    //index = 0.0588 * L - 0.296 * S - 15.8
+
+
+    //round off the calculated grade (index) to the nearest whole number
+
+
+    //print the rounded index as a grade (if <1 print "Before Grade 1", if >16 print "Grade 16+")
 
 }
 
@@ -92,10 +105,3 @@ int count_sentences(string text) {
 
     return sentences;
 }
-
-
-
-
-
-
-
