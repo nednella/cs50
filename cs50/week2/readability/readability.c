@@ -86,11 +86,11 @@ int count_sentences(string text) {
 
 
 
-            if (isgraph(text[i-1]) && isspace(text[i])) //defined a word as a character followed by a space
+            if (text[i] == '.' || text[i] == '?' || text[i] == '!') //defined a word as a character followed by a space
                 sentences++;
 
 
-                
+
         }
     }
 
