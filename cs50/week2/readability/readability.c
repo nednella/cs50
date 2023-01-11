@@ -16,18 +16,18 @@ int main(void) {
     string text = get_string("Text: ");
 
     //calculate and the number of letters in the prompted string
-    int letters = count_letters(text);
+    float letters = count_letters(text);
 
     //calculate and the number of words in the prompted string
-    int words = count_words(text);
+    float words = count_words(text);
 
     //calculate and the number of sentences in the prompted string
-    int sentences = count_sentences(text);
+    float sentences = count_sentences(text);
 
     //print the resulting calculations
-    printf("%i letters\n", letters);
-    printf("%i words\n", words);
-    printf("%i sentences\n", sentences);
+    printf("%f letters\n", letters);
+    printf("%f words\n", words);
+    printf("%f sentences\n", sentences);
 
     //calculate L, average number of letters per 100 words
     float L = (letters / words) * 100;
@@ -38,7 +38,7 @@ int main(void) {
     printf("%f sentences per 100 words\n", S);
 
     //calculate the grade of the text using the Coleman-Liau index
-    //index = 0.0588 * L - 0.296 * S - 15.8
+    index = 0.0588 * L - 0.296 * S - 15.8;
 
     //round off the calculated grade (index) to the nearest whole number
 
