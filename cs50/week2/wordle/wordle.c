@@ -134,8 +134,13 @@ int main(int argc, string argv[])
 string get_guess(int wordsize)
 {
     string guess = "";
+    correctlength = false;
 
     // ensure users actually provide a guess that is the correct length
+
+
+
+
 
     // prompt user for a guess
     guess = get_string("Guess: ");
