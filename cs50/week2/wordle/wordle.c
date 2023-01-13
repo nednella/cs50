@@ -89,6 +89,12 @@ int main(int argc, string argv[])
         // set all elements of status array initially to 0, aka WRONG
         // TODO #4
 
+
+
+
+
+
+
         // Calculate score for the guess
         int score = check_word(guess, wordsize, status, choice);
 
@@ -108,6 +114,12 @@ int main(int argc, string argv[])
     // Print the game's result
     // TODO #7
 
+
+
+
+
+
+
     // that's all folks!
     return 0;
 }
@@ -118,6 +130,14 @@ string get_guess(int wordsize)
 
     // ensure users actually provide a guess that is the correct length
     // TODO #3
+    guess
+
+
+
+
+
+
+
 
     return guess;
 }
@@ -128,6 +148,13 @@ int check_word(string guess, int wordsize, int status[], string choice)
 
     // compare guess to choice and score points as appropriate, storing points in status
     // TODO #5
+
+
+
+
+
+
+
 
     // HINTS
     // iterate over each letter of the guess
@@ -144,6 +171,13 @@ void print_word(string guess, int wordsize, int status[])
 {
     // print word character-for-character with correct color coding, then reset terminal font to normal
     // TODO #6
+
+
+
+
+
+
+
 
     printf("\n");
     return;
