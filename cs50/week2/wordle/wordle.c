@@ -44,7 +44,7 @@ int main(int argc, string argv[])
     }
 
     else {
-        wordsize = argv[1];
+        wordsize == argv[1];
     }
 
     // open correct file, each file has exactly LISTSIZE words
@@ -136,7 +136,9 @@ string get_guess(int wordsize)
 
     // ensure users actually provide a guess that is the correct length
     // TODO #3
-    guess = get_string(")
+
+
+    //guess = get_string(")
 
 
 
