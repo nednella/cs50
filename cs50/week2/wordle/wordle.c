@@ -30,7 +30,16 @@ int main(int argc, string argv[])
 
     int wordsize = 0;
 
+    if (argc != 2){
+		printf("Usage: ./wordle [wordsize]\n");
+		return 1;
+	}
+
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
+    if (argc == 5 || argc == 6 || argc == 7 || argc == 8) {
+        
+    }
+
     // TODO #2
 
     // open correct file, each file has exactly LISTSIZE words
@@ -79,7 +88,7 @@ int main(int argc, string argv[])
         int score = check_word(guess, wordsize, status, choice);
 
         printf("Guess %i: ", i + 1);
-        
+
         // Print the guess
         print_word(guess, wordsize, status);
 
