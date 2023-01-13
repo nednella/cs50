@@ -77,6 +77,12 @@ int main(int argc, string argv[])
     printf(GREEN"This is WORDLE50"RESET"\n");
     printf("You have %i tries to guess the %i-letter word I'm thinking of\n", guesses, wordsize);
 
+
+
+
+
+
+
     // main game loop, one iteration for each guess
     for (int i = 0; i < guesses; i++)
     {
