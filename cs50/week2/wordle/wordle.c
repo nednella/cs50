@@ -33,21 +33,21 @@ int main(int argc, string argv[])
     int wordsize = 0;
 
     if (argc != 2){
-		printf("USAGE: ./wordle wordsize\n");
+		printf("CORRECT FORMAT: ./wordle [wordsize]\n");
 		return 1;
 	}
 
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
 
     if (atoi (argv[1]) != 5 || atoi (argv[1]) != 6 || atoi (argv[1]) != 7 || atoi (argv[1]) != 8) {
-        printf("ERROR: wordsize must be either 5, 6, 7 or 8\n");
+        printf("ERROR: [wordsize] must be either 5, 6, 7 or 8\n");
         return 1;
     }
 
-    else {
-        wordsize = atoi(argv[1]);
-        printf("%i\n", wordsize);
-    }
+
+    wordsize = atoi(argv[1]);
+    printf("%i\n", wordsize);
+
 
 
 
