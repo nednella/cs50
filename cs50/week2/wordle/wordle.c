@@ -37,8 +37,10 @@ int main(int argc, string argv[])
 		return 1;
 	}
 
+    printf("%s\n", argv[1]);
+
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
-    if (argc != '5' || argc != '6' || argc != '7' || argc != '8') {
+    if (argv[1] != 5 || argv[1] != 6 || argv[1] != 7 || argv[1] != 8) {
         printf("ERROR: wordsize must be either 5, 6, 7 or 8\n");
         return 1;
     }
