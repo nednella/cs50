@@ -38,7 +38,7 @@ int main(int argc, string argv[])
 	}
 
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
-    strtol (argv[1]);
+    atoi (argv[1]);
 
     if (argv[1] != 5 || argv[1] != 6 || argv[1] != 7 || argv[1] != 8) {
         printf("ERROR: wordsize must be either 5, 6, 7 or 8\n");
