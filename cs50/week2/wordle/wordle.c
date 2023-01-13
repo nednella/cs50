@@ -121,15 +121,13 @@ int main(int argc, string argv[])
     // Print the game's result
     // TODO #7
 
-
-
-
-
-
-
     // that's all folks!
     return 0;
 }
+
+
+
+
 
 string get_guess(int wordsize)
 {
@@ -137,52 +135,29 @@ string get_guess(int wordsize)
     correctlength = false;
 
     // ensure users actually provide a guess that is the correct length
-    while correctlength == false {
+
+    // while guess is not equal to wordsize
+    while (correctlength == false) {
+
+        // prompt user for a guess
         guess = get_string("Guess: ");
 
+        // store string length of guess for comparison
         int guesslength = strlen(guess);
 
+        // if guess is the correct length
         if (guesslength == wordsize) {
-            correctlength == true;
+            correctlength = true;
         }
-
-
     }
 
-
-
-
-    // prompt user for a guess
-    guess = get_string("Guess: ");
-
-    // determine character length of the guess
-
-
-    //if guess is not == wordsize, prompt again
-    if (guesslength != wordsize) {
-            guess = get_string("Guess: ");
-    }
-
-    return guess
-
-
-    //if guess == wordsize,return
-
-
-    // TODO #3
-
-
-    //guess = get_string(")
-
-
-
-
-
-
-
-
+    // return guess
     return guess;
 }
+
+
+
+
 
 int check_word(string guess, int wordsize, int status[], string choice)
 {
