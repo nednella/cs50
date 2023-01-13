@@ -33,13 +33,13 @@ int main(int argc, string argv[])
     int wordsize = 0;
 
     if (argc != 2){
-		printf("CORRECT FORMAT: ./wordle [wordsize]\n");
+		printf("USAGE: ./wordle wordsize\n");
 		return 1;
 	}
 
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
     if (argc != '5' || argc != '6' || argc != '7' || argc != '8') {
-        printf("ERROR: [wordsize] must be either 5, 6, 7 or 8.\n");
+        printf("ERROR: wordsize must be either 5, 6, 7 or 8\n");
         return 1;
     }
 
@@ -56,12 +56,6 @@ int main(int argc, string argv[])
         printf("Error opening file %s.\n", wl_filename);
         return 1;
     }
-
-
-
-
-
-
 
     // load word file into an array of size LISTSIZE
     char options[LISTSIZE][wordsize + 1];
