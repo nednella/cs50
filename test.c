@@ -1,15 +1,14 @@
-#include <cs50.h>
-#include <stdio.h>
-#include <ctype.h>
+	#include <cs50.h>
+	#include <stdio.h>
 
-int main(void) {
-
-char a = get_char("Character: ");
-
-if(isalpha(a) != 0)
-printf("true");
-
-else
-printf("false");
-
+	int main(int argc, string argv[])
+	{
+		if (argc ==2)
+		{
+			printf("Hello, %s\n", argv[1]);
+		}
+		else
+		{
+			printf("Hello, world\n");
+		}
 }
