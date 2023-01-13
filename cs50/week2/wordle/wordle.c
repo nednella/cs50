@@ -137,7 +137,17 @@ string get_guess(int wordsize)
     correctlength = false;
 
     // ensure users actually provide a guess that is the correct length
+    while correctlength == false {
+        guess = get_string("Guess: ");
 
+        int guesslength = strlen(guess);
+
+        if (guesslength == wordsize) {
+            correctlength == true;
+        }
+
+
+    }
 
 
 
@@ -146,7 +156,7 @@ string get_guess(int wordsize)
     guess = get_string("Guess: ");
 
     // determine character length of the guess
-    int guesslength = strlen(guess);
+
 
     //if guess is not == wordsize, prompt again
     if (guesslength != wordsize) {
