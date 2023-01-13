@@ -4,6 +4,8 @@
 #include <string.h>
 #include <time.h>
 
+
+
 // each of our text files contains 1000 words
 #define LISTSIZE 1000
 
@@ -22,6 +24,8 @@
 string get_guess(int wordsize);
 int check_word(string guess, int wordsize, int status[], string choice);
 void print_word(string guess, int wordsize, int status[]);
+
+
 
 int main(int argc, string argv[])
 {
@@ -79,7 +83,7 @@ int main(int argc, string argv[])
         int score = check_word(guess, wordsize, status, choice);
 
         printf("Guess %i: ", i + 1);
-        
+
         // Print the guess
         print_word(guess, wordsize, status);
 

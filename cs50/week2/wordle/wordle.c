@@ -23,11 +23,13 @@ string get_guess(int wordsize);
 int check_word(string guess, int wordsize, int status[], string choice);
 void print_word(string guess, int wordsize, int status[]);
 
+
+
+
+
 int main(int argc, string argv[])
 {
-    // ensure proper usage
-    // TODO #1
-
+    // ensure correct command-line usage
     int wordsize = 0;
 
     if (argc != 2){
@@ -40,6 +42,10 @@ int main(int argc, string argv[])
         printf("ERROR: [wordsize] must be either 5, 6, 7 or 8.\n");
         return 1;
     }
+
+
+
+
 
 
 
@@ -59,7 +65,7 @@ int main(int argc, string argv[])
 
 
 
-    
+
 
     // load word file into an array of size LISTSIZE
     char options[LISTSIZE][wordsize + 1];
