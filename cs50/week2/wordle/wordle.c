@@ -38,9 +38,9 @@ int main(int argc, string argv[])
 	}
 
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
-    printf("%i\n", atoi(argv[1]));
+    printf("%s\n", argv[1]);
 
-    if (atoi (argv[1]) != '5' || atoi (argv[1]) != '6' || atoi (argv[1]) != '7' || atoi (argv[1]) != '8') {
+    if ((atoi (argv[1])) == 5 || (atoi (argv[1])) != 6 || (atoi (argv[1])) != 7 || (atoi (argv[1])) != 8) {
         printf("ERROR: [wordsize] must be either 5, 6, 7 or 8\n");
         return 1;
     }
