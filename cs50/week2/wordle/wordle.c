@@ -41,7 +41,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    
+
 
     // TODO #2
 
@@ -54,6 +54,12 @@ int main(int argc, string argv[])
         printf("Error opening file %s.\n", wl_filename);
         return 1;
     }
+
+
+
+
+
+    
 
     // load word file into an array of size LISTSIZE
     char options[LISTSIZE][wordsize + 1];
