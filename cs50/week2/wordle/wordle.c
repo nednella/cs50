@@ -144,7 +144,11 @@ string get_guess(int wordsize)
     int guesslength = strlen(guess);
 
     //if guess is not == wordsize, prompt again
-    if (guesslength != wordsize)
+    if (guesslength != wordsize) {
+            guess = get_string("Guess: ");
+    }
+
+    return guess
 
 
     //if guess == wordsize,return
