@@ -1,18 +1,21 @@
 	#include <cs50.h>
 	#include <stdio.h>
+    #include <string.h>
 
-	int main(int argc, string argv[])
-	{
-        string w = "abc";
+	int main(void) {
 
-		if (argc ==2)
-		{
-            printf("Hello, %s\n", w);
-            w = argv[1];
-			printf("Hello, %s\n", w);
-		}
-		else
-		{
-			printf("error\n");
-		}
-}
+    int wordsize = 5;
+    string guess = "";
+    int correctlength = false;
+
+        while (correctlength == false) {
+            guess = get_string("Guess: ");
+
+            int guesslength = strlen(guess);
+
+            if (guesslength == wordsize) {
+                correctlength = true;
+            }
+        }
+        printf("Success\n");
+    }
