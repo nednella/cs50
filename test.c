@@ -3,12 +3,16 @@
 
 	int main(int argc, string argv[])
 	{
+        string w = "abc";
+
 		if (argc ==2)
 		{
-			printf("Hello, %s\n", argv[1]);
+            printf("Hello, %s\n", w);
+            w = argv[1];
+			printf("Hello, %s\n", w);
 		}
 		else
 		{
-			printf("Hello, world\n");
+			printf("error\n");
 		}
 }
