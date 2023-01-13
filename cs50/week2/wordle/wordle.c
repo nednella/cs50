@@ -45,6 +45,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
+    // store specified wordsize in the CLI
     wordsize = atoi(argv[1]);
 
     // open correct file, each file has exactly LISTSIZE words
