@@ -45,14 +45,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-
     wordsize = atoi(argv[1]);
-    printf("%i\n", wordsize);
-
-
-
-
-
 
     // open correct file, each file has exactly LISTSIZE words
     char wl_filename[6];
