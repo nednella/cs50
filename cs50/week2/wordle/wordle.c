@@ -211,8 +211,11 @@ int check_word(string guess, int wordsize, int status[], string choice)
 void print_word(string guess, int wordsize, int status[])
 {
     // print word character-for-character with correct color coding, then reset terminal font to normal
+    // store length of string of guess word
+    int guesslength = strlen(guess);
 
-    
+    for (int i = 0; )
+
     // TODO #6
 
 
