@@ -38,6 +38,7 @@
                 score[i] = 2;
             }
 
+            // if the guess letter is NOT an exact match with the choice letter, iterate through and see if there is a CLOSE MATCH
             for (i = 0; i < guesslength; i++) {
 
                 if (score[i] == 0) {
