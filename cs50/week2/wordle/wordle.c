@@ -70,8 +70,11 @@ int main(int argc, string argv[])
     }
 
     // pseudorandomly select a word for this game
-    srand(time(NULL));
-    string choice = options[rand() % LISTSIZE];
+    //srand(time(NULL));
+    //string choice = options[rand() % LISTSIZE];
+
+    // pick a word for this game
+     string choice = "games";
 
     // allow one more guess than the length of the word
     int guesses = wordsize + 1;
@@ -80,6 +83,9 @@ int main(int argc, string argv[])
     // print greeting, using ANSI color codes to demonstrate
     printf(GREEN"This is WORDLE50"RESET"\n");
     printf("You have %i tries to guess the %i-letter word I'm thinking of\n", guesses, wordsize);
+
+
+
 
 
 
