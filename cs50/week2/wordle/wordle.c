@@ -214,7 +214,13 @@ void print_word(string guess, int wordsize, int status[])
     // store length of string of guess word
     int guesslength = strlen(guess);
 
-    for (int i = 0; )
+    for (int i = 0; i < wordsize; i++) {
+
+        
+
+
+
+    }
 
     // TODO #6
 
