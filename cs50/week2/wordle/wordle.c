@@ -85,8 +85,6 @@ int main(int argc, string argv[])
 
 
 
-
-
     // main game loop, one iteration for each guess
     for (int i = 0; i < guesses; i++)
     {
@@ -99,13 +97,18 @@ int main(int argc, string argv[])
         // set all elements of status array initially to 0, aka WRONG
         // use a for loop to loop through each element as the array size itself is a variable, not a constant
         for (int j = 0; j < wordsize; j++) {
-            status[j] = 0; // 0 = WRONG (red)
+            status[j] = 0; // 0 = WRONG LETTER
         }
 
         // Calculate score for the guess
         int score = check_word(guess, wordsize, status, choice);
 
         printf("Guess %i: ", i + 1);
+
+
+
+
+
 
         // Print the guess
         print_word(guess, wordsize, status);
@@ -164,7 +167,6 @@ int check_word(string guess, int wordsize, int status[], string choice)
     int score = 0;
 
     // compare guess to choice and score points as appropriate, storing points in status
-    // TODO #5
     // store string length of guess and choice words, for iteration
     int guesslength = strlen(guess);
     int choicelength = strlen(choice);
