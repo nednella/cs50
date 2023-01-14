@@ -38,9 +38,9 @@
                     score[i] == 2;
                 }
 
-                if (score[i] == 0) {
+                for (i = 0; i < guesslength; i++) {
 
-                    for (i = 0; i < guesslength; i++) {
+                    if (score[i] == 0) {
 
                         for (int j =0; j < guesslength; j++) {
 
