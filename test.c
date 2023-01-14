@@ -58,6 +58,8 @@
             printf("\n");
         }
 
-        for ()
-        printf()
+        for (int z = 0; z < sizeof(score)/sizeof(score[0]); z++) {
+            printf("%i ",score[z]);
+        }
+        printf("\n");
     }
