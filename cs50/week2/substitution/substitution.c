@@ -20,7 +20,15 @@ int main(int argc, string argv[]) {
 
     // check the contents of the key (for non-alphabetic characters)
     for (int i = 0; i < keylength; i++) {
-        
+
+        printf("%c\n",key[i])
+
+        if (isalpha(key[i])) {
+            
+
+
+        }
+
 
 
     }
