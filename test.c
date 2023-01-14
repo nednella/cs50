@@ -38,6 +38,20 @@
                     score[i] == 2;
                 }
 
+                if (score[i] == 0) {
+
+                    for (i = 0; i < guesslength; i++) {
+
+                        for (int j =0; j < guesslength; j++) {
+
+                            if(guess[i] == choice[j])
+
+
+
+                        }
+                    }
+                }
+
                 // if the guess letter
 
             //for (int j = 0; j < choicelength; j++) {
