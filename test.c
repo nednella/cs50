@@ -52,13 +52,6 @@
                     }
                 }
             }
-
-                // if the guess letter
-
-            //for (int j = 0; j < choicelength; j++) {
-
-            //}
-            //printf("\n");
         }
 
 
