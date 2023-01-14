@@ -23,7 +23,12 @@ int main(void) {
     }
     printf("\n");
 
-    
+    // print the guess word, 1 char at a time
+    for (int j = 0; j < guesslength; j++) {
+        printf("%c", guess[j]);
+    }
+    printf("\n");
+
 
 
 
