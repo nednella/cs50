@@ -38,6 +38,13 @@
                 score[i] = 2;
             }
 
+            // if the guess letter didn't match the choice letter, check to see if it matches any chars in the choice word and assign 1
+            if (guess[i] != choice[i]) {
+                
+            }
+
+
+
             // if the guess letter is NOT an exact match with the choice letter, iterate through and see if there is a CLOSE MATCH
             //for (int j = 0; j < guesslength; i++) {
 
