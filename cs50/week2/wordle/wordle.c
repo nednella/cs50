@@ -40,8 +40,11 @@ int main(int argc, string argv[])
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
     int value = atoi(argv[1]);
 
+    // if argv[1] is not 5, 6, 7 or 8,
     if (value != 5 && value != 6 && value != 7 && value != 8) {
+        // print an error and,
         printf("ERROR: [wordsize] must be either 5, 6, 7 or 8\n");
+        // terminate the program
         return 1;
     }
 
@@ -216,7 +219,7 @@ void print_word(string guess, int wordsize, int status[])
 
     for (int i = 0; i < wordsize; i++) {
 
-        
+
 
 
 
