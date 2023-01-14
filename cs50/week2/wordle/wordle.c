@@ -212,26 +212,27 @@ int check_word(string guess, int wordsize, int status[], string choice)
 void print_word(string guess, int wordsize, int status[])
 {
     // print word character-for-character with correct color coding, then reset terminal font to normal
-    // store length of string of guess word
-    int guesslength = strlen(guess);
 
+    // iterate through status array and guess word, 1 at a time
     for (int i = 0; i < wordsize; i++) {
+        // if stored status value = 0
+        if (status[j] = 0) {
+            // print the corresponding guess character in red
+            printf(RED"%c"RESET, guess[j]);
+        }
 
+        // if the stored status value = 1
+        if (status[j] = 1) {
+            // print the corresponding guess character in yellow
+            printf(YELLOW"%c"RESET, guess[j]);
+        }
 
-
-
-
+        // if the stored status value = 2
+        if (status[j] = 2) {
+            // print the corresponding guess character in green
+            printf(GREEN"%c"RESET, guess[j]);
+        }
     }
-
-    // TODO #6
-
-
-
-
-
-
-
-
     printf("\n");
     return;
 }
