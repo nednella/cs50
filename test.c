@@ -25,20 +25,21 @@
         int choicelength = strlen(choice);
 
         // iterate through the guess 1 letter at a time to score points
-        for (int i = 0; i < guesslength, i++) {
+        for (int i = 0; i < guesslength; i++) {
 
-            printf("%c\n", guess[i])
+            //printf("%c\n", guess[i]);
 
-            for (int j = 0; j < choicelength, j++) {
+            for (int j = 0; j < choicelength; j++) {
 
-                printf("%c\n", choice[j])
+                //printf("%c", choice[j]);
 
-                //if ()
+                if (guess[i])
 
 
 
 
             }
+            printf("\n");
         }
 
 
