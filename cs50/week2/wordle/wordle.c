@@ -170,12 +170,16 @@ int check_word(string guess, int wordsize, int status[], string choice)
     int guesslength = strlen(guess);
     int choicelength = strlen(choice);
 
-    // iterate through the guess 1 letter at a time to score points
+    // iterate through the guess word, 1 letter at a time, to score points
     for (int i = 0; i < guesslength, i++) {
 
+        // if the guess letter is an exact match to the choice letter in 'poisiton i',
         if (guess[i] == choice[i]) {
-            printf("!");
+            //update 'i'status i' to 2 (EXACT MATCH)
+            status[i] = 2;
         }
+
+
 
 
 
