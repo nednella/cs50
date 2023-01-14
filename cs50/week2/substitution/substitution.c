@@ -35,8 +35,9 @@ int main(int argc, string argv[]) {
             return 1;
         }
 
-        // check for non-unique characters, terminate program if true
+        // iterate through the key 1 character at a time
         for (int j = 0; i < keylength; j++) {
+            // check for non-unique characters, terminate program if true
             if (key[i] == key[j]) {
                 printf("The key must cotain unique characters only.\n");
                 return 1;
