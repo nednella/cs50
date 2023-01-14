@@ -45,7 +45,7 @@
 
                     for (int k = 0; k < choicelength; j++) {
 
-                        if(guess[k] == choice[k]) {
+                        if(guess[j] == choice[k]) {
                             score[k] = 1;
                             break;
                         }
