@@ -29,10 +29,8 @@ int main(int argc, string argv[]) {
     // check the contents of the key (for non-alphabetic characters)
     for (int i = 0; i < keylength; i++) {
 
-        printf("%c\n",key[i]);
-
-        if (isalpha(key[i])) {
-            printf("The key must contain alphabetic characters only.");
+        if (isalpha(key[i]) == 0) {
+            printf("The key must contain alphabetic characters only.\n");
             return 1;
         }
 
