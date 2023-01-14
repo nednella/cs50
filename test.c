@@ -27,21 +27,20 @@
         // iterate through the guess 1 letter at a time to score points
         for (int i = 0; i < guesslength; i++) {
 
-            printf("%c\n", guess[i]);
+            printf("%c", guess[i]);
+            printf("%c\n", choice[i]);
 
-            for (int j = 0; j < choicelength; j++) {
-
-                printf("%c", choice[j]);
-
-                if (guess[i] == choice[j]) {
-                    printf("! ");
+                // if the guess letter matches the choice letter, assign 2 (EXACT value)
+                if (guess[i] == choice[i]) {
+                    printf("!\n");
                 }
 
+                // if the guess letter
 
+            //for (int j = 0; j < choicelength; j++) {
 
-
-            }
-            printf("\n");
+            //}
+            //printf("\n");
         }
 
 

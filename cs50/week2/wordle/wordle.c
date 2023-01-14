@@ -173,12 +173,15 @@ int check_word(string guess, int wordsize, int status[], string choice)
     // iterate through the guess 1 letter at a time to score points
     for (int i = 0; i < guesslength, i++) {
 
-        for (int j = 0; j < choicelength, j++) {
-
-
-
-
+        if (guess[i] == choice[i]) {
+            printf("!");
         }
+
+
+
+        //for (int j = 0; j < choicelength, j++) {
+
+        //}
     }
 
 
