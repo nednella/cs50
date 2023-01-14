@@ -95,7 +95,7 @@ int main(int argc, string argv[])
 
         // set all elements of status array initially to 0, aka WRONG
 
-        status[0] = 
+        status[i] = 0;
 
 
         // TODO #4
