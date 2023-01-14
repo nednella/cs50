@@ -172,7 +172,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
     int choicelength = strlen(choice);
 
     // iterate through the guess word, 1 letter at a time, to score points
-    for (int i = 0; i < guesslength, i++) {
+    for (int i = 0; i < guesslength; i++) {
 
         // if the guess letter is an exact match to the choice letter in 'poisiton i',
         if (guess[i] == choice[i]) {
@@ -216,21 +216,21 @@ void print_word(string guess, int wordsize, int status[])
     // iterate through status array and guess word, 1 at a time
     for (int i = 0; i < wordsize; i++) {
         // if stored status value = 0
-        if (status[j] = 0) {
+        if (status[i] == 0) {
             // print the corresponding guess character in red
-            printf(RED"%c"RESET, guess[j]);
+            printf(RED"%c"RESET, guess[i]);
         }
 
         // if the stored status value = 1
-        if (status[j] = 1) {
+        if (status[i] == 1) {
             // print the corresponding guess character in yellow
-            printf(YELLOW"%c"RESET, guess[j]);
+            printf(YELLOW"%c"RESET, guess[i]);
         }
 
         // if the stored status value = 2
-        if (status[j] = 2) {
+        if (status[i] == 2) {
             // print the corresponding guess character in green
-            printf(GREEN"%c"RESET, guess[j]);
+            printf(GREEN"%c"RESET, guess[i]);
         }
     }
     printf("\n");
