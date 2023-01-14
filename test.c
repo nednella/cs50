@@ -33,10 +33,7 @@
 
                 printf("%c", choice[j]);
 
-                int stringcompare = strcmp(guess[i], choice[j]);
-                // 0 for exact match
-
-                if (stringcompare == 0) {
+                if (guess[i] == choice[j]) {
                     printf("! ");
                 }
 
