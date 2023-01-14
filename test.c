@@ -27,13 +27,18 @@
         // iterate through the guess 1 letter at a time to score points
         for (int i = 0; i < guesslength; i++) {
 
-            //printf("%c\n", guess[i]);
+            printf("%c\n", guess[i]);
 
             for (int j = 0; j < choicelength; j++) {
 
-                //printf("%c", choice[j]);
+                printf("%c", choice[j]);
 
-                if (guess[i])
+                int stringcompare = strcmp(guess[i], choice[j]);
+                // 0 for exact match
+                //
+                if (stringcompare == 0) {
+                    printf()
+                }
 
 
 
