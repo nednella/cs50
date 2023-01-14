@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <ctype.h>
 
 int main(int argc, string argv[]) {
 
@@ -16,6 +17,13 @@ int main(int argc, string argv[]) {
 
     // store the character length of the key
     int keylength = strlen(key);
+
+    // check the contents of the key (for non-alphabetic characters)
+    for (int i = 0; i < keylength; i++) {
+        
+
+
+    }
 
     if (keylength != 26 && ) {
         printf("Key must contain 26 characters.");
