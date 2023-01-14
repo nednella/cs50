@@ -17,7 +17,7 @@
 
         string choice = "since";
         string guess = "pence";
-        int score = {0, 0, 0, 0, 0};
+        int score = {0; 0; 0; 0; 0};
         // should be scored: 0, 1, 2, 2, 2
 
         // compare guess to choice and score points as appropriate, scoring points
@@ -42,12 +42,12 @@
 
                     if (score[i] == 0) {
 
-                        for (int j =0; j < guesslength; j++) {
+                        for (int j = 0; j < choicelength; j++) {
 
-                            if(guess[i] == choice[j])
-
-
-
+                            if(guess[i] == choice[j]) {
+                                score[i] == 1;
+                                break
+                            }
                         }
                     }
                 }
