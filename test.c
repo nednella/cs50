@@ -17,9 +17,11 @@
 
         string choice = "since";
         string guess = "pence";
+        int score = {0, 0, 0, 0, 0};
         // should be scored: 0, 1, 2, 2, 2
 
-        // compare guess to choice and score points as appropriate, storing points in status
+        // compare guess to choice and score points as appropriate, scoring points
+
         // store string length of guess and choice words, for iteration
         int guesslength = strlen(guess);
         int choicelength = strlen(choice);
@@ -33,6 +35,7 @@
                 // if the guess letter matches the choice letter, assign 2 (EXACT value)
                 if (guess[i] == choice[i]) {
                     printf("!\n");
+                    score[i] == 2;
                 }
 
                 // if the guess letter
