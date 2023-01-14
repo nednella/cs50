@@ -39,14 +39,14 @@
             }
 
             // if the guess letter is NOT an exact match with the choice letter, iterate through and see if there is a CLOSE MATCH
-            for (i = 0; i < guesslength; i++) {
+            for (int j = 0; j < guesslength; i++) {
 
-                if (score[i] == 0) {
+                if (score[j] == 0) {
 
-                    for (int j = 0; j < choicelength; j++) {
+                    for (int k = 0; k < choicelength; j++) {
 
-                        if(guess[i] == choice[j]) {
-                            score[i] = 1;
+                        if(guess[k] == choice[k]) {
+                            score[k] = 1;
                             break;
                         }
                     }
