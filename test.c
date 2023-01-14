@@ -48,8 +48,8 @@
                     printf("%c", choice[i]);
 
                     if (guess[i] == choice[j]) {
-                        
-
+                        score[i] = 1;
+                        break;
                     }
 
                 }
