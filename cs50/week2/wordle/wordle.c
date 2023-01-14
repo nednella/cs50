@@ -99,6 +99,10 @@ int main(int argc, string argv[])
             status[j] = 0; // 0 = WRONG (red)
         }
 
+
+
+
+
         // Calculate score for the guess
         int score = check_word(guess, wordsize, status, choice);
 
@@ -171,7 +175,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
 
         for (int j = 0; j < choicelength, j++) {
 
-            
+
 
 
         }
