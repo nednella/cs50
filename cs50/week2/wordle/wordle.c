@@ -70,11 +70,8 @@ int main(int argc, string argv[])
     }
 
     // pseudorandomly select a word for this game
-    //srand(time(NULL));
-    //string choice = options[rand() % LISTSIZE];
-
-    // pick a word for this game
-     string choice = "games";
+    srand(time(NULL));
+    string choice = options[rand() % LISTSIZE];
 
     // allow one more guess than the length of the word
     int guesses = wordsize + 1;
@@ -118,22 +115,17 @@ int main(int argc, string argv[])
     // Print the game's result
     if (won == true) {
         printf("Congratulations, you won!\n");
+        printf("The correct word was: "GREEN"%s"RESET"\n", choice);
     }
 
     else {
         printf("You did not guess the correct answer, you lost ...\n");
-        printf("The correct word was: ", );
+        printf("The correct word was: "GREEN"%s"RESET"\n", choice);
     }
-
-
-
-    // TODO #7
 
     // that's all folks!
     return 0;
 }
-
-
 
 
 
@@ -162,8 +154,6 @@ string get_guess(int wordsize)
     // return guess
     return guess;
 }
-
-
 
 
 
@@ -202,17 +192,10 @@ int check_word(string guess, int wordsize, int status[], string choice)
             }
         }
     }
-
-    // HINTS
-    // iterate over each letter of the guess
-        // iterate over each letter of the choice
-            // compare the current guess letter to the current choice letter
-                // if they're the same position in the word, score EXACT points (green) and break so you don't compare that letter further
-                // if it's in the word, but not the right spot, score CLOSE point (yellow)
-        // keep track of the total score by adding each individual letter's score from above
-
     return score;
 }
+
+
 
 void print_word(string guess, int wordsize, int status[])
 {
