@@ -94,6 +94,10 @@ int main(int argc, string argv[])
         int status[wordsize];
 
         // set all elements of status array initially to 0, aka WRONG
+
+        status[0] = 
+
+
         // TODO #4
 
 
