@@ -34,14 +34,13 @@
 
             // if the guess letter matches the choice letter, assign 2 (EXACT value)
             if (guess[i] == choice[i]) {
-                printf("!\n");
+                printf("2!\n");
                 score[i] = 2;
             }
 
             // if the guess letter didn't match the choice letter, check to see if it matches any chars in the choice word and assign 1
             if (guess[i] != choice[i]) {
 
-                printf("\n");
                 printf("%c\n", guess[i]);
 
                 for (int j = 0; j < choicelength; j++) {
@@ -49,10 +48,12 @@
 
                     if (guess[i] == choice[j]) {
                         score[i] = 1;
+                        printf("1!\n");
                         break;
                     }
 
                 }
+                printf("\n");
 
             }
             printf("\n");
