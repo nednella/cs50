@@ -48,6 +48,7 @@
 
                     if (guess[i] == choice[j]) {
                         score[i] = 1;
+                        printf("\n");
                         printf("1!\n");
                         break;
                     }
