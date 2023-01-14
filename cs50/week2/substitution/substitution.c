@@ -15,7 +15,7 @@ int main(int argc, string argv[]) {
     // store the entered key from the CLI
     string key = atoi(argv[1]);
 
-    // store the character length of the key
+    // store the string length of the key
     int keylength = strlen(key);
 
     // check the contents of the key (for non-alphabetic characters)
@@ -24,7 +24,7 @@ int main(int argc, string argv[]) {
         printf("%c\n",key[i])
 
         if (isalpha(key[i])) {
-            
+
 
 
         }
