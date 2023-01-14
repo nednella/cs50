@@ -32,25 +32,25 @@
             printf("%c", guess[i]);
             printf("%c\n", choice[i]);
 
-                // if the guess letter matches the choice letter, assign 2 (EXACT value)
-                if (guess[i] == choice[i]) {
-                    printf("!\n");
-                    score[i] == 2;
-                }
+            // if the guess letter matches the choice letter, assign 2 (EXACT value)
+            if (guess[i] == choice[i]) {
+                printf("!\n");
+                score[i] = 2;
+            }
 
-                for (i = 0; i < guesslength; i++) {
+            for (i = 0; i < guesslength; i++) {
 
-                    if (score[i] == 0) {
+                if (score[i] == 0) {
 
-                        for (int j = 0; j < choicelength; j++) {
+                    for (int j = 0; j < choicelength; j++) {
 
-                            if(guess[i] == choice[j]) {
-                                score[i] == 1;
-                                break
-                            }
+                        if(guess[i] == choice[j]) {
+                            score[i] = 1;
+                            break;
                         }
                     }
                 }
+            }
 
                 // if the guess letter
 
