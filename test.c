@@ -45,7 +45,7 @@
                 printf("%c\n", guess[i]);
 
                 for (int j = 0; j < choicelength; j++) {
-                    printf("%c", choice[i]);
+                    printf("%c", choice[j]);
 
                     if (guess[i] == choice[j]) {
                         score[i] = 1;
