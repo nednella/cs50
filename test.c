@@ -16,7 +16,7 @@
 	int main(void) {
 
         string choice = "since";
-        string guess = "hello";
+        string guess = "pence";
         // should be scored: 0, 1, 0, 0, 0
 
         // compare guess to choice and score points as appropriate, storing points in status
@@ -35,9 +35,9 @@
 
                 int stringcompare = strcmp(guess[i], choice[j]);
                 // 0 for exact match
-                //
+                
                 if (stringcompare == 0) {
-                    printf()
+                    printf("! ");
                 }
 
 
