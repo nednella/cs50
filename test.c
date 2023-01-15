@@ -20,12 +20,14 @@ int main(void) {
     //printf("First character: %c\n", key[1]);
 
     // bubble sort key ascending order
-    for (int i = 0; i < (keylength - 1); i++) {
-        for (int j = (i + 1); j < keylength; j++) {
-            if (key[i] > key[j]) {
-                char ChTemp = key[i];
-                key[i] = key[j];
-                key[j] = ChTemp;
+    for (int i = 0; i < keylength; i++) {
+
+        for (int j = 0; j < (keylength - 1); j++) {
+
+            if (key[j] > key[j+1]) {
+                char ChTemp = key[j];
+                key[j] = key[j + 1];
+                key[j + 1] = ChTemp;
             }
         }
     }
