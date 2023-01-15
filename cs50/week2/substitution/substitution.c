@@ -42,6 +42,8 @@ int main(int argc, string argv[]) {
         // if plaintext[i] is lowercase (want to convert value to 0-25 for alphabet)
         if (islower(plaintext[i])) {
             plaintext[i] -= 97;
+
+            // write ciphertext as (key * plaintext)
             ciphertext[i] = key[plaintext[i]]
         }
 
