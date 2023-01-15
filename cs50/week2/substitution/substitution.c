@@ -41,6 +41,11 @@ bool key_check(string key) {
         printf("Key must contain 26 characters.");
     }
 
+    // convert key to UPPERCASE
+    for (int i = 0; i < keylength; i++) {
+        key[i] = toupper(key[i]);
+    }
+
     // check for non-alphabetic characters
     for (int i = 0; i < keylength; i++) {
 
@@ -49,9 +54,6 @@ bool key_check(string key) {
             printf("The key must contain alphabetic characters only.\n");
             return 1;
         }
-
-        // convert char to UPPERCASE
-        key[i] = toupper(key[i]);
     }
 
     // check for unique characters
