@@ -35,13 +35,16 @@ int main(int argc, string argv[]) {
             return 1;
         }
 
+        // bubble sort the key in ascdending order
         for (j = 0; j < (keylength - 1); j++) {
 
-            if (keylength[j] > keylength[j+1]) {
+            // compare 'char i' to 'char i + 1', if greater
+            if (key[j] > key[j+1]) {
 
-                char chTemp = str[j];
-                str[j] = str[j + 1];
-                str[j + 1] = chTemp;
+                // store 'char i' temporarily
+                char chTemp = key[j];
+                key[j] = key[j + 1];
+                key[j + 1] = chTemp;
 
             }
 
