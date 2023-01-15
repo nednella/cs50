@@ -6,7 +6,7 @@
 
 // introduce prototype functions
 bool check_valid(string key);
-string text_conversion(string plaintext, string key);
+//string text_conversion(string plaintext, string key);
 
 
 
@@ -35,7 +35,57 @@ int main(int argc, string argv[]) {
     string plaintext = get_string("Plain text: ");
 
     // convert plaintext to ciphertext
-    string ciphertext = text_conversion(plaintext, key);
+    //string ciphertext = text_conversion(plaintext, key);
+
+
+
+
+
+
+
+    // length of plaintext
+    int arraylength = strlen(plaintext);
+
+    // create a character array of size equal to 'plaintext' to store the ciphered text
+    char ciphertext[arraylength + 1];
+
+    // convert plaintext to ciphertext
+    for (int i = 0; i < arraylength; i++) {
+
+        // if plaintext[i] is lowercase (want to convert value to 0-25 for alphabet position)
+        if (islower(plaintext[i])) {
+
+            // store modified plaintext in a temporary value
+            int temp = plaintext[i] - 97;
+
+            // write ciphertext as (key * plaintext)
+            ciphertext[i] = key[temp];
+
+            // need to keep ciphertext in same case as plaintext (key may be given in uppercase)
+            if (isupper(ciphertext[i])) {
+                ciphertext[i] += 32;
+            }
+        }
+
+        // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet position)
+        if (isupper(plaintext[i])) {
+
+            // store plaintext in a temporary value
+            int temp = plaintext[i] - 65;
+
+            // write ciphertext as (key * plaintext)
+            ciphertext[i] = key[temp];
+
+            // need to keep ciphertext in same case as plaintext (key may be given in lowercase)
+            if (islower(ciphertext[i])) {
+                ciphertext[i] -= 32;
+            }
+        }
+    }
+    ciphertext
+
+
+
 
     // print ciphertext
     printf("Cipher text: %s\n", ciphertext);
@@ -113,49 +163,10 @@ bool check_valid(string key) {
 
 
 
-string text_conversion(string plaintext, string key) {
+//string text_conversion(string plaintext, string key) {
 
-    // length of plaintext
-    int arraylength = strlen(plaintext);
 
-    // create a character array of size equal to 'plaintext' to store the ciphered text
-    char ciphertext[arraylength + 1];
-
-    // convert plaintext to ciphertext
-    for (int i = 0; i < arraylength; i++) {
-
-        // if plaintext[i] is lowercase (want to convert value to 0-25 for alphabet position)
-        if (islower(plaintext[i])) {
-
-            // store modified plaintext in a temporary value
-            int temp = plaintext[i] - 97;
-
-            // write ciphertext as (key * plaintext)
-            ciphertext[i] = key[temp];
-
-            // need to keep ciphertext in same case as plaintext (key may be given in uppercase)
-            if (isupper(ciphertext[i])) {
-                ciphertext[i] += 32;
-            }
-        }
-
-        // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet position)
-        if (isupper(plaintext[i])) {
-
-            // store plaintext in a temporary value
-            int temp = plaintext[i] - 65;
-
-            // write ciphertext as (key * plaintext)
-            ciphertext[i] = key[temp];
-
-            // need to keep ciphertext in same case as plaintext (key may be given in lowercase)
-            if (islower(ciphertext[i])) {
-                ciphertext[i] -= 32;
-            }
-        }
-    }
-    return ciphertext;
-}
+//}
 
 
 
