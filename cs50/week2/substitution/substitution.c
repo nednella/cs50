@@ -4,7 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 
-bool unique_key(string key);
+bool unique_key(string key, int keylength);
 
 int main(int argc, string argv[]) {
 
@@ -51,15 +51,17 @@ int main(int argc, string argv[]) {
 
 
 
-bool unique_key(string key) {
+bool unique_key(string key, int keylength) {
 
-    // store key string length
-    int keylength = strlen(key);
+    // create a character array of size equal to 'key'
+    char modified_key[keylength];
 
-    // convert key to UPPERCASE
+    // convert key to UPPERCASE and fill in new array
     for (int i = 0; i < keylength; i++) {
-        key[i] = toupper(key[i]);
+        modified_key[i] = toupper(key[i]);
+        printf("%c", modified_key[i]);
     }
+    printf("\n");
 
     // check for unique characters
     for (int i = 0; i < (keylength - 1); i++) {
@@ -68,12 +70,15 @@ bool unique_key(string key) {
         for (int j = (i + 1); j < keylength; j++) {
 
             // if 'char i' matches 'char i + 1'
-            if (key[i] == key[j]) {
+            if (modified_key[i] == modified_key[j]) {
 
                 // key check failed
                 return false;
+                printf("Key is not unique.\n");
+                return 1;
             }
         }
     }
-    return true;
+    printf("Key is unique!\n");
+    return 0;
 }
