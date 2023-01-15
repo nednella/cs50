@@ -27,8 +27,17 @@ int main(int argc, string argv[]) {
         return 1;
     }
 
-    // prompt user for plain-text
-    string text = get_string("Plain text: ");
+    // prompt user for plain text
+    string plaintext = get_string("Plain text: ");
+
+    // length of plaintext
+    int ptlength = strlen(plaintext);
+
+    // convert plain text
+    for (int i = 0; i < ptlength; i++) {
+        plaintext[i]
+
+    }
 
 
 
