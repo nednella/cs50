@@ -21,9 +21,12 @@ int main(int argc, string argv[]) {
 
     // check for a valid key
     if (check_valid(key) == false) {
-        printf("Terminating program\n");
+
+        // if false, terminate program
+        printf("Terminating program.\n");
         return 1;
     }
+
 
 
 
