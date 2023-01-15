@@ -27,6 +27,14 @@ int main(int argc, string argv[]) {
     }
 
     // check for non-alphabetic characters
+    for (int i = 0; i < keylength; i++) {
+
+        // terminate program if true
+        if (isalpha(key[i]) == 0) {
+            printf("The key must contain alphabetic characters only.\n");
+            return 1;
+        }
+    }
 
     // print key before sorting
     printf("Key before sorting: %s", key);
@@ -44,13 +52,6 @@ string key_sort(string key, int keylength) {
     // iterate through key 1 char at a time
     for (int i = 0; i < keylength; i++) {
 
-
-
-        // check for non-alphabetic characters, terminate program if true
-        if (isalpha(key[i]) == 0) {
-            printf("The key must contain alphabetic characters only.\n");
-            return 1;
-        }
 
 
 
