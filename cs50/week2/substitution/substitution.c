@@ -97,6 +97,22 @@ bool check_valid(string key) {
 
 
 
+
+    // prompt user for plaintext
+    //string plaintext = get_string("Plain text: ");
+
+    // convert plaintext to ciphertext
+    //string ciphertext = text_conversion(plaintext, key);
+
+    // print ciphertext
+    //printf("Cipher text: %s\n", ciphertext);
+
+
+
+
+
+
+
 string text_conversion(string plaintext, string key) {
 
     // length of plaintext
@@ -138,7 +154,7 @@ string text_conversion(string plaintext, string key) {
             }
         }
     }
-    return ciphertext;
+    return;
 }
 
 
