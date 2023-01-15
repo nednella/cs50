@@ -8,7 +8,7 @@
 int main(void) {
 
     // store the entered key from the CLI
-    string key = "zyxwvutsrqponmlkjihgfedcba";
+    string key = "zyxwvutsrqponmlkjihgfedcbz";
     printf("%s\n", key);
 
     // store the string length of the key
@@ -20,8 +20,9 @@ int main(void) {
     // convert key to UPPERCASE
     for (int i = 0; i < keylength; i++) {
         key_modified[i] = toupper(key[i]);
+        printf("%c", key_modified[i]);
     }
-    printf("%s\n", key_modified);
+    printf("\n");
 
     // check for unique characters
     for (int i = 0; i < (keylength - 1); i++) {
@@ -34,6 +35,7 @@ int main(void) {
 
                 // key check failed
                 printf("Key is not unique.\n");
+                return 1;
             }
         }
     }
