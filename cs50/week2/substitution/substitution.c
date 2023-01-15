@@ -44,7 +44,7 @@ int main(int argc, string argv[]) {
         }
 
         // bubble sort the key in ascdending order
-        for (j = 0; j < (keylength - 1); j++) {
+        for (j = (i + 1); j < keylength; j++) {
 
             // compare 'char i' to 'char i + 1', if greater
             if (key[j] > key[j+1]) {
