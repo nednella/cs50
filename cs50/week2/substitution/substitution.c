@@ -30,6 +30,12 @@ int main(int argc, string argv[]) {
     // prompt user for plain text
     string plaintext = get_string("Plain text: ");
 
+
+
+
+    // move this all into a function
+
+
     // length of plaintext
     int ptlength = strlen(plaintext);
 
@@ -45,6 +51,8 @@ int main(int argc, string argv[]) {
 
             // write ciphertext as (key * plaintext)
             ciphertext[i] = key[plaintext[i]]
+
+            // need to keep ciphertext in same case as plaintext (key may)
         }
 
         // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet)
@@ -53,6 +61,9 @@ int main(int argc, string argv[]) {
         }
 
     }
+
+
+
 
 
 
