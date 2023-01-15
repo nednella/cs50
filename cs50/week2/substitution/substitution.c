@@ -4,7 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 
-bool unique_key(string key, int keylength);
+bool check_unique(string key);
 
 int main(int argc, string argv[]) {
 
@@ -40,7 +40,7 @@ int main(int argc, string argv[]) {
     }
 
     // check for a unique key
-    if (unique_key(key) == false) {
+    if (check_unique(key) == false) {
         printf("Key is not comprised of unique characters.");
     }
 
@@ -49,7 +49,10 @@ int main(int argc, string argv[]) {
 
 
 
-bool unique_key(string key, int keylength) {
+bool check_unique(string key) {
+
+    // store key string length
+    int keylength = strlen(key);
 
     // create a character array of size equal to 'key'
     char modified_key[keylength];
