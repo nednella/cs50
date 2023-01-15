@@ -23,11 +23,11 @@ int main(int argc, string argv[]) {
     int keylength = strlen(key);
 
     // check for strict key length of 26 characters
-    if (keylength != 26) {
-        printf("Key must contain 26 characters.");
+    //if (keylength != 26) {
+        //printf("Key must contain 26 characters.");
         // terminate the program if true
-        return 1;
-    }
+        //return 1;
+    //}
 
     // check for non-alphabetic characters
     for (int i = 0; i < keylength; i++) {
@@ -41,7 +41,7 @@ int main(int argc, string argv[]) {
 
     // check for a unique key
     if (unique_key(key) == false) {
-        printf("Key must contain 26 characters.");
+        printf("Key is not comprised of unique characters.");
     }
 
 
@@ -73,12 +73,11 @@ bool unique_key(string key, int keylength) {
             if (modified_key[i] == modified_key[j]) {
 
                 // key check failed
-                return false;
                 printf("Key is not unique.\n");
-                return 1;
+                return false;
             }
         }
     }
     printf("Key is unique!\n");
-    return 0;
+    return true;
 }
