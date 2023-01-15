@@ -4,6 +4,8 @@
 #include <string.h>
 #include <ctype.h>
 
+bool key_check(string key);
+
 int main(int argc, string argv[]) {
 
     // if the command-line argument is not equal to 2 elements
@@ -21,6 +23,19 @@ int main(int argc, string argv[]) {
     int keylength = strlen(key);
 
     // check for an invalid key
+    // insert function here
+
+
+
+}
+
+
+
+bool key_check(string key) {
+
+    // store key string length
+    int keylength = strlen(key);
+
     // check for strict key length of 26 characters
     if (keylength != 26) {
         printf("Key must contain 26 characters.");
@@ -34,49 +49,20 @@ int main(int argc, string argv[]) {
             printf("The key must contain alphabetic characters only.\n");
             return 1;
         }
+
+        // convert char to UPPERCASE
+        key[i] = toupper(key[i]);
     }
 
-    // print key before sorting
-    printf("Key before sorting: %s", key);
+    // check for unique characters
+    for (int j = (i + 1); j < keylength; j++) {
 
-    // sort key in ascending order & check for non-alphabetic characters
-    // insert function here
+        // if 'char i' matches 'char i + 1'
+        if (key[i] == key[j]) {
 
-}
-
-
-
-string key_sort(string key, int keylength) {
-
-
-    // iterate through key 1 char at a time
-    for (int i = 0; i < keylength; i++) {
-
-
-
-
-        // bubble sort the key in ascdending order
-        for (j = (i + 1); j < keylength; j++) {
-
-            // compare 'char i' to 'char i + 1', if greater
-            if (key[j] > key[j+1]) {
-
-                // store 'char i' temporarily
-                char chTemp = key[j];
-                key[j] = key[j + 1];
-                key[j + 1] = chTemp;
-
-            }
-
+            // key check failed
+            return false;
         }
-
-
-
-
-
     }
-
-
-
-
+    return true;
 }
