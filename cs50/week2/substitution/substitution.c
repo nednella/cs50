@@ -154,7 +154,7 @@ string text_conversion(string plaintext, string key) {
             }
         }
     }
-    return;
+    return ciphertext;
 }
 
 
