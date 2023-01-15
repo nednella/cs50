@@ -18,6 +18,7 @@ int main(void) {
     for (int i = 0; i < keylength; i++) {
         key[i] = toupper(key[i]);
     }
+    printf("%s\n", key);
 
     // check for unique characters
     for (int i = 0; i < (keylength - 1); i++) {
