@@ -50,7 +50,7 @@ int main(int argc, string argv[]) {
 
         // if plaintext[i] is lowercase (want to convert value to 0-25 for alphabet position)
         if (islower(plaintext[i])) {
-            index[i] = plaintext[i] -= 97;
+            index[i] = plaintext[i] - 97;
 
             // write ciphertext as (key * plaintext)
             ciphertext[i] = key[index[i]];
@@ -64,7 +64,7 @@ int main(int argc, string argv[]) {
         // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet position)
         if (isupper(plaintext[i])) {
             // convert to an index
-            index[i] = plaintext[i] -= 65;
+            index[i] = plaintext[i] - 65;
 
             // write ciphertext as (key * plaintext)
             ciphertext[i] = key[index[i]];
