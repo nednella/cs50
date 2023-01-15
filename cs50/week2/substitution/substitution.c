@@ -26,21 +26,33 @@ int main(int argc, string argv[]) {
         printf("Key must contain 26 characters.");
     }
 
+    // check for non-alphabetic characters
+
     // print key before sorting
     printf("Key before sorting: %s", key);
 
-    // sort key in ascending order
+    // sort key in ascending order & check for non-alphabetic characters
+    // insert function here
 
-    // check for character duplicates
+}
+
+
+
+string key_sort(string key, int keylength) {
+
 
     // iterate through key 1 char at a time
     for (int i = 0; i < keylength; i++) {
+
+
 
         // check for non-alphabetic characters, terminate program if true
         if (isalpha(key[i]) == 0) {
             printf("The key must contain alphabetic characters only.\n");
             return 1;
         }
+
+
 
         // bubble sort the key in ascdending order
         for (j = (i + 1); j < keylength; j++) {
@@ -62,7 +74,6 @@ int main(int argc, string argv[]) {
 
 
     }
-
 
 
 
