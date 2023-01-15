@@ -35,7 +35,8 @@ int main(int argc, string argv[]) {
 
     // convert plain text
     for (int i = 0; i < ptlength; i++) {
-        plaintext[i]
+        plaintext[i] -= 65;
+        plaintext[i] -= 97;
 
     }
 
