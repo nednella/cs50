@@ -19,6 +19,14 @@ int main(int argc, string argv[]) {
     // store the entered key from the CLI
     string key = argv[1];
 
+    // store key string length
+    int keylength = strlen(key);
+
+    // check for strict key length of 26 characters
+    if (keylength != 26) {
+        printf("Key must contain 26 characters.");
+    }
+
     // check for an invalid key
     if (key_check(key) == false) {
         printf("Key must contain 26 characters.");
@@ -29,7 +37,9 @@ int main(int argc, string argv[]) {
 
 
 
-bool key_check(string key) {
+
+
+bool unique_key(string key) {
 
     // store key string length
     int keylength = strlen(key);
