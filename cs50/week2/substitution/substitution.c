@@ -52,7 +52,10 @@ int main(int argc, string argv[]) {
             // write ciphertext as (key * plaintext)
             ciphertext[i] = key[plaintext[i]]
 
-            // need to keep ciphertext in same case as plaintext (key may)
+            // need to keep ciphertext in same case as plaintext (key may be given in uppercase)
+            if (isupper(ciphertext[i])) {
+                
+            }
         }
 
         // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet)
