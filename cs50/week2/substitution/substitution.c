@@ -17,16 +17,24 @@ int main(int argc, string argv[]) {
     // store the entered key from the CLI
     string key = argv[1];
 
-    // check for an invalid key
+
+
+
 
 
 
     // store the string length of the key
     int keylength = strlen(key);
 
+    // print key before sorting
+    printf("Key before sorting: %s", key);
 
 
-    // iterate through the key 1 character at a time
+
+
+
+    // check for an invalid key
+    // iterate through key 1 char at a time
     for (int i = 0; i < keylength; i++) {
 
         // check for non-alphabetic characters, terminate program if true
