@@ -54,16 +54,16 @@ bool key_check(string key) {
             printf("The key must contain alphabetic characters only.\n");
             return 1;
         }
-    }
 
-    // check for unique characters
-    for (int j = (i + 1); j < keylength; j++) {
+        // check for unique characters
+        for (int j = (i + 1); j < keylength; j++) {
 
-        // if 'char i' matches 'char i + 1'
-        if (key[i] == key[j]) {
+            // if 'char i' matches 'char i + 1'
+            if (key[i] == key[j]) {
 
-            // key check failed
-            return false;
+                // key check failed
+                return false;
+            }
         }
     }
     return true;
