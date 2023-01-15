@@ -30,7 +30,7 @@ int main(void) {
         for (int j = (i + 1); j < keylength; j++) {
 
             // if 'char i' matches 'char i + 1'
-            if (key[i] == key[j]) {
+            if (key_modified[i] == key_modified[j]) {
 
                 // key check failed
                 printf("Key is not unique.\n");
