@@ -82,7 +82,7 @@ int main(int argc, string argv[]) {
             }
         }
     }
-    ciphertext
+    ciphertext[arraylength] = '\0';
 
 
 
