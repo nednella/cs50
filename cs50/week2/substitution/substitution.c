@@ -39,9 +39,6 @@ int main(int argc, string argv[]) {
     // length of plaintext
     int arraylength = strlen(plaintext);
 
-    // create an index array of size equal to 'plaintext' to store alphabetical location of plaintext[i]
-    char index[arraylength + 1];
-
     // create a character array of size equal to 'plaintext' to store the ciphered text
     char ciphertext[arraylength + 1];
 
@@ -50,10 +47,12 @@ int main(int argc, string argv[]) {
 
         // if plaintext[i] is lowercase (want to convert value to 0-25 for alphabet position)
         if (islower(plaintext[i])) {
-            index[i] = plaintext[i] - 97;
+
+            // store modified plaintext in a temporary value
+            int temp = plaintext[i] - 97;
 
             // write ciphertext as (key * plaintext)
-            ciphertext[i] = key[index[i]];
+            ciphertext[i] = key[temp];
 
             // need to keep ciphertext in same case as plaintext (key may be given in uppercase)
             if (isupper(ciphertext[i])) {
@@ -63,11 +62,12 @@ int main(int argc, string argv[]) {
 
         // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet position)
         if (isupper(plaintext[i])) {
-            // convert to an index
-            index[i] = plaintext[i] - 65;
+
+            // store plaintext in a temporary value
+            int temp = plaintext[i] - 65;
 
             // write ciphertext as (key * plaintext)
-            ciphertext[i] = key[index[i]];
+            ciphertext[i] = key[temp];
 
             // need to keep ciphertext in same case as plaintext (key may be given in lowercase)
             if (islower(ciphertext[i])) {
