@@ -17,23 +17,22 @@ int main(int argc, string argv[]) {
     // store the entered key from the CLI
     string key = argv[1];
 
-
-
-
-
-
-
     // store the string length of the key
     int keylength = strlen(key);
 
     // print key before sorting
     printf("Key before sorting: %s", key);
 
-
-
-
-
     // check for an invalid key
+
+
+    // check for strict key length of 26 characters
+    if (keylength != 26) {
+        printf("Key must contain 26 characters.");
+    }
+
+
+
     // iterate through key 1 char at a time
     for (int i = 0; i < keylength; i++) {
 
@@ -63,10 +62,7 @@ int main(int argc, string argv[]) {
 
 
     }
-    // check for strict key length of 26 characters
-    //if (keylength != 26 && ) {
-        //printf("Key must contain 26 characters.");
-    //}
+
 
 
 
