@@ -4,7 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 
-bool key_check(string key);
+bool unique_key(string key);
 
 int main(int argc, string argv[]) {
 
@@ -25,10 +25,22 @@ int main(int argc, string argv[]) {
     // check for strict key length of 26 characters
     if (keylength != 26) {
         printf("Key must contain 26 characters.");
+        // terminate the program if true
+        return 1;
     }
 
-    // check for an invalid key
-    if (key_check(key) == false) {
+    // check for non-alphabetic characters
+    for (int i = 0; i < keylength; i++) {
+
+        // terminate program if true
+        if (!isalpha(key[i])) {
+            printf("The key must contain alphabetic characters only.\n");
+            return 1;
+        }
+    }
+
+    // check for a unique key
+    if (unique_key(key) == false) {
         printf("Key must contain 26 characters.");
     }
 
@@ -44,26 +56,15 @@ bool unique_key(string key) {
     // store key string length
     int keylength = strlen(key);
 
-    // check for strict key length of 26 characters
-    if (keylength != 26) {
-        printf("Key must contain 26 characters.");
-    }
-
     // convert key to UPPERCASE
     for (int i = 0; i < keylength; i++) {
         key[i] = toupper(key[i]);
     }
 
-    // check for non-alphabetic characters
-    for (int i = 0; i < keylength; i++) {
+    // check for unique characters
+    for (int i = 0; i < (keylength - 1); i++) {
 
-        // terminate program if true
-        if (!isalpha(key[i])) {
-            printf("The key must contain alphabetic characters only.\n");
-            return 1;
-        }
-
-        // check for unique characters
+        // initiate staggered counter
         for (int j = (i + 1); j < keylength; j++) {
 
             // if 'char i' matches 'char i + 1'

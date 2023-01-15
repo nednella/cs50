@@ -9,27 +9,29 @@ int main(void) {
 
     // store the entered key from the CLI
     string key = "zyxwvutsrqponmlkjihgfedcba";
+    printf("%s\n", key);
 
     // store the string length of the key
     int keylength = strlen(key);
 
-    printf("Key before sorting: %s", key);
-    printf("\n");
-
-    //printf("First character: %c\n", key[0]);
-    //printf("First character: %c\n", key[1]);
-
-    // bubble sort key ascending order
+    // convert key to UPPERCASE
     for (int i = 0; i < keylength; i++) {
+        key[i] = toupper(key[i]);
+    }
 
-        for (int j = 0; j < (keylength - 1); j++) {
+    // check for unique characters
+    for (int i = 0; i < (keylength - 1); i++) {
 
-            if (key[j] > key[j+1]) {
-                char ChTemp = key[j];
-                key[j] = key[j + 1];
-                key[j + 1] = ChTemp;
+        // initiate staggered counter
+        for (int j = (i + 1); j < keylength; j++) {
+
+            // if 'char i' matches 'char i + 1'
+            if (key[i] == key[j]) {
+
+                // key check failed
+                printf("Key is not unique.\n");
             }
         }
     }
-    printf("Key after sorting: %s\n", key);
+    printf("Key is unique!\n");
 }
