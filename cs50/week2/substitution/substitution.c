@@ -45,22 +45,30 @@ int main(int argc, string argv[]) {
     // convert plain text to cipher text
     for (int i = 0; i < ptlength; i++) {
 
-        // if plaintext[i] is lowercase (want to convert value to 0-25 for alphabet)
+        // if plaintext[i] is lowercase (want to convert value to 0-25 for alphabet position)
         if (islower(plaintext[i])) {
             plaintext[i] -= 97;
 
             // write ciphertext as (key * plaintext)
-            ciphertext[i] = key[plaintext[i]]
+            ciphertext[i] = key[plaintext[i]];
 
             // need to keep ciphertext in same case as plaintext (key may be given in uppercase)
             if (isupper(ciphertext[i])) {
-                
+                ciphertext[i] += 32;
             }
         }
 
-        // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet)
+        // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet position)
         if (isupper(plaintext[i])) {
             plaintext[i] -= 65;
+
+            // write ciphertext as (key * plaintext)
+            ciphertext[i] = key[plaintext[i]];
+
+            // need to keep ciphertext in same case as plaintext (key may be given in lowercase)
+            if (islower(ciphertext[i])) {
+                ciphertext[i] -= 32;
+            }
         }
 
     }
