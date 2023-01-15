@@ -14,9 +14,12 @@ int main(void) {
     // store the string length of the key
     int keylength = strlen(key);
 
+    // create an array of size equal to 'key'
+    char key_modified[keylength];
+
     // convert key to UPPERCASE
     for (int i = 0; i < keylength; i++) {
-        key[i] = toupper(key[i]);
+        key_modified[i] = toupper(key[i]);
     }
     printf("%s\n", key);
 
