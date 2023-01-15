@@ -4,7 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 
-bool check_unique(string key);
+bool check_valid(string key);
 
 int main(int argc, string argv[]) {
 
@@ -19,6 +19,20 @@ int main(int argc, string argv[]) {
     // store the entered key from the CLI
     string key = argv[1];
 
+    // check for a valid key
+    if (check_valid(key) == false) {
+        printf("Terminating program\n");
+        return 1;
+    }
+
+
+
+}
+
+
+
+bool check_valid(string key) {
+
     // store key string length
     int keylength = strlen(key);
 
@@ -26,7 +40,7 @@ int main(int argc, string argv[]) {
     //if (keylength != 26) {
         //printf("Key must contain 26 characters.");
         // terminate the program if true
-        //return 1;
+        //return false;
     //}
 
     // check for non-alphabetic characters
@@ -35,26 +49,11 @@ int main(int argc, string argv[]) {
         // terminate program if true
         if (!isalpha(key[i])) {
             printf("The key must contain alphabetic characters only.\n");
-            return 1;
+            return false;
         }
     }
 
-    // check for a unique key
-    if (check_unique(key) == false) {
-        printf("Key is not comprised of unique characters.");
-    }
-
-
-}
-
-
-
-bool check_unique(string key) {
-
-    // store key string length
-    int keylength = strlen(key);
-
-    // create a character array of size equal to 'key'
+    // create a character array of size equal to 'key' (cannot overwrite the read-only string 'key')
     char modified_key[keylength];
 
     // convert key to UPPERCASE and fill in new array 1 character at a time
@@ -72,11 +71,10 @@ bool check_unique(string key) {
             if (modified_key[i] == modified_key[j]) {
 
                 // key check failed
-                printf("Key is not unique.\n");
+                printf("Key is not comprised of unique characters.\n");
                 return false;
             }
         }
     }
-    printf("Key is unique!\n");
     return true;
 }
