@@ -33,10 +33,22 @@ int main(int argc, string argv[]) {
     // length of plaintext
     int ptlength = strlen(plaintext);
 
-    // convert plain text
+    // create a character array of size equal to 'plaintext' to store changed values
+    char ciphertext[ptlength + 1];
+
+    // convert plain text to cipher text
     for (int i = 0; i < ptlength; i++) {
-        plaintext[i] -= 65;
-        plaintext[i] -= 97;
+
+        // if plaintext[i] is lowercase (want to convert value to 0-25 for alphabet)
+        if (islower(plaintext[i])) {
+            plaintext[i] -= 97;
+            ciphertext[i] = key[plaintext[i]]
+        }
+
+        // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet)
+        if (isupper(plaintext[i])) {
+            plaintext[i] -= 65;
+        }
 
     }
 
@@ -71,7 +83,7 @@ bool check_valid(string key) {
     }
 
     // create a character array of size equal to 'key' (cannot overwrite the read-only string 'key')
-    char modified_key[keylength];
+    char modified_key[keylength + 1];
 
     // convert key to UPPERCASE and fill in new array 1 character at a time
     for (int i = 0; i < keylength; i++) {
