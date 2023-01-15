@@ -1,67 +1,42 @@
-	#include <cs50.h>
-	#include <stdio.h>
-    #include <string.h>
+#include <cs50.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
-// values for colors and score (EXACT == right letter, right place; CLOSE == right letter, wrong place; WRONG == wrong letter)
-#define EXACT 2
-#define CLOSE 1
-#define WRONG 0
-
-// ANSI color codes for boxed in letters
-#define GREEN   "\e[38;2;255;255;255;1m\e[48;2;106;170;100;1m"
-#define YELLOW  "\e[38;2;255;255;255;1m\e[48;2;201;180;88;1m"
-#define RED     "\e[38;2;255;255;255;1m\e[48;2;220;20;60;1m"
-#define RESET   "\e[0;39m"
 
 	int main(void) {
 
-        string choice = "since";
-        string guess = "pence";
-        int score[] = {0, 0, 0, 0, 0};
-        // should be scored: 0, 1, 2, 2, 2
+        // store the entered key from the CLI
+        string key = "zyxwvutsrqponmlkjihgfedcba";
 
-        // compare guess to choice and score points as appropriate, scoring points
+        // store the string length of the key
+        int keylength = strlen(key);
 
-        // store string length of guess and choice words, for iteration
-        int guesslength = strlen(guess);
-        int choicelength = strlen(choice);
 
-        // iterate through the guess 1 letter at a time to score points
-        for (int i = 0; i < guesslength; i++) {
 
-            printf("%c", guess[i]);
-            printf("%c\n", choice[i]);
 
-            // if the guess letter matches the choice letter, assign 2 (EXACT value)
-            if (guess[i] == choice[i]) {
-                printf("2!\n");
-                score[i] = 2;
+
+        // iterate through the key 1 character at a time
+        for (int i = 0; i < keylength; i++) {
+
+            // check for non-alphabetic characters, terminate program if true
+            if (isalpha(key[i]) == 0) {
+                printf("The key must contain alphabetic characters only.\n");
+                return 1;
             }
 
-            // if the guess letter didn't match the choice letter, check to see if it matches any chars in the choice word and assign 1
-            if (guess[i] != choice[i]) {
+            // bubble sort the key in ascdending order
+            for (j = 0; j < (keylength - 1); j++) {
 
-                printf("%c\n", guess[i]);
+                // compare 'char i' to 'char i + 1', if greater
+                if (key[j] > key[j+1]) {
 
-                for (int j = 0; j < choicelength; j++) {
-                    printf("%c", choice[j]);
-
-                    if (guess[i] == choice[j]) {
-                        score[i] = 1;
-                        printf("\n");
-                        printf("1!\n");
-                        break;
-                    }
-
+                    // store 'char i' temporarily
+                    char chTemp = key[j];
+                    key[j] = key[j + 1];
+                    key[j + 1] = chTemp;
                 }
-                printf("\n");
-
             }
-            printf("\n");
         }
-
-        for (int z = 0; z < sizeof(score)/sizeof(score[0]); z++) {
-            printf("%i ",score[z]);
-        }
-        printf("\n");
     }
