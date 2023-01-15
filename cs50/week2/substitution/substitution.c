@@ -49,19 +49,15 @@ int main(int argc, string argv[]) {
 
 
 
-
-
 bool unique_key(string key, int keylength) {
 
     // create a character array of size equal to 'key'
     char modified_key[keylength];
 
-    // convert key to UPPERCASE and fill in new array
+    // convert key to UPPERCASE and fill in new array 1 character at a time
     for (int i = 0; i < keylength; i++) {
         modified_key[i] = toupper(key[i]);
-        printf("%c", modified_key[i]);
     }
-    printf("\n");
 
     // check for unique characters
     for (int i = 0; i < (keylength - 1); i++) {
