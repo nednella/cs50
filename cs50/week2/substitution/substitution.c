@@ -74,8 +74,10 @@ int main(int argc, string argv[]) {
                 ciphertext[i] -= 32;
             }
         }
-
     }
+    ciphertext[arraylength] = '\0';
+    printf("Cipher text: %s\n", ciphertext);
+
 
 
 
