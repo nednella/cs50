@@ -30,7 +30,7 @@ int main(int argc, string argv[]) {
     for (int i = 0; i < keylength; i++) {
 
         // terminate program if true
-        if (isalpha(key[i]) == 0) {
+        if (!isalpha(key[i])) {
             printf("The key must contain alphabetic characters only.\n");
             return 1;
         }
