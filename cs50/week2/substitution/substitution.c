@@ -33,8 +33,10 @@ int main(int argc, string argv[]) {
 
     // prompt user for plaintext
     string plaintext = get_string("Plain text: ");
+    int textlength = strlen(plaintext);
 
     // convert plaintext to ciphertext
+    char ciphertext = [textlength + 1];
     string ciphertext = text_conversion(plaintext, key);
 
     // print ciphertext
