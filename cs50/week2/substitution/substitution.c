@@ -37,6 +37,17 @@ int main(int argc, string argv[]) {
     // convert plaintext to ciphertext
     string ciphertext = text_conversion(plaintext, key);
 
+
+
+
+
+// ERROR HERE - array decay - local variable declared inside function text_conversion ceases to exist once the function returns.
+// need to find a way to combat this!
+
+
+
+
+
     // print ciphertext
     printf("Cipher text: %s\n", ciphertext);
 }
