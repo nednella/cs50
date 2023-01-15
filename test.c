@@ -14,14 +14,14 @@ int main(void) {
     // store the string length of the key
     int keylength = strlen(key);
 
-    // create an array of size equal to 'key'
-    char key_modified[keylength];
+    // create a character array of size equal to 'key'
+    char key_modified[keylength + 1];
 
     // convert key to UPPERCASE
     for (int i = 0; i < keylength; i++) {
         key_modified[i] = toupper(key[i]);
     }
-    printf("%s\n", key);
+    printf("%s\n", key_modified);
 
     // check for unique characters
     for (int i = 0; i < (keylength - 1); i++) {
