@@ -19,12 +19,10 @@ int main(int argc, string argv[]) {
     // store the entered key from the CLI
     string key = argv[1];
 
-    // store the string length of the key
-    int keylength = strlen(key);
-
     // check for an invalid key
-    // insert function here
-
+    if (key_check(key) == false) {
+        printf("Key must contain 26 characters.");
+    }
 
 
 }
