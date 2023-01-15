@@ -37,9 +37,12 @@ int main(int argc, string argv[]) {
 
         for (j = 0; j < (keylength - 1); j++) {
 
-            if (keylength[j] < keylength[j-1]) {
-                
-                char chTemp = str[j]
+            if (keylength[j] > keylength[j-1]) {
+
+                char chTemp = str[j];
+                str[j] = str[j + 1];
+                str[j + 1] = chTemp;
+
             }
 
         }
