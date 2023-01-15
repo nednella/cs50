@@ -27,6 +27,10 @@ int main(int argc, string argv[]) {
         return 1;
     }
 
+    // prompt user for plain-text
+    string text = get_string("Plain text: ");
+
+
 
 
 
