@@ -97,7 +97,7 @@ bool vote(string name)
         // if match not found
         else {
             // return error
-            printf("Error: vote count not updated.");
+            printf("Error: vote count not updated.\n");
             return false;
         }
     }
