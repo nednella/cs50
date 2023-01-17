@@ -117,7 +117,7 @@ string text_conversion(string plaintext, string key) {
     char ciphertext[arraylength + 1];
 
     // allocate dynamic memory for the ciphertext array
-    
+    malloc 
 
     // convert plaintext to ciphertext
     for (int i = 0; i < arraylength; i++) {
