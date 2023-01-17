@@ -24,23 +24,27 @@ int main(void)
     if (score1 > score2) {
         // player 1 wins
         printf("Player 1 wins!\n");
+        return 0;
     }
 
     // if score 2 higher
     else if (score2 > score1) {
         // player 2 wins
         printf("Player 2 wins!\n");
+        return 0;
     }
 
     // if score 1 and score 2 are equal
     else if (score1 == score2) {
         // tie
         printf("Tie!\n");
+        return 0;
     }
 
     // else, error
     else {
         printf("Error: could not determine a winner.\n");
+        return 1;
     }
 }
 
