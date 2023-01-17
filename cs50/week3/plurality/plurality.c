@@ -71,13 +71,18 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
+    // take the vote, given by a name, e.g. "Ben"
 
-    // Search through candidates[i].name via a for loop, and search for a specific name
-    // if name == found
-        // update vote
+    // Search through candidates[i].name via a for loop, and search for "Ben"
+    // if name == found (via candidates[i].name)
 
+        // update vote total
+        // candidates[i].votes ++
+        // return true
 
+    // if name == not found
 
+        // return false
 
 
 
@@ -91,14 +96,25 @@ bool vote(string name)
 
 
 
-
-
     return false;
 }
+
+
+
+
 
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
     // TODO
+
+
+
+    // search vote totals for each candidate
+
+    // pick highest value
+    // any candidates with this value
+    // printf( winner is candidate(s) )
+
     return;
 }
