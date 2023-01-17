@@ -71,7 +71,28 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
+
+    // Search through candidates[i].name via a for loop, and search for a specific name
+    // if name == found
+        // update vote
+
+
+
+
+
+
+
+
     // TODO
+    candidates[i].name
+    candidates[i].votes
+
+
+
+
+
+
+
     return false;
 }
 
