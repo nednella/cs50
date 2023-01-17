@@ -23,6 +23,10 @@ int candidate_count;
 bool vote(string name);
 void print_winner(void);
 
+
+
+
+
 int main(int argc, string argv[])
 {
     // Check for invalid usage
@@ -32,7 +36,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    // Populate array of candidates
+    // Populate array of candidates via CLI (./plurality X Y Z, where X Y Z are candidate first names)
     candidate_count = argc - 1;
     if (candidate_count > MAX)
     {
