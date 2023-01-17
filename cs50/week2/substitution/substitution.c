@@ -6,7 +6,7 @@
 
 // introduce prototype functions
 bool check_valid(string key);
-string text_conversion(string plaintext, string key);
+string text_conversion(string plaintext, string key, string ciphertext);
 
 
 
@@ -107,13 +107,13 @@ bool check_valid(string key) {
 
 
 
-string text_conversion(string plaintext, string key) {
+string text_conversion(string plaintext, string key, string ciphertext) {
 
     // length of plaintext
     int arraylength = strlen(plaintext);
 
     // create a character array of size equal to 'plaintext' to store the ciphered text, plus NULL value
-    char ciphertext[arraylength + 1] = malloc(sizeof(ciphertext));
+    //char ciphertext[arraylength + 1] = malloc(sizeof(ciphertext));
 
     // allocate dynamic memory for the ciphertext array
 
