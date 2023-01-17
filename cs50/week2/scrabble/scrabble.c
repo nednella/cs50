@@ -35,5 +35,7 @@ int compute_score(string word) {
 // characters that are non-alphabetical should be given a score of 0
 // alphabetical characters that are uppercase AND lowercase should be given the same point values
 
+    
+
 
 }
