@@ -52,9 +52,10 @@ int main(int argc, string argv[])
     // ask user for number of votes participating
     int voter_count = get_int("Number of voters: ");
 
-    // Loop through number of votes
+    // Loop through number of votes participating
     for (int i = 0; i < voter_count; i++)
     {
+        // obtain vote from each participant
         string name = get_string("Vote: ");
 
         // Check for invalid vote
@@ -66,6 +67,7 @@ int main(int argc, string argv[])
 
     // Display winner of election
     print_winner();
+    
 }
 
 
