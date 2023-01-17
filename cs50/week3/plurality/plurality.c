@@ -83,6 +83,11 @@ bool vote(string name)
 {
     // take the vote, given by a name, e.g. "Ben"
 
+    for (int i = 0; i < MAX, i++) {
+
+        // search for a name match e.g. "Ben"
+    }
+
     // Search through candidates[i].name via a for loop, and search for "Ben"
     // if name == found (via candidates[i].name)
 
