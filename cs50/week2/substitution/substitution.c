@@ -50,7 +50,7 @@ int main(int argc, string argv[]) {
     char ciphertext[arraylength + 1];
 
     // convert plaintext to ciphertext
-    ciphertext = text_conversion(plaintext, key, ciphertext);
+    string newtext = text_conversion(plaintext, key, ciphertext);
 
 
 
@@ -61,7 +61,6 @@ int main(int argc, string argv[]) {
 
     // print ciphertext
     printf("Cipher text: %s\n", ciphertext);
-    free(ciphertext);
 }
 
 
