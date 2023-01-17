@@ -81,35 +81,27 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
-    // take the vote, given by a name, e.g. "Ben"
 
-    for (int i = 0; i < MAX, i++) {
+    // loop through number of candidates
+    for (int i = 0; i < candidate_count; i++) {
 
         // search for a name match e.g. "Ben"
+        // if match found
+        if (strcmp (name, candidates[i].name)) {
+
+            // update their vote count
+            candidates[i].votes ++;
+            return true;
+        }
+
+        // if match not found
+        else {
+            // return error
+            printf("Error: vote count not updated.");
+            return false;
+        }
     }
-
-    // Search through candidates[i].name via a for loop, and search for "Ben"
-    // if name == found (via candidates[i].name)
-
-        // update vote total
-        // candidates[i].votes ++
-        // return true
-
-    // if name == not found
-
-        // return false
-
-
-
-
-
-    // TODO
-    candidates[i].name
-    candidates[i].votes
-
-
-
-
+    return false;
 }
 
 
