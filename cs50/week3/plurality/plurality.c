@@ -90,6 +90,9 @@ int main(int argc, string argv[])
         printf("Candidate %s obtained %i votes\n", candidates[i].name, candidates[i].votes);
     }
 
+
+
+    return 0;
 }
 
 
