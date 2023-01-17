@@ -48,13 +48,21 @@ int main(int argc, string argv[])
         candidates[i].name = argv[i + 1];
         candidates[i].votes = 0;
     }
-    
+
     // ask user for number of votes participating
     int voter_count = get_int("Number of voters: ");
 
-    // Loop over all voters
+
+
+
+
+
+
+
+    // Loop through number of votes participating
     for (int i = 0; i < voter_count; i++)
     {
+        // obtain vote from each participant
         string name = get_string("Vote: ");
 
         // Check for invalid vote
@@ -62,22 +70,68 @@ int main(int argc, string argv[])
         {
             printf("Invalid vote.\n");
         }
+
+        else {
+            vote(name); // add vote to the count
+            printf("Vote successful.\n");
+        }
     }
+
+
+
+
+
 
     // Display winner of election
     print_winner();
+
+    for (int i = 0; i < candidate_count; i++) {
+
+        printf("Candidate %s obtained %i votes\n", candidates[i].name, candidates[i].votes);
+    }
+
+
+
+    return 0;
 }
 
+
+
+
+
 // Update vote totals given a new vote
-bool vote(string name)
-{
-    // TODO
+bool vote(string name) {
+
+    // loop through number of candidates
+    for (int i = 0; i < candidate_count; i++) {
+
+        // search for a name match e.g. "Ben"
+        // if match found
+        if (strcmp (candidates[i].name, name) == 0) {
+
+            // update their vote count
+            candidates[i].votes++;
+            printf("Vote count updated.\n");
+            return true;
+        }
+    }
     return false;
 }
+
+
+
+
 
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
     // TODO
+
+    // search vote totals for each candidate
+
+    // pick highest value
+    // any candidates with this value
+    // printf( winner is candidate(s) )
+
     return;
 }
