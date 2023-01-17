@@ -114,7 +114,7 @@ string text_conversion(string plaintext, string key) {
     int arraylength = strlen(plaintext);
 
     // create a character array of size equal to 'plaintext' to store the ciphered text, plus NULL value
-    char ciphertext[arraylength + 1] malloc(sizeof(ciphertext));
+    char ciphertext[arraylength + 1] //malloc(sizeof(ciphertext));
 
     // allocate dynamic memory for the ciphertext array
 
