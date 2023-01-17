@@ -28,8 +28,14 @@ int main(void)
 
     // if score 2 higher
     else if (score2 > score1) {
-        // iplayer 2 wins
+        // player 2 wins
         printf("Player 2 wins!\n");
+    }
+
+    // if score 1 and score 2 are equal
+    else if (score1 == score2) {
+        // tie
+        printf("Tie!\n");
     }
 
     // else, error
