@@ -56,11 +56,11 @@ bool check_valid(string key) {
     int keylength = strlen(key);
 
     // check for strict key length of 26 characters
-    //if (keylength != 26) {
-        //printf("Key must contain 26 characters.");
+    if (keylength != 26) {
+        printf("Key must contain 26 characters.");
         // terminate the program if true
-        //return false;
-    //}
+        return false;
+    }
 
     // check for non-alphabetic characters
     for (int i = 0; i < keylength; i++) {
@@ -126,7 +126,7 @@ string text_conversion(string plaintext, string key, string modifiedtext) {
         }
 
         // if plaintext[i] is uppercase (want to convert value to 0-25 for alphabet position)
-        if (isupper(plaintext[i])) {
+        else if (isupper(plaintext[i])) {
 
             // store plaintext in a temporary value
             int temp = plaintext[i] - 65;
@@ -139,6 +139,13 @@ string text_conversion(string plaintext, string key, string modifiedtext) {
                 modifiedtext[i] -= 32;
             }
         }
+
+        // if plaintext[i] is non-alphabetic (numerical, special characters, etc.)
+        else {
+            // leave it as is
+            modifiedtext[i] = plaintext[i];
+        }
+
     }
     modifiedtext[arraylength] = '\0';
     return modifiedtext;
