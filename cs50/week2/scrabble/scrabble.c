@@ -12,18 +12,16 @@ int main(void)
 {
     // Get input words from both players
     string word1 = get_string("Player 1: ");
-    string word2 = get_string("Player 2: ");
+    //string word2 = get_string("Player 2: ");
 
     // Score both words
     int score1 = compute_score(word1);
-    int score2 = compute_score(word2);
+    //int score2 = compute_score(word2);
+
 
     // TODO: Print the winner
-}
-
-int compute_score(string word)
-{
-    // TODO: Compute and return score for string
+    printf("%i\n", score1);
+    return 0;
 }
 
 
@@ -32,20 +30,6 @@ int compute_score(string word)
 
 int compute_score(string word) {
 
-// characters that are non-alphabetical should be given a score of 0
-// alphabetical characters that are uppercase AND lowercase should be given the same point values
-
-// initiate scores = 0;
-// take the word length
-// iterate through 0 -> word length
-    // for each character...
-        // if non-alphabetical, score 0
-        // else
-            // islower -> take ASCII value and -97 to get index score
-            // isupper -> take ASCII value and -65 to get index score
-            // scores += (POINTS[i])   - where [i] is character value, obtained from searching POINTS array with the index score
-// return score
-
     // initate the points scoring
     int score = 0;
 
@@ -53,16 +37,34 @@ int compute_score(string word) {
     int wordlength = strlen(word);
 
     // iterate through the word length
-    for (int i = 0; i < wordlength < i++) {
+    for (int i = 0; i < wordlength; i++) {
 
         // if character is non-alphabetical, score 0
-        if (!isalpha())
+        if (!isalpha(word[i])) {
+            score += 0;
+        }
+
+        // else, score the alphabetical character
+        else {
+            // if the character is lowercase
+            if (islower(word[i])) {
+
+                int index = word[i] - 97; // obtain a character index from 0-25, indicating which alphabetical character is present
+                score += POINTS[index]; // increase score by value associated with that alphabetical character
+            }
+
+            else if (isupper(word[i])) {
+
+                int index = word[i] - 65;
+                score += POINTS[index];
+            }
+
+            else {
+                // something went wrong
+                printf("Error, could not determine character point value.");
+                return 1;
+            }
+        }
     }
-
-
-
-
-
-
-
+    return score;
 }
