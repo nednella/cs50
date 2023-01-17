@@ -6,7 +6,7 @@
 
 // introduce prototype functions
 bool check_valid(string key);
-string text_conversion(string plaintext, string key, string arraysize);
+string text_conversion(string plaintext, string key, string modifiedtext);
 
 
 
@@ -34,30 +34,12 @@ int main(int argc, string argv[]) {
     // prompt user for plaintext
     string plaintext = get_string("Plain text: ");
 
-
-
-
-
-
-
-
-
-
-
-
     // initialise an array for the text_conversion function to store the ciphertext
     int arraylength = strlen(plaintext);
-    char arraysize[arraylength + 1];
+    char modifiedtext[arraylength + 1];
 
     // convert plaintext to ciphertext
-    string newtext = text_conversion(plaintext, key, arraysize);
-
-
-
-
-// ERROR HERE - array decay - local array declared inside function text_conversion ceases to exist once the function returns.
-// need to find a way to combat this!
-
+    string ciphertext = text_conversion(plaintext, key, modifiedtext);
 
     // print ciphertext
     printf("Cipher text: %s\n", ciphertext);
@@ -119,7 +101,7 @@ bool check_valid(string key) {
 
 
 
-string text_conversion(string plaintext, string key, string arraysize) {
+string text_conversion(string plaintext, string key, string modifiedtext) {
 
     // length of plaintext
     int arraylength = strlen(plaintext);
@@ -134,11 +116,11 @@ string text_conversion(string plaintext, string key, string arraysize) {
             int temp = plaintext[i] - 97;
 
             // write ciphertext as (key * plaintext)
-            ciphertext[i] = key[temp];
+            modifiedtext[i] = key[temp];
 
             // need to keep ciphertext in same case as plaintext (key may be given in uppercase)
-            if (isupper(ciphertext[i])) {
-                ciphertext[i] += 32;
+            if (isupper(modifiedtext[i])) {
+                modifiedtext[i] += 32;
             }
         }
 
@@ -149,16 +131,16 @@ string text_conversion(string plaintext, string key, string arraysize) {
             int temp = plaintext[i] - 65;
 
             // write ciphertext as (key * plaintext)
-            ciphertext[i] = key[temp];
+            modifiedtext[i] = key[temp];
 
             // need to keep ciphertext in same case as plaintext (key may be given in lowercase)
-            if (islower(ciphertext[i])) {
-                ciphertext[i] -= 32;
+            if (islower(modifiedtext[i])) {
+                modifiedtext[i] -= 32;
             }
         }
     }
-    ciphertext[arraylength] = '\0';
-    return ciphertext;
+    modifiedtext[arraylength] = '\0';
+    return modifiedtext;
 }
 
 
