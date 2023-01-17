@@ -116,6 +116,9 @@ string text_conversion(string plaintext, string key) {
     // create a character array of size equal to 'plaintext' to store the ciphered text, plus NULL value
     char ciphertext[arraylength + 1];
 
+    // allocate dynamic memory for the ciphertext array
+
+
     // convert plaintext to ciphertext
     for (int i = 0; i < arraylength; i++) {
 
