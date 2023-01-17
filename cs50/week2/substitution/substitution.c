@@ -43,6 +43,7 @@ int main(int argc, string argv[]) {
 
     // print ciphertext
     printf("Cipher text: %s\n", ciphertext);
+    return 0;
 }
 
 
