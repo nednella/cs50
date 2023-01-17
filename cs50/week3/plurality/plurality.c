@@ -67,7 +67,7 @@ int main(int argc, string argv[])
 
     // Display winner of election
     print_winner();
-    
+
 }
 
 
@@ -101,8 +101,6 @@ bool vote(string name)
 
 
 
-
-    return false;
 }
 
 
