@@ -98,7 +98,7 @@ bool vote(string name) {
 
         // search for a name match e.g. "Ben"
         // if match found
-        if (strcmp (name, candidates[i].name)) {
+        if (strcmp (name, candidates[i].name) == 0) {
 
             // update their vote count
             candidates[i].votes ++;
