@@ -91,8 +91,7 @@ int main(int argc, string argv[])
 
 
 // Update vote totals given a new vote
-bool vote(string name)
-{
+bool vote(string name) {
 
     // loop through number of candidates
     for (int i = 0; i < candidate_count; i++) {
@@ -113,7 +112,6 @@ bool vote(string name)
             return false;
         }
     }
-    return false;
 }
 
 
