@@ -52,7 +52,7 @@ int main(int argc, string argv[])
     // ask user for number of votes participating
     int voter_count = get_int("Number of voters: ");
 
-    // Loop over all voters
+    // Loop through number of votes
     for (int i = 0; i < voter_count; i++)
     {
         string name = get_string("Vote: ");
@@ -67,6 +67,10 @@ int main(int argc, string argv[])
     // Display winner of election
     print_winner();
 }
+
+
+
+
 
 // Update vote totals given a new vote
 bool vote(string name)
@@ -107,8 +111,6 @@ bool vote(string name)
 void print_winner(void)
 {
     // TODO
-
-
 
     // search vote totals for each candidate
 
