@@ -32,7 +32,7 @@ int main(int argc, string argv[]) {
     }
 
     // prompt user for plaintext
-    string plaintext = get_string("Plain text: ");
+    string plaintext = get_string("plaintext: ");
 
     // initialise an array for the text_conversion function to store the ciphertext
     int arraylength = strlen(plaintext);
@@ -42,7 +42,7 @@ int main(int argc, string argv[]) {
     string ciphertext = text_conversion(plaintext, key, modifiedtext);
 
     // print ciphertext
-    printf("Cipher text: %s\n", ciphertext);
+    printf("ciphertext: %s\n", ciphertext);
     return 0;
 }
 
