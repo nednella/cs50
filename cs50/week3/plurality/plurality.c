@@ -67,20 +67,7 @@ int main(int argc, string argv[])
     }
 
     // Display winner of election
-    printf("\n");
-    printf("Winner: ");
     print_winner();
-
-
-
-    printf("\n");
-    printf("Poll summary:\n");
-
-    for (int i = 0; i < candidate_count; i++) {
-        printf("Candidate %s obtained %i votes\n", candidates[i].name, candidates[i].votes);
-    }
-
-
 }
 
 
@@ -123,7 +110,6 @@ void print_winner(void) {
 
             // update the value of highest_vote
             highest_vote = candidates[i].votes;
-            printf("%i\n", highest_vote);
         }
     }
 
