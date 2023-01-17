@@ -6,7 +6,7 @@
 
 // introduce prototype functions
 bool check_valid(string key);
-string text_conversion(string plaintext, string key, string ciphertext);
+string text_conversion(string plaintext, string key, string arraysize);
 
 
 
@@ -47,10 +47,10 @@ int main(int argc, string argv[]) {
 
     // initialise an array for the text_conversion function to store the ciphertext
     int arraylength = strlen(plaintext);
-    char ciphertext[arraylength + 1];
+    char arraysize[arraylength + 1];
 
     // convert plaintext to ciphertext
-    string newtext = text_conversion(plaintext, key, ciphertext);
+    string newtext = text_conversion(plaintext, key, arraysize);
 
 
 
@@ -119,16 +119,10 @@ bool check_valid(string key) {
 
 
 
-string text_conversion(string plaintext, string key, string ciphertext) {
+string text_conversion(string plaintext, string key, string arraysize) {
 
     // length of plaintext
     int arraylength = strlen(plaintext);
-
-    // create a character array of size equal to 'plaintext' to store the ciphered text, plus NULL value
-    //char ciphertext[arraylength + 1] = malloc(sizeof(ciphertext));
-
-    // allocate dynamic memory for the ciphertext array
-
 
     // convert plaintext to ciphertext
     for (int i = 0; i < arraylength; i++) {
