@@ -35,7 +35,34 @@ int compute_score(string word) {
 // characters that are non-alphabetical should be given a score of 0
 // alphabetical characters that are uppercase AND lowercase should be given the same point values
 
-    
+// initiate scores = 0;
+// take the word length
+// iterate through 0 -> word length
+    // for each character...
+        // if non-alphabetical, score 0
+        // else
+            // islower -> take ASCII value and -97 to get index score
+            // isupper -> take ASCII value and -65 to get index score
+            // scores += (POINTS[i])   - where [i] is character value, obtained from searching POINTS array with the index score
+// return score
+
+    // initate the points scoring
+    int score = 0;
+
+    // determine the word (string) length
+    int wordlength = strlen(word);
+
+    // iterate through the word length
+    for (int i = 0; i < wordlength < i++) {
+
+        // if character is non-alphabetical, score 0
+        if (!isalpha())
+    }
+
+
+
+
+
 
 
 }
