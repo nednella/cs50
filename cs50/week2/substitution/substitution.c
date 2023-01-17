@@ -39,7 +39,7 @@ int main(int argc, string argv[]) {
     char ciphertext[arraylength + 1];
 
     // convert plaintext to ciphertext
-    string ciphertext = text_conversion(plaintext, key, ciphertext);
+    ciphertext = text_conversion(plaintext, key, ciphertext);
 
 
 // ERROR HERE - array decay - local array declared inside function text_conversion ceases to exist once the function returns.
