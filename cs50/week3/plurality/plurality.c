@@ -57,7 +57,9 @@ int main(int argc, string argv[])
     {
         string name = get_string("Vote: ");
 
-        // Check for invalid vote
+        // Check for invalid vote - this will perform the function 'vote' on the supplied name
+        // if true, no prompt will be given, but the vote will STILL BE LOGGED
+        // if false, an error prompt will be given
         if (!vote(name))
         {
             printf("Invalid vote.\n");
@@ -65,11 +67,16 @@ int main(int argc, string argv[])
     }
 
     // Display winner of election
+    printf("\n");
+    printf("Winner: ");
     print_winner();
 
 
-    for (int i = 0; i < candidate_count; i++) {
 
+    printf("\n");
+    printf("Poll summary:\n");
+
+    for (int i = 0; i < candidate_count; i++) {
         printf("Candidate %s obtained %i votes\n", candidates[i].name, candidates[i].votes);
     }
 
@@ -92,7 +99,6 @@ bool vote(string name)
 
             // update their vote count
             candidates[i].votes++;
-            printf("Vote count updated.\n");
             return true;
         }
     }
@@ -104,8 +110,31 @@ bool vote(string name)
 
 
 // Print the winner (or winners) of the election
-void print_winner(void)
-{
-    // TODO
+void print_winner(void) {
+
+    // initialise the highest vote
+    int highest_vote = 0;
+
+    // loop through stored votes
+    for (int i = 0; i < candidate_count; i++) {
+
+        // if candidate[i]'s vote score is higher than the highest vote,
+        if (candidates[i].votes > highest_vote) {
+
+            // update the value of highest_vote
+            highest_vote = candidates[i].votes;
+            printf("%i\n", highest_vote);
+        }
+    }
+
+    // loop through the stored candidates
+    for (int i = 0; i < candidate_count; i++) {
+
+        // printf the names of the candidates who's votes match the highest vote (allows for multiple in case of tie)
+        if (candidates[i].votes == highest_vote) {
+
+            printf("%s\n", candidates[i].name);
+        }
+    }
     return;
 }
