@@ -38,18 +38,13 @@ int main(int argc, string argv[]) {
     string ciphertext = text_conversion(plaintext, key);
 
 
-
-
-
 // ERROR HERE - array decay - local array declared inside function text_conversion ceases to exist once the function returns.
 // need to find a way to combat this!
 
 
-
-
-
     // print ciphertext
     printf("Cipher text: %s\n", ciphertext);
+    free(ciphertext);
 }
 
 
@@ -114,7 +109,7 @@ string text_conversion(string plaintext, string key) {
     int arraylength = strlen(plaintext);
 
     // create a character array of size equal to 'plaintext' to store the ciphered text, plus NULL value
-    char ciphertext[arraylength + 1] //malloc(sizeof(ciphertext));
+    char ciphertext[arraylength + 1] malloc(sizeof(ciphertext));
 
     // allocate dynamic memory for the ciphertext array
 
