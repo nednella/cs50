@@ -113,7 +113,7 @@ string text_conversion(string plaintext, string key) {
     // length of plaintext
     int arraylength = strlen(plaintext);
 
-    // create a character array of size equal to 'plaintext' to store the ciphered text
+    // create a character array of size equal to 'plaintext' to store the ciphered text, plus NULL value
     char ciphertext[arraylength + 1];
 
     // convert plaintext to ciphertext
