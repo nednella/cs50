@@ -114,13 +114,6 @@ bool vote(string name) {
             printf("Vote count updated.\n");
             return true;
         }
-
-        // if match not found
-        else {
-            // return error
-            printf("Error: no match found.\n");
-            return false;
-        }
     }
     return false;
 }
