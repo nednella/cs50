@@ -73,6 +73,7 @@ int main(int argc, string argv[])
 
         else {
             vote(name); // add vote to the count
+            printf("Vote successful.\n");
         }
     }
 
@@ -102,6 +103,7 @@ bool vote(string name) {
 
             // update their vote count
             candidates[i].votes ++;
+            printf("Vote count updated.\n");
             return true;
         }
 
