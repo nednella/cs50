@@ -34,12 +34,25 @@ int main(int argc, string argv[]) {
     // prompt user for plaintext
     string plaintext = get_string("Plain text: ");
 
+
+
+
+
+
+
+
+
+
+
+
     // initialise an array for the text_conversion function to store the ciphertext
     int arraylength = strlen(plaintext);
     char ciphertext[arraylength + 1];
 
     // convert plaintext to ciphertext
     ciphertext = text_conversion(plaintext, key, ciphertext);
+
+
 
 
 // ERROR HERE - array decay - local array declared inside function text_conversion ceases to exist once the function returns.
