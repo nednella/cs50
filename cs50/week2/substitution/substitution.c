@@ -41,7 +41,7 @@ int main(int argc, string argv[]) {
 
 
 
-// ERROR HERE - array decay - local variable declared inside function text_conversion ceases to exist once the function returns.
+// ERROR HERE - array decay - local array declared inside function text_conversion ceases to exist once the function returns.
 // need to find a way to combat this!
 
 
