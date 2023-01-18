@@ -33,6 +33,10 @@ void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
 
+
+
+
+
 int main(int argc, string argv[])
 {
     // Check for invalid usage
