@@ -139,7 +139,16 @@ bool vote(int rank, string name, int ranks[])
 void record_preferences(int ranks[])
 {
     // TODO
-    
+    // iterate through each candidate
+    // outer loop handles row
+    for (int rank = 0; rank < candidate_count; rank++) {
+        // inner loop handles column
+        for (int col = rank + 1; col < candidate_count; col++) {
+            // record the preference for the given cell
+            preferences[ranks[rank]]
+        }
+    }
+
 
 
 
