@@ -59,7 +59,7 @@ int main(int argc, string argv[])
         candidates[i].eliminated = false;
     }
 
-    // Populate voter count with e
+    // Populate voter count
     voter_count = get_int("Number of voters: ");
     if (voter_count > MAX_VOTERS)
     {
@@ -67,7 +67,7 @@ int main(int argc, string argv[])
         return 3;
     }
 
-    // Keep querying for votes
+    // query each voter for their votes
     for (int i = 0; i < voter_count; i++)
     {
 
