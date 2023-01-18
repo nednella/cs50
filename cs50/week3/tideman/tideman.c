@@ -117,19 +117,12 @@ bool vote(int rank, string name, int ranks[])
         // check for a name match
         if (strcmp(candidates[i], name)) {
 
+            // update ranks array
+            ranks[i] = rank;
+            return true;
         }
     }
-
-
-
-
-
-
     return false;
-
-
-
-
 }
 
 
