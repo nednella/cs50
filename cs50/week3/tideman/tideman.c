@@ -95,7 +95,12 @@ int main(int argc, string argv[])
 
         record_preferences(ranks);
 
+
+
+
         printf("\n");
+
+
     }
 
     add_pairs();
@@ -134,6 +139,10 @@ bool vote(int rank, string name, int ranks[])
 void record_preferences(int ranks[])
 {
     // TODO
+
+
+
+
     return;
 }
 
