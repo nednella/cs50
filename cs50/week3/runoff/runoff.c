@@ -32,6 +32,10 @@ int find_min(void);
 bool is_tie(int min);
 void eliminate(int min);
 
+
+
+
+
 int main(int argc, string argv[])
 {
     // Check for invalid usage
@@ -55,6 +59,7 @@ int main(int argc, string argv[])
         candidates[i].eliminated = false;
     }
 
+    // Populate voter count with e
     voter_count = get_int("Number of voters: ");
     if (voter_count > MAX_VOTERS)
     {
