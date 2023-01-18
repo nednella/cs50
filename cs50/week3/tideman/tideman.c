@@ -107,7 +107,20 @@ int main(int argc, string argv[])
 // Update ranks given a new vote
 bool vote(int rank, string name, int ranks[])
 {
-    // TODO
+    // iterate through each candidate
+    for (int i = 0; i < candidate_count; i++) {
+
+        // check for a name match
+        if (strcmp(candidates[i], name)) {
+            
+        }
+    }
+
+
+
+
+
+
     return false;
 
 
