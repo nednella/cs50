@@ -141,18 +141,16 @@ void record_preferences(int ranks[])
     // TODO
     // iterate through each candidate
     // outer loop handles row
-    for (int rank = 0; rank < candidate_count; rank++) {
+    for (int row = 0; row < candidate_count; row++) {
+
         // inner loop handles column
         for (int col = rank + 1; col < candidate_count; col++) {
+
             // record the preference for the given cell
-            preferences[ranks[rank]]
+            preferences[ranks[row]][rank[col]] += 1;
+
         }
     }
-
-
-
-
-
     return;
 }
 
