@@ -100,6 +100,10 @@ int main(int argc, string argv[])
     return 0;
 }
 
+
+
+
+
 // Update ranks given a new vote
 bool vote(int rank, string name, int ranks[])
 {
@@ -108,8 +112,12 @@ bool vote(int rank, string name, int ranks[])
 
 
 
-    
+
 }
+
+
+
+
 
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
@@ -118,12 +126,20 @@ void record_preferences(int ranks[])
     return;
 }
 
+
+
+
+
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
     // TODO
     return;
 }
+
+
+
+
 
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
@@ -132,12 +148,20 @@ void sort_pairs(void)
     return;
 }
 
+
+
+
+
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
     // TODO
     return;
 }
+
+
+
+
 
 // Print the winner of the election
 void print_winner(void)
