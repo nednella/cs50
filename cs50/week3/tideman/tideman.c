@@ -105,6 +105,10 @@ bool vote(int rank, string name, int ranks[])
 {
     // TODO
     return false;
+
+
+
+    
 }
 
 // Update preferences given one voter's ranks
