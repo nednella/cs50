@@ -115,7 +115,7 @@ bool vote(int rank, string name, int ranks[])
     for (int i = 0; i < candidate_count; i++) {
 
         // check for a name match
-        if (strcmp(candidates[i], name)) {
+        if (strcmp(candidates[i], name) == 0) {
 
             // update ranks array
             ranks[i] = rank;
