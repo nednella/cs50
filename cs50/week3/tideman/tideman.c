@@ -2,6 +2,19 @@
 #include <stdio.h>
 #include <string.h>
 
+
+
+// fuck this one, boring concept moving onto week 4
+
+
+
+
+
+
+
+
+
+
 // Max number of candidates
 #define MAX 9
 
