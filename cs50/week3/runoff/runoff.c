@@ -141,7 +141,7 @@ bool vote(int voter, int rank, string name)
     for (int i = 0; i < candidate_count; i++) {
 
         // check for candidate name matches in the voters preferences
-        if (strcmp(candidates[i], name) ==0) {
+        if (strcmp(candidates[i].name, name) ==0) {
 
             // if match, record the vote
             preferences[voter][rank] = i;
