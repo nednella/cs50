@@ -232,12 +232,16 @@ int find_min(void) {
     // iterate through each candidate
     for (int i = 0; i < candidate_count; i++) {
 
-        // check if their vote tally is less than the current minimum number of votes
-        if (candidates[i].votes < min) {
+        // if candidate is NOT ELIMINATED
+        if (!(candidates[i].eliminated)) {
+            
+            // check if their vote tally is less than the current minimum number of votes
+            if (candidates[i].votes < min) {
 
-            // if true, overwrite current minimum
-            min = candidates[i].votes;
-            break;
+                // if true, overwrite current minimum
+                min = candidates[i].votes;
+                break;
+            }
         }
     }
 
