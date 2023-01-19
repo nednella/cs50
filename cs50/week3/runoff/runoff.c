@@ -201,14 +201,14 @@ void tabulate(void)
 bool print_winner(void)
 {
     // to win the election outright, a given candidate must have more than 50% of the votes
-    int min_win = vote_count / 2; // minimum number of votes required to win is equal to 50% of the voter population
+    int min_win = voter_count / 2; // minimum number of votes required to win is equal to 50% of the voter population
 
     // iterate through each candidate
     for (int i = 0; i < candidate_count; i++) {
 
         // check for candidate vote tally
         // if candidate votes > 50% of minimum value required to win
-        if ( candidate[i].votes > target) {
+        if ( candidate[i].votes > min_win) {
 
             // printf candidate wins
             printf("%s\n", candidate[i].name);
@@ -226,29 +226,29 @@ bool print_winner(void)
 int find_min(void) {
 
     // initialise value for minimum number of votes to be stored in
-    int min_vote = voter_count * candidate_count; // set equal to a value always >= to number max number of votes possible
+    int min = voter_count * candidate_count; // set equal to a value always >= to number max number of votes possible
                                                   // so that the real minimum will never exceed the initialised value
 
     // iterate through each candidate
     for (int i = 0; i < candidate_count; i++) {
 
         // check if their vote tally is less than the current minimum number of votes
-        if (candidates[i].votes < min_vote) {
+        if (candidates[i].votes < min) {
 
             // if true, overwrite current minimum
-            min_vote = candidates[i].votes;
+            min = candidates[i].votes;
             break;
         }
     }
 
     // if min vote remains unchanged (e.g., no candidates to compare with)
-    if (min_vote = voter_count * candidate_count) {
+    if (min = voter_count * candidate_count) {
 
         // return 0
         return 0;
     }
 
-    return min_vote;
+    return min;
 }
 
 
@@ -259,6 +259,16 @@ int find_min(void) {
 bool is_tie(int min)
 {
     // TODO
+    // iterate through each candidates votes
+    for (int i = 0; i < candidate_count; i++) {
+
+        // if the candidate[i].votes does not equal the minimum number of votes that a candidate has
+        // e.g., there are candidates who have different numbers of votes to one-another
+        if (!candidate[i].votes == min)
+    }
+
+
+
     return false;
 }
 
