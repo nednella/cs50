@@ -226,7 +226,9 @@ bool print_winner(void)
 int find_min(void) {
 
     // initialise value for minimum number of votes to be stored in
-    int min_vote = voter_count; // set equal to max possible value, so that the if check can compare with a less than sign
+    int min_vote = voter_count; // set equal to a value always >= to number of voters
+                                // so that the 'if' check will always find
+                                // a candidate's vote tally value lower than it
 
     // iterate through each candidate
     for (int i = 0; i < candidate_count; i++) {
@@ -239,6 +241,14 @@ int find_min(void) {
             break;
         }
     }
+
+    // if min vote remains unchanged (e.g., no candidates to compare with)
+    if (min_vote = voter_count) {
+
+        // return 0
+        return 0;
+    }
+
     return min_vote;
 }
 
