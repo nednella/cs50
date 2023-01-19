@@ -2,9 +2,20 @@ sort1 uses: TODO
 
 How do you know?: TODO
 
-sort2 uses: TODO
 
-How do you know?: TODO
+
+sort2 uses: MERGE
+
+How do you know?:
+1. Comparing times recorded for random5000 vs sorted5000 vs reversed5000 (and the same for the 10k and 50k sample size), they are approximately equal
+for the given sample size of each data type.
+
+2. the time taken to perform a sort on each data type with different sample sizes (5k, 10k, 50k) all increase linearly
+
+3. The above coincides with the fundamentals of the merge sort, where the organisation of the data itself plays no part in how effective the sort is,
+rather the time taken to complete the sort is purely dependent on the code.
+
+
 
 sort3 uses: TODO
 
