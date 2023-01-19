@@ -180,11 +180,12 @@ void tabulate(void)
             // index the value in the cell
             int index = preferences[i][j];
 
-            // if candidate at that cell is not eliminated
+            // if candidate that matches the value (index) in that cell is not eliminated,
             if (!candidates[index].eliminated) {
-                
+
                 // add vote to their count
                 candidate[index].votes++;
+                break;
             }
         }
     }
