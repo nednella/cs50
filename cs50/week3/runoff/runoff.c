@@ -201,6 +201,8 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
+    // to win the election outright, a given candidate must have more than 50% of the votes
+    int vote_count = 
     return false;
 }
 
