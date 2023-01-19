@@ -145,10 +145,9 @@ bool vote(int voter, int rank, string name)
 
             // if match, record the vote
             preferences[voter][rank] = i;
+            return true;
         }
     }
-
-
     return false;
 }
 
