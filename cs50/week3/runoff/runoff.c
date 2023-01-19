@@ -271,7 +271,8 @@ bool is_tie(int min)
         }
     }
 
-    else return true;
+    // if function hasn't already returned false, then it must be true
+    return true;
 }
 
 
