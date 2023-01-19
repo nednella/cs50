@@ -262,12 +262,17 @@ bool is_tie(int min)
     // iterate through each candidates votes
     for (int i = 0; i < candidate_count; i++) {
 
-        // if the candidate[i].votes does not equal the minimum number of votes that a candidate has
-        // e.g., there are candidates who have different numbers of votes to one-another
-        if (!(candidates[i].votes == min)) {
+        // iterate through the non-eliminated candidates
+        if (!candidates[i].eliminated) {
 
-            // if true, return false (no tie)
-            return false;
+            // if not eliminated
+            // check if candidates[i].votes is NOT equal to the minimum number of votes from find_min()
+            // e.g., there are candidates who have different numbers of votes to one-another
+            if (!(candidates[i].votes == min)) {
+
+                // if true, return false (no tie)
+                return false;
+            }
         }
     }
 
