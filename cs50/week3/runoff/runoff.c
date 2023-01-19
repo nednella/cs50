@@ -234,13 +234,12 @@ int find_min(void) {
 
         // if candidate is NOT ELIMINATED
         if (!(candidates[i].eliminated)) {
-            
+
             // check if their vote tally is less than the current minimum number of votes
             if (candidates[i].votes < min) {
 
                 // if true, overwrite current minimum
                 min = candidates[i].votes;
-                break;
             }
         }
     }
