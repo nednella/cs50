@@ -200,9 +200,16 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    // TODO
     // to win the election outright, a given candidate must have more than 50% of the votes
-    int vote_count = 
+    int min_win = vote_count / 2; // minimum number of votes required to win is equal to 50% of the voter population
+
+    // iterate through each candidate
+    for (int i = 0; i < candidate_count; i++) {
+
+        // iterate through each candidates vote tally
+        for (int v = 0; v < )
+
+    }
     return false;
 }
 
