@@ -223,10 +223,23 @@ bool print_winner(void)
 
 
 // Return the minimum number of votes any remaining candidate has
-int find_min(void)
-{
-    // TODO
-    return 0;
+int find_min(void) {
+
+    // initialise value for minimum number of votes to be stored in
+    int min_vote = voter_count; // set equal to max possible value, so that the if check can compare with a less than sign
+
+    // iterate through each candidate
+    for (int i = 0; i < candidate_count; i++) {
+
+        // check if their vote tally is less than the current minimum number of votes
+        if (candidates[i].votes < min_vote) {
+
+            // if true, overwrite current minimum
+            min_vote = candidates[i].votes;
+            break;
+        }
+    }
+    return min_vote;
 }
 
 
