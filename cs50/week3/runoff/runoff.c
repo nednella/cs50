@@ -264,12 +264,14 @@ bool is_tie(int min)
 
         // if the candidate[i].votes does not equal the minimum number of votes that a candidate has
         // e.g., there are candidates who have different numbers of votes to one-another
-        if (!candidate[i].votes == min)
+        if (!candidate[i].votes == min) {
+
+            // if true, return false (no tie)
+            return false;
+        }
     }
 
-
-
-    return false;
+    else return true;
 }
 
 
