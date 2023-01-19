@@ -177,8 +177,15 @@ void tabulate(void)
         // iterate through columns, j (candidates)
         for (int j = 0; j < candidate_count; j++) {
 
-            // search for candidate in each cell
-            if (!candidate[i])
+            // index the value in the cell
+            int index = preferences[i][j];
+
+            // if candidate at that cell is not eliminated
+            if (!candidates[index].eliminated) {
+                
+                // add vote to their count
+                candidate[index].votes++;
+            }
         }
     }
 
