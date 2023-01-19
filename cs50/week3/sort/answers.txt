@@ -24,4 +24,5 @@ sort3 uses: SELECTION
 
 How do you know?:
 unaffected by the data type, performs equally at all sample sizes regardless of being reversed, randomised or pre-sorted. The code is unable to
-leverage the fact that the data is already sorted, as is clear by comparing both sorted and reversed data sets to to randomised.
+leverage the fact that the data is already sorted, as is clear by comparing both sorted and reversed data sets to to randomised. The upper and lower bounds
+for the running times are equal across all data sets.
