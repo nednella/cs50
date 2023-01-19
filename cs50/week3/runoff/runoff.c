@@ -170,10 +170,21 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // TODO
+    // iterate through preferences[i][j] matrix and count number of votes
+    // iterate through rows, i (voters)
+    for (int i = 0; i < voter_count; i++) {
+
+        // iterate through columns, j (candidates)
+        for (int j = 0; j < candidate_count; j++) {
+
+            // search for candidate in each cell
+            if (!candidate[i])
+        }
+    }
 
 
 
-    
+
     return;
 }
 
