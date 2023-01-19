@@ -18,6 +18,8 @@ for the given sample size of each data type.
 3. The above coincides with the fundamentals of the merge sort, where the organisation of the data itself plays no part in how effective the sort is,
 rather the time taken to complete the sort is purely dependent on the code.
 
+4. The upper bound for the running time is clearly defined as O(n) for this sort, where the running time increases linearly with sample size.
+
 
 
 sort3 uses: SELECTION
