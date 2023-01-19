@@ -185,7 +185,7 @@ void tabulate(void)
             if (!candidates[index].eliminated) {
 
                 // add vote to their count
-                candidate[index].votes++;
+                candidate[index].votes ++;
                 break;
             }
         }
