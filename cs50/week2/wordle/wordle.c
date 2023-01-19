@@ -142,7 +142,7 @@ string get_guess(int wordsize)
         // prompt user for a guess
         guess = get_string("Input a %i-letter word: ", wordsize);
 
-        // store string length of guess for comparison
+        // store string length of guess for comparison to the wordsize of the game
         int guesslength = strlen(guess);
 
         // if guess is the correct length
