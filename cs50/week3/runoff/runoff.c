@@ -185,7 +185,7 @@ void tabulate(void)
             if (!candidates[index].eliminated) {
 
                 // add vote to their count
-                candidate[index].votes ++;
+                candidates[index].votes ++;
                 break;
             }
         }
@@ -208,10 +208,10 @@ bool print_winner(void)
 
         // check for candidate vote tally
         // if candidate votes > 50% of minimum value required to win
-        if ( candidate[i].votes > min_win) {
+        if ( candidates[i].votes > min_win) {
 
             // printf candidate wins
-            printf("%s\n", candidate[i].name);
+            printf("%s\n", candidates[i].name);
             return true;
         }
     }
@@ -242,7 +242,7 @@ int find_min(void) {
     }
 
     // if min vote remains unchanged (e.g., no candidates to compare with)
-    if (min = voter_count * candidate_count) {
+    if (min == voter_count * candidate_count) {
 
         // return 0
         return 0;
@@ -264,7 +264,7 @@ bool is_tie(int min)
 
         // if the candidate[i].votes does not equal the minimum number of votes that a candidate has
         // e.g., there are candidates who have different numbers of votes to one-another
-        if (!candidate[i].votes == min) {
+        if (!(candidates[i].votes == min)) {
 
             // if true, return false (no tie)
             return false;
