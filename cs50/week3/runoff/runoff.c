@@ -206,9 +206,14 @@ bool print_winner(void)
     // iterate through each candidate
     for (int i = 0; i < candidate_count; i++) {
 
-        // iterate through each candidates vote tally
-        for (int v = 0; v < )
+        // check for candidate vote tally
+        // if candidate votes > 50% of minimum value required to win
+        if ( candidate[i].votes > target) {
 
+            // printf candidate wins
+            printf("%s\n", candidate[i].name);
+            return true;
+        }
     }
     return false;
 }
