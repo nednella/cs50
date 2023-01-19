@@ -1,8 +1,9 @@
-sort1 uses: TODO
+sort1 uses: BUBBLE
 
 How do you know?:
 time taken to sort increases exponentially with increasing sample size, and is clearly affected by the data type (e.g., sorted was the fastest for all
-sample sizes, followed by reversed, followed by randomised)
+sample sizes, followed by reversed, followed by randomised). Bubble sort is able to leverage pre-sorted data, which is clear as the pre-sorted data
+was orders of magnitudes faster than the reversed and randomised data sets.
 
 
 
@@ -19,7 +20,8 @@ rather the time taken to complete the sort is purely dependent on the code.
 
 
 
-sort3 uses: TODO
+sort3 uses: SELECTION
 
 How do you know?:
-unaffected by the data type, performs equally at all sample sizes regardless of being reversed, randomised or pre-sorted
+unaffected by the data type, performs equally at all sample sizes regardless of being reversed, randomised or pre-sorted. The code is unable to
+leverage the fact that the data is already sorted, as is clear by comparing both sorted and reversed data sets to to randomised.
