@@ -8,11 +8,11 @@
 
 int main(void) {
 
-    float R = 255;
-    float  G = 243;
-    float B = 17;
+    double R = 255;
+  double  G = 243;
+    double B = 17;
 
-    float avgRGB = (float) ((R + G + B) / 3);
+    double avgRGB = (float) ((R + G + B) / 3);
     printf("%.2f\n", avgRGB);
 
     int gr = round(avgRGB);

@@ -14,9 +14,13 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         // iterate through the rows
         for (int j = 0; j < width; j++) {
 
-            // for each pixel, obtain the R G and B values, then take an average
+            // for each pixel, convert RGB values to doubles
+            float R = image[i][j].rgbtRed;
+            float G = image[i][j].rgbtGreen;
+            float B = image[i][j].rgbtBlue;
+            
             // use float for the average to account for decimals
-            float avgRGB = ((image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3);
+            float avgRGB = ((R + G + B) / 3);
             // to R G and B values to the rounded avg
             image[i][j].rgbtRed = round(avgRGB)
             image[i][j].rgbtGreen =
