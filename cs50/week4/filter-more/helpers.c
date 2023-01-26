@@ -89,21 +89,52 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++) {
 
             // store RGB values of all pixels within 3x3 of selected pixel, where pixel 5 is the current pixel [i][j]
-            RGBTRIPLE p1 = image[i - 1][j - 1];
-            RGBTRIPLE p2 = image[i - 1][j];
-            RGBTRIPLE p3 = image[i - 1][j + 1];
-            RGBTRIPLE p4 = image[i][j - 1];
-            RGBTRIPLE p5 = image[i][j];
-            RGBTRIPLE p6 = image[i][j + 1];
-            RGBTRIPLE p7 = image[i + 1][j - 1];
-            RGBTRIPLE p8 = image[i + 1][j];
-            RGBTRIPLE p9 = image[i + 1][j + 1];
+            // take average of all (up to 9) pixels' GREEN values
+            double p1r = image[i - 1][j - 1].rgbtRed;
+            double p2r = image[i - 1][j].rgbtRed;
+            double p3r = image[i - 1][j + 1].rgbtRed;
+            double p4r = image[i][j - 1].rgbtRed;
+            double p5r = image[i][j].rgbtRed;
+            double p6r = image[i][j + 1].rgbtRed;
+            double p7r = image[i + 1][j - 1].rgbtRed;
+            double p8r = image[i + 1][j].rgbtRed;
+            double p9r = image[i + 1][j + 1].rgbtRed;
 
-            // take average of all (up to 9) pixels' R values
-            
+            double avgR = ((p1r + p2r + p3r + p4r + p5r + p6r + p7r + p8r + p9r) / 9);
+            int newR = round(avgR);
 
+            // take average of all (up to 9) pixels' GREEN values
+            double p1g = image[i - 1][j - 1].rgbtGreen;
+            double p2g = image[i - 1][j].rgbtGreen;
+            double p3g = image[i - 1][j + 1].rgbtGreen;
+            double p4g = image[i][j - 1].rgbtGreen;
+            double p5g = image[i][j].rgbtGreen;
+            double p6g = image[i][j + 1].rgbtGreen;
+            double p7g = image[i + 1][j - 1].rgbtGreen;
+            double p8g = image[i + 1][j].rgbtGreen;
+            double p9g = image[i + 1][j + 1].rgbtGreen;
 
+            double avgG = ((p1g + p2g + p3g + p4g + p5g + p6g + p7g + p8g + p9g) / 9);
+            int newG = round(avgG);
 
+            // take average of all (up to 9) pixels' GREEN values
+            double p1b = image[i - 1][j - 1].rgbtBlue;
+            double p2b = image[i - 1][j].rgbtBlue;
+            double p3b = image[i - 1][j + 1].rgbtBlue;
+            double p4b = image[i][j - 1].rgbtBlue;
+            double p5b = image[i][j].rgbtGreen;
+            double p6b = image[i][j + 1].rgbtBlue;
+            double p7b = image[i + 1][j - 1].rgbtBlue;
+            double p8b = image[i + 1][j].rgbtBlue;
+            double p9b = image[i + 1][j + 1].rgbtBlue;
+
+            double avgB = ((p1b + p2b + p3b + p4b + p5b + p6b + p7b + p8b + p9b) / 9);
+            int newB = round(avgB);
+
+            // replace current pixel [i][j]'s RGB values with averaged value
+            image[i][j].rgbtRed = newR;
+            image[i][j].rgbtGreen = newG;
+            image[i][j].rgbtBblue = newB;
         }
     }
 
