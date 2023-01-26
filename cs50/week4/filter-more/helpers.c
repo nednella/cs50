@@ -99,7 +99,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             RGBTRIPLE p8 = image[i + 1][j];
             RGBTRIPLE p9 = image[i + 1][j + 1];
 
-            // take average of all (up to 9) pixels
+            // take average of all (up to 9) pixels' R values
             
 
 
