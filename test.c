@@ -8,9 +8,9 @@
 
 int main(void) {
 
-    int R = 255;
-    int G = 243;
-    int B = 17;
+    float R = 255;
+    float  G = 243;
+    float B = 17;
 
     float avgRGB = (float) ((R + G + B) / 3);
     printf("%.2f\n", avgRGB);
