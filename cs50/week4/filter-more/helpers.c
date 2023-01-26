@@ -88,6 +88,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         // iterate through the rows
         for (int j = 0; j < width; j++) {
 
+            // take RGB values of all pixels within 3x3 of [i][j], assuming pixels exist
+            if 
+
+
+
+
             // store RGB values of all pixels within 3x3 of selected pixel, where pixel 5 is the current pixel [i][j]
             // take average of all (up to 9) pixels' GREEN values
             double p1r = image[i - 1][j - 1].rgbtRed;
