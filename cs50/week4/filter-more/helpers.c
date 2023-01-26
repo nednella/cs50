@@ -49,12 +49,14 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     // for horizontal flip, only concerned with editing the pixels w.r.t. their column
+    // MUST only iterate over HALF of the columns, otherwise you swap the pixels' positions to reflected position
+    // and then swap them back to the original position
 
     // iterate through the columns
     for (int i = 0; i < height; i++) {
 
-        // iterate through the rows
-        for (int j = 0; j < width; j++) {
+        // iterate through HALF of the rows (to avoid keeping the original image)
+        for (int j = 0; j < width/2; j++) {
 
             // swap pixel in row i, column j, with pixel in row i, position width - 1 - j
             // store current pixels RGB values
@@ -67,7 +69,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             image[i][width - 1 - j] = tmp;
         }
     }
-
     return;
 }
 
@@ -78,6 +79,36 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    // using box blur method (blur each pixel according to the avg RGB values of its current 3x3 grid)
+    // in this case, want to interact with EVERY pixel, unlike horizontal reflect
+
+    // iterate through the columns
+    for (int i = 0; i < height; i++) {
+
+        // iterate through the rows
+        for (int j = 0; j < width; j++) {
+
+            // store RGB values of all pixels within 3x3 of selected pixel, where pixel 5 is the current pixel [i][j]
+            RGBTRIPLE p1 = image[i - 1][j - 1];
+            RGBTRIPLE p2 = image[i - 1][j];
+            RGBTRIPLE p3 = image[i - 1][j + 1];
+            RGBTRIPLE p4 = image[i][j - 1];
+            RGBTRIPLE p5 = image[i][j];
+            RGBTRIPLE p6 = image[i][j + 1];
+            RGBTRIPLE p7 = image[i + 1][j - 1];
+            RGBTRIPLE p8 = image[i + 1][j];
+            RGBTRIPLE p9 = image[i + 1][j + 1];
+
+            // take average of all (up to 9) pixels
+            
+
+
+
+        }
+    }
+
+
+
     return;
 }
 
