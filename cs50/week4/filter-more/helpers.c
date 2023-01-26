@@ -48,14 +48,23 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+    // for horizontal flip, only concerned with editing the pixels w.r.t. their column
+
     // iterate through the columns
     for (int i = 0; i < height; i++) {
 
         // iterate through the rows
         for (int j = 0; j < width; j++) {
 
-            // swap pixel in row i, position j, with pixel in 
+            // swap pixel in row i, column j, with pixel in row i, position width - 1 - j
+            // store current pixels RGB values
+            RGBTRIPLE tmp = image[i][j];
 
+            // swap the selected pixels RGB values with the pixels RGB values in position [i][width - 1 - j]
+            image[i][j] = image[i][width - 1 - j];
+
+            // swap the pixels RGB values in position [i][width - 1 - j] with the pixels values in the selected pixel [i][j]
+            image[i][width - 1 - j] = tmp;
         }
     }
 
