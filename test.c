@@ -12,7 +12,7 @@ int main(void) {
     int G = 243;
     int B = 17;
 
-    float avgRGB = ((R + G + B) / 3);
+    float avgRGB = (float) ((R + G + B) / 3);
     printf("%f\n", avgRGB);
 
     int gr = round(avgRGB);
