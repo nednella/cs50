@@ -4,7 +4,6 @@
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
-
     // for greyscale, R G and B values must ALL be equal to eachother (ranging between 0 and 255) to produce a shade of grey
     // use the average of the 3 values to obtain our greyscale value, e.g., gr = (R+G+B)/3
 
@@ -15,30 +14,19 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++) {
 
             // for each pixel, convert RGB values to doubles
-            float R = image[i][j].rgbtRed;
-            float G = image[i][j].rgbtGreen;
-            float B = image[i][j].rgbtBlue;
-            
-            // use float for the average to account for decimals
-            float avgRGB = ((R + G + B) / 3);
-            // to R G and B values to the rounded avg
-            image[i][j].rgbtRed = round(avgRGB)
-            image[i][j].rgbtGreen =
-            image[i][j].rgbtBlue =
+            double R = image[i][j].rgbtRed;
+            double G = image[i][j].rgbtGreen;
+            double B = image[i][j].rgbtBlue;
 
+            // take average of RGB values
+            double avgRGB = ((R + G + B) / 3);
 
-            // round to nearest int for greyscale value
-
+            // set RGB values to new, greyscale value
+            image[i][j].rgbtRed = round(avgRGB);
+            image[i][j].rgbtGreen = round(avgRGB);
+            image[i][j].rgbtBlue = round(avgRGB);
         }
     }
-
-
-
-
-
-
-
-
     // as a test, set every single pixel to BLACK rgbt[0, 0, 0]
     // iterate through the rows
     //for (int i = 0; i < height; i++) {
@@ -53,17 +41,31 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
+
+
+
+
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+    // for
+
     return;
 }
+
+
+
+
 
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     return;
 }
+
+
+
+
 
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
