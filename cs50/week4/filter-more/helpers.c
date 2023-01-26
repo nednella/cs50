@@ -3,21 +3,24 @@
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
+
+    // for greyscale, R G and B values must ALL be equal to eachother (ranging between 0 and 255) to produce a shade of grey
+    // use the average of the 3 values to obtain our greyscale value, e.g., gr = (R+G+B)/3
+
     // iterate through the columns
     for (int i = 0; i < height; i++) {
 
         // iterate through the rows
         for (int j = 0; j < width; j++) {
 
-            //
+            // for each pixel, obtain the R G and B values, then take an average
+            // use float for the average to account for decimals
+            float avgRGB = ((image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3)
+
+            // round to nearest int for greyscale value
 
         }
     }
-
-
-
-
-
 
 
 
