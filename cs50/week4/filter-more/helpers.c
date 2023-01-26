@@ -89,9 +89,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++) {
 
             // take RGB values of all pixels within 3x3 of [i][j], assuming pixels exist
-            // add pixels one at a time
+            // add pixels one at a time if they exist
 
-            
+
 
 
 
