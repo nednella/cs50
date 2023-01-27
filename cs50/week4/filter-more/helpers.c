@@ -72,13 +72,16 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // using box blur method (blur each pixel according to the avg RGB values of its current 3x3 grid)
     // in this case, want to interact with EVERY pixel in the image
 
-    // initialise copied image array and copy original image entirely
-    RGBTRIPLE copy[height][width];
+    // initialise copy array
+    RGBTRIPLE (*copy) = calloc(height, width * sizeof(RGBTRIPLE));
+    if (image == NULL) {
+        printf("Not enough memory to store blurred pixel data.\n");
+        return 1;
+    }
 
+    // fill copy array
     for (int i = 0; i < height; i++) {
-
         for (int j = 0; j < width; j++) {
-
             copy[i][j] = image[i][j];
         }
     }
@@ -106,7 +109,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int l = (j - 1); l <= (j + 1); j++) {
 
                     // check if pixel is within valid range of image
-                    
+
 
 
                     if ((k >= 0) && (k < height) && (l >= 0) && (l < width)) {
