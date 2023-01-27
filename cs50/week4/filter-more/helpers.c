@@ -72,21 +72,21 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // using box blur method (blur each pixel according to the avg RGB values of its current 3x3 grid)
     // in this case, want to interact with EVERY pixel in the image
 
-    // initialise temporary image array and copy original image into the array
-    RGBTRIPLE tmp[height][width];
+    // initialise copied image array and copy original image entirely
+    RGBTRIPLE copy[height][width];
 
     for (int i = 0; i < height; i++) {
 
         for (int j = 0; j < width; j++) {
 
-            tmp[i][j] = image[i][j];
+            copy[i][j] = image[i][j];
         }
     }
 
 
     // iterate through the columns
     for (int i = 0; i < height; i++) {
-
+        
         // iterate through the rows
         for (int j = 0; j < width; j++) {
 
@@ -101,9 +101,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             sum_pixel ++;
 
             // add the RGB values to the respective sum counters
-            sum_RGB[0] += image[i][j].rgbtRed;
-            sum_RGB[1] += image[i][j].rgbtGreen;
-            sum_RGB[2] += image[i][j].rgbtBlue;
+            sum_RGB[0] += copy[i][j].rgbtRed;
+            sum_RGB[1] += copy[i][j].rgbtGreen;
+            sum_RGB[2] += copy[i][j].rgbtBlue;
 
 
             // do the same for remaining pixels within 3x3 of [i][j], assuming they exist
@@ -119,9 +119,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                         // count pixel and RGB values
                         sum_pixel ++;
-                        sum_RGB[0] += image[i + k][j + l].rgbtRed; // note 3x3 is w.r.t. current pixel [i][j] so must sum i & k, j & l
-                        sum_RGB[1] += image[i + k][j + l].rgbtBlue;
-                        sum_RGB[2] += image[i + k][j + l].rgbtGreen;
+                        sum_RGB[0] += copy[i + k][j + l].rgbtRed; // note 3x3 is w.r.t. current pixel [i][j] so must sum i & k, j & l
+                        sum_RGB[1] += copy[i + k][j + l].rgbtBlue;
+                        sum_RGB[2] += copy[i + k][j + l].rgbtGreen;
                     }
 
                     else {
