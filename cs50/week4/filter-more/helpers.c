@@ -80,7 +80,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     // using box blur method (blur each pixel according to the avg RGB values of its current 3x3 grid)
-    // in this case, want to interact with EVERY pixel, unlike horizontal reflect
+    // in this case, want to interact with EVERY pixel in the image
 
     // initialise counters
     double sum_pixels = 0;
@@ -110,95 +110,21 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // do the same for remaining pixels within 3x3 of [i][j], assuming they exist
             // loop through 3x3 of [i][j] and check if valid
             // row iteration
-            for (k = i - 1; k <= i + 1; k++) {
+            for (int k = i - 1; k <= i + 1; k++) {
 
-                // row iteration
-                for (l = j - 1; l <= j + 1; j++) {
-                    
+                // column iteration
+                for (int l = j - 1; l <= j + 1; j++) {
+
+                    // check if pixel is within valid range of image
+                    if (k >= 0 && k < height && l >= 0 && l < width) {
+
+                        // count pixel and RGB values
+                        sum_pixels ++;
+                        sum_R += image[i + k][j + l].rgbtRed; // note 3x3 is w.r.t. current pixel [i][j] so must sum i & k, j & l
+                        sum_G += image[i + k][j + l].rgbtBlue;
+                        sum_B += image[i + k][j + l].rgbtGreen;
+                    }
                 }
-
-            }
-
-
-            // if upper left exists
-            if ((i - 1) >= 0 && (j - 1) >= 0) {
-
-                sum_pixels ++;
-
-                sum_R += image[i - 1][j - 1].rgbtRed;
-                sum_G += image[i - 1][j - 1].rgbtBlue;
-                sum_B += image[i - 1][j - 1].rgbtGreen;
-
-            }
-
-            // if upper middle exists
-            if ((i - 1) >= 0) {
-
-                sum_pixels ++;
-
-                sum_R += image[i - 1][j].rgbtRed;
-                sum_G += image[i - 1][j].rgbtBlue;
-                sum_B += image[i - 1][j].rgbtGreen;
-            }
-
-            // if upper right exists
-            if ((i - 1) >= 0 && (j + 1) < width) {
-
-                sum_pixels ++;
-
-                sum_R += image[i - 1][j + 1].rgbtRed;
-                sum_G += image[i - 1][j + 1].rgbtBlue;
-                sum_B += image[i - 1][j + 1].rgbtGreen;
-            }
-
-            // if middle left exists
-            if ((j - 1) >= 0) {
-
-                sum_pixels ++;
-
-                sum_R += image[i][j - 1].rgbtRed;
-                sum_G += image[i][j - 1].rgbtBlue;
-                sum_B += image[i][j - 1].rgbtGreen;
-            }
-
-            // if middle right exists
-            if ((j + 1) < width) {
-
-                sum_pixels ++;
-
-                sum_R += image[i][j + 1].rgbtRed;
-                sum_G += image[i][j + 1].rgbtBlue;
-                sum_B += image[i][j + 1].rgbtGreen;
-            }
-
-            // lower left
-            if ((i + 1) < height && (j - 1) >= 0) {
-
-                sum_pixels ++;
-
-                sum_R += image[i + 1][j - 1].rgbtRed;
-                sum_G += image[i + 1][j - 1].rgbtBlue;
-                sum_B += image[i + 1][j - 1].rgbtGreen;
-            }
-
-            // lower middle
-            if ((i + 1) < height) {
-
-                sum_pixels ++;
-
-                sum_R += image[i + 1][j].rgbtRed;
-                sum_G += image[i + 1][j].rgbtBlue;
-                sum_B += image[i + 1][j].rgbtGreen;
-            }
-
-            // lower right
-            if((i + 1) < height && (j + 1) < width) {
-
-                sum_pixels ++;
-
-                sum_R += image[i + 1][j + 1].rgbtRed;
-                sum_G += image[i + 1][j + 1].rgbtBlue;
-                sum_B += image[i + 1][j + 1].rgbtGreen;
             }
 
             // calculate average RGB values of the present pixels
@@ -212,9 +138,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtBlue = (avg_B);
         }
     }
-
-
-
     return;
 }
 
