@@ -1,6 +1,7 @@
 #include "helpers.h"
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -76,7 +77,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     RGBTRIPLE (*copy) = calloc(height, width * sizeof(RGBTRIPLE));
     if (image == NULL) {
         printf("Not enough memory to store blurred pixel data.\n");
-        return 1;
+        return;
     }
 
     // fill copy array
