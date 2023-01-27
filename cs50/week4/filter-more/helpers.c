@@ -124,17 +124,23 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             double avg_G = round(sum_RGB[1]/sum_pixel);
             double avg_B = round(sum_RGB[2]/sum_pixel);
 
-            // set temporary pixel [i][j]'s RGB values to average of the surrounding pixels
+            // set copy pixel [i][j]'s RGB values to average of the surrounding pixels
             copy[i][j].rgbtRed = (avg_R);
             copy[i][j].rgbtGreen = (avg_G);
             copy[i][j].rgbtBlue = (avg_B);
+        }
+    }
 
-            // replace temporary pixel[i][j] into original image
+    // swap in copied image (blurred pixels) to the real image
+    for (int i = 0; i < height; i++) {
+
+        for (int j = 0; j < width; j++) {
+
             image[i][j] = copy[i][j];
             image[i][j] = copy[i][j];
             image[i][j] = copy[i][j];
         }
-    }
+     }
     return;
 }
 
