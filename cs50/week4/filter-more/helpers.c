@@ -83,7 +83,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // in this case, want to interact with EVERY pixel in the image
 
     // initialise temporary image
-    RGBTRIPLE tmp[height][width];
+    RGBTRIPLE *tmp[height][width] = malloc(height*width*sizeof(BYTE));
 
     for (int i = 0; i < height; i++) {
 
