@@ -109,7 +109,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             // do the same for remaining pixels within 3x3 of [i][j], assuming they exist
             // loop through 3x3 of [i][j] and check if valid
-            for (k = i - 1; i - 1)
+            // row iteration
+            for (k = i - 1; k <= i + 1; k++) {
+
+                // row iteration
+                for (l = j - 1; l <= j + 1; j++) {
+                    
+                }
+
+            }
 
 
             // if upper left exists
