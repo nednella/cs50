@@ -94,32 +94,28 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             double sum_pixel = 0;
             double sum_RGB[] = {0, 0, 0};
 
-            // store selected pixel inside temporary image
-            //tmp[i][j] = image[i][j];
-
-
             // take RGB values of ALL pixels within 3x3 of [i][j], assuming pixels exist
 
             // for current pixel
             // count the pixel as present
             sum_pixel ++;
 
-            // add the RGB values to the respective counters
-            sum_RGB[0] += tmp[i][j].rgbtRed;
-            sum_RGB[1] += tmp[i][j].rgbtGreen;
-            sum_RGB[2] += tmp[i][j].rgbtBlue;
+            // add the RGB values to the respective sum counters
+            sum_RGB[0] += image[i][j].rgbtRed;
+            sum_RGB[1] += image[i][j].rgbtGreen;
+            sum_RGB[2] += image[i][j].rgbtBlue;
 
 
             // do the same for remaining pixels within 3x3 of [i][j], assuming they exist
             // loop through 3x3 of [i][j] and check if valid
             // row iteration
-            for (int k = i - 1; k <= i + 1; k++) {
+            for (int k = (i - 1); k <= (i + 1); k++) {
 
                 // column iteration
-                for (int l = j - 1; l <= j + 1; j++) {
+                for (int l = (j - 1); l <= (j + 1); j++) {
 
                     // check if pixel is within valid range of image
-                    if (k >= 0 && k < height && l >= 0 && l < width) {
+                    if ((k >= 0) && (k < height) && (l >= 0) && (l < width)) {
 
                         // count pixel and RGB values
                         sum_pixel ++;
