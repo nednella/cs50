@@ -108,9 +108,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                         // count pixel and RGB values
                         sum_pixel ++;
-                        sum_RGB[0] += copy[k][l].rgbtRed;
-                        sum_RGB[1] += copy[k][l].rgbtBlue;
-                        sum_RGB[2] += copy[k][l].rgbtGreen;
+                        sum_RGB[0] += image[k][l].rgbtRed;
+                        sum_RGB[1] += image[k][l].rgbtBlue;
+                        sum_RGB[2] += image[k][l].rgbtGreen;
                     }
 
                     else {
