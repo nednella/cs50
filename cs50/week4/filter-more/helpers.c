@@ -83,11 +83,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // in this case, want to interact with EVERY pixel, unlike horizontal reflect
 
     // initialise counters
-    int sum_pixels = 0;
+    double sum_pixels = 0;
 
-    int sum_red = 0;
-    int sum_green = 0;
-    int sum_blue = 0
+    double sum_red = 0;
+    double sum_green = 0;
+    double sum_blue = 0
 
     // iterate through the columns
     for (int i = 0; i < height; i++) {
@@ -99,26 +99,66 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // add pixels one at a time if they exist
 
             // upper left
-            if (image[i - 1][j - 1])
+            if (image[i - 1][j - 1]) {
+
+                // count the pixel as present
+                sum_pixels ++;
+
+                // add the RGB values to the respective counters
+                sum_red +=
+                sum_green +=
+                sum_blue +=
+
+            }
 
             // upper middle
-            if (image[i - 1][j])
+            if (image[i - 1][j]) {
+
+                sum_pixels ++;
+
+                sum_red +=
+                sum_green +=
+                sum_blue +=
+            }
 
             // upper right
-            if (image[i - 1][j + 1])
+            if (image[i - 1][j + 1]) {
+
+                sum_pixels ++;
+
+                sum_red +=
+                sum_green +=
+                sum_blue +=
+            }
 
             // middle left
-            if (image[i][j - 1])
+            if (image[i][j - 1]) {
+
+                sum_pixels ++;
+
+                sum_red +=
+                sum_green +=
+                sum_blue +=
+            }
+
+            // current pixel
+            
 
             // middle right
-            if (image[i][j + 1])
+            if (image[i][j + 1]) {
+
+                sum_pixels ++;
+
+                sum_red +=
+                sum_green +=
+                sum_blue +=
+            }
 
             // lower left
             if ([i + 1][j - 1])
 
             // lower middle
             if (image[i + 1][j])
-
 
             // lower right
             if(image[i + 1][j + 1])
