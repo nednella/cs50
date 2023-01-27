@@ -187,15 +187,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 
 
-
-
-
-
-
             // calculate average RGB values of the present pixels
-            double avg_R = round(sum_RGB[0]/sum_pixel);
-            double avg_G = round(sum_RGB[1]/sum_pixel);
-            double avg_B = round(sum_RGB[2]/sum_pixel);
+            int avg_R = round(sum_RGB[0]/sum_pixel);
+            int avg_G = round(sum_RGB[1]/sum_pixel);
+            int avg_B = round(sum_RGB[2]/sum_pixel);
 
             // set COPY IMAGE pixel [i][j]'s RGB values to average of the surrounding pixels
             copy[i][j].rgbtRed = (avg_R);
