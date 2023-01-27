@@ -80,7 +80,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // fill copy array
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            copy[i][j] = image[i][j];
+            copy[i][j].rgbtRed = image[i][j].rgbtRed;
+            copy[i][j].rgbtGreen = image[i][j].rgbtGreen;
+            copy[i][j].rgbtBlue = image[i][j].rgbtBlue;
         }
     }
 
@@ -94,10 +96,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // initialise counters (inside of loop so they are reset for each pixel!)
             double sum_pixel = 0;
             double sum_RGB[] = {0, 0, 0};
-
-
-
-
 
             // loop through 3x3 of [i][j] and check if valid
             // row iteration
@@ -122,7 +120,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-
             // calculate average RGB values of the present pixels
             int avg_R = round(sum_RGB[0]/sum_pixel);
             int avg_G = round(sum_RGB[1]/sum_pixel);
@@ -132,18 +129,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j].rgbtRed = (avg_R);
             copy[i][j].rgbtGreen = (avg_G);
             copy[i][j].rgbtBlue = (avg_B);
-
-
         }
     }
 
     // swap in copied image (blurred pixels) to the real image
     for (int i = 0; i < height; i++) {
-
         for (int j = 0; j < width; j++) {
-
             image[i][j] = copy[i][j];
-
         }
     }
     return;
