@@ -98,9 +98,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             // current pixel
             sum_pixel ++;
-            sumRGB[0] += image[i][j].rgbtRed;
-            sumRGB[1] += image[i][j].rgbtGreen;
-            sumRGB[2] += image[i][j].rgbtBlue;
+            sum_RGB[0] += image[i][j].rgbtRed;
+            sum_RGB[1] += image[i][j].rgbtGreen;
+            sum_RGB[2] += image[i][j].rgbtBlue;
 
             // if upper left exists
             if ((i - 1) >= 0 && (j - 1) >= 0) {
