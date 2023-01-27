@@ -95,7 +95,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             double sum_pixels = 0;
             double sum_RGB[] = {0, 0, 0};
 
-            // store selected pixel inside temporary image 
+            // store selected pixel inside temporary image
             tmp[i][j] = image[i][j];
 
 
@@ -106,9 +106,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             sum_pixels ++;
 
             // add the RGB values to the respective counters
-            sumRGB[0] += image[i][j].rgbtRed;
-            sumRGB[1] += image[i][j].rgbtGreen;
-            sumRGB[2] += image[i][j].rgbtBlue;
+            sum_RGB[0] += image[i][j].rgbtRed;
+            sum_RGB[1] += image[i][j].rgbtGreen;
+            sum_RGB[2] += image[i][j].rgbtBlue;
 
 
             // do the same for remaining pixels within 3x3 of [i][j], assuming they exist
@@ -124,22 +124,27 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                         // count pixel and RGB values
                         sum_pixels ++;
-                        sumRGB[0] += image[i + k][j + l].rgbtRed; // note 3x3 is w.r.t. current pixel [i][j] so must sum i & k, j & l
-                        sumRGB[1] += image[i + k][j + l].rgbtBlue;
-                        sumRGB[2] += image[i + k][j + l].rgbtGreen;
+                        sum_RGB[0] += image[i + k][j + l].rgbtRed; // note 3x3 is w.r.t. current pixel [i][j] so must sum i & k, j & l
+                        sum_RGB[1] += image[i + k][j + l].rgbtBlue;
+                        sum_RGB[2] += image[i + k][j + l].rgbtGreen;
                     }
                 }
             }
 
             // calculate average RGB values of the present pixels
-            double avg_R = round(sumRGB[0]/sum_pixels);
-            double avg_G = round(sumRGB[1]/sum_pixels);
-            double avg_B = round(sumRGB[2]/sum_pixels);
+            double avg_R = round(sum_RGB[0]/sum_pixels);
+            double avg_G = round(sum_RGB[1]/sum_pixels);
+            double avg_B = round(sum_RGB[2]/sum_pixels);
 
-            // set current pixel [i][j]'s RGB values to average of the surrounding pixels
-            image[i][j].rgbtRed = (avg_R);
-            image[i][j].rgbtGreen = (avg_G);
-            image[i][j].rgbtBlue = (avg_B);
+            // set temporary pixel [i][j]'s RGB values to average of the surrounding pixels
+            tmp[i][j].rgbtRed = (avg_R);
+            tmp[i][j].rgbtGreen = (avg_G);
+            tmp[i][j].rgbtBlue = (avg_B);
+
+            // replace temporary pixel[i][j] into original image
+            image[i][j].rgbtRed = tmp[i][j].rgbtRed;
+            image[i][j].rgbtGreen = tmp[i][j].rgbtGreen;
+            image[i][j].rgbtBlue = tmp[i][j].rgbtBlue;
         }
     }
     return;
