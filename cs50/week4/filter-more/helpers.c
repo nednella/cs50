@@ -87,7 +87,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     double sum_red = 0;
     double sum_green = 0;
-    double sum_blue = 0
+    double sum_blue = 0;
 
     // iterate through the columns
     for (int i = 0; i < height; i++) {
@@ -102,22 +102,20 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             sum_pixels ++;
 
             // add the RGB values to the respective counters
-            sum_red += image[i][j].rgbtRed;
-            sum_green += image[i][j].rgbtGreen;
-            sum_blue += image[i][j].rgbtBlue;
+            sum_R += image[i][j].rgbtRed;
+            sum_G += image[i][j].rgbtGreen;
+            sum_B += image[i][j].rgbtBlue;
 
 
             // add remaining 3x3 pixels one at a time if they exist
             // upper left
             if (image[i - 1][j - 1]) {
 
-                // count the pixel as present
                 sum_pixels ++;
 
-                // add the RGB values to the respective counters
-                sum_red += image[i - 1][j - 1].rgbtRed;
-                sum_green += image[i - 1][j - 1].rgbtBlue;
-                sum_blue += image[i - 1][j - 1].rgbtGreen;
+                sum_R += image[i - 1][j - 1].rgbtRed;
+                sum_G += image[i - 1][j - 1].rgbtBlue;
+                sum_B += image[i - 1][j - 1].rgbtGreen;
 
             }
 
@@ -126,9 +124,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 sum_pixels ++;
 
-                sum_red += image[i - 1][j].rgbtRed;
-                sum_green += image[i - 1][j].rgbtBlue;
-                sum_blue += image[i - 1][j].rgbtGreen;
+                sum_R += image[i - 1][j].rgbtRed;
+                sum_G += image[i - 1][j].rgbtBlue;
+                sum_B += image[i - 1][j].rgbtGreen;
             }
 
             // upper right
@@ -136,9 +134,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 sum_pixels ++;
 
-                sum_red += image[i - 1][j + 1].rgbtRed;
-                sum_green += image[i - 1][j + 1].rgbtBlue;
-                sum_blue += image[i - 1][j + 1].rgbtGreen;
+                sum_R += image[i - 1][j + 1].rgbtRed;
+                sum_G += image[i - 1][j + 1].rgbtBlue;
+                sum_B += image[i - 1][j + 1].rgbtGreen;
             }
 
             // middle left
@@ -146,9 +144,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 sum_pixels ++;
 
-                sum_red += image[i][j - 1].rgbtRed;
-                sum_green += image[i][j - 1].rgbtBlue;
-                sum_blue += image[i][j - 1].rgbtGreen;
+                sum_R += image[i][j - 1].rgbtRed;
+                sum_G += image[i][j - 1].rgbtBlue;
+                sum_B += image[i][j - 1].rgbtGreen;
             }
 
             // middle right
@@ -156,9 +154,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 sum_pixels ++;
 
-                sum_red += image[i][j + 1].rgbtRed;
-                sum_green += image[i][j + 1].rgbtBlue;
-                sum_blue += image[i][j + 1].rgbtGreen;
+                sum_R += image[i][j + 1].rgbtRed;
+                sum_G += image[i][j + 1].rgbtBlue;
+                sum_B += image[i][j + 1].rgbtGreen;
             }
 
             // lower left
@@ -166,9 +164,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 sum_pixels ++;
 
-                sum_red += image[i + 1][j - 1].rgbtRed;
-                sum_green += image[i + 1][j - 1].rgbtBlue;
-                sum_blue += image[i + 1][j - 1].rgbtGreen;
+                sum_R += image[i + 1][j - 1].rgbtRed;
+                sum_G += image[i + 1][j - 1].rgbtBlue;
+                sum_B += image[i + 1][j - 1].rgbtGreen;
             }
 
             // lower middle
@@ -176,9 +174,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 sum_pixels ++;
 
-                sum_red += image[i + 1][j].rgbtRed;
-                sum_green += image[i + 1][j].rgbtBlue;
-                sum_blue += image[i + 1][j].rgbtGreen;
+                sum_R += image[i + 1][j].rgbtRed;
+                sum_G += image[i + 1][j].rgbtBlue;
+                sum_B += image[i + 1][j].rgbtGreen;
             }
 
             // lower right
@@ -186,62 +184,20 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 sum_pixels ++;
 
-                sum_red += image[i + 1][j + 1].rgbtRed;
-                sum_green += image[i + 1][j + 1].rgbtBlue;
-                sum_blue += image[i + 1][j + 1].rgbtGreen;
+                sum_R += image[i + 1][j + 1].rgbtRed;
+                sum_G += image[i + 1][j + 1].rgbtBlue;
+                sum_B += image[i + 1][j + 1].rgbtGreen;
             }
 
+            // calculate average RGB values of the present pixels
+            double avg_R = (sum_R/sum_pixels);
+            double avg_G = (sum_G/sum_pixels);
+            double avg_B = (sum_B/sum_pixels);
 
-
-
-
-            // store RGB values of all pixels within 3x3 of selected pixel, where pixel 5 is the current pixel [i][j]
-            // take average of all (up to 9) pixels' GREEN values
-            double p1r = image[i - 1][j - 1].rgbtRed;
-            double p2r = image[i - 1][j].rgbtRed;
-            double p3r = image[i - 1][j + 1].rgbtRed;
-            double p4r = image[i][j - 1].rgbtRed;
-            double p5r = image[i][j].rgbtRed;
-            double p6r = image[i][j + 1].rgbtRed;
-            double p7r = image[i + 1][j - 1].rgbtRed;
-            double p8r = image[i + 1][j].rgbtRed;
-            double p9r = image[i + 1][j + 1].rgbtRed;
-
-            double avgR = ((p1r + p2r + p3r + p4r + p5r + p6r + p7r + p8r + p9r) / 9);
-            int newR = round(avgR);
-
-            // take average of all (up to 9) pixels' GREEN values
-            double p1g = image[i - 1][j - 1].rgbtGreen;
-            double p2g = image[i - 1][j].rgbtGreen;
-            double p3g = image[i - 1][j + 1].rgbtGreen;
-            double p4g = image[i][j - 1].rgbtGreen;
-            double p5g = image[i][j].rgbtGreen;
-            double p6g = image[i][j + 1].rgbtGreen;
-            double p7g = image[i + 1][j - 1].rgbtGreen;
-            double p8g = image[i + 1][j].rgbtGreen;
-            double p9g = image[i + 1][j + 1].rgbtGreen;
-
-            double avgG = ((p1g + p2g + p3g + p4g + p5g + p6g + p7g + p8g + p9g) / 9);
-            int newG = round(avgG);
-
-            // take average of all (up to 9) pixels' GREEN values
-            double p1b = image[i - 1][j - 1].rgbtBlue;
-            double p2b = image[i - 1][j].rgbtBlue;
-            double p3b = image[i - 1][j + 1].rgbtBlue;
-            double p4b = image[i][j - 1].rgbtBlue;
-            double p5b = image[i][j].rgbtGreen;
-            double p6b = image[i][j + 1].rgbtBlue;
-            double p7b = image[i + 1][j - 1].rgbtBlue;
-            double p8b = image[i + 1][j].rgbtBlue;
-            double p9b = image[i + 1][j + 1].rgbtBlue;
-
-            double avgB = ((p1b + p2b + p3b + p4b + p5b + p6b + p7b + p8b + p9b) / 9);
-            int newB = round(avgB);
-
-            // replace current pixel [i][j]'s RGB values with averaged value
-            image[i][j].rgbtRed = newR;
-            image[i][j].rgbtGreen = newG;
-            image[i][j].rgbtBblue = newB;
+            // set current pixel [i][j]'s RGB values to average of the surrounding pixels
+            image[i][j].rgbtRed = avg_R;
+            image[i][j].rgbtGreen = avg_G;
+            image[i][j].rgbtBlue = avg_B;
         }
     }
 
