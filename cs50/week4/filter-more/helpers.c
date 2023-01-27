@@ -84,10 +84,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     // initialise counters
     double sum_pixels = 0;
-
-    double sum_R = 0;
-    double sum_G = 0;
-    double sum_B = 0;
+    double sum_RGB[] = {0, 0, 0};
 
     // iterate through the columns
     for (int i = 0; i < height; i++) {
@@ -102,9 +99,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             sum_pixels ++;
 
             // add the RGB values to the respective counters
-            sum_R += image[i][j].rgbtRed;
-            sum_G += image[i][j].rgbtGreen;
-            sum_B += image[i][j].rgbtBlue;
+            sumRGB[0] += image[i][j].rgbtRed;
+            sumRGB[1] += image[i][j].rgbtGreen;
+            sumRGB[2] += image[i][j].rgbtBlue;
 
 
             // do the same for remaining pixels within 3x3 of [i][j], assuming they exist
@@ -120,9 +117,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                         // count pixel and RGB values
                         sum_pixels ++;
-                        sum_R += image[i + k][j + l].rgbtRed; // note 3x3 is w.r.t. current pixel [i][j] so must sum i & k, j & l
-                        sum_G += image[i + k][j + l].rgbtBlue;
-                        sum_B += image[i + k][j + l].rgbtGreen;
+                        sumRGB[0] += image[i + k][j + l].rgbtRed; // note 3x3 is w.r.t. current pixel [i][j] so must sum i & k, j & l
+                        sumRGB[1] += image[i + k][j + l].rgbtBlue;
+                        sumRGB[2] += image[i + k][j + l].rgbtGreen;
                     }
                 }
             }
