@@ -96,9 +96,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             // take RGB values of ALL pixels within 3x3 of [i][j], assuming pixels exist
 
+            // current pixel
+            sum_pixel ++;
+            sumRGB[0] += image[i][j].rgbtRed;
+            sumRGB[1] += image[i][j].rgbtGreen;
+            sumRGB[2] += image[i][j].rgbtBlue;
 
-
-                // if upper left exists
+            // if upper left exists
             if ((i - 1) >= 0 && (j - 1) >= 0) {
 
                 sum_pixel ++;
@@ -112,77 +116,72 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // if upper middle exists
             if ((i - 1) >= 0) {
 
-                sum_pixels ++;
+                sum_pixel ++;
 
-                sum_R += image[i - 1][j].rgbtRed;
-                sum_G += image[i - 1][j].rgbtBlue;
-                sum_B += image[i - 1][j].rgbtGreen;
+                sum_RGB[0] += image[i - 1][j].rgbtRed;
+                sum_RGB[1] += image[i - 1][j].rgbtBlue;
+                sum_RGB[2] += image[i - 1][j].rgbtGreen;
             }
 
             // if upper right exists
             if ((i - 1) >= 0 && (j + 1) < width) {
 
-                sum_pixels ++;
+                sum_pixel ++;
 
-                sum_R += image[i - 1][j + 1].rgbtRed;
-                sum_G += image[i - 1][j + 1].rgbtBlue;
-                sum_B += image[i - 1][j + 1].rgbtGreen;
+                sum_RGB[0] += image[i - 1][j + 1].rgbtRed;
+                sum_RGB[1] += image[i - 1][j + 1].rgbtBlue;
+                sum_RGB[2] += image[i - 1][j + 1].rgbtGreen;
             }
 
             // if middle left exists
             if ((j - 1) >= 0) {
 
-                sum_pixels ++;
+                sum_pixel ++;
 
-                sum_R += image[i][j - 1].rgbtRed;
-                sum_G += image[i][j - 1].rgbtBlue;
-                sum_B += image[i][j - 1].rgbtGreen;
+                sum_RGB[0] += image[i][j - 1].rgbtRed;
+                sum_RGB[1] += image[i][j - 1].rgbtBlue;
+                sum_RGB[2] += image[i][j - 1].rgbtGreen;
             }
 
             // if middle right exists
             if ((j + 1) < width) {
 
-                sum_pixels ++;
+                sum_pixel ++;
 
-                sum_R += image[i][j + 1].rgbtRed;
-                sum_G += image[i][j + 1].rgbtBlue;
-                sum_B += image[i][j + 1].rgbtGreen;
+                sum_RGB[0] += image[i][j + 1].rgbtRed;
+                sum_RGB[1] += image[i][j + 1].rgbtBlue;
+                sum_RGB[2] += image[i][j + 1].rgbtGreen;
             }
 
             // lower left
             if ((i + 1) < height && (j - 1) >= 0) {
 
-                sum_pixels ++;
+                sum_pixel ++;
 
-                sum_R += image[i + 1][j - 1].rgbtRed;
-                sum_G += image[i + 1][j - 1].rgbtBlue;
-                sum_B += image[i + 1][j - 1].rgbtGreen;
+                sum_RGB[0] += image[i + 1][j - 1].rgbtRed;
+                sum_RGB[1] += image[i + 1][j - 1].rgbtBlue;
+                sum_RGB[2] += image[i + 1][j - 1].rgbtGreen;
             }
 
             // lower middle
             if ((i + 1) < height) {
 
-                sum_pixels ++;
+                sum_pixel ++;
 
-                sum_R += image[i + 1][j].rgbtRed;
-                sum_G += image[i + 1][j].rgbtBlue;
-                sum_B += image[i + 1][j].rgbtGreen;
+                sum_RGB[0] += image[i + 1][j].rgbtRed;
+                sum_RGB[1] += image[i + 1][j].rgbtBlue;
+                sum_RGB[2] += image[i + 1][j].rgbtGreen;
             }
 
             // lower right
             if((i + 1) < height && (j + 1) < width) {
 
-                sum_pixels ++;
+                sum_pixel ++;
 
-                sum_R += image[i + 1][j + 1].rgbtRed;
-                sum_G += image[i + 1][j + 1].rgbtBlue;
-                sum_B += image[i + 1][j + 1].rgbtGreen;
+                sum_RGB[0] += image[i + 1][j + 1].rgbtRed;
+                sum_RGB[1] += image[i + 1][j + 1].rgbtBlue;
+                sum_RGB[2] += image[i + 1][j + 1].rgbtGreen;
             }
-
-
-
-
-
 
 
 
