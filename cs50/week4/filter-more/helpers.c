@@ -85,9 +85,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // initialise counters
     double sum_pixels = 0;
 
-    double sum_red = 0;
-    double sum_green = 0;
-    double sum_blue = 0;
+    double sum_R = 0;
+    double sum_G = 0;
+    double sum_B = 0;
 
     // iterate through the columns
     for (int i = 0; i < height; i++) {
