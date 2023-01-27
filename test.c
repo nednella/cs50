@@ -32,6 +32,44 @@ int main(void) {
 
 
 
+
+
+            // loop through 3x3 of [i][j] and check if valid
+            // row iteration
+            for (int k = (i - 1); k <= (i + 1); k++) {
+
+                // column iteration
+                for (int l = (j - 1); l <= (j + 1); j++) {
+
+                    // check if pixel is within valid range of image
+                    if ((k >= 0) && (k < height) && (l >= 0) && (l < width)) {
+
+                        // count pixel and RGB values (from the ORIGINAL IMAGE)
+                        sum_pixel ++;
+                        sum_RGB[0] += image[k][l].rgbtRed;
+                        sum_RGB[1] += image[k][l].rgbtBlue;
+                        sum_RGB[2] += image[k][l].rgbtGreen;
+                    }
+
+                    else {
+                        continue;
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 // if upper left exists
             if ((i - 1) >= 0 && (j - 1) >= 0) {
 
