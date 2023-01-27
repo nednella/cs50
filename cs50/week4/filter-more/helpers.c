@@ -94,94 +94,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             double sum_pixel = 0;
             double sum_RGB[] = {0, 0, 0};
 
-            // take RGB values of ALL pixels within 3x3 of [i][j], assuming pixels exist
-
-            // current pixel
-            sum_pixel ++;
-            sum_RGB[0] += image[i][j].rgbtRed;
-            sum_RGB[1] += image[i][j].rgbtGreen;
-            sum_RGB[2] += image[i][j].rgbtBlue;
-
-            // if upper left exists
-            if ((i - 1) >= 0 && (j - 1) >= 0) {
-
-                sum_pixel ++;
-
-                sum_RGB[0] += image[i - 1][j - 1].rgbtRed;
-                sum_RGB[1] += image[i - 1][j - 1].rgbtBlue;
-                sum_RGB[2] += image[i - 1][j - 1].rgbtGreen;
-
-            }
-
-            // if upper middle exists
-            if ((i - 1) >= 0) {
-
-                sum_pixel ++;
-
-                sum_RGB[0] += image[i - 1][j].rgbtRed;
-                sum_RGB[1] += image[i - 1][j].rgbtBlue;
-                sum_RGB[2] += image[i - 1][j].rgbtGreen;
-            }
-
-            // if upper right exists
-            if ((i - 1) >= 0 && (j + 1) < width) {
-
-                sum_pixel ++;
-
-                sum_RGB[0] += image[i - 1][j + 1].rgbtRed;
-                sum_RGB[1] += image[i - 1][j + 1].rgbtBlue;
-                sum_RGB[2] += image[i - 1][j + 1].rgbtGreen;
-            }
-
-            // if middle left exists
-            if ((j - 1) >= 0) {
-
-                sum_pixel ++;
-
-                sum_RGB[0] += image[i][j - 1].rgbtRed;
-                sum_RGB[1] += image[i][j - 1].rgbtBlue;
-                sum_RGB[2] += image[i][j - 1].rgbtGreen;
-            }
-
-            // if middle right exists
-            if ((j + 1) < width) {
-
-                sum_pixel ++;
-
-                sum_RGB[0] += image[i][j + 1].rgbtRed;
-                sum_RGB[1] += image[i][j + 1].rgbtBlue;
-                sum_RGB[2] += image[i][j + 1].rgbtGreen;
-            }
-
-            // lower left
-            if ((i + 1) < height && (j - 1) >= 0) {
-
-                sum_pixel ++;
-
-                sum_RGB[0] += image[i + 1][j - 1].rgbtRed;
-                sum_RGB[1] += image[i + 1][j - 1].rgbtBlue;
-                sum_RGB[2] += image[i + 1][j - 1].rgbtGreen;
-            }
-
-            // lower middle
-            if ((i + 1) < height) {
-
-                sum_pixel ++;
-
-                sum_RGB[0] += image[i + 1][j].rgbtRed;
-                sum_RGB[1] += image[i + 1][j].rgbtBlue;
-                sum_RGB[2] += image[i + 1][j].rgbtGreen;
-            }
-
-            // lower right
-            if((i + 1) < height && (j + 1) < width) {
-
-                sum_pixel ++;
-
-                sum_RGB[0] += image[i + 1][j + 1].rgbtRed;
-                sum_RGB[1] += image[i + 1][j + 1].rgbtBlue;
-                sum_RGB[2] += image[i + 1][j + 1].rgbtGreen;
-            }
 
 
 
@@ -197,7 +109,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j].rgbtGreen = (avg_G);
             copy[i][j].rgbtBlue = (avg_B);
 
-            
+
         }
     }
 
