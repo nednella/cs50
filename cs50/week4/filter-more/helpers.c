@@ -108,8 +108,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 
             // add remaining 3x3 pixels one at a time if they exist
-            // upper left
-            if (image[i - 1][j - 1]) {
+            // if upper left exists
+            if ((i - 1) >= 0 && (j - 1) >= 0) {
 
                 sum_pixels ++;
 
@@ -119,8 +119,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             }
 
-            // upper middle
-            if (image[i - 1][j]) {
+            // if upper middle exists
+            if ((i - 1) >= 0) {
 
                 sum_pixels ++;
 
@@ -129,8 +129,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 sum_B += image[i - 1][j].rgbtGreen;
             }
 
-            // upper right
-            if (image[i - 1][j + 1]) {
+            // if upper right exists
+            if ((i - 1) >= 0 && (j + 1) < width) {
 
                 sum_pixels ++;
 
@@ -139,8 +139,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 sum_B += image[i - 1][j + 1].rgbtGreen;
             }
 
-            // middle left
-            if (image[i][j - 1]) {
+            // if middle left exists
+            if ((j - 1) >= 0) {
 
                 sum_pixels ++;
 
@@ -149,8 +149,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 sum_B += image[i][j - 1].rgbtGreen;
             }
 
-            // middle right
-            if (image[i][j + 1]) {
+            // if middle right exists
+            if ((j + 1) < width) {
 
                 sum_pixels ++;
 
@@ -160,7 +160,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
 
             // lower left
-            if (image[i + 1][j - 1]) {
+            if ((i + 1) < height && (j - 1) >= 0) {
 
                 sum_pixels ++;
 
@@ -170,7 +170,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
 
             // lower middle
-            if (image[i + 1][j]) {
+            if ((i + 1) < height) {
 
                 sum_pixels ++;
 
@@ -180,7 +180,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
 
             // lower right
-            if(image[i + 1][j + 1]) {
+            if((i + 1) < height && (j + 1) < width) {
 
                 sum_pixels ++;
 
