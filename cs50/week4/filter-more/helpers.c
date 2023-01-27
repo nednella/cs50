@@ -106,7 +106,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     // check if pixel is within valid range of image
                     if ((k >= 0) && (k < height) && (l >= 0) && (l < width)) {
 
-                        // count pixel and RGB values
+                        // count pixel and RGB values (from the ORIGINAL IMAGE)
                         sum_pixel ++;
                         sum_RGB[0] += image[k][l].rgbtRed;
                         sum_RGB[1] += image[k][l].rgbtBlue;
@@ -124,7 +124,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             double avg_G = round(sum_RGB[1]/sum_pixel);
             double avg_B = round(sum_RGB[2]/sum_pixel);
 
-            // set copy pixel [i][j]'s RGB values to average of the surrounding pixels
+            // set COPY IMAGE pixel [i][j]'s RGB values to average of the surrounding pixels
             copy[i][j].rgbtRed = (avg_R);
             copy[i][j].rgbtGreen = (avg_G);
             copy[i][j].rgbtBlue = (avg_B);
