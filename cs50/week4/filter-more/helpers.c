@@ -142,9 +142,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             tmp[i][j].rgbtBlue = (avg_B);
 
             // replace temporary pixel[i][j] into original image
-            image[i][j].rgbtRed = tmp[i][j].rgbtRed;
-            image[i][j].rgbtGreen = tmp[i][j].rgbtGreen;
-            image[i][j].rgbtBlue = tmp[i][j].rgbtBlue;
+            image[i][j] = tmp[i][j];
+            image[i][j] = tmp[i][j];
+            image[i][j] = tmp[i][j];
         }
     }
     return;
