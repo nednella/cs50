@@ -82,6 +82,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // using box blur method (blur each pixel according to the avg RGB values of its current 3x3 grid)
     // in this case, want to interact with EVERY pixel in the image
 
+    // initialise temporary image
+    RGBTRIPLE tmp[height][width];
+
     // initialise counters
     double sum_pixels = 0;
     double sum_RGB[] = {0, 0, 0};
