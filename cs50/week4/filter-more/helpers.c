@@ -124,9 +124,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                         // count pixel and RGB values
                         sum_pixels ++;
-                        sum_RGB[0] += image[i + k][j + l].rgbtRed; // note 3x3 is w.r.t. current pixel [i][j] so must sum i & k, j & l
-                        sum_RGB[1] += image[i + k][j + l].rgbtBlue;
-                        sum_RGB[2] += image[i + k][j + l].rgbtGreen;
+                        sum_RGB[0] += tmp[i + k][j + l].rgbtRed; // note 3x3 is w.r.t. current pixel [i][j] so must sum i & k, j & l
+                        sum_RGB[1] += tmp[i + k][j + l].rgbtBlue;
+                        sum_RGB[2] += tmp[i + k][j + l].rgbtGreen;
                     }
                 }
             }
