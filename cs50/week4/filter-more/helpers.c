@@ -107,7 +107,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             sum_B += image[i][j].rgbtBlue;
 
 
-            // add remaining 3x3 pixels one at a time if they exist
+            // do the same for remaining pixels within 3x3 of [i][j], assuming they exist
+            // loop through 3x3 of [i][j] and check if valid
+            for (k = i - 1; i - 1)
+
+
             // if upper left exists
             if ((i - 1) >= 0 && (j - 1) >= 0) {
 
