@@ -196,6 +196,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j].rgbtRed = (avg_R);
             copy[i][j].rgbtGreen = (avg_G);
             copy[i][j].rgbtBlue = (avg_B);
+
+            
         }
     }
 
