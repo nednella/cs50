@@ -125,9 +125,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
 
             // calculate average RGB values of the present pixels
-            double avg_R = round(sum_R/sum_pixels);
-            double avg_G = round(sum_G/sum_pixels);
-            double avg_B = round(sum_B/sum_pixels);
+            double avg_R = round(sumRGB[0]/sum_pixels);
+            double avg_G = round(sumRGB[1]/sum_pixels);
+            double avg_B = round(sumRGB[2]/sum_pixels);
 
             // set current pixel [i][j]'s RGB values to average of the surrounding pixels
             image[i][j].rgbtRed = (avg_R);
