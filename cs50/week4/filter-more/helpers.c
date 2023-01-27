@@ -86,7 +86,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     // iterate through the columns
     for (int i = 0; i < height; i++) {
-        
+
         // iterate through the rows
         for (int j = 0; j < width; j++) {
 
@@ -136,14 +136,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             double avg_B = round(sum_RGB[2]/sum_pixel);
 
             // set temporary pixel [i][j]'s RGB values to average of the surrounding pixels
-            tmp[i][j].rgbtRed = (avg_R);
-            tmp[i][j].rgbtGreen = (avg_G);
-            tmp[i][j].rgbtBlue = (avg_B);
+            copy[i][j].rgbtRed = (avg_R);
+            copy[i][j].rgbtGreen = (avg_G);
+            copy[i][j].rgbtBlue = (avg_B);
 
             // replace temporary pixel[i][j] into original image
-            image[i][j] = tmp[i][j];
-            image[i][j] = tmp[i][j];
-            image[i][j] = tmp[i][j];
+            image[i][j] = copy[i][j];
+            image[i][j] = copy[i][j];
+            image[i][j] = copy[i][j];
         }
     }
     return;
