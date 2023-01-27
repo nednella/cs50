@@ -95,9 +95,19 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         // iterate through the rows
         for (int j = 0; j < width; j++) {
 
-            // take RGB values of all pixels within 3x3 of [i][j], assuming pixels exist
-            // add pixels one at a time if they exist
+            // take RGB values of ALL pixels within 3x3 of [i][j], assuming pixels exist
 
+            // for current pixel
+            // count the pixel as present
+            sum_pixels ++;
+
+            // add the RGB values to the respective counters
+            sum_red += image[i][j].rgbtRed;
+            sum_green += image[i][j].rgbtGreen;
+            sum_blue += image[i][j].rgbtBlue;
+
+
+            // add remaining 3x3 pixels one at a time if they exist
             // upper left
             if (image[i - 1][j - 1]) {
 
@@ -141,9 +151,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 sum_blue +=
             }
 
-            // current pixel
-            
-
             // middle right
             if (image[i][j + 1]) {
 
@@ -155,13 +162,34 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
 
             // lower left
-            if ([i + 1][j - 1])
+            if ([i + 1][j - 1]) {
+
+                sum_pixels ++;
+
+                sum_red +=
+                sum_green +=
+                sum_blue +=
+            }
 
             // lower middle
-            if (image[i + 1][j])
+            if (image[i + 1][j]) {
+
+                sum_pixels ++;
+
+                sum_red +=
+                sum_green +=
+                sum_blue +=
+            }
 
             // lower right
-            if(image[i + 1][j + 1])
+            if(image[i + 1][j + 1]) {
+
+                sum_pixels ++;
+
+                sum_red +=
+                sum_green +=
+                sum_blue +=
+            }
 
 
 
