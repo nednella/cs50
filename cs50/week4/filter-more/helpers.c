@@ -75,6 +75,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     // initialise copy array
     RGBTRIPLE copy[height][width];
+    if ( == NULL) {
+        printf("Not enough memory available\n");
+    }
 
 
     // fill copy array
