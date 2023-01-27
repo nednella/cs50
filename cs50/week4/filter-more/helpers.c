@@ -74,7 +74,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // in this case, want to interact with EVERY pixel in the image
 
     // initialise copy array
-    RGBTRIPLE (**copy) = calloc(height, width * sizeof(RGBTRIPLE));
+    RGBTRIPLE (**copy) = malloc(height, width * sizeof(RGBTRIPLE));
     if (image == NULL) {
         printf("Not enough memory to store blurred pixel data.\n");
         return;
@@ -153,7 +153,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             image[i][j] = copy[i][j];
 
         }
-     }
+    }
+
+    free(copy);
     return;
 }
 
