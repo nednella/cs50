@@ -82,6 +82,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // using box blur method (blur each pixel according to the avg RGB values of its current 3x3 grid)
     // in this case, want to interact with EVERY pixel, unlike horizontal reflect
 
+    // initialise counters
+    int sum_pixels = 0;
+
+    int sum_red = 0;
+    int sum_green = 0;
+    int sum_blue = 0
+
     // iterate through the columns
     for (int i = 0; i < height; i++) {
 
@@ -91,6 +98,30 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // take RGB values of all pixels within 3x3 of [i][j], assuming pixels exist
             // add pixels one at a time if they exist
 
+            // upper left
+            if (image[i - 1][j - 1])
+
+            // upper middle
+            if (image[i - 1][j])
+
+            // upper right
+            if (image[i - 1][j + 1])
+
+            // middle left
+            if (image[i][j - 1])
+
+            // middle right
+            if (image[i][j + 1])
+
+            // lower left
+            if ([i + 1][j - 1])
+
+            // lower middle
+            if (image[i + 1][j])
+
+
+            // lower right
+            if(image[i + 1][j + 1])
 
 
 
