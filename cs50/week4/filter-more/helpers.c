@@ -85,15 +85,19 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // initialise temporary image
     RGBTRIPLE tmp[height][width];
 
-    // initialise counters
-    double sum_pixels = 0;
-    double sum_RGB[] = {0, 0, 0};
-
     // iterate through the columns
     for (int i = 0; i < height; i++) {
 
         // iterate through the rows
         for (int j = 0; j < width; j++) {
+
+            // initialise counters (inside of loop so they are reset for each pixel!)
+            double sum_pixels = 0;
+            double sum_RGB[] = {0, 0, 0};
+
+            // store selected pixel inside temporary image 
+            tmp[i][j] = image[i][j];
+
 
             // take RGB values of ALL pixels within 3x3 of [i][j], assuming pixels exist
 
