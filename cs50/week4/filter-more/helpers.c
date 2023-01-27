@@ -190,14 +190,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
 
             // calculate average RGB values of the present pixels
-            double avg_R = (sum_R/sum_pixels);
-            double avg_G = (sum_G/sum_pixels);
-            double avg_B = (sum_B/sum_pixels);
+            double avg_R = round(sum_R/sum_pixels);
+            double avg_G = round(sum_G/sum_pixels);
+            double avg_B = round(sum_B/sum_pixels);
 
             // set current pixel [i][j]'s RGB values to average of the surrounding pixels
-            image[i][j].rgbtRed = round(avg_R);
-            image[i][j].rgbtGreen = round(avg_G);
-            image[i][j].rgbtBlue = round(avg_B);
+            image[i][j].rgbtRed = (avg_R);
+            image[i][j].rgbtGreen = (avg_G);
+            image[i][j].rgbtBlue = (avg_B);
         }
     }
 
