@@ -326,23 +326,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-            // combine Gx and Gy values for each colour channel
-            int new_R = round(sqrt((sumR_gx * sumR_gx)+(sumR_gy * sumR_gy)));
-            int new_G = round(sqrt((sumG_gx * sumG_gx)+(sumG_gy * sumG_gy)));
-            int new_B = round(sqrt((sumB_gx * sumB_gx)+(sumB_gy * sumB_gy)));
-
-            // cap the values to 255
-            if (new_R > 255) {
-                new_R = 255;
-            }
-
-            if (new_G > 255) {
-                new_G = 255;
-            }
-
-            if (new_B > 255) {
-                new_B = 255;
-            }
+            // combine Gx and Gy values for each colour channel, capping to 255 where needed
+            int new_R = fmin(round(sqrt((sumR_gx * sumR_gx)+(sumR_gy * sumR_gy))), 255);
+            int new_G = fmin(round(sqrt((sumG_gx * sumG_gx)+(sumG_gy * sumG_gy))), 255);
+            int new_B = fmin(round(sqrt((sumB_gx * sumB_gx)+(sumB_gy * sumB_gy))), 255);
 
             // replace the copied images' [i][j] pixel RGB values with the new RGB values
             copy[i][j].rgbtRed = new_R;
