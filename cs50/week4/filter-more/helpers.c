@@ -148,6 +148,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         printf("Not enough memory available\n");
     }
 
+    // initialise gx and gy matrices
+    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+    int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
+
     // iterate through the image
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -168,9 +172,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             //double sum_gx[] = {0, 0, 0}; // 1 channel for R, G and B
             //double sum_gy[] = {0, 0, 0}; // 1 channel for R, G and B
 
-            // initialise gx and gy matrices
-            int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
-            int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
+
 
             // for the selected pixel [i][j]
             // loop through its surrounding 3x3 block of pixels
