@@ -103,7 +103,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             double sum_pixel = 0;
             double sum_RGB[] = {0, 0, 0};
 
-            // loop through 3x3 of [i][j] and check if valid
+            // loop through 3x3 block around [i][j] and check if valid
             // row iteration
             for (int k = (i - 1); k <= (i + 1); k++) {
 
