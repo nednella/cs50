@@ -277,7 +277,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
 
                         // for the bottom left
-                        if (row = i + 1 && column == j - 1) {
+                        if (row == i + 1 && column == j - 1) {
                             // for RED
                             sumR_gx += (-1 * image[i + 1][j - 1].rgbtRed);
                             sumR_gy += (1 * image[i + 1][j - 1].rgbtRed);
@@ -309,7 +309,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
 
                         // for the bottom right
-                        if (row = i + 1 && column = j + 1) {
+                        if (row == i + 1 && column == j + 1) {
                             // for RED
                             sumR_gx += (1 * image[i + 1][j + 1].rgbtRed);
                             sumR_gy += (1 * image[i + 1][j + 1].rgbtRed);
@@ -326,24 +326,28 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-            // Combine Gx and Gy values for each colour channel
-            int new_R = 
-            int new_G =
-            int new_B =
+            // combine Gx and Gy values for each colour channel
+            int new_R = round(sqrt((sumR_gx * sumR_gx)+(sumR_gy * sumR_gy)));
+            int new_G = round(sqrt((sumG_gx * sumG_gx)+(sumG_gy * sumG_gy)));
+            int new_B = round(sqrt((sumB_gx * sumB_gx)+(sumB_gy * sumB_gy)));
 
+            // cap the values to 255
+            if (new_R > 255) {
+                new_R = 255;
+            }
 
+            if (new_G > 255) {
+                new_G = 255;
+            }
 
+            if (new_B > 255) {
+                new_B = 255;
+            }
 
-
-            // average out the summed RGB values
-            int avg_R = round(sum_RGB[0]/sum_pixel);
-            int avg_G = round(sum_RGB[1]/sum_pixel);
-            int avg_B = round(sum_RGB[2]/sum_pixel);
-
-            // replace the copied images' [i][j] pixel RGB values with.....
-            copy[i][j].rgbtRed = ;
-            copy[i][j].rgbtBlue = ;
-            copy[i][j].rgbtGreen = ;
+            // replace the copied images' [i][j] pixel RGB values with the new RGB values
+            copy[i][j].rgbtRed = new_R;
+            copy[i][j].rgbtBlue = new_G;
+            copy[i][j].rgbtGreen = new_B;
          }
     }
 
@@ -355,12 +359,5 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     }
 
     free(copy);
-    return;
-
-
-
-
-
-
     return;
 }
