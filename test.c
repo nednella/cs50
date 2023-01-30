@@ -21,7 +21,7 @@ int main(void) {
     int height = 2;
     int width = 2;
 
-    RGBTRIPLE *image[height][width] = malloc(sizeof(RGBTRIPLE) * height * width);
+    RGBTRIPLE *image[height][width] = malloc(sizeof(RGBTRIPLE) * height * width); // variable length array
 
     image[0][0].R = 100;
     image[0][0].G = 100;
@@ -38,11 +38,6 @@ int main(void) {
     image[1][1].R = 180;
     image[1][1].G = 180;
     image[1][1].B = 180;
-
-
-
-
-
 
 
 }
