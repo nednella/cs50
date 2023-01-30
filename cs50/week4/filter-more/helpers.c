@@ -79,21 +79,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         printf("Not enough memory available\n");
     }
 
-
-    // fill copy array
-    //for (int i = 0; i < height; i++) {
-        //for (int j = 0; j < width; j++) {
-            //copy[i][j].rgbtRed = image[i][j].rgbtRed;
-            //copy[i][j].rgbtGreen = image[i][j].rgbtGreen;
-            //copy[i][j].rgbtBlue = image[i][j].rgbtBlue;
-        //}
-    //}
-
-
-    // iterate through the columns
+    // iterate through the image
     for (int i = 0; i < height; i++) {
-
-        // iterate through the rows
         for (int j = 0; j < width; j++) {
 
             // copy original pixel to a COPY image (to allow editing of RGB values without affecting the original)
@@ -105,10 +92,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             //double sum_G = 0;
             //double sum_B = 0;
             double sum_RGB[] = {0, 0, 0};
-
-
-
-
 
             // for the selected pixel [i][j]
             // loop through its surrounding 3x3 block
@@ -128,15 +111,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-
-
-
-
-
-
-
-
-
             // average out the summed RGB values
             int avg_R = round(sum_RGB[0]/sum_pixel);
             int avg_G = round(sum_RGB[1]/sum_pixel);
@@ -146,10 +120,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j].rgbtRed = avg_R;
             copy[i][j].rgbtBlue = avg_G;
             copy[i][j].rgbtGreen = avg_B;
-
          }
     }
-
 
     // swap in copied image (blurred pixels) to the real image
     for (int i = 0; i < height; i++) {
