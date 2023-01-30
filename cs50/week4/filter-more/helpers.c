@@ -98,8 +98,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             for (int row = i - 1; row <= i + 1; row++) {
                 for (int column = j - 1; column <= j + 1; column++) {
 
-                    // check if the pixels are valid
+                    // check if the pixels are invvalid
                     if (row < 0 || row >= height || column < 0 || column >= width) {
+                        // if yes, move onto the next pixel 
                         continue;
                     }
                     else {
