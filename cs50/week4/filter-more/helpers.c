@@ -74,18 +74,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // in this case, want to interact with EVERY pixel in the image
 
     // initialise copy array
-    RGBTRIPLE copy[height][width];
-    //if ( == NULL) {
-        //printf("Not enough memory available\n");
-    //}
+    RGBTRIPLE (*copy)[height][width] = malloc(sizeof(copy));
+    if ( (*copy) == NULL) {
+        printf("Not enough memory available\n");
+    }
 
 
     // fill copy array
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            copy[i][j].rgbtRed = image[i][j].rgbtRed;
-            copy[i][j].rgbtGreen = image[i][j].rgbtGreen;
-            copy[i][j].rgbtBlue = image[i][j].rgbtBlue;
+            (*copy)[i][j].rgbtRed = image[i][j].rgbtRed;
+            (*copy)[i][j].rgbtGreen = image[i][j].rgbtGreen;
+            (*copy)[i][j].rgbtBlue = image[i][j].rgbtBlue;
         }
     }
 
@@ -129,16 +129,16 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int avg_B = round(sum_RGB[2]/sum_pixel);
 
             // set COPY IMAGE pixel [i][j]'s RGB values to average of the surrounding pixels
-            copy[i][j].rgbtRed = (avg_R);
-            copy[i][j].rgbtGreen = (avg_G);
-            copy[i][j].rgbtBlue = (avg_B);
+            (*copy)[i][j].rgbtRed = (avg_R);
+            (*copy)[i][j].rgbtGreen = (avg_G);
+            (*copy)[i][j].rgbtBlue = (avg_B);
         }
     }
 
     // swap in copied image (blurred pixels) to the real image
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            image[i][j] = copy[i][j];
+            image[i][j] = (*copy)[i][j];
         }
     }
     return;
