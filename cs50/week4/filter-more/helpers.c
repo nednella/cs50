@@ -155,9 +155,16 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             // copy original pixel to a COPY image (to allow editing of RGB values without affecting the original)
             copy[i][j] = image[i][j];
 
-            // initialise counters (inside of loop so they are reset for each pixel!)
-            double sum_pixel = 0;
-            double sum_RGB[] = {0, 0, 0};
+            // initialise variables (inside of loop so they are reset for each pixel!)
+
+
+
+
+            //double sum_pixel = 0;
+            //double sum_RGB[] = {0, 0, 0};
+
+
+
 
             // for the selected pixel [i][j]
             // loop through its surrounding 3x3 block
@@ -175,6 +182,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     // for the top left
                     if (row == i - 1 && column == i - 1) {
                         
+
                     }
 
 
