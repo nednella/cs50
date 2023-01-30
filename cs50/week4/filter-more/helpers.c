@@ -171,10 +171,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
             int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
 
-
-
-
-
             // for the selected pixel [i][j]
             // loop through its surrounding 3x3 block
             for (int row = i - 1; row <= i + 1; row++) {
@@ -187,159 +183,25 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                     else {
 
-                        // multiply the current pixel by both the Gx and Gy matrix values in the same position
+                        // multiply the each pixel in the 3x3 by both the Gx and Gy matrix values in the same position
+                        // Gx
+                        gxR += image[row][column].rgbtRed * Gx[row][column];
+                        gxG += image[row][column].rgbtGreen * Gx[row][column];
+                        gxB += image[row][column].rgbtBlue * Gx[row][column];
 
-
-
-
-
-                        // if valid... go through every pixel in the 3x3, for cases when that pixel is valid
-                        // for the top left
-                        if (row == i - 1 && column == j - 1) {
-                            // for RED
-                            sumR_gx += (-1 * image[i - 1][j - 1].rgbtRed);
-                            sumR_gy += (-1 * image[i - 1][j - 1].rgbtRed);
-
-                            // for GREEN
-                            sumG_gx += (-1 * image[i - 1][j - 1].rgbtGreen);
-                            sumG_gy += (-1 * image[i - 1][j - 1].rgbtGreen);
-
-                            // for BLUE
-                            sumB_gx += (-1 * image[i - 1][j - 1].rgbtBlue);
-                            sumB_gy += (-1 * image[i - 1][j - 1].rgbtBlue);
-                        }
-
-                        // for the top middle
-                        if (row == i - 1) {
-                            // for RED
-                            sumR_gx += (0 * image[i - 1][j].rgbtRed);
-                            sumR_gy += (-2 * image[i - 1][j].rgbtRed);
-
-                            // for GREEN
-                            sumG_gx += (0 * image[i - 1][j].rgbtGreen);
-                            sumG_gy += (-2 * image[i - 1][j].rgbtGreen);
-
-                            // for BLUE
-                            sumB_gx += (0 * image[i - 1][j].rgbtBlue);
-                            sumB_gy += (-2 * image[i - 1][j].rgbtBlue);
-                        }
-
-                        // for the top right
-                        if (row == i - 1 && column == j + 1) {
-                            // for RED
-                            sumR_gx += (1 * image[i - 1][j + 1].rgbtRed);
-                            sumR_gy += (-1 * image[i - 1][j + 1].rgbtRed);
-
-                            // for GREEN
-                            sumG_gx += (1 * image[i - 1][j + 1].rgbtGreen);
-                            sumG_gy += (-1 * image[i - 1][j + 1].rgbtGreen);
-
-                            // for BLUE
-                            sumB_gx += (1 * image[i - 1][j + 1].rgbtRed);
-                            sumB_gy += (-1 * image[i - 1][j + 1].rgbtBlue);
-                        }
-
-                        // for the middle left
-                        if (column == j - 1) {
-                            // for RED
-                            sumR_gx += (-2 * image[i][j - 1].rgbtRed);
-                            sumR_gy += (0 * image[i][j - 1].rgbtRed);
-
-                            // for GREEN
-                            sumG_gx += (-2 * image[i][j - 1].rgbtGreen);
-                            sumG_gy += (0 * image[i][j - 1].rgbtGreen);
-
-                            // for BLUE
-                            sumB_gx += (-2 * image[i][j - 1].rgbtRed);
-                            sumB_gy += (0 * image[i][j - 1].rgbtBlue);
-                        }
-
-
-                        // for the current pixel [i][j]
-                        // for RED
-                        sumR_gx += (0 * image[i][j].rgbtRed);
-                        sumR_gy += (0 * image[i][j].rgbtRed);
-
-                        // for GREEN
-                        sumG_gx += (0 * image[i][j].rgbtGreen);
-                        sumG_gy += (0 * image[i][j].rgbtGreen);
-
-                        // for BLUE
-                        sumB_gx += (0 * image[i][j].rgbtRed);
-                        sumB_gy += (0 * image[i][j].rgbtBlue);
-
-
-                        // for the middle right
-                        if (column == j + 1) {
-                            // for RED
-                            sumR_gx += (2 * image[i][j + 1].rgbtRed);
-                            sumR_gy += (0 * image[i][j + 1].rgbtRed);
-
-                            // for GREEN
-                            sumG_gx += (2 * image[i][j + 1].rgbtGreen);
-                            sumG_gy += (0 * image[i][j + 1].rgbtGreen);
-
-                            // for BLUE
-                            sumB_gx += (2 * image[i][j + 1].rgbtRed);
-                            sumB_gy += (0 * image[i][j + 1].rgbtBlue);
-                        }
-
-
-
-                        // for the bottom left
-                        if (row == i + 1 && column == j - 1) {
-                            // for RED
-                            sumR_gx += (-1 * image[i + 1][j - 1].rgbtRed);
-                            sumR_gy += (1 * image[i + 1][j - 1].rgbtRed);
-
-                            // for GREEN
-                            sumG_gx += (-1 * image[i + 1][j - 1].rgbtGreen);
-                            sumG_gy += (1 * image[i + 1][j - 1].rgbtGreen);
-
-                            // for BLUE
-                            sumB_gx += (-1 * image[i + 1][j - 1].rgbtRed);
-                            sumB_gy += (1 * image[i + 1][j - 1].rgbtBlue);
-                        }
-
-
-                        // for the bottom middle
-                        if (row == i + 1) {
-                            // for RED
-                            sumR_gx += (0 * image[i + 1][j].rgbtRed);
-                            sumR_gy += (2 * image[i + 1][j].rgbtRed);
-
-                            // for GREEN
-                            sumG_gx += (0 * image[i + 1][j].rgbtGreen);
-                            sumG_gy += (2 * image[i + 1][j].rgbtGreen);
-
-                            // for BLUE
-                            sumB_gx += (0 * image[i + 1][j].rgbtRed);
-                            sumB_gy += (2 * image[i + 1][j].rgbtBlue);
-                        }
-
-
-                        // for the bottom right
-                        if (row == i + 1 && column == j + 1) {
-                            // for RED
-                            sumR_gx += (1 * image[i + 1][j + 1].rgbtRed);
-                            sumR_gy += (1 * image[i + 1][j + 1].rgbtRed);
-
-                            // for GREEN
-                            sumG_gx += (1 * image[i + 1][j + 1].rgbtGreen);
-                            sumG_gy += (1 * image[i + 1][j + 1].rgbtGreen);
-
-                            // for BLUE
-                            sumB_gx += (1 * image[i + 1][j + 1].rgbtRed);
-                            sumB_gy += (1 * image[i + 1][j + 1].rgbtBlue);
+                        // Gy
+                        gyR += image[row][column].rgbtRed * Gx[row][column];
+                        gyG += image[row][column].rgbtGreen * Gx[row][column];
+                        gyB += image[row][column].rgbtBlue * Gx[row][column];
                         }
                     }
                 }
             }
 
             // combine Gx and Gy values for each colour channel, capping to 255 where needed
-            int new_R = fmin(round(sqrt((sumR_gx * sumR_gx)+(sumR_gy * sumR_gy))), 255);
-            int new_G = fmin(round(sqrt((sumG_gx * sumG_gx)+(sumG_gy * sumG_gy))), 255);
-            int new_B = fmin(round(sqrt((sumB_gx * sumB_gx)+(sumB_gy * sumB_gy))), 255);
+            int new_R = fmin(round(sqrt((gxR * gxR) + (gyR * gyR))), 255);
+            int new_G = fmin(round(sqrt((gxG * gxG) + (gyG * gyG))), 255);
+            int new_B = fmin(round(sqrt((gxB * gxB) + (gyB * gyB))), 255);
 
             // replace the copied images' [i][j] pixel RGB values with the new RGB values
             copy[i][j].rgbtRed = new_R;
