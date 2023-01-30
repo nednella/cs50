@@ -144,6 +144,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             image[i][j] = copy[i][j];
         }
     }
+    free(copy);
     return;
 }
 
