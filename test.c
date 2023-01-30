@@ -45,6 +45,12 @@ int main(void) {
     for (int i = 0; i < height; i++) {
         for (int j = 0; i < width; j++) {
             copy[i][j] = image[i][j];
+            printf("Copy row: %i\n", copy[i]);
+            printf("Copy column: %i\n", copy[j]);
+            printf("R: %i\n", copy[i][j].R);
+            printf("G: %i\n", copy[i][j].R);
+            printf("B: %i\n", copy[i][j].R);
+            printf("\n");
         }
     }
 }
