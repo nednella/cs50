@@ -164,20 +164,58 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             for (int row = i - 1; row <= i + 1; row++) {
                 for (int column = j - 1; column <= j + 1; column++) {
 
-                    // check if the pixels are invvalid
+                    // check if the pixels are invalid
                     if (row < 0 || row >= height || column < 0 || column >= width) {
                         // if yes, move onto the next pixel
                         continue;
                     }
                     else {
 
-
-
-
-
-
-
+                    // if valid... go through every pixel in the 3x3, for cases when that pixel is valid
+                    // for the top left
+                    if (row == i - 1 && column == i - 1) {
                         
+                    }
+
+
+
+
+
+                    // for the top middle
+                    if (row == i - 1)
+
+                    // for the top right
+                    if (row == i - 1 && column == j + 1)
+
+                    // for the middle left
+                    if (column == j - 1)
+
+
+                    // for the current pixel [i][j]
+
+
+
+                    // for the middle right
+                    if (column == j + 1)
+
+
+
+                    // for the bottom left
+                    if (row = i + 1 && column == j - 1)
+
+
+                    // for the bottom middle
+                    if (row == i + 1)
+
+
+                    // for the bottom right
+                    if (row = i + 1 && column = j + 1)
+
+
+
+
+
+
                         sum_pixel ++;
                         sum_RGB[0] += image[row][column].rgbtRed;
                         sum_RGB[1] += image[row][column].rgbtBlue;
