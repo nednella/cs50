@@ -326,6 +326,15 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
+            // Combine Gx and Gy values for each colour channel
+            int new_R = 
+            int new_G =
+            int new_B =
+
+
+
+
+
             // average out the summed RGB values
             int avg_R = round(sum_RGB[0]/sum_pixel);
             int avg_G = round(sum_RGB[1]/sum_pixel);
