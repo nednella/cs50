@@ -109,6 +109,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             // for the selected pixel [i][j]
             // check if top left corner is valid
+            if (i - 1 >= 0 && j - 1 >= 0)
+
+            // check if top middle is valid
             if (i - 1 >= 0)
 
 
