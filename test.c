@@ -43,10 +43,10 @@ int main(void) {
     RGBTRIPLE copy[height][width];
 
     for (int i = 0; i < height; i++) {
-        for (int j = 0; i < width; j++) {
+        for (int j = 0; j < width; j++) {
             copy[i][j] = image[i][j];
-            printf("Copy row: %i\n", copy[i]);
-            printf("Copy column: %i\n", copy[j]);
+            printf("Copy row: %i\n", i);
+            printf("Copy column: %i\n", j);
             printf("R: %i\n", copy[i][j].R);
             printf("G: %i\n", copy[i][j].R);
             printf("B: %i\n", copy[i][j].R);
