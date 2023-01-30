@@ -170,6 +170,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         continue;
                     }
                     else {
+
+
+
+
+
+
+
+                        
                         sum_pixel ++;
                         sum_RGB[0] += image[row][column].rgbtRed;
                         sum_RGB[1] += image[row][column].rgbtBlue;
