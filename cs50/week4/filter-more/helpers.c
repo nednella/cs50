@@ -112,7 +112,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                     // check if pixel is within valid range of image
                     if (k < 0 || k >= height || l < 0 || l >= width) {
-                        continue
+                        continue;
                     }
                     sum_pixel ++;
                     sum_RGB[0] += image[k][l].rgbtRed;
@@ -128,9 +128,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         //sum_RGB[2] += image[k][l].rgbtGreen;
                     //}
 
-                    else {
-                        continue;
-                    }
+                    //else {
+                        //continue;
+                    //}
                 }
             }
 
