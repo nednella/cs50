@@ -75,7 +75,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     // initialise copy array
     RGBTRIPLE (*copy)[width] = calloc(height, width * sizeof(RGBTRIPLE));
-    if (*copy == NULL) {
+    if (copy == NULL) {
         printf("Not enough memory available\n");
     }
 
@@ -100,7 +100,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                     // check if the pixels are invvalid
                     if (row < 0 || row >= height || column < 0 || column >= width) {
-                        // if yes, move onto the next pixel 
+                        // if yes, move onto the next pixel
                         continue;
                     }
                     else {
