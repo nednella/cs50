@@ -186,14 +186,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
                         // multiply the each pixel in the 3x3 by both the Gx and Gy matrix values in the same position
                         // Gx
-                        gxR += image[row][column].rgbtRed * Gx[row + 1][column + 1];
-                        gxG += image[row][column].rgbtGreen * Gx[row + 1][column + 1];
-                        gxB += image[row][column].rgbtBlue * Gx[row + 1][column + 1];
+                        gxR += image[row][column].rgbtRed * Gx[row - i + 1][column - j + 1];
+                        gxG += image[row][column].rgbtGreen * Gx[row - i + 1][column - j + 1];
+                        gxB += image[row][column].rgbtBlue * Gx[row - i + 1][column - j + 1];
 
                         // Gy
-                        gyR += image[row][column].rgbtRed * Gx[row + 1][column + 1];
-                        gyG += image[row][column].rgbtGreen * Gx[row + 1][column + 1];
-                        gyB += image[row][column].rgbtBlue * Gx[row + 1][column + 1];
+                        gyR += image[row][column].rgbtRed * Gx[row - i + 1][column - j + 1];
+                        gyG += image[row][column].rgbtGreen * Gx[row - i + 1][column - j + 1];
+                        gyB += image[row][column].rgbtBlue * Gx[row - i + 1][column - j + 1];
                     }
                 }
             }
