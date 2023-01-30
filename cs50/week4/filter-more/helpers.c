@@ -88,9 +88,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             // initialise counters (inside of loop so they are reset for each pixel!)
             double sum_pixel = 0;
-            //double sum_R = 0;
-            //double sum_G = 0;
-            //double sum_B = 0;
             double sum_RGB[] = {0, 0, 0};
 
             // for the selected pixel [i][j]
