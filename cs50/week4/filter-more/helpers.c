@@ -139,5 +139,71 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+// using box blur method (blur each pixel according to the avg RGB values of its current 3x3 grid)
+    // in this case, want to interact with EVERY pixel in the image
+
+    // initialise copy array
+    RGBTRIPLE (*copy)[width] = calloc(height, width * sizeof(RGBTRIPLE));
+    if (copy == NULL) {
+        printf("Not enough memory available\n");
+    }
+
+    // iterate through the image
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+
+            // copy original pixel to a COPY image (to allow editing of RGB values without affecting the original)
+            copy[i][j] = image[i][j];
+
+            // initialise counters (inside of loop so they are reset for each pixel!)
+            double sum_pixel = 0;
+            double sum_RGB[] = {0, 0, 0};
+
+            // for the selected pixel [i][j]
+            // loop through its surrounding 3x3 block
+            for (int row = i - 1; row <= i + 1; row++) {
+                for (int column = j - 1; column <= j + 1; column++) {
+
+                    // check if the pixels are invvalid
+                    if (row < 0 || row >= height || column < 0 || column >= width) {
+                        // if yes, move onto the next pixel
+                        continue;
+                    }
+                    else {
+                        sum_pixel ++;
+                        sum_RGB[0] += image[row][column].rgbtRed;
+                        sum_RGB[1] += image[row][column].rgbtBlue;
+                        sum_RGB[2] += image[row][column].rgbtGreen;
+                    }
+                }
+            }
+
+            // average out the summed RGB values
+            int avg_R = round(sum_RGB[0]/sum_pixel);
+            int avg_G = round(sum_RGB[1]/sum_pixel);
+            int avg_B = round(sum_RGB[2]/sum_pixel);
+
+            // replace the copied images' [i][j] pixel RGB values with.....
+            copy[i][j].rgbtRed = ;
+            copy[i][j].rgbtBlue = ;
+            copy[i][j].rgbtGreen = ;
+         }
+    }
+
+    // swap in copied image (blurred pixels) to the real image
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            image[i][j] = copy[i][j];
+        }
+    }
+
+    free(copy);
+    return;
+
+
+
+
+
+
     return;
 }
