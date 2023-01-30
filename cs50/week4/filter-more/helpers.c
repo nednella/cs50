@@ -164,6 +164,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
             double gxB = 0;
             double gyB = 0;
+            
             //double sum_gx[] = {0, 0, 0}; // 1 channel for R, G and B
             //double sum_gy[] = {0, 0, 0}; // 1 channel for R, G and B
 
