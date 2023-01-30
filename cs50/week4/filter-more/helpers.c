@@ -96,7 +96,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         // iterate through the rows
         for (int j = 0; j < width; j++) {
 
-            // copy original pixel to a COPY image to preserve its TGB values
+            // copy original pixel to a COPY image (to allow editing of RGB values without affecting the original)
             copy[i][j] = image[i][j];
 
             // initialise counters (inside of loop so they are reset for each pixel!)
