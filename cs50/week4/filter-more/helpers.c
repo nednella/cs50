@@ -187,31 +187,62 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     // for the top left
                     if (row == i - 1 && column == i - 1) {
                         // for RED
-                        // Gx
-                        // Gy
+                        sumR_gx += (-1 * image[row][column].rgbtRed);
+                        sumR_gy += (-1 * image[row][column].rgbtRed);
 
                         // for GREEN
-                        // Gx
-                        // Gy
+                        sumG_gx += (-1 * image[row][column].rgbtGreen);
+                        sumG_gy += (-1 * image[row][column].rgbtGreen);
 
                         // for BLUE
-                        // Gx
-                        // Gy
-
+                        sumB_gx += (-1 * image[row][column].rgbtBlue);
+                        sumB_gy += (-1 * image[row][column].rgbtBlue);
                     }
 
-
-
-
-
                     // for the top middle
-                    if (row == i - 1)
+                    if (row == i - 1) {
+                        // for RED
+                        sumR_gx += (0 * image[row][column].rgbtRed);
+                        sumR_gy += (-2 * image[row][column].rgbtRed);
+
+                        // for GREEN
+                        sumG_gx += (0 * image[row][column].rgbtGreen);
+                        sumG_gy += (-2 * image[row][column].rgbtGreen);
+
+                        // for BLUE
+                        sumB_gx += (0 * image[row][column].rgbtBlue);
+                        sumB_gy += (-2 * image[row][column].rgbtBlue);
+                    }
 
                     // for the top right
-                    if (row == i - 1 && column == j + 1)
+                    if (row == i - 1 && column == j + 1) {
+                        // for RED
+                        sumR_gx += (1 * image[row][column].rgbtRed);
+                        sumR_gy += (-1 * image[row][column].rgbtRed);
+
+                        // for GREEN
+                        sumG_gx += (1 * image[row][column].rgbtGreen);
+                        sumG_gy += (-1 * image[row][column].rgbtGreen);
+
+                        // for BLUE
+                        sumB_gx += (1 * image[row][column].rgbtRed);
+                        sumB_gy += (-1 * image[row][column].rgbtBlue);
+                    }
 
                     // for the middle left
-                    if (column == j - 1)
+                    if (column == j - 1) {
+                        // for RED
+                        sumR_gx += (-2 * image[row][column].rgbtRed);
+                        sumR_gy += (0 * image[row][column].rgbtRed);
+
+                        // for GREEN
+                        sumG_gx += (-2 * image[row][column].rgbtGreen);
+                        sumG_gy += (0 * image[row][column].rgbtGreen);
+
+                        // for BLUE
+                        sumB_gx += (-2 * image[row][column].rgbtRed);
+                        sumB_gy += (0 * image[row][column].rgbtBlue);
+                    }
 
 
                     // for the current pixel [i][j]
