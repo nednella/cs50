@@ -111,14 +111,22 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int l = (j - 1); l <= (j + 1); j++) {
 
                     // check if pixel is within valid range of image
-                    if ((k >= 0) && (k < height) && (l >= 0) && (l < width)) {
+                    if (k < 0 || k >= height || l < 0 || l >= width) {
+                        continue
+                    }
+                    sum_pixel ++;
+                    sum_RGB[0] += image[k][l].rgbtRed;
+                    sum_RGB[1] += image[k][l].rgbtBlue;
+                    sum_RGB[2] += image[k][l].rgbtGreen;
+
+                    //if ((k >= 0) && (k < height) && (l >= 0) && (l < width)) {
 
                         // count pixel and RGB values (from the ORIGINAL IMAGE)
-                        sum_pixel ++;
-                        sum_RGB[0] += image[k][l].rgbtRed;
-                        sum_RGB[1] += image[k][l].rgbtBlue;
-                        sum_RGB[2] += image[k][l].rgbtGreen;
-                    }
+                        //sum_pixel ++;
+                        //sum_RGB[0] += image[k][l].rgbtRed;
+                        //sum_RGB[1] += image[k][l].rgbtBlue;
+                        //sum_RGB[2] += image[k][l].rgbtGreen;
+                    //}
 
                     else {
                         continue;
