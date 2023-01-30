@@ -101,87 +101,46 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             // initialise counters (inside of loop so they are reset for each pixel!)
             double sum_pixel = 0;
-            double sum_R = 0;
-            double sum_G = 0;
-            double sum_B = 0;
+            //double sum_R = 0;
+            //double sum_G = 0;
+            //double sum_B = 0;
+            double sum_RGB[] = {0, 0, 0};
 
-            //double sum_RGB[] = {0, 0, 0};
+
+
+
 
             // for the selected pixel [i][j]
-            // check if top left corner is valid
-            if (i - 1 >= 0 && j - 1 >= 0) {
-                sum_pixel ++;
-                sum_R += image[i - 1][j - 1].rgbtRed;
-                sum_G += image[i - 1][j - 1].rgbtBlue;
-                sum_B += image[i - 1][j - 1].rgbtGreen;
+            // loop through its surrounding 3x3 block
+            for (int row = i - 1; row <= i + 1; row++) {
+                for (int column = j - 1; column <= j + 1; column++) {
+
+                    // check if the pixels are valid
+                    if (row < 0 || row >= height || column < 0 || column >= width) {
+                        continue;
+                    }
+                    else {
+                        sum_pixel ++;
+                        sum_RGB[0] += image[row][column].rgbtRed;
+                        sum_RGB[1] += image[row][column].rgbtBlue;
+                        sum_RGB[2] += image[row][column].rgbtGreen;
+                    }
+                }
             }
 
-            // check if top middle is valid
-            if (i - 1 >= 0) {
-                sum_pixel ++;
-                sum_R += image[i - 1][j].rgbtRed;
-                sum_G += image[i - 1][j].rgbtBlue;
-                sum_B += image[i - 1][j].rgbtGreen;
-            }
 
-            // check if top right is valid
-            if (i - 1 >= 0 && j < width) {
-                sum_pixel ++;
-                sum_R += image[i - 1][j + 1].rgbtRed;
-                sum_G += image[i - 1][j + 1].rgbtBlue;
-                sum_B += image[i - 1][j + 1].rgbtGreen;
-            }
 
-            // check if middle left is valid
-            if (j - 1 >= 0) {
-                sum_pixel ++;
-                sum_R += image[i][j - 1].rgbtRed;
-                sum_G += image[i][j - 1].rgbtBlue;
-                sum_B += image[i][j - 1].rgbtGreen;
-            }
 
-            // CURRENT PIXEL
-            sum_pixel ++;
-            sum_R += image[i][j].rgbtRed;
-            sum_G += image[i][j].rgbtBlue;
-            sum_B += image[i][j].rgbtGreen;
 
-            // check if middle right is valid
-            if (j < width) {
-                sum_pixel ++;
-                sum_R += image[i][j + 1].rgbtRed;
-                sum_G += image[i][j + 1].rgbtBlue;
-                sum_B += image[i][j + 1].rgbtGreen;
-            }
 
-            // check if bottom left is valid
-            if (i + 1 < height && j >= 0) {
-                sum_pixel ++;
-                sum_R += image[i + 1][j - 1].rgbtRed;
-                sum_G += image[i + 1][j - 1].rgbtBlue;
-                sum_B += image[i + 1][j - 1].rgbtGreen;
-            }
 
-            // check if bottom middle is valid
-            if (i + 1 < height) {
-                sum_pixel ++;
-                sum_R += image[i + 1][j].rgbtRed;
-                sum_G += image[i + 1][j].rgbtBlue;
-                sum_B += image[i + 1][j].rgbtGreen;
-            }
 
-            // check if bottom right is valid
-            if (i + 1 < height && j + 1 < width) {
-                sum_pixel ++;
-                sum_R += image[i + 1][j + 1].rgbtRed;
-                sum_G += image[i + 1][j + 1].rgbtBlue;
-                sum_B += image[i + 1][j + 1].rgbtGreen;
-            }
+
 
             // average out the summed RGB values
-            int avg_R = round(sum_R/sum_pixel);
-            int avg_G = round(sum_G/sum_pixel);
-            int avg_B = round(sum_B/sum_pixel);
+            int avg_R = round(sum_RGB[0]/sum_pixel);
+            int avg_G = round(sum_RGB[1]/sum_pixel);
+            int avg_B = round(sum_RGB[2]/sum_pixel);
 
             // replace the copied images' [i][j] pixel RGB values with the new averaged RGV values
             copy[i][j].rgbtRed = avg_R;
@@ -212,7 +171,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 
 
-    
+
 }
 
 
