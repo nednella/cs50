@@ -181,7 +181,17 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     // if valid... go through every pixel in the 3x3, for cases when that pixel is valid
                     // for the top left
                     if (row == i - 1 && column == i - 1) {
-                        
+                        // for RED
+                        // Gx
+                        // Gy
+
+                        // for GREEN
+                        // Gx
+                        // Gy
+
+                        // for BLUE
+                        // Gx
+                        // Gy
 
                     }
 
