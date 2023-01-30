@@ -156,12 +156,17 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j] = image[i][j];
 
             // initialise variables (inside of loop so they are reset for each pixel!)
+            double sumR_gx = 0;
+            double sumR_gy = 0;
 
+            double sumG_gx = 0;
+            double sumG_gy = 0;
 
+            double sumB_gx = 0;
+            double sumB_gy = 0;
 
-
-            //double sum_pixel = 0;
-            //double sum_RGB[] = {0, 0, 0};
+            //double sum_gx[] = {0, 0, 0}; // 1 channel for R, G and B
+            //double sum_gy[] = {0, 0, 0}; // 1 channel for R, G and B
 
 
 
