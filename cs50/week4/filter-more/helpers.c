@@ -81,13 +81,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 
     // fill copy array
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            copy[i][j].rgbtRed = image[i][j].rgbtRed;
-            copy[i][j].rgbtGreen = image[i][j].rgbtGreen;
-            copy[i][j].rgbtBlue = image[i][j].rgbtBlue;
-        }
-    }
+    //for (int i = 0; i < height; i++) {
+        //for (int j = 0; j < width; j++) {
+            //copy[i][j].rgbtRed = image[i][j].rgbtRed;
+            //copy[i][j].rgbtGreen = image[i][j].rgbtGreen;
+            //copy[i][j].rgbtBlue = image[i][j].rgbtBlue;
+        //}
+    //}
 
 
     // iterate through the columns
@@ -95,6 +95,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
         // iterate through the rows
         for (int j = 0; j < width; j++) {
+
+            // copy original pixel to a COPY image to preserve its TGB values
+            copy[i][j] = image[i][j];
 
             // initialise counters (inside of loop so they are reset for each pixel!)
             double sum_pixel = 0;
