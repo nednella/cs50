@@ -164,7 +164,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
             double gxB = 0;
             double gyB = 0;
-            
+
             //double sum_gx[] = {0, 0, 0}; // 1 channel for R, G and B
             //double sum_gy[] = {0, 0, 0}; // 1 channel for R, G and B
 
@@ -194,7 +194,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         gyR += image[row][column].rgbtRed * Gx[row][column];
                         gyG += image[row][column].rgbtGreen * Gx[row][column];
                         gyB += image[row][column].rgbtBlue * Gx[row][column];
-                        }
                     }
                 }
             }
