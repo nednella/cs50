@@ -173,7 +173,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
 
             // for the selected pixel [i][j]
-            // loop through its surrounding 3x3 block
+            // loop through its surrounding 3x3 block of pixels
             for (int row = i - 1; row <= i + 1; row++) {
                 for (int column = j - 1; column <= j + 1; column++) {
 
@@ -182,6 +182,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         // if yes, move onto the next pixel
                         continue;
                     }
+
+                    // if valid
                     else {
 
                         // multiply the each pixel in the 3x3 by both the Gx and Gy matrix values in the same position
