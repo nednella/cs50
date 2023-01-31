@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
 
                         // once header block is found,
                         // open a new JPEG file (###.jpg) starting at 001.jpg, in the order you find them (use function, count++, %03i)
+                        FILE *f = fopen(001.jpg, "w"); // open image in write mode
+                        fwrite(data, size, number, outptr);
                         // start writing all data in chunks of b12 bytes until [X+n] = 0xff
                                     // if buffer[X+n+1] == 0xd8
                                         // if buffer [X+n+2] == 0xff
