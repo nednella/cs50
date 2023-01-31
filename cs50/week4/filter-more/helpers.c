@@ -180,7 +180,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         continue;
                     }
                     else {
-                        //
+                        Rgx += (image[row][column] * )
+                        Rgy +=
+
+                        Ggx +=
+                        Ggy +=
+
+                        Bgx +=
+                        Bgy +=
 
                     }
                 }
