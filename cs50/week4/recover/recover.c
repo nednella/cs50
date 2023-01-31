@@ -4,7 +4,7 @@
 int main(int argc, char *argv[])
 {
     // check that CLI was used correctly
-    if (argc == 0 || argc > 1) {
+    if (!argc == 1) {
         printf("Usage: ./recover [IMAGE]\n");
         return 1;
     }
