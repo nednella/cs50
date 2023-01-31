@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
                     // if buffer [X+3] == 0xe0 (combine 0xf0 or some shit to consider all 16 possibilities in 1 step without 16 logical OR operators)
 
                         // once header block is found,
-                        // open a new JPEG file (###.jpg) starting at 001.jpg, in the order you find them
+                        // open a new JPEG file (###.jpg) starting at 001.jpg, in the order you find them (use function, count++, %03i)
                         // start writing all data in chunks of b12 bytes until [X+n] = 0xff
                                     // if buffer[X+n+1] == 0xd8
                                         // if buffer [X+n+2] == 0xff
