@@ -59,8 +59,9 @@
 
             // replace the copied images' [i][j] pixel RGB values with the new sobel RGB values
             copy[i][j].rgbtRed = new_R;
-            copy[i][j].rgbtBlue = new_G;
-            copy[i][j].rgbtGreen = new_B;
+            copy[i][j].rgbtGreen = new_G;
+            copy[i][j].rgbtBlue = new_B;
+
          }
     }
 
