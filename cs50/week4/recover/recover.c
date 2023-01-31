@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
                         // once header block is found,
                         // open a new JPEG file and start writing the data 1 byte at a time
-                        // keep writing until [X+n] = 0xff
+                        // keep writing in chunks of b12 bytes until [X+n] = 0xff
                                     // if buffer[X+n+1] == 0xd8
                                         // if buffer [X+n+2] == 0xff
                                             // if buffer [X+n+3] == 0xe0
