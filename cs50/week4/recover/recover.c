@@ -4,12 +4,32 @@
 int main(int argc, char *argv[])
 {
     // check that CLI was used correctly
+    if (argc == 0 || argc > 1) {
+        printf("Usage: ./recover [IMAGE]\n");
+        return 1;
+    }
 
-
+    FILE *file = fopen(argv[1], "r")
     // if yes, open the image in question
-    char *filename = argv[];
+    FILE *f = fopen(argv[1], "r"); // open file in read mode
 
-    FILE *f = fopen(filename, "r"); // open file in read mode
+    // repeat until end of the card:
+        // read 512 bytes into a buffer
+        // iterate through buffer
+            // if start of new JPEG
+                // if first JPEG
+                    ...
+                // else
+                    ...
+            // else
+                // if already found JPEG
+                    ...
+    // close any remaining files
+
+
+
+
+
 
 
     // start searching data from NULL -> END, for the beginning of a jpeg
@@ -20,6 +40,7 @@ int main(int argc, char *argv[])
         // 4th byte always 0xeX... (where X is 0 - F in hexadecimal)
 
     fread(data, size, number, inptr);
+        // buildin a condition to ensure that the file has enough data remaining for fread, to read
 
     // loop through data starting from [X=0] and iterate 1 at a time
         // if buffer[X] == 0xff
