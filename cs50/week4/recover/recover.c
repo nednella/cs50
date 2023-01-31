@@ -23,6 +23,10 @@ int main(int argc, char *argv[])
     }
     // note that fopen doesn't read/write data, it just creates a stream to enable the use of other functions, like fread
 
+
+    printf("Success\n");
+
+
     // while there is  >= 1 block of data remaining, load the data into memory with a pointer to the first address of the block, named buffer
     while (fread(buffer, 1, BLOCK, file) == BLOCK) {
 
