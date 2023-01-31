@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     BYTE buffer[BLOCK];// = malloc (BLOCK * sizeof(BYTE));
 
     // while there is  >= 1 block of data remaining, load the data into memory with a pointer to the first address of the block, named buffer
-    while (fread(buffer, 1, BLOCK, file) == BLOCK) {
+    while (fread(&buffer, 1, BLOCK, file) == BLOCK) {
 
         // iterate through the buffer
         for (int i = 0; i < BLOCK; i++) {
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
                 if (firstimage) {
                     // create a new JPEG file
-                    sprintf(buffer, "%03i.jpg", imagecount);
+                    sprintf(&buffer, "%03i.jpg", imagecount);
                     firstimage = false;
                     imagecount ++;
                 }
