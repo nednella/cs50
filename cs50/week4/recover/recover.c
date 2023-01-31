@@ -19,6 +19,8 @@ int main(int argc, char *argv[])
         // 3rd byte always 0xff
         // 4th byte always 0xeX... (where X is 0 - F in hexadecimal)
 
+    fread(data, size, number, inptr);
+
 
     // once header block is found, open a new JPEG file
 
