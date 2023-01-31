@@ -9,9 +9,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    FILE *file = fopen(argv[1], "r")
-    // if yes, open the image in question
-    FILE *f = fopen(argv[1], "r"); // open file in read mode
+    FILE *file = fopen(argv[1], "r"); // open specified file in "read" mode
+
 
     // repeat until end of the card:
         // read 512 bytes into a buffer
