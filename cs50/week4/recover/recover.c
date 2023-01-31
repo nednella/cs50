@@ -7,7 +7,7 @@ typedef uint8_t BYTE;
 const int BLOCK = 512;
 
 // global variables to help decide what actions to take when encountering a new JPEG file in the loaded file
-bool firstimage = true;
+_Bool firstimage = true;
 int imagecount = 1;
 
 int main(int argc, char *argv[])
