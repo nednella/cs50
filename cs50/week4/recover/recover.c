@@ -5,6 +5,7 @@ typedef uint8_t BYTE;
 
 const int BLOCK = 512;
 
+// global variables to help decide what actions to take when encountering a new JPEG file in the loaded file
 bool firstimage = true;
 int imagecount = 1;
 
@@ -31,13 +32,23 @@ int main(int argc, char *argv[])
             // check for JPEG file existence
             if (buffer[i] == 0xff && buffer[i + 1] == 0xd8 && buffer[i + 2] == 0xff && (buffer[i + 3] & 0xf0) == 0xe0) {
 
-                // if first image
                 if (firstimage) {
                     // create a new JPEG file
-                    sprintf(buffer, "%03i.jpg", imagecount)
+                    sprintf(buffer, "%03i.jpg", imagecount);
+                    firstimage = false;
+                    imagecount ++;
                 }
+                else {
+                    // close previous JPEG file
+                    ...
 
+                    // create new JPEG file
+                    sprintf(buffer, "%03i,jpg", imagecount);
+                }
             }
+
+
+
 
         }
     }
