@@ -16,12 +16,10 @@ int main(int argc, char *argv[])
     if (file == NULL) {
         printf("Error: file not found.\n");
     }
+    // note that fopen doesn't read/write data, it just creates a stream to enable the use of other functions, like fread
 
-
-
-
-    // read through file only while there is enough remaining data to read through (512 byte blocks)
-    while (fread(buffer, 1, BLOCK_SIZE, raw_file) == BLOCK_SIZE) {
+    // while there is  >= 512 bytes of data remaining, read through file
+    while (fread(buffer, 1, 512*BYTE, raw_file) == BLOCK_SIZE) {
 
     }
     // repeat until end of the card:
