@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef uint8_t BYTE;
+
+
 int main(int argc, char *argv[])
 {
     // check that CLI was used correctly
@@ -10,8 +13,12 @@ int main(int argc, char *argv[])
     }
 
     FILE *file = fopen(argv[1], "r"); // open specified file in "read" mode
+    // build in error check if file not found
 
+    // read through file only while there is enough remaining data to read through (512 byte blocks)
+    while (fread(buffer, 1, BLOCK_SIZE, raw_file) == BLOCK_SIZE) {
 
+    }
     // repeat until end of the card:
         // read 512 bytes into a buffer
         // iterate through buffer
