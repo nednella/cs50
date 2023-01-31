@@ -160,11 +160,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j] = image[i][j];
 
             // initialise counters (inside of loop so they are reset for each pixel!)
-            float Rgx =
-            float Rgy =
-            float Ggx =
-            float Ggy =
-            float Bgx =
+            float Rgx = 0;
+            float Rgy = 0;
+            float Ggx = 0;
+            float Ggy = 0;
+            float Bgx = 0;
             float Bgy = 0;
             //gx_RGB[];
             //gy_RGB[];
@@ -180,15 +180,15 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         continue;
                     }
                     else {
-                        Rgx += (image[row][column] * Gx[row - (i - 1)][column - (i - 1)]);
-                        Rgy += (image[row][column] * Gy[row - (i - 1)][column - (i - 1)]);
+                        // multiply each pixels R G and B values by the corresponding Gx & Gy value
+                        Rgx += (image[row][column].rgbtRed * Gx[row - (i - 1)][column - (i - 1)]);
+                        Rgy += (image[row][column].rgbtRed * Gy[row - (i - 1)][column - (i - 1)]);
 
-                        Ggx += (image[row][column] * Gx[row - (i - 1)][column - (i - 1)]);
-                        Ggy += (image[row][column] * Gy[row - (i - 1)][column - (i - 1)]);
+                        Ggx += (image[row][column].rgbtGreen * Gx[row - (i - 1)][column - (i - 1)]);
+                        Ggy += (image[row][column].rgbtGreen * Gy[row - (i - 1)][column - (i - 1)]);
 
-                        Bgx += (image[row][column] * Gx[row - (i - 1)][column - (i - 1)]);
-                        Bgy += (image[row][column] * Gy[row - (i - 1)][column - (i - 1)]);
-
+                        Bgx += (image[row][column].rgbtBlue * Gx[row - (i - 1)][column - (i - 1)]);
+                        Bgy += (image[row][column].rgbtBlue * Gy[row - (i - 1)][column - (i - 1)]);
                     }
                 }
             }
