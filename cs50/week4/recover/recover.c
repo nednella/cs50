@@ -27,7 +27,8 @@ int main(int argc, char *argv[])
 
 
     printf("Success\n");
-
+    // initialise the buffer
+    unsigned char buffer[BLOCK];
 
     // while there is  >= 1 block of data remaining, load the data into memory with a pointer to the first address of the block, named buffer
     while (fread(buffer, 1, BLOCK, file) == BLOCK) {
