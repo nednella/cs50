@@ -18,8 +18,9 @@ int main(int argc, char *argv[])
     }
     // note that fopen doesn't read/write data, it just creates a stream to enable the use of other functions, like fread
 
-    // while there is  >= 512 bytes of data remaining, read through file
-    while (fread(buffer, 1, 512*BYTE, raw_file) == BLOCK_SIZE) {
+    // while there is  >= 512 bytes of data remaining in the opened file, read through file, in blocks of 512 bytes
+    // with a pointer to the first address in the block named buffer
+    while (fread(buffer, 1, 512, file) == 512) {
 
     }
     // repeat until end of the card:
