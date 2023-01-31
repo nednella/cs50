@@ -5,6 +5,9 @@ typedef uint8_t BYTE;
 
 const int BLOCK = 512;
 
+bool firstimage = true;
+int imagecount = 1;
+
 int main(int argc, char *argv[])
 {
     // check that CLI was used correctly
@@ -28,8 +31,12 @@ int main(int argc, char *argv[])
             // check for JPEG file existence
             if (buffer[i] == 0xff && buffer[i + 1] == 0xd8 && buffer[i + 2] == 0xff && (buffer[i + 3] & 0xf0) == 0xe0) {
 
-                // create a new JPEG file
-                sprintf(buffer, "%03i.jpg", 2)
+                // if first image
+                if (firstimage) {
+                    // create a new JPEG file
+                    sprintf(buffer, "%03i.jpg", imagecount)
+                }
+
             }
 
         }
