@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
             if (buffer[i] == 0xff && buffer[i + 1] == 0xd8 && buffer[i + 2] == 0xff && (buffer[i + 3] & 0xf0) == 0xe0) {
 
                 // create a new JPEG file
-                
+                sprintf(buffer, "%03i.jpg", 2)
             }
 
         }
