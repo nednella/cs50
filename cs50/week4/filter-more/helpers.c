@@ -181,14 +181,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                     else {
                         // multiply each pixels R G and B values by the corresponding Gx & Gy value
-                        Rgx += (image[row][column].rgbtRed * Gx[row - (i - 1)][column - (i - 1)]);
-                        Rgy += (image[row][column].rgbtRed * Gy[row - (i - 1)][column - (i - 1)]);
+                        Rgx += (image[row][column].rgbtRed * Gx[row - (i - 1)][column - (j - 1)]);
+                        Rgy += (image[row][column].rgbtRed * Gy[row - (i - 1)][column - (j - 1)]);
 
-                        Ggx += (image[row][column].rgbtGreen * Gx[row - (i - 1)][column - (i - 1)]);
-                        Ggy += (image[row][column].rgbtGreen * Gy[row - (i - 1)][column - (i - 1)]);
+                        Ggx += (image[row][column].rgbtGreen * Gx[row - (i - 1)][column - (j - 1)]);
+                        Ggy += (image[row][column].rgbtGreen * Gy[row - (i - 1)][column - (j - 1)]);
 
-                        Bgx += (image[row][column].rgbtBlue * Gx[row - (i - 1)][column - (i - 1)]);
-                        Bgy += (image[row][column].rgbtBlue * Gy[row - (i - 1)][column - (i - 1)]);
+                        Bgx += (image[row][column].rgbtBlue * Gx[row - (i - 1)][column - (j - 1)]);
+                        Bgy += (image[row][column].rgbtBlue * Gy[row - (i - 1)][column - (j - 1)]);
                     }
                 }
             }
