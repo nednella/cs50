@@ -160,7 +160,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j] = image[i][j];
 
             // initialise counters (inside of loop so they are reset for each pixel!)
-            int Rgx = int Rgy = int Ggx = int Ggy = int Bgx = int Bgy = 0;
+            int Rgx =
+            int Rgy =
+            int Ggx =
+            int Ggy =
+            int Bgx =
+            int Bgy = 0;
             //gx_RGB[];
             //gy_RGB[];
 
@@ -175,13 +180,16 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         continue;
                     }
                     else {
-                        sum_pixel ++;
-                        sum_RGB[0] += image[row][column].rgbtRed;
-                        sum_RGB[1] += image[row][column].rgbtBlue;
-                        sum_RGB[2] += image[row][column].rgbtGreen;
+                        //
+
                     }
                 }
             }
+
+            // calculate the sobel operator for each colour channel
+            int new_R = fmin(round(sqrt(Rgx * Rgx + Rgy * Rgy)), 255);
+            int new_G = fmin(round(sqrt(Ggx * Ggx + Ggy * Ggy)), 255);
+            int new_B = fmin(round(sqrt(Bgx * Bgx + Bgy * Bgy)), 255);
 
             // average out the summed RGB values
             int avg_R = round(sum_RGB[0]/sum_pixel);
