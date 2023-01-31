@@ -17,6 +17,9 @@ int main(int argc, char *argv[])
         printf("Error: file not found.\n");
     }
 
+
+
+
     // read through file only while there is enough remaining data to read through (512 byte blocks)
     while (fread(buffer, 1, BLOCK_SIZE, raw_file) == BLOCK_SIZE) {
 
