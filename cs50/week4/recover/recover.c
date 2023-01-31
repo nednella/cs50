@@ -26,13 +26,8 @@ int main(int argc, char *argv[])
         for (int i = 0; i < BLOCK; i++) {
 
             // check for JPEG file existence
-            if (buffer[i] == 0xff) {
-                if (buffer[i + 1] == 0xd8) {
-                    if (buffer[i + 2] == 0xff) {
-                        if
-                    }
-                }
-            }
+            if (buffer[i] == 0xff && buffer[i + 1] == 0xd8 && buffer[i + 2] == 0xff && buffer[i + 3] == 
+
         }
     }
     // repeat until end of the card:
