@@ -160,12 +160,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j] = image[i][j];
 
             // initialise counters (inside of loop so they are reset for each pixel!)
-            int Rgx =
-            int Rgy =
-            int Ggx =
-            int Ggy =
-            int Bgx =
-            int Bgy = 0;
+            float Rgx =
+            float Rgy =
+            float Ggx =
+            float Ggy =
+            float Bgx =
+            float Bgy = 0;
             //gx_RGB[];
             //gy_RGB[];
 
@@ -191,15 +191,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int new_G = fmin(round(sqrt(Ggx * Ggx + Ggy * Ggy)), 255);
             int new_B = fmin(round(sqrt(Bgx * Bgx + Bgy * Bgy)), 255);
 
-            // average out the summed RGB values
-            int avg_R = round(sum_RGB[0]/sum_pixel);
-            int avg_G = round(sum_RGB[1]/sum_pixel);
-            int avg_B = round(sum_RGB[2]/sum_pixel);
-
-            // replace the copied images' [i][j] pixel RGB values with the new averaged RGV values
-            copy[i][j].rgbtRed = avg_R;
-            copy[i][j].rgbtBlue = avg_G;
-            copy[i][j].rgbtGreen = avg_B;
+            // replace the copied images' [i][j] pixel RGB values with the new sobel RGB values
+            copy[i][j].rgbtRed = new_R;
+            copy[i][j].rgbtBlue = new_G;
+            copy[i][j].rgbtGreen = new_B;
          }
     }
 
