@@ -3,6 +3,7 @@
 
 typedef uint8_t BYTE;
 
+const int BLOCK = 512;
 
 int main(int argc, char *argv[])
 {
@@ -18,10 +19,21 @@ int main(int argc, char *argv[])
     }
     // note that fopen doesn't read/write data, it just creates a stream to enable the use of other functions, like fread
 
-    // while there is  >= 512 bytes of data remaining in the opened file, read through file, in blocks of 512 bytes
-    // with a pointer to the first address in the block named buffer
-    while (fread(buffer, 1, 512, file) == 512) {
+    // while there is  >= 1 block of data remaining, load the data into memory with a pointer to the first address of the block, named buffer
+    while (fread(buffer, 1, BLOCK, file) == BLOCK) {
 
+        // iterate through the buffer
+        for (int i = 0; i < BLOCK; i++) {
+
+            // check for JPEG file existence
+            if (buffer[i] == 0xff) {
+                if (buffer[i + 1] == 0xd8) {
+                    if (buffer[i + 2] == 0xff) {
+                        if
+                    }
+                }
+            }
+        }
     }
     // repeat until end of the card:
         // read 512 bytes into a buffer
