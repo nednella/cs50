@@ -12,8 +12,10 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    FILE *file = fopen(argv[1], "r"); // open specified file in "read" mode
-    // build in error check if file not found
+    FILE *file = fopen(argv[1], "r"); // open specified file in "read" mode, return error message if not found
+    if (file == NULL) {
+        printf("Error: file not found.\n");
+    }
 
     // read through file only while there is enough remaining data to read through (512 byte blocks)
     while (fread(buffer, 1, BLOCK_SIZE, raw_file) == BLOCK_SIZE) {
