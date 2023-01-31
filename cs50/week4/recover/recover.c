@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
                 if (firstimage) {
                     // create a new JPEG file
-                    //sprintf(buffer, "%03i.jpg", imagecount);
+                    sprintf(      , "%03i.jpg", imagecount);
                     firstimage = false;
                     imagecount ++;
                 }
@@ -51,15 +51,14 @@ int main(int argc, char *argv[])
 
 
                     // create new JPEG file
-                    //sprintf(buffer, "%03i,jpg", imagecount);
+                    sprintf(      , "%03i,jpg", imagecount);
                 }
             }
-
-
-
-
         }
     }
+
+
+    
     // repeat until end of the card:
         // read 512 bytes into a buffer
         // iterate through buffer
