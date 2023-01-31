@@ -20,15 +20,16 @@ int main(int argc, char *argv[])
     }
 
     FILE *file = fopen(argv[1], "r"); // open specified file in "read" mode, return error message if not found
+    // note that fopen doesn't read/write data, it just creates a stream to enable the use of other functions, like fread
     if (file == NULL) {
         printf("Error: file not found.\n");
     }
-    // note that fopen doesn't read/write data, it just creates a stream to enable the use of other functions, like fread
 
 
-    printf("Success\n");
+
+
     // initialise the buffer
-    char *buffer[BLOCK];
+    char *buffer = (char*) malloc (BLOCK * sizeof(BYTE));
 
     // while there is  >= 1 block of data remaining, load the data into memory with a pointer to the first address of the block, named buffer
     while (fread(buffer, 1, BLOCK, file) == BLOCK) {
@@ -47,7 +48,7 @@ int main(int argc, char *argv[])
                 }
                 else {
                     // close previous JPEG file
-                    ...
+
 
                     // create new JPEG file
                     sprintf(buffer, "%03i,jpg", imagecount);
@@ -64,12 +65,12 @@ int main(int argc, char *argv[])
         // iterate through buffer
             // if start of new JPEG
                 // if first JPEG
-                    ...
+
                 // else
-                    ...
+
             // else
                 // if already found JPEG
-                    ...
+
     // close any remaining files
 
 
@@ -85,7 +86,7 @@ int main(int argc, char *argv[])
         // 3rd byte always 0xff
         // 4th byte always 0xeX... (where X is 0 - F in hexadecimal)
 
-    fread(data, size, number, inptr);
+    //fread(data, size, number, inptr);
         // buildin a condition to ensure that the file has enough data remaining for fread, to read
 
     // loop through data starting from [X=0] and iterate 1 at a time
@@ -96,8 +97,8 @@ int main(int argc, char *argv[])
 
                         // once header block is found,
                         // open a new JPEG file (###.jpg) starting at 001.jpg, in the order you find them (use function, count++, %03i)
-                        FILE *f = fopen(001.jpg, "w"); // open image in write mode
-                        fwrite(data, size, number, outptr);
+                        //FILE *f = fopen(001.jpg, "w"); // open image in write mode
+                        //fwrite(data, size, number, outptr);
                         // start writing all data in chunks of b12 bytes until [X+n] = 0xff
                                     // if buffer[X+n+1] == 0xd8
                                         // if buffer [X+n+2] == 0xff
