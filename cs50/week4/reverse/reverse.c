@@ -26,14 +26,35 @@ int main(int argc, char *argv[])
 
     // Read header into an array
     // TODO #3
+    // allocate memory to store the file header
+    WAVHEADER header;
 
+    // read the input file to extract the header
+    fread(header, 1, 44, input); // file header is 44 bytes in total
 
     // Use check_format to ensure WAV format
     // TODO #4
-
+    if (check_format() == false) {
+        printf("Input is not a WAV file.");
+        return 1;
+    }
 
     // Open output file for writing
     // TODO #5
+    // allocate memory for the name of the user-specified output file
+    //int length = strlen(argv[2]);
+    //char filename = malloc(length * sizeof(char));
+
+    // initialise the output file
+    //FILE *output;
+
+    // create a new WAV file for output
+    //sprintf(filename, "%s", argv[2]);
+
+    // open the output file
+    //output = fopen(filename, "w");
+
+
 
 
     // Write header to file
@@ -51,8 +72,12 @@ int main(int argc, char *argv[])
 
 bool check_format(WAVHEADER header)
 {
-    // TODO #4
-    return 0;
+    // access WAVHEADER, specifically the format array, and check if the chars W, A, V and E are stored in this array
+    if (!(WAVHEADER.format[0] == "W" && WAVHEADER.format[1] == "A" && WAVHEADER.format[2] == "V" && WAVHEADER.format[3] == "E")) {
+        return false;
+    }
+
+    return true;
 }
 
 int get_block_size(WAVHEADER header)
