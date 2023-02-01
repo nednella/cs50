@@ -11,7 +11,7 @@ char *IMAGE = NULL;
 int main(int argc, char *argv[])
 {
     // check that CLI was used correctly
-    if (!(argc == 1)) {
+    if (!(argc == 2)) {
         printf("Usage: ./recover [IMAGE]\n");
         return 1;
     }
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     }
 
     // allocate memory for a buffer
-    BYTE buffer[BLOCK];
+    BYTE buffer[BLOCK] = malloc;
 
     // allocate memory for filename and initialise variables
     char filename[8];
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
             }
 
             // create a new JPEG file
-            sprintf(image, "%03i.jpg", imagecount);
+            sprintf(filename, "%03i.jpg", imagecount);
             imagecount ++;
 
             // open the created JPEG file in "write" mode
@@ -55,14 +55,13 @@ int main(int argc, char *argv[])
         }
 
         // if already found a JPEG, then we need to keep writing 512 byte blocks to the currently opened file
-        else {
+        else if (imagecount > 0) {
             fwrite(buffer, 1, BLOCK, image);
         }
     }
 
-
     // close any remaining images
-    fclose(IMAGE);
+    fclose(image);
 
 
 
