@@ -7,9 +7,6 @@ typedef uint8_t BYTE;
 const int BLOCK = 512;
 char *IMAGE = NULL;
 
-// global variables to help decide what actions to take when encountering a new JPEG file in the loaded file
-bool firstimage = true;
-int imagecount = 0;
 
 int main(int argc, char *argv[])
 {
@@ -29,8 +26,10 @@ int main(int argc, char *argv[])
     // allocate memory for a buffer
     BYTE buffer[BLOCK];
 
-    // allocate memory for filename
-    
+    // allocate memory for filename and initialise variables
+    char filename[8];
+    FILE *image;
+    int imagecount = 0;
 
     // while there is  >= 1 block of data remaining, load the data into memory with a pointer to the first address of the block, named buffer
     while (fread(buffer, 1, BLOCK, file) == BLOCK) {
@@ -41,25 +40,23 @@ int main(int argc, char *argv[])
             // check for JPEG file existence
             if (buffer[i] == 0xff && buffer[i + 1] == 0xd8 && buffer[i + 2] == 0xff && (buffer[i + 3] & 0xf0) == 0xe0) {
 
-                if (firstimage) {
-                    // create a new JPEG file
-                    sprintf(IMAGE, "%03i.jpg", imagecount);
-                    firstimage = false;
-                    imagecount ++;
-
-                    // open the created JPEG file in "write" mode
-                    FILE *img = fopen(IMAGE, "w");
-
-                    // write to the JPEG file
-                    fwrite(buffer, 1, BLOCK, img);
-
+                // if JPEG is not the first image found
+                if (imagecount == 0) {
+                    // close the previous image
+                    fclose(image);
                 }
-                else {
-                    // close previous JPEG file
-                    fclose(IMAGE);
 
-                    // create new JPEG file
-                    sprintf(IMAGE, "%03i,jpg", imagecount);
+                // create a new JPEG file
+                sprintf(image, "%03i.jpg", imagecount);
+                firstimage = false;
+                imagecount ++;
+
+                // open the created JPEG file in "write" mode
+                FILE *img = fopen(IMAGE, "w");
+
+                // write to the JPEG file
+                fwrite(buffer, 1, BLOCK, img);
+
                 }
             }
 
