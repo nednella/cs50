@@ -26,8 +26,11 @@ int main(int argc, char *argv[])
         printf("Error: file not found.\n");
     }
 
-    // initialise the buffer
+    // allocate memory for a buffer
     BYTE buffer[BLOCK];
+
+    // allocate memory for filename
+    
 
     // while there is  >= 1 block of data remaining, load the data into memory with a pointer to the first address of the block, named buffer
     while (fread(buffer, 1, BLOCK, file) == BLOCK) {
