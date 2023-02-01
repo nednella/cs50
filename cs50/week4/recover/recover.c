@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
     // allocate memory for a buffer, filename, and initialise variables
     BYTE buffer[BLOCK];
-    char filename[8];
+    char *filename[10]];
 
     FILE *image;
     int imagecount = 0;
