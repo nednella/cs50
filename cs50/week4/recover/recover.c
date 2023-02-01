@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
                 }
                 else {
                     // close previous JPEG file
-                    fclose(img);
+                    fclose(IMAGE);
 
                     // create new JPEG file
                     sprintf(IMAGE, "%03i,jpg", imagecount);
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     }
 
     // close any remaining images
-    fclose(img);
+    fclose(IMAGE);
 
 
 
@@ -84,42 +84,4 @@ int main(int argc, char *argv[])
                 // if already found JPEG
 
     // close any remaining files
-
-
-
-
-
-
-
-    // start searching data from NULL -> END, for the beginning of a jpeg
-    // key for a JPEG file header...
-        // 1st byte always 0xff
-        // 2nd byte always 0xd8
-        // 3rd byte always 0xff
-        // 4th byte always 0xeX... (where X is 0 - F in hexadecimal)
-
-    //fread(data, size, number, inptr);
-        // buildin a condition to ensure that the file has enough data remaining for fread, to read
-
-    // loop through data starting from [X=0] and iterate 1 at a time
-        // if buffer[X] == 0xff
-            // if buffer[X+1] == 0xd8
-                // if buffer [X+2] == 0xff
-                    // if buffer [X+3] == 0xe0 (combine 0xf0 or some shit to consider all 16 possibilities in 1 step without 16 logical OR operators)
-
-                        // once header block is found,
-                        // open a new JPEG file (###.jpg) starting at 001.jpg, in the order you find them (use function, count++, %03i)
-                        //FILE *f = fopen(001.jpg, "w"); // open image in write mode
-                        //fwrite(data, size, number, outptr);
-                        // start writing all data in chunks of b12 bytes until [X+n] = 0xff
-                                    // if buffer[X+n+1] == 0xd8
-                                        // if buffer [X+n+2] == 0xff
-                                            // if buffer [X+n+3] == 0xe0
-
-    // keep writing data in chunks of 512 bytes until a new JPEG file header is reached
-
-    // close old file
-
-    // repeat
-
 }
