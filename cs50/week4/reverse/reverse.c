@@ -1,10 +1,11 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "wav.h"
 
-int check_format(WAVHEADER header);
+bool check_format(WAVHEADER header);
 int get_block_size(WAVHEADER header);
 
 int main(int argc, char *argv[])
@@ -33,15 +34,14 @@ int main(int argc, char *argv[])
 
     // Use check_format to ensure WAV format
     // TODO #4
-    if (check_format(header) == 1) {
-
+    if (check_format(header) == false) {
+        printf("Input is not a WAV file.");
+        return 1;
     }
-
-
-
 
     // Open output file for writing
     // TODO #5
+    fopen();
 
     // Write header to file
     // TODO #6
@@ -56,15 +56,14 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-int check_format(WAVHEADER header)
+bool check_format(WAVHEADER header)
 {
-    // TODO #4
+    // access WAVHEADER, specifically the format array, and check if the chars W, A, V and E are stored in this array
     if (!(WAVHEADER.format[0] == "W" && WAVHEADER.format[1] == "A" && WAVHEADER.format[2] == "V" && WAVHEADER.format[3] == "E")) {
-        printf("Input is not a WAV file.");
-        return 1;
+        return false;
     }
 
-    return 0;
+    return true;
 }
 
 int get_block_size(WAVHEADER header)
