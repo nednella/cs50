@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     }
 
     // allocate memory for a buffer
-    BYTE buffer[BLOCK] = malloc;
+    BYTE buffer[] = malloc(BLOCK * sizeof(BYTE));
 
     // allocate memory for filename and initialise variables
     char filename[8];
@@ -63,18 +63,6 @@ int main(int argc, char *argv[])
     // close any remaining images
     fclose(image);
 
-
-
-    // repeat until end of the card:
-        // read 512 bytes into a buffer
-        // iterate through buffer
-            // if start of new JPEG
-                // if first JPEG
-
-                // else
-
-            // else
-                // if already found JPEG
-
-    // close any remaining files
+    free(buffer);
+    return;
 }
