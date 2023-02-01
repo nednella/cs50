@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     sprintf(filename, "%s", argv[2]);
 
     // open the output file
-    fopen();
+    output = fopen(output);
 
 
 
