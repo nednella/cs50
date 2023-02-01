@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
 
     // Open input file for reading
     // TODO #2
-    FILE *file = fopen(argv[1], "r");
-    if (file == NULL) {
+    FILE *input = fopen(argv[1], "r");
+    if (input == NULL) {
         printf("Error: file not found.\n");
     }
 
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     WAVHEADER header;
 
     // read the input file to extract the header
-    fread(header, 1, 44, file); // file header is 44 bytes in total
+    fread(header, 1, 44, input); // file header is 44 bytes in total
 
     // Use check_format to ensure WAV format
     // TODO #4
