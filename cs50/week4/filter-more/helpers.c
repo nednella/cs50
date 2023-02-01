@@ -160,14 +160,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j] = image[i][j];
 
             // initialise counters (inside of loop so they are reset for each pixel!)
-            float Rgx = 0;
-            float Rgy = 0;
-            float Ggx = 0;
-            float Ggy = 0;
-            float Bgx = 0;
-            float Bgy = 0;
-            //gx_RGB[];
-            //gy_RGB[];
+            //float Rgx = 0;
+            //float Rgy = 0;
+            //float Ggx = 0;
+            //float Ggy = 0;
+            //float Bgx = 0;
+            //float Bgy = 0;
+            float gx_RGB[] = {0, 0, 0}; // initialised as an array with an element for each colour channel
+            float gy_RGB[] = {0, 0, 0};
 
             // for the selected pixel [i][j]
             // loop through its surrounding 3x3 block
@@ -181,22 +181,22 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                     else {
                         // multiply each pixels R G and B values by the corresponding Gx & Gy value
-                        Rgx += (image[row][column].rgbtRed * Gx[row - (i - 1)][column - (j - 1)]);
-                        Rgy += (image[row][column].rgbtRed * Gy[row - (i - 1)][column - (j - 1)]);
+                        gx_RGB[0] += (image[row][column].rgbtRed * Gx[row - (i - 1)][column - (j - 1)]);
+                        gy_RGB[0] += (image[row][column].rgbtRed * Gy[row - (i - 1)][column - (j - 1)]);
 
-                        Ggx += (image[row][column].rgbtGreen * Gx[row - (i - 1)][column - (j - 1)]);
-                        Ggy += (image[row][column].rgbtGreen * Gy[row - (i - 1)][column - (j - 1)]);
+                        gx_RGB[1] += (image[row][column].rgbtGreen * Gx[row - (i - 1)][column - (j - 1)]);
+                        gy_RGB[1] += (image[row][column].rgbtGreen * Gy[row - (i - 1)][column - (j - 1)]);
 
-                        Bgx += (image[row][column].rgbtBlue * Gx[row - (i - 1)][column - (j - 1)]);
-                        Bgy += (image[row][column].rgbtBlue * Gy[row - (i - 1)][column - (j - 1)]);
+                        gx_RGB[2] += (image[row][column].rgbtBlue * Gx[row - (i - 1)][column - (j - 1)]);
+                        gy_RGB[2] += (image[row][column].rgbtBlue * Gy[row - (i - 1)][column - (j - 1)]);
                     }
                 }
             }
 
             // calculate the sobel operator for each colour channel
-            int new_R = fmin(round(sqrt(Rgx * Rgx + Rgy * Rgy)), 255);
-            int new_G = fmin(round(sqrt(Ggx * Ggx + Ggy * Ggy)), 255);
-            int new_B = fmin(round(sqrt(Bgx * Bgx + Bgy * Bgy)), 255);
+            int new_R = fmin(round(sqrt(gx_RGB[0] * gx_RGB[0] + gy_RGB[0] * gy_RGB[0])), 255);
+            int new_G = fmin(round(sqrt(gx_RGB[1] * gx_RGB[1] + gy_RGB[1] * gy_RGB[1])), 255);
+            int new_B = fmin(round(sqrt(gx_RGB[2] * gx_RGB[2] + gy_RGB[2] * gy_RGB[2])), 255);
 
             // replace the copied images' [i][j] pixel RGB values with the new sobel RGB values
             copy[i][j].rgbtRed = new_R;
