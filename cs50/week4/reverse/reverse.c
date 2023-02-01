@@ -43,16 +43,16 @@ int main(int argc, char *argv[])
     // TODO #5
     // allocate memory for the name of the user-specified output file
     //int length = strlen(argv[2]);
-    //char filename = malloc(length * sizeof(char));
+    char filename = malloc(length * sizeof(char));
 
     // initialise the output file
-    //FILE *output;
+    FILE *output;
 
     // create a new WAV file for output
-    //sprintf(filename, "%s", argv[2]);
+    sprintf(filename, "%s", argv[2]);
 
     // open the output file
-    //output = fopen(filename, "w");
+    output = fopen(filename, "w");
 
 
 
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 bool check_format(WAVHEADER header)
 {
     // access WAVHEADER, specifically the format array, and check if the chars W, A, V and E are stored in this array
-    if (!(header.format[0] == "W" && header.format[1] == "A" && header.format[2] == "V" && header.format[3] == "E")) {
+    if (!(header.format[0] == 'W' && header.format[1] == 'A' && header.format[2] == 'V' && header.format[3] == 'E')) {
         return false;
     }
 
