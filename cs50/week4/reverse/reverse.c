@@ -25,6 +25,15 @@ int main(int argc, char *argv[])
 
     // Read header into an array
     // TODO #3
+    // allocate memory to store the file header
+    WAVHEADER header;
+
+    // read the input file
+    fread(header, 1, 44, file); // file header is 44 bytes in total
+
+
+
+
 
     // Use check_format to ensure WAV format
     if () {
