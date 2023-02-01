@@ -41,7 +41,16 @@ int main(int argc, char *argv[])
 
     // Open output file for writing
     // TODO #5
+    // allocate memory for an output file
+    char filename[10];
+
+    // create a new WAV file for output
+
+    // open the output file
     fopen();
+
+
+
 
     // Write header to file
     // TODO #6
