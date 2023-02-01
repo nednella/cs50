@@ -27,14 +27,14 @@ int main(int argc, char *argv[])
     // Read header into an array
     // TODO #3
     // allocate memory to store the file header
-    WAVHEADER header;
+    WAVHEADER *header = NULL; // = malloc(44 * sizeof(BYTE));
 
     // read the input file to extract the header
     fread(header, 1, 44, input); // file header is 44 bytes in total
 
     // Use check_format to ensure WAV format
     // TODO #4
-    if (check_format() == false) {
+    if (check_format(*header) == false) {
         printf("Input is not a WAV file.");
         return 1;
     }
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 bool check_format(WAVHEADER header)
 {
     // access WAVHEADER, specifically the format array, and check if the chars W, A, V and E are stored in this array
-    if (!(WAVHEADER.format[0] == "W" && WAVHEADER.format[1] == "A" && WAVHEADER.format[2] == "V" && WAVHEADER.format[3] == "E")) {
+    if (!(header.format[0] == "W" && header.format[1] == "A" && header.format[2] == "V" && header.format[3] == "E")) {
         return false;
     }
 
