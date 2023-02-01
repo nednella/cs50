@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     // TODO #5
     // allocate memory for the name of the user-specified output file
     int length = strlen(argv[2]);
-    char filename[] = malloc(length * sizeof(char));
+    char filename = malloc(length * sizeof(char));
 
     // initialise the output file
     FILE *output;
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     sprintf(filename, "%s", argv[2]);
 
     // open the output file
-    output = fopen(output);
+    output = fopen(filename, "w");
 
 
 
