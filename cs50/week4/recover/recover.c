@@ -34,38 +34,34 @@ int main(int argc, char *argv[])
     // while there is  >= 1 block of data remaining, load the data into memory with a pointer to the first address of the block, named buffer
     while (fread(buffer, 1, BLOCK, file) == BLOCK) {
 
-        // iterate through the buffer - PROBABLY WRONG, i bet i only need to look at the first 4 bytes in each block, and therefore do not need to iterate
-        for (int i = 0; i < BLOCK; i++) {
+        // check for JPEG file existence
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0) {
 
-            // check for JPEG file existence
-            if (buffer[i] == 0xff && buffer[i + 1] == 0xd8 && buffer[i + 2] == 0xff && (buffer[i + 3] & 0xf0) == 0xe0) {
-
-                // if JPEG is not the first image found
-                if (imagecount == 0) {
-                    // close the previous image
-                    fclose(image);
-                }
-
-                // create a new JPEG file
-                sprintf(image, "%03i.jpg", imagecount);
-                firstimage = false;
-                imagecount ++;
-
-                // open the created JPEG file in "write" mode
-                FILE *img = fopen(IMAGE, "w");
-
-                // write to the JPEG file
-                fwrite(buffer, 1, BLOCK, img);
-
-                }
+            // if JPEG is not the first image found
+            if (imagecount == 0) {
+                // close the previous image
+                fclose(image);
             }
 
-            // if already found a JPEG, then we need to keep writing 512 byte blocks to the currently opened file
-            else {
-                fwrite(buffer, 1, BLOCK, img);
-            }
+            // create a new JPEG file
+            sprintf(image, "%03i.jpg", imagecount);
+            firstimage = false;
+            imagecount ++;
+
+            // open the created JPEG file in "write" mode
+            FILE *img = fopen(IMAGE, "w");
+
+            // write to the JPEG file
+            fwrite(buffer, 1, BLOCK, img);
+
+        }
+
+        // if already found a JPEG, then we need to keep writing 512 byte blocks to the currently opened file
+        else {
+            fwrite(buffer, 1, BLOCK, img);
         }
     }
+    
 
     // close any remaining images
     fclose(IMAGE);
