@@ -23,11 +23,10 @@ int main(int argc, char *argv[])
         printf("Error: file not found.\n");
     }
 
-    // allocate memory for a buffer
+    // allocate memory for a buffer, filename, and initialise variables
     BYTE buffer[BLOCK] = malloc(BLOCK * sizeof(BYTE));
-
-    // allocate memory for filename and initialise variables
     char filename[8];
+    
     FILE *image;
     int imagecount = 0;
 
