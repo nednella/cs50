@@ -24,9 +24,9 @@ int main(int argc, char *argv[])
     }
 
     // allocate memory for a buffer, filename, and initialise variables
-    BYTE buffer[BLOCK] = malloc(BLOCK * sizeof(BYTE));
+    BYTE buffer[BLOCK];
     char filename[8];
-    
+
     FILE *image;
     int imagecount = 0;
 
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
             imagecount ++;
 
             // open the created JPEG file in "write" mode
-            image = fopen(IMAGE, "w");
+            image = fopen(filename, "w");
 
             // write to the JPEG file
             fwrite(buffer, 1, BLOCK, image);
@@ -62,6 +62,6 @@ int main(int argc, char *argv[])
     // close any remaining images
     fclose(image);
 
-    free(buffer);
-    return;
+    //free(buffer);
+    return 0;
 }
