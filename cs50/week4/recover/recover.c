@@ -5,7 +5,7 @@
 
 typedef uint8_t BYTE;
 const int BLOCK = 512;
-char *filename = NULL;
+char *IMAGE = NULL;
 
 // global variables to help decide what actions to take when encountering a new JPEG file in the loaded file
 bool firstimage = true;
@@ -19,14 +19,12 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    FILE *file = fopen(argv[1], "r"); // open specified file in "read" mode, return error message if not found
+    // open specified file in "read" mode, return error message if not found
     // note that fopen doesn't read/write data, it just creates a stream to enable the use of other functions, like fread
+    FILE *file = fopen(argv[1], "r");
     if (file == NULL) {
         printf("Error: file not found.\n");
     }
-
-
-
 
     // initialise the buffer
     BYTE buffer[BLOCK];
@@ -42,16 +40,23 @@ int main(int argc, char *argv[])
 
                 if (firstimage) {
                     // create a new JPEG file
-                    sprintf(filename, "%03i.jpg", imagecount);
+                    sprintf(IMAGE, "%03i.jpg", imagecount);
                     firstimage = false;
                     imagecount ++;
+
+                    // open the created JPEG file in "write" mode
+                    FILE *img = fopen(IMAGE, "w");
+
+                    // write to the JPEG file
+                    fwrite(buffer, 1, BLOCK, )
+
                 }
                 else {
                     // close previous JPEG file
 
 
                     // create new JPEG file
-                    sprintf(filename, "%03i,jpg", imagecount);
+                    sprintf(IMAGE, "%03i,jpg", imagecount);
                 }
             }
         }
