@@ -31,14 +31,14 @@ int main(int argc, char *argv[])
     // read the input file to extract the header
     fread(header, 1, 44, file); // file header is 44 bytes in total
 
-
-
-
     // Use check_format to ensure WAV format
-    if (check_format()) {
+    // TODO #4
+    if (check_format(header) == 1) {
         printf("Input is not a WAV file.");
     }
-    // TODO #4
+
+
+
 
     // Open output file for writing
     // TODO #5
@@ -59,6 +59,10 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
+    if () {
+
+    }
+
     return 0;
 }
 
