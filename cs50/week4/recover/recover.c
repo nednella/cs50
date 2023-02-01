@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     }
 
     // allocate memory for a buffer
-    BYTE buffer[] = malloc(BLOCK * sizeof(BYTE));
+    BYTE buffer[BLOCK] = malloc(BLOCK * sizeof(BYTE));
 
     // allocate memory for filename and initialise variables
     char filename[8];
