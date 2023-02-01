@@ -28,15 +28,14 @@ int main(int argc, char *argv[])
     // allocate memory to store the file header
     WAVHEADER header;
 
-    // read the input file
+    // read the input file to extract the header
     fread(header, 1, 44, file); // file header is 44 bytes in total
 
 
 
 
-
     // Use check_format to ensure WAV format
-    if () {
+    if (check_format()) {
         printf("Input is not a WAV file.");
     }
     // TODO #4
