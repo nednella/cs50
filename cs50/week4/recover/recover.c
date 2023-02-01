@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     // while there is  >= 1 block of data remaining, load the data into memory with a pointer to the first address of the block, named buffer
     while (fread(buffer, 1, BLOCK, file) == BLOCK) {
 
-        // iterate through the buffer
+        // iterate through the buffer - PROBABLY WRONG, i bet i only need to look at the first 4 bytes in each block, and therefore do not need to iterate
         for (int i = 0; i < BLOCK; i++) {
 
             // check for JPEG file existence
