@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
     char filename[10];
 
     // create a new WAV file for output
+    sprintf()
 
     // open the output file
     fopen();
