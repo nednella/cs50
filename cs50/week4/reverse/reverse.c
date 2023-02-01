@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     WAVHEADER header;
 
     // read the input file to extract the header
-    fread(header, 1, 44, input); // file header is 44 bytes in total
+    fread(WAVHEADER, 1, 44, input); // file header is 44 bytes in total
 
     // Use check_format to ensure WAV format
     // TODO #4
