@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
                     FILE *img = fopen(IMAGE, "w");
 
                     // write to the JPEG file
-                    fwrite(buffer, 1, BLOCK, )
+                    fwrite(buffer, 1, BLOCK, img);
 
                 }
                 else {
