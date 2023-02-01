@@ -43,7 +43,10 @@ int main(int argc, char *argv[])
     // TODO #5
     // allocate memory for the name of the user-specified output file
     int length = strlen(argv[2]);
-    char filename = malloc(length * sizeof(char));
+    char filename[] = malloc(length * sizeof(char));
+
+    // initialise the output file
+    FILE *output;
 
     // create a new WAV file for output
     sprintf(filename, "%s", argv[2]);
