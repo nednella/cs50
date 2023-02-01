@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
                 }
                 else {
                     // close previous JPEG file
-
+                    fclose(img);
 
                     // create new JPEG file
                     sprintf(IMAGE, "%03i,jpg", imagecount);
