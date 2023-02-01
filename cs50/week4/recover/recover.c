@@ -59,7 +59,8 @@ int main(int argc, char *argv[])
         }
     }
 
-    // close any remaining images
+    // close any remaining files
+    fclose(file);
     fclose(image);
 
     //free(buffer);
