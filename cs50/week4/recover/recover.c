@@ -37,31 +37,29 @@ int main(int argc, char *argv[])
         // check for JPEG file existence
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0) {
 
-            // if JPEG is not the first image found
+            // if JPEG is not the first image found, close the previous JPEG
             if (imagecount == 0) {
-                // close the previous image
                 fclose(image);
             }
 
             // create a new JPEG file
             sprintf(image, "%03i.jpg", imagecount);
-            firstimage = false;
             imagecount ++;
 
             // open the created JPEG file in "write" mode
-            FILE *img = fopen(IMAGE, "w");
+            image = fopen(IMAGE, "w");
 
             // write to the JPEG file
-            fwrite(buffer, 1, BLOCK, img);
+            fwrite(buffer, 1, BLOCK, image);
 
         }
 
         // if already found a JPEG, then we need to keep writing 512 byte blocks to the currently opened file
         else {
-            fwrite(buffer, 1, BLOCK, img);
+            fwrite(buffer, 1, BLOCK, image);
         }
     }
-    
+
 
     // close any remaining images
     fclose(IMAGE);
