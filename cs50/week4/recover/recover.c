@@ -9,7 +9,7 @@ char *IMAGE = NULL;
 
 // global variables to help decide what actions to take when encountering a new JPEG file in the loaded file
 bool firstimage = true;
-int imagecount = 1;
+int imagecount = 0;
 
 int main(int argc, char *argv[])
 {
