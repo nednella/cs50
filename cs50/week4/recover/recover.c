@@ -59,8 +59,16 @@ int main(int argc, char *argv[])
                     sprintf(IMAGE, "%03i,jpg", imagecount);
                 }
             }
+
+            // if already found a JPEG, then we need to keep writing 512 byte blocks to the currently opened file
+            else {
+                fwrite(buffer, 1, BLOCK, img);
+            }
         }
     }
+
+    // close any remaining images
+    fclose(img);
 
 
 
