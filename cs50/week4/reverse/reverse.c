@@ -13,19 +13,23 @@ int main(int argc, char *argv[])
     // TODO #1
     if (!(argc == 3)) {
         printf("Usage: ./reverse [input.wav] [output.wav]");
-    }
-
-    if (argv[2] ) {
-        printf("Input is not a WAV file.");
+        return 1;
     }
 
     // Open input file for reading
     // TODO #2
+    FILE *file = fopen(argv[1], "r");
+    if (file == NULL) {
+        printf("Error: file not found.\n");
+    }
 
     // Read header into an array
     // TODO #3
 
     // Use check_format to ensure WAV format
+    if () {
+        printf("Input is not a WAV file.");
+    }
     // TODO #4
 
     // Open output file for writing
@@ -39,6 +43,9 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
+
+    fclose(file);
+    return 0;
 }
 
 int check_format(WAVHEADER header)
