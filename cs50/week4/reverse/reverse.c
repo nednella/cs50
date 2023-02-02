@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
     // initialise a buffer to store each block of audio data
     BYTE buffer[block_size];
 
-    
+    fread(buffer, 1, block_size, input);
 
 
 
