@@ -71,8 +71,9 @@ int main(int argc, char *argv[])
     BYTE buffer[block_size];
 
     // set stream pointer to end of file, then move back by 1 * block_size
-    int current_pos = fseek(input, -(block_size), SEEK_END);
-    printf(%i\n"", current_pos);
+    int current_pos = fseek(input, 0, SEEK_END);
+    printf("Here...\n");
+    printf("%i\n", current_pos);
 
 
 
@@ -126,7 +127,7 @@ int get_block_size(WAVHEADER header)
     // access header, and determine the block size (no. of channels * bits per sample)
     int channels = header.numChannels;
     int bps = header.bitsPerSample / 8;
-    block_size = channels * bps;
+    int block_size = channels * bps;
 
     return block_size;
 }
