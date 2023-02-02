@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 
     // Use get_block_size to calculate size of block
     // TODO #7
-    get_block_size(*header);
+    int block_size = get_block_size(*header);
 
     // Write reversed audio to file - ONLY INTERESTED IN 45TH BYTE ONWARDS
     // TODO #8
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     BYTE buffer[block_size];
 
     // set stream pointer to end of file, then move back by 1 * block_size
-    int current_pos = fseek(input, SEEK_END);
+    int current_pos = fseek(input, 1, SEEK_END);
     printf(%i\n"", current_pos);
 
 
@@ -126,7 +126,7 @@ int get_block_size(WAVHEADER header)
     // access header, and determine the block size (no. of channels * bits per sample)
     int channels = header.numChannels;
     int bps = header.bitsPerSample / 8;
-    int block_size = channels * bps;
+    block_size = channels * bps;
 
     return block_size;
 }
