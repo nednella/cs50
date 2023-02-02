@@ -25,7 +25,7 @@ int main(void)
     //printf("%i\n", pos);
 
     // move stream pointer back to the start
-    fseek();
+    fseek(test, -10, SEEK_CUR);
 
     char character = fgetc(test);
     printf("%c\n", character);
