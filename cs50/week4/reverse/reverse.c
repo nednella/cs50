@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
     // Ensure proper usage
     if (!(argc == 3)) {
-        printf("Usage: ./reverse [input.wav] [output.wav]");
+        printf("Usage: ./reverse [input.wav] [output.wav]\n");
         return 1;
     }
 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
     // Use check_format to ensure WAV format
     if (check_format(*header) == false) {
-        printf("Input is not a WAV file.");
+        printf("Input is not a WAV file.\n");
         return 1;
     }
 
@@ -58,18 +58,6 @@ int main(int argc, char *argv[])
     int block_size = get_block_size(*header);
 
     // Write reversed audio to file
-
-
-    // initialise a buffer the size of 1 block of audio data
-    // set stream pointer to end of data
-    // move the stream pointer back by block_size
-    // for each block
-        // check if stream pointer (ftell) > header_offset (as to not read/write the header file)
-            // read from the current stream pointer position, 1*block_size of data
-            // write the reversed block into output.wav
-            // move stream pointer back by 2*block_size
-
-
     // initialise a buffer to store the size of 1 block of audio data
     BYTE buffer[block_size];
     BYTE temp[block_size];
@@ -87,11 +75,29 @@ int main(int argc, char *argv[])
 
 
 
+
+
+
+
+
+
+
+
         // reverse the data block and write it into the temp buffer, whilst maintaining the channels
         for (int i = block_size - 1, j = 0; i >= 0; i--, j++) { // --- ERROR HERE, must consider channels 1 and 2 when reversing the data
 
             temp[j] = buffer[i];
         }
+
+
+
+
+
+
+
+
+
+
 
 
 
