@@ -70,16 +70,22 @@ int main(int argc, char *argv[])
     // initialise a buffer to store each block of audio data
     BYTE buffer[block_size];
 
+    // read the final block of data into the buffer
+
+
     fread(buffer, 1, block_size, input);
 
 
 
 
     // initialise a buffer the size of 1 block of audio data
-    // read from the end of the file, 1 block at a time
+    // set stream pointer to end of data
+    // move the stream pointer back by block_size
+
     // for each block
-        // read the block into buffer
+        // read from stream pointer, 1*block_size of data
         // write the reversed block into output.wav
+        // move stream pointer back by 2*block_size
 
 
 
