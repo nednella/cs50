@@ -55,9 +55,6 @@ int main(int argc, char *argv[])
     // open the output file
     output = fopen(filename, "w");
 
-
-
-
     // Write header to file
     // TODO #6
 
