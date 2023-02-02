@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     // Read header into an array
     // TODO #3
     // allocate memory to store the file header
-    WAVHEADER *header = NULL; // = malloc(44 * sizeof(BYTE));
+    WAVHEADER *header = malloc(44 * sizeof(BYTE));
 
     // read the input file to extract the header
     fread(header, 1, 44, input); // file header is 44 bytes in total
@@ -68,6 +68,7 @@ int main(int argc, char *argv[])
     // TODO #8
 
     fclose(input);
+    fclose(output);
     return 0;
 }
 
