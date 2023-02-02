@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     (void) fseek(input, -(block_size), SEEK_END); // current position is now 352,840
 
     // loop through the data in reverse, 1 block at a time, stopping when we reach the files' header metadata
-    while(ftell(input) > header_offset) {
+    while(ftell(input) >= header_offset) {
 
         // read into the buffer from current stream position, for a total of block_size bytes
         fread(buffer, 1, block_size, input);
