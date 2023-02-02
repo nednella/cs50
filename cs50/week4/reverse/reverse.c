@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 
     // initialise a buffer to store each block of audio data
     BYTE buffer[block_size];
-    BYTE temp[block_size];
+    //BYTE temp[block_size];
 
     // By downloading input.wav, the file properties tell me the file size is 352,844 bytes!
     // set stream pointer to end of file, then move back by 1 * block_size
@@ -85,13 +85,13 @@ int main(int argc, char *argv[])
         fread(buffer, 1, block_size, input);
 
         // reverse the data in buffer and store it into temporary
-        for (int i = block_size - 1, j = 0; i >= 0; i--, j++) { // --- ERROR HERE, must consider channels 1 and 2 when reversing the data
+        //for (int i = block_size - 1, j = 0; i >= 0; i--, j++) { // --- ERROR HERE, must consider channels 1 and 2 when reversing the data
 
-            temp[j] = buffer[i];
-        }
+            //temp[j] = buffer[i];
+        //}
 
         // write the reversed data into the output file
-        fwrite(temp, 1, block_size, output);
+        fwrite(buffer, 1, block_size, output);
 
         // move the stream pointer back by 2*block_size
         (void) fseek(input, -(2 * block_size), SEEK_CUR);
