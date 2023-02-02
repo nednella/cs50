@@ -70,8 +70,13 @@ person *create_family(int generations)
     else
     {
         // TODO: Set parent pointers to NULL
+        *child.parents[0] = NULL;
+        *child.parents[1] = NULL;
 
         // TODO: Randomly assign alleles
+        char alleles[] = {A, B, O};
+        *child.alleles[0] = alleles[];
+        *child.alleles[1] = alleles[];
 
     }
 
