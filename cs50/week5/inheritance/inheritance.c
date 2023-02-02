@@ -74,7 +74,7 @@ person *create_family(int generations)
         *child.parents[1] = NULL;
 
         // TODO: Randomly assign alleles
-        char alleles[] = {A, B, O};
+        char alleles[] = {'A', 'B', 'O'};
         *child.alleles[0] = alleles[rand() % 2 + 1];
         *child.alleles[1] = alleles[rand() % 2 + 1];
 
