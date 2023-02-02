@@ -22,7 +22,14 @@ int main(void)
 
 
     int pos = ftell(test);
-    printf("%i\n", pos);
+    //printf("%i\n", pos);
+
+    // move stream pointer back to the start
+    fseek();
+
+    char character = fgetc(test);
+    printf("%c\n", character);
+
 
 
     return 0;
