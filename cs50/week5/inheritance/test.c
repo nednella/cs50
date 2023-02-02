@@ -24,7 +24,7 @@ int main(void)
     printf("%c\n", child[1]);
 
     char orphan[2];
-    orphan[0] = alleles[rand() % 3];
+    orphan[0] = alleles[rand() % 3]; // select random value between 0 and 2 to assign a random allele in slot 1
     orphan[1] = alleles[rand() % 3];
 
     printf("Orphan: %c", orphan[0]);
