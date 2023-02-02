@@ -71,6 +71,13 @@ int main(int argc, char *argv[])
 
     fread(buffer, 1, block_size, input);
 
+    // initialise a buffer the size of 1 block of audio data
+    // read from the end of the file, 1 block at a time
+    // for each block
+        // read the block into buffer
+        // write the reversed block into output.wav 
+
+
 
 
 
