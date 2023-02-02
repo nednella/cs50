@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     output = fopen(filename, "w");
 
     // Write header to file
-    fwrite(header, 1, 44, output);
+    fwrite(header, 1, sizeof(header), output);
 
     // Use get_block_size to calculate size of block
     int block_size = get_block_size(*header);
@@ -60,7 +60,6 @@ int main(int argc, char *argv[])
     // Write reversed audio to file
     // initialise a buffer to store the size of 1 block of audio data
     BYTE buffer[block_size];
-    BYTE temp[block_size];
 
     // set stream pointer to end of file, then move back by 1 * block_size
     // by downloading input.wav, the file properties tell me the file size is 352,844 bytes!
