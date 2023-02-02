@@ -87,11 +87,11 @@ int main(int argc, char *argv[])
 
 
 
-        // reverse the data in buffer and store it into temporary
-        //for (int i = block_size - 1, j = 0; i >= 0; i--, j++) { // --- ERROR HERE, must consider channels 1 and 2 when reversing the data
+        // reverse the data block and write it into the temp buffer, whilst maintaining the channels
+        for (int i = block_size - 1, j = 0; i >= 0; i--, j++) { // --- ERROR HERE, must consider channels 1 and 2 when reversing the data
 
-            //temp[j] = buffer[i];
-        //}
+            temp[j] = buffer[i];
+        }
 
 
 
