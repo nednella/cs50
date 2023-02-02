@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     BYTE buffer[block_size];
 
     // set stream pointer to end of file, then move back by 1 * block_size
-    int current_pos = fseek(input, 1, SEEK_END);
+    int current_pos = fseek(input, -(block_size), SEEK_END);
     printf(%i\n"", current_pos);
 
 
