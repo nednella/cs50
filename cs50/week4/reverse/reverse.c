@@ -84,8 +84,8 @@ int main(int argc, char *argv[])
         // read into the buffer from current stream position, for a total of block_size bytes
         fread(buffer, 1, block_size, input);
 
-        // loop through the buffer starting at the end, and store the data in a temporary buffer
-        for (int i = block_size, j = 0; i => 0; i--, j++) {
+        // reverse the data in buffer and store it into temporary
+        for (int i = block_size - 1, j = 0; i >= 0; i--, j++) {
 
             temporary[j] = buffer[i];
         }

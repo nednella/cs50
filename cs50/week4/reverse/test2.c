@@ -15,7 +15,7 @@ int main(void)
     int arr_size = sizeof(buffer) / sizeof(buffer[0]);
 
     // store buffer in reverse, into temporary
-    for (int i = arr_size, j = 0; i >= 0; i--, j++) {
+    for (int i = arr_size - 1, j = 0; i >= 0; i--, j++) {
 
             temp[j] = buffer[i];
         }
