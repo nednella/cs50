@@ -36,6 +36,10 @@ int main(void)
     free_family(p);
 }
 
+
+
+
+
 // Create a new individual with `generations`
 person *create_family(int generations)
 {
@@ -67,6 +71,10 @@ person *create_family(int generations)
     return NULL;
 }
 
+
+
+
+
 // Free `p` and all ancestors of `p`.
 void free_family(person *p)
 {
@@ -77,6 +85,10 @@ void free_family(person *p)
     // TODO: Free child
 
 }
+
+
+
+
 
 // Print each family member and their alleles.
 void print_family(person *p, int generation)
@@ -115,6 +127,10 @@ void print_family(person *p, int generation)
     print_family(p->parents[0], generation + 1);
     print_family(p->parents[1], generation + 1);
 }
+
+
+
+
 
 // Randomly chooses a blood type allele.
 char random_allele()
