@@ -24,9 +24,12 @@ int main(void)
     printf("%c\n", child[1]);
 
     char orphan[2];
-    orphan[0] = alleles[rand() % 2 + 1];
-    orphan[1] = alleles[rand() % 2 + 1];
+    orphan[0] = alleles[rand() % 3];
+    orphan[1] = alleles[rand() % 3];
 
     printf("Orphan: %c", orphan[0]);
     printf("%c\n", orphan[1]);
+
+    int test = (rand() % 2 + 1);
+    printf("Random number (0-2): %i\n", test);
 }
