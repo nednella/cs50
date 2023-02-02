@@ -65,7 +65,17 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
+
+    // initialise a buffer to store each block of audio data
+    BYTE buffer[block_size];
+
     
+
+
+
+
+
+
 
 
 
