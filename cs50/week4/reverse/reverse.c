@@ -71,13 +71,15 @@ int main(int argc, char *argv[])
     BYTE buffer[block_size];
 
     // set stream pointer to end of file, then move back by 1 * block_size
-    fseek(input, );
+    int current_pos = fseek(input, SEEK_END);
+    printf(%i\n"", current_pos);
 
 
 
-    while(ftell(input) > header_offset) {
 
-    }
+    //while(ftell(input) > header_offset) {
+
+    //}
 
 
     // initialise a buffer the size of 1 block of audio data
