@@ -86,7 +86,7 @@ int get_block_size(WAVHEADER header)
     // TODO #7
     // access header, and determine the block size (no. of channels * bits per sample)
     int channels = header.numChannels;
-    int bps = header.bitsPerSample;
+    int bps = header.bitsPerSample / 8;
     int block_size = channels * bps;
 
     return block_size;
