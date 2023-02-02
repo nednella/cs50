@@ -70,22 +70,25 @@ int main(int argc, char *argv[])
     // initialise a buffer to store each block of audio data
     BYTE buffer[block_size];
 
-    // read the final block of data into the buffer
+    // set stream pointer to end of file, then move back by 1 * block_size
+    fseek(input, );
 
 
-    fread(buffer, 1, block_size, input);
 
+    while(ftell(input) > header_offset) {
 
+    }
 
 
     // initialise a buffer the size of 1 block of audio data
     // set stream pointer to end of data
     // move the stream pointer back by block_size
     // for each block
-        // check if stream pointer > header_offset (as to not read/write the header file)
+        // check if stream pointer (ftell) > header_offset (as to not read/write the header file)
             // read from the current stream pointer position, 1*block_size of data
             // write the reversed block into output.wav
             // move stream pointer back by 2*block_size
+
 
 
 
