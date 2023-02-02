@@ -12,12 +12,16 @@ void colorize(int height, int width, RGBTRIPLE image[height][width])
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
 
-            // for each pixel, access the RGB values and set them to a colour of choice
-            image[i][j].rgbtRed = R_value;
-            image[i][j].rgbtGreen = G_value;
-            image[i][j].rgbtBlue = B_value;
+            // if the pixel is black
+            if (image[i][j].rgbtRed == 0 && image[i][j].rgbtGreen == 0 && image[i][j].rgbtBlue == 0) {
+
+                // access the RGB values and set them to a colour of choice
+                image[i][j].rgbtRed = R_value;
+                image[i][j].rgbtGreen = G_value;
+                image[i][j].rgbtBlue = B_value;
+            }
         }
     }
-    
+
     return;
 }
