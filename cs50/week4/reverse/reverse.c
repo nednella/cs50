@@ -81,11 +81,12 @@ int main(int argc, char *argv[])
     // initialise a buffer the size of 1 block of audio data
     // set stream pointer to end of data
     // move the stream pointer back by block_size
-
     // for each block
-        // read from stream pointer, 1*block_size of data
-        // write the reversed block into output.wav
-        // move stream pointer back by 2*block_size
+        // check if stream pointer > header_offset (as to not read/write the header file)
+            // read from the current stream pointer position, 1*block_size of data
+            // write the reversed block into output.wav
+            // move stream pointer back by 2*block_size
+
 
 
 
