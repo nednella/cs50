@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "wav.h"
 
@@ -42,8 +43,8 @@ int main(int argc, char *argv[])
     // Open output file for writing
     // TODO #5
     // allocate memory for the name of the user-specified output file
-    //int length = strlen(argv[2]);
-    char filename = malloc(length * sizeof(char));
+    int length = strlen(argv[2]);
+    char filename[length];
 
     // initialise the output file
     FILE *output;
