@@ -50,7 +50,5 @@ int main(void)
      character = fgetc(test);
     printf("%c\n", character);
 
-
-
     return 0;
 }

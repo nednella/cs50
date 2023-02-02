@@ -44,44 +44,45 @@ int main(int argc, char *argv[])
     // Open output file for writing
     // TODO #5
     // allocate memory for the name of the user-specified output file
-    //int length = strlen(argv[2]);
-    //char filename[length];
+    int length = strlen(argv[2]);
+    char filename[length];
 
     // initialise the output file
-    //FILE *output;
+    FILE *output;
 
     // create a new WAV file for output
-    //sprintf(filename, "%s", argv[2]);
+    sprintf(filename, "%s", argv[2]);
 
     // open the output file
-    //output = fopen(filename, "w");
+    output = fopen(filename, "w");
 
     // Write header to file
     // TODO #6
-    //fwrite(header, 1, 44, output);
+    fwrite(header, 1, 44, output);
 
     // Use get_block_size to calculate size of block
     // TODO #7
-    //int block_size = get_block_size(*header);
+    int block_size = get_block_size(*header);
 
     // Write reversed audio to file - ONLY INTERESTED IN 45TH BYTE ONWARDS
     // TODO #8
 
     // initialise a buffer to store each block of audio data
-    //BYTE buffer[block_size];
+    BYTE buffer[block_size];
 
+
+
+
+    // By downloading input.wav, the file properties tell me the file size is 352,844 bytes!
     // set stream pointer to end of file, then move back by 1 * block_size
-    (void) fseek(input, 0, SEEK_END);
-    int current_pos = ftell(input);
-    printf("Here...\n");
-    printf("%i\n", current_pos);
+    (void) fseek(input, -(block_size), SEEK_END); // current position is now 352,840
+    //int current_pos = ftell(input);
+    //printf("Here...\n");
+    //printf("%i\n", current_pos);
 
+    while(ftell(input) > header_offset) {
 
-
-
-    //while(ftell(input) > header_offset) {
-
-    //}
+    }
 
 
     // initialise a buffer the size of 1 block of audio data
