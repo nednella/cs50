@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 
     // read the input file to extract the header
     fread(header, 1, 44, input); // file header is 44 bytes in total
+    int header_offset = ftell(input); // stream position at the end of the header block (should be equal to 44th byte)
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -71,11 +72,14 @@ int main(int argc, char *argv[])
 
     fread(buffer, 1, block_size, input);
 
+
+
+
     // initialise a buffer the size of 1 block of audio data
     // read from the end of the file, 1 block at a time
     // for each block
         // read the block into buffer
-        // write the reversed block into output.wav 
+        // write the reversed block into output.wav
 
 
 
