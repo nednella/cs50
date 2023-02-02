@@ -69,9 +69,7 @@ int main(int argc, char *argv[])
 
     // initialise a buffer to store each block of audio data
     BYTE buffer[block_size];
-
-
-
+    BYTE temporary[block_size];
 
     // By downloading input.wav, the file properties tell me the file size is 352,844 bytes!
     // set stream pointer to end of file, then move back by 1 * block_size
@@ -83,9 +81,19 @@ int main(int argc, char *argv[])
     // loop through the data in reverse, 1 block at a time, stopping when we reach the files' header metadata
     while(ftell(input) > header_offset) {
 
-        // read from current stream position
-        fread();
+        // read into the buffer from current stream position, for a total of block_size bytes
+        fread(buffer, 1, block_size, input);
+
+        // loop through the buffer starting at the end, and store the data in a temporary buffer
+        for (int i = block_size; i <= 0; i--) {
+
+            temporary[i - i] = buffer[i];
+
+        }
     }
+
+
+
 
 
     // initialise a buffer the size of 1 block of audio data
@@ -112,7 +120,7 @@ int main(int argc, char *argv[])
 
 
     fclose(input);
-    //fclose(output);
+    fclose(output);
     return 0;
 }
 
