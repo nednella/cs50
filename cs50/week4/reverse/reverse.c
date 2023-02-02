@@ -85,10 +85,14 @@ int main(int argc, char *argv[])
         fread(buffer, 1, block_size, input);
 
         // reverse the data in buffer and store it into temporary
-        for (int i = block_size - 1, j = 0; i >= 0; i--, j++) {
+        for (int i = block_size - 1, j = 0; i >= 0; i--, j++) { // --- ERROR HERE, must consider channels 1 and 2 when reversing the data
 
             temporary[j] = buffer[i];
         }
+
+        // write the reversed data into the output file
+
+        // move the stream pointer back by 2*block_size
     }
 
 
