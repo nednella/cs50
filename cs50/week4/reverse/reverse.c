@@ -71,16 +71,10 @@ int main(int argc, char *argv[])
         // read into the buffer from current stream position, for a total of block_size bytes
         fread(buffer, 1, block_size, input);
 
-        // reverse the data block and write it into the temp buffer, whilst maintaining the channels
-        for (int i = block_size - 1, j = 0; i >= 0; i--, j++) {
-
-            temp[j] = buffer[i];
-        }
-
-        // write the reversed data into the output file
+        // write the data into the output file
         fwrite(buffer, 1, block_size, output);
 
-        // move the stream pointer back by 2*block_size
+        // move the stream pointer back by 2 * block_size
         (void) fseek(input, -(2 * block_size), SEEK_CUR);
     }
 
