@@ -9,14 +9,21 @@
 
 int main(void)
 {
-    FILE *text = fopen("text.txt", "r");
-    if (text == NULL) {
-        printf("Error: unable to open file.");
+    FILE *test = fopen("test.txt", "r");
+    if (test == NULL) {
+        printf("Error: unable to open file.\n");
         return 1;
     }
 
     // initialise a buffer to store the data from text.txt
-    
+    char buffer[10];
+
+    fread(buffer, 1, 10, test);
+
+
+    int pos = ftell(test);
+    printf("%i\n", pos);
+
 
     return 0;
 }
