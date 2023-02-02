@@ -21,6 +21,10 @@ void print_family(person *p, int generation);
 void free_family(person *p);
 char random_allele();
 
+
+
+
+
 int main(void)
 {
     // Seed random number generator
