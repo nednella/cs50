@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
         fwrite(temp, 1, block_size, output);
 
         // move the stream pointer back by 2*block_size
-        (void) fseek(input, -2 * block_size, SEEK_CUR);
+        (void) fseek(input, -(2 * block_size), SEEK_CUR);
     }
 
 
