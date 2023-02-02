@@ -30,6 +30,6 @@ int main(void)
     printf("Orphan: %c", orphan[0]);
     printf("%c\n", orphan[1]);
 
-    int test = (rand() % 2 + 1);
+    int test = (rand() % 3);
     printf("Random number (0-2): %i\n", test);
 }
