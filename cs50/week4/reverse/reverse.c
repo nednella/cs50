@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     // TODO #7
     get_block_size(*header);
 
-    // Write reversed audio to file
+    // Write reversed audio to file - ONLY INTERESTED IN 45TH BYTE ONWARDS
     // TODO #8
 
     // initialise a buffer to store each block of audio data
