@@ -80,8 +80,11 @@ int main(int argc, char *argv[])
     //printf("Here...\n");
     //printf("%i\n", current_pos);
 
+    // loop through the data in reverse, 1 block at a time, stopping when we reach the files' header metadata
     while(ftell(input) > header_offset) {
 
+        // read from current stream position
+        fread();
     }
 
 
