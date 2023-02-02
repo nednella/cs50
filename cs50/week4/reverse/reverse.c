@@ -61,6 +61,7 @@ int main(int argc, char *argv[])
 
     // Use get_block_size to calculate size of block
     // TODO #7
+    get_block_size(*header);
 
     // Write reversed audio to file
     // TODO #8
@@ -72,7 +73,7 @@ int main(int argc, char *argv[])
 
 bool check_format(WAVHEADER header)
 {
-    // access WAVHEADER, specifically the format array, and check if the chars W, A, V and E are stored in this array
+    // access header, specifically the format array, and check if the chars W, A, V and E are stored in this array
     if (!(header.format[0] == 'W' && header.format[1] == 'A' && header.format[2] == 'V' && header.format[3] == 'E')) {
         return false;
     }
@@ -83,5 +84,10 @@ bool check_format(WAVHEADER header)
 int get_block_size(WAVHEADER header)
 {
     // TODO #7
-    return 0;
+    // access header, and determine the block size (no. of channels * bits per sample)
+    int channels = header.numChannels;
+    int bps = header.bitsPerSample;
+    int block_size = channels * bps;
+
+    return block_size;
 }
