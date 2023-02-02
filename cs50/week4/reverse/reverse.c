@@ -85,9 +85,9 @@ int main(int argc, char *argv[])
         fread(buffer, 1, block_size, input);
 
         // loop through the buffer starting at the end, and store the data in a temporary buffer
-        for (int i = block_size; i => 0; i--) {
+        for (int i = block_size, j = 0; i => 0; i--, j++) {
 
-            temporary[i - i] = buffer[i];
+            temporary[j] = buffer[i];
         }
     }
 
