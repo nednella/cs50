@@ -84,7 +84,8 @@ bool load(const char *dictionary)
         // copy word into new node
         strcpy(*n->word, tmpword);
 
-        // assigning the node to the hash table
+        // hash the new node (assign it an integer value)
+        hash(*n);
     }
 
     while (!(fscanf == EOF));
