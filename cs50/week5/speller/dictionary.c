@@ -65,14 +65,17 @@ bool load(const char *dictionary)
         printf("Error: file not found.");
     }
 
-    // read strings from file 1 at a time
+    // read strings from file 1 at a time, until the end of the file is reached
     while (!(fscanf == EOF)) {
 
-        // allocate memory for a new word
-        node = malloc(sizeof(node));
+        // allocate memory for a new node
+        node *n = malloc(sizeof(node));
+        if (*n == NULL) {
+            printf("Error: not enough memory available.");
+        }
 
         // read a word from the opened file using the "string" conversion (safe to do so as )
-        fscanf(file, "%s", word);
+        fscanf(file, "%s", *n->word);
     }
 
     // create a new node for each word
