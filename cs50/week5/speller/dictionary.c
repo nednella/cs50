@@ -88,7 +88,7 @@ bool load(const char *dictionary)
         int index = hash(*n->word);
 
         // insert the node into the hash table at that hash location
-        table(index)
+        table(INDEX) = n;
 
         // success
         return true;
