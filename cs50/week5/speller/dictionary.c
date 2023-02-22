@@ -67,7 +67,11 @@ bool load(const char *dictionary)
 
     // read strings from file 1 at a time
     while (!(fscanf == EOF)) {
-        word = malloc
+
+        // allocate memory for a new word
+        node = malloc(sizeof(node));
+
+        // read a word from the opened file using the "string" conversion (safe to do so as )
         fscanf(file, "%s", word);
     }
 
