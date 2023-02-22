@@ -85,10 +85,11 @@ bool load(const char *dictionary)
         strcpy(*n->word, tmpword);
 
         // hash the word in the new node to obtain a hash value
-        int index = hash(*n->word);
+        int INDEX = hash(*n->word);
 
         // insert the node into the hash table at that hash location
         table(INDEX) = n;
+        
 
         // success
         return true;
