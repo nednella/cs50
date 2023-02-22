@@ -59,7 +59,10 @@ bool load(const char *dictionary)
     // TODO #1
 
     // open dictonary file
-    FILE *file = fopen
+    FILE *file = fopen(dictionaries/large, "r");
+    if (file == NULL) {
+        printf("Error: file not found.");
+    }
 
     // read strings from file 1 at a time
 
