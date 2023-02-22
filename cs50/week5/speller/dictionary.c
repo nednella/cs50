@@ -26,7 +26,7 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    // TODO #4
     return false;
 }
 
@@ -37,9 +37,17 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Improve this hash function
+    // TODO #2: Improve this hash function
     return toupper(word[0]) - 'A';
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -49,8 +57,29 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO #1
+    
+
+
+
+
     return false;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -59,7 +88,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
+    // TODO #3
     return 0;
 }
 
@@ -70,7 +99,7 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
+    // TODO #5
     return false;
 }
 
