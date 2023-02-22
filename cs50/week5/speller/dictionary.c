@@ -57,8 +57,6 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    // TODO #1
-
     // open dictonary file
     FILE *file = fopen(dictionaries/large, "r");
     if (file == NULL) {
@@ -87,18 +85,18 @@ bool load(const char *dictionary)
         // hash the word in the new node to obtain a hash value
         int INDEX = hash(*n->word);
 
-        // insert the node into the hash table at that hash location
-        n->next = ;
+        // insert the node into the hash table at that hash location...
+        // stitch the new nodes' "next" pointer to point at the first node in the linked list
+        n->next = table(INDEX);
+        // re-point the linked list to the new node, thereby stacking it into the linked list
         table(INDEX) = n;
-
-
 
         // success
         return true;
     }
-
     while (!(fscanf == EOF));
 
+    // success
     return false;
 }
 
