@@ -57,7 +57,18 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO #1
-    
+
+    // open dictonary file
+    fopen
+
+    // read strings from file 1 at a time
+
+    // create a new node for each word
+
+    // hash word to obtain a hash value
+
+    // insert node into hash table at that location
+
 
 
 
