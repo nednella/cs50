@@ -61,15 +61,17 @@ bool load(const char *dictionary)
     FILE *file = fopen(dictionaries/large, "r");
     if (file == NULL) {
         printf("Error: file not found.");
+        return false;
     }
 
     // read strings from file 1 at a time, until the end of the file is reached
     do {
-
+        
         // allocate memory for a new node
         node *n = malloc(sizeof(node));
         if (*n == NULL) {
             printf("Error: not enough memory available.");
+            return false;
         }
 
         // initialise a character array for storing a word temporarily
@@ -95,9 +97,6 @@ bool load(const char *dictionary)
         return true;
     }
     while (!(fscanf == EOF));
-
-    // success
-    return false;
 }
 
 
