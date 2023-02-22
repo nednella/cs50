@@ -66,7 +66,7 @@ bool load(const char *dictionary)
 
     // read strings from file 1 at a time, until the end of the file is reached
     do {
-        
+
         // allocate memory for a new node
         node *n = malloc(sizeof(node));
         if (*n == NULL) {
@@ -82,10 +82,10 @@ bool load(const char *dictionary)
         fscanf(file, "%s", tmpword);
 
         // copy word into new node
-        strcpy(*n->word, tmpword);
+        strcpy(n->word, tmpword);
 
         // hash the word in the new node to obtain a hash value
-        int INDEX = hash(*n->word);
+        int INDEX = hash(n->word);
 
         // insert the node into the hash table at that hash location...
         // stitch the new nodes' "next" pointer to point at the first node in the linked list
