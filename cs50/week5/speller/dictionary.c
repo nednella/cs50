@@ -54,7 +54,7 @@ unsigned int hash(const char *word)
 
 
 
-// Loads dictionary into memory, returning true if successful, else false
+// Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary)
 {
     // TODO #1
@@ -74,8 +74,15 @@ bool load(const char *dictionary)
             printf("Error: not enough memory available.");
         }
 
-        // read a word from the opened file using the "string" conversion (safe to do so as the word has a finite length, capped at 45)
-        fscanf(file, "%s", word);
+        // initialise a character array for storing a word temporarily
+        char tmpword[LENGTH];
+
+        // read a word from the opened file using the "string" conversion, storing it in a character array
+        // (safe to do so as the word has a finite length, capped at 45)
+        fscanf(file, "%s", tmpword);
+
+        // copy word into new node
+        strcpy(*n->word, tmpword);
     }
 
     while (!(fscanf == EOF));
