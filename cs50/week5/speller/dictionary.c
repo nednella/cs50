@@ -39,20 +39,12 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO #2: Improve this hash function
-    // initially build with just 26 buckets, using the 1st letter of the word
 
     // input a word, with alphabetical characters and (possibly) apostrophes
-    word[0];
-    
-
-
-
-
-
-
-
     // output a numerical index value between 0 and N-1 (where N is the number of buckets in the hash table)
-    return toupper(word[0]) - 'A';
+
+    // initially build with just 26 buckets, using the 1st letter of the word
+    return toupper(word[0]) - 'A'; // returns a hash value between 0 and 25
 }
 
 
