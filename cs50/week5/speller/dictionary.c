@@ -3,7 +3,10 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <strings.h>
+
 
 #include "dictionary.h"
 
@@ -91,7 +94,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // open dictonary file
-    FILE *file = fopen(dictionaries/large, "r");
+    FILE *file = fopen(".dictionaries/large", "r");
     if (file == NULL) {
         printf("Error: file not found.");
         return false;
@@ -102,7 +105,7 @@ bool load(const char *dictionary)
 
         // allocate memory for a new node
         node *n = malloc(sizeof(node));
-        if (*n == NULL) {
+        if (n == NULL) {
             printf("Error: not enough memory available.");
             return false;
         }
