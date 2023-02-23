@@ -38,20 +38,20 @@ bool check(const char *word)
     unsigned int INDEX = hash(word);
 
     // access linked list at that index in the hash table
-    node *current = table[INDEX];
+    node *cursor = table[INDEX]; // create a node pointer (a cursor!) to the first element in the linked list
 
     // traverse linked list, looking for the word (strcasecmp)
-    while (current != NULL) {
+    while (cursor != NULL) {
 
         // check for match
-        if (strcasecmp(word, current->word) == 0) { // compare 2 strings, ignoring case (case insensitive), 0 = match
+        if (strcasecmp(word, cursor->word) == 0) { // compare 2 strings, ignoring case (case insensitive), 0 = match
 
             // match found
             return true;
         }
 
         // if no match, traverse the list
-        current = current->next;
+        cursor = cursor->next;
     }
 
     // no match found
