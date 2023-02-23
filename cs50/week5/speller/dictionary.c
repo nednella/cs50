@@ -31,7 +31,6 @@ unsigned int wordcount = 0;
 bool check(const char *word)
 {
     // TODO #4
-    // return true if word is in dictionary
 
     // hash word to obtain hash value
     unsigned int INDEX = hash(word);
@@ -41,14 +40,19 @@ bool check(const char *word)
 
     // traverse linked list, looking for the word (strcasecmp)
     while (temp != NULL) {
+
+        // check for match
+        if (strcasecmp(word, temp->word) == 0) { // compare 2 strings, ignoring case (case insensitive), 0 = match
+
+            // match found
+            return true;
+        }
+
+        // if no match, traverse the list
         temp = temp->next;
     }
 
-
-
-
-
-    // otherwise return false
+    // no match found
     return false;
 }
 
