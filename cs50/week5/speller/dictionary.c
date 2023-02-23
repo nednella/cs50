@@ -93,7 +93,7 @@ bool load(const char *dictionary)
     }
 
     // initialise a character array for storing a word temporarily
-    char word[LENGTH];
+    char buffer[LENGTH + 1];
 
     // read strings from file 1 at a time, until the end of the file is reached
     do {
@@ -107,13 +107,13 @@ bool load(const char *dictionary)
 
         // read a word from the opened file using the "string" conversion, storing it in a character array
         // (safe to do so as the word has a finite length, capped at 45)
-        fscanf(file, "%s", word);
+        fscanf(file, "%s", buffer);
 
         // count each word as it loads
         size();
 
         // copy word into new node
-        strcpy(n->word, word);
+        strcpy(n->word, buffer);
 
         // hash the word in the new node to obtain a hash value
         unsigned int INDEX = hash(n->word);
@@ -125,7 +125,7 @@ bool load(const char *dictionary)
         table[INDEX] = n;
 
     }
-    while (!(fscanf(file, "%s", word) == EOF));
+    while (!(fscanf(file, "%s", buffer) == EOF));
 
     // successfully loaded dictionary
     return true;
