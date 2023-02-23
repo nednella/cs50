@@ -100,8 +100,11 @@ bool load(const char *dictionary)
         return false;
     }
 
+    // initialise a character array for storing a word temporarily
+    char word[LENGTH];
+
     // read strings from file 1 at a time, until the end of the file is reached
-    do {
+    while (!(fscanf(file, "%s", word) == EOF)) {
 
         // allocate memory for a new node
         node *n = malloc(sizeof(node));
@@ -109,9 +112,6 @@ bool load(const char *dictionary)
             printf("Error: not enough memory available.");
             return false;
         }
-
-        // initialise a character array for storing a word temporarily
-        char word[LENGTH];
 
         // read a word from the opened file using the "string" conversion, storing it in a character array
         // (safe to do so as the word has a finite length, capped at 45)
@@ -135,7 +135,9 @@ bool load(const char *dictionary)
         // success
         return true;
     }
-    while (!(fscanf == EOF));
+
+    // else failure
+    return false;
 }
 
 
