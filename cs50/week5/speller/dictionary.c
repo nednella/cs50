@@ -42,7 +42,7 @@ bool check(const char *word)
 
     // traverse linked list, looking for the word (strcasecmp)
 
-    table[];
+
 
 
 
@@ -112,7 +112,7 @@ bool load(const char *dictionary)
         strcpy(n->word, word);
 
         // hash the word in the new node to obtain a hash value
-        int INDEX = hash(n->word);
+        unsigned int INDEX = hash(n->word);
 
         // insert the node into the hash table at that hash location...
         // stitch the new nodes' "next" pointer to point at the first node in the linked list
