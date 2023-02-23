@@ -86,7 +86,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // open dictonary file
-    FILE *file = fopen("./dictionaries/large", "r");
+    FILE *file = fopen("./dictionaries/small", "r");
     if (file == NULL) {
         printf("Error: file not found.\n");
         return false;
