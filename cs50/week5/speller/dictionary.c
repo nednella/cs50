@@ -170,6 +170,34 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO #5
+    // iterate through every hash value inside the hash table
+    for (int i = 0; i < N; i++) {
+
+        // point a cursor at the first node in the linked list
+        node *cursor = table[N];
+
+        // create a temporary node to allow for freeing memory
+        node *temp = cursor;
+
+        // traverse through each linked list for each hash value until NULL is reached
+        while (cursor != NULL) {
+
+            // point cursor to next element in the list
+            cursor = cursor->next;
+
+            // free the first element
+            free(temp);
+
+            // point temp to the same element as cursor
+            temp = cursor;
+
+        }
+
+        return true;
+
+
+    }
+
     return false;
 }
 
