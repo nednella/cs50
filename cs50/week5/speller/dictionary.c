@@ -33,9 +33,16 @@ bool check(const char *word)
     // TODO #4
     // return true if word is in dictionary
 
-    // hash word to obtain has value
+    // hash word to obtain hash value
+    unsigned int INDEX = hash(word);
+
     // access linked list at that index in the hash table
+    table[INDEX]
+
+
     // traverse linked list, looking for the word (strcasecmp)
+
+    table[];
 
 
 
@@ -109,9 +116,9 @@ bool load(const char *dictionary)
 
         // insert the node into the hash table at that hash location...
         // stitch the new nodes' "next" pointer to point at the first node in the linked list
-        n->next = table(INDEX);
+        n->next = table[INDEX];
         // re-point the linked list to the new node, thereby stacking it into the linked list
-        table(INDEX) = n;
+        table[INDEX] = n;
 
         // success
         return true;
