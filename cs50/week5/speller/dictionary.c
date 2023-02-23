@@ -176,7 +176,7 @@ bool unload(void)
         // point a cursor at the first node in the linked list
         node *cursor = table[N];
 
-        // create a temporary node to allow for freeing memory
+        // create a temporary node to allow for freeing of memory
         node *temp = cursor;
 
         // traverse through each linked list for each hash value until NULL is reached
@@ -190,7 +190,6 @@ bool unload(void)
 
             // point temp to the same element as cursor
             temp = cursor;
-
         }
 
         // successfully unloaded dictionary
