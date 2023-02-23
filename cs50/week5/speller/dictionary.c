@@ -96,7 +96,7 @@ bool load(const char *dictionary)
     char word[LENGTH];
 
     // read strings from file 1 at a time, until the end of the file is reached
-    while (!(fscanf(file, "%s", word) == EOF)) {
+    do {
 
         // allocate memory for a new node
         node *n = malloc(sizeof(node));
@@ -126,12 +126,11 @@ bool load(const char *dictionary)
         // re-point the linked list to the new node, thereby stacking it into the linked list
         table[INDEX] = n;
 
-        // successfully loaded dictionary
-        return true;
     }
+    while (!(fscanf(file, "%s", word) == EOF));
 
-    // else unsuccessful
-    return false;
+    // successfully loaded dictionary
+    return true;
 }
 
 
