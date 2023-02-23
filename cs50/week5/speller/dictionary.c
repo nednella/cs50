@@ -31,6 +31,7 @@ unsigned int wordcount = 0;
 bool check(const char *word)
 {
     // TODO #4
+    // iterative search method - O(n)
 
     // hash word to obtain hash value
     unsigned int INDEX = hash(word);
