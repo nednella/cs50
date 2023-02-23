@@ -102,6 +102,7 @@ bool load(const char *dictionary)
         node *n = malloc(sizeof(node));
         if (n == NULL) {
             printf("Error: not enough memory available.");
+            fclose(file);
             return false;
         }
 
@@ -127,6 +128,7 @@ bool load(const char *dictionary)
     }
 
     // successfully loaded dictionary
+    fclose(file);
     return true;
 }
 
