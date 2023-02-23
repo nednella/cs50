@@ -125,7 +125,7 @@ bool load(const char *dictionary)
         table[INDEX] = n;
 
     }
-    while (!(fscanf(file, "%s", buffer) == EOF));
+    while (!(scanf(file, "%s", buffer) == EOF));
 
     // successfully loaded dictionary
     return true;
