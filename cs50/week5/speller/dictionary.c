@@ -42,7 +42,11 @@ unsigned int hash(const char *word)
     // initially build with just 26 buckets, using the 1st letter of the word
 
     // input a word, with alphabetical characters and (possibly) apostrophes
+    word[0];
     
+
+
+
 
 
 
@@ -84,14 +88,14 @@ bool load(const char *dictionary)
         }
 
         // initialise a character array for storing a word temporarily
-        char tmpword[LENGTH];
+        char word[LENGTH];
 
         // read a word from the opened file using the "string" conversion, storing it in a character array
         // (safe to do so as the word has a finite length, capped at 45)
-        fscanf(file, "%s", tmpword);
+        fscanf(file, "%s", word);
 
         // copy word into new node
-        strcpy(n->word, tmpword);
+        strcpy(n->word, word);
 
         // hash the word in the new node to obtain a hash value
         int INDEX = hash(n->word);
