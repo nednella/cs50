@@ -115,6 +115,8 @@ bool load(const char *dictionary)
         // copy word into new node
         strcpy(n->word, word);
 
+        printf("\n%s\n", word);
+
         // hash the word in the new node to obtain a hash value
         unsigned int INDEX = hash(n->word);
 
