@@ -82,14 +82,6 @@ unsigned int hash(const char *word)
 
 
 
-
-
-
-
-
-
-
-
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary)
 {
@@ -132,29 +124,13 @@ bool load(const char *dictionary)
         // re-point the linked list to the new node, thereby stacking it into the linked list
         table[INDEX] = n;
 
-        // success
+        // successfully loaded dictionary
         return true;
     }
 
-    // else failure
+    // else unsuccessful
     return false;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -201,7 +177,7 @@ bool unload(void)
         return true;
     }
 
-    // unloading unsuccessful
+    // else unsuccessful
     return false;
 }
 
