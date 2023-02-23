@@ -39,6 +39,8 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO #2: Improve this hash function
+    // initially build with just 26 buckets, using the 1st letter of the word
+    
     return toupper(word[0]) - 'A';
 
 
