@@ -193,11 +193,11 @@ bool unload(void)
 
         }
 
+        // successfully unloaded dictionary
         return true;
-
-
     }
 
+    // unloading unsuccessful
     return false;
 }
 
