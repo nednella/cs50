@@ -96,7 +96,7 @@ bool load(const char *dictionary)
     char buffer[LENGTH + 1];
 
     // read strings from file 1 at a time, until the end of the file is reached
-    while (scanf(file, "%s", buffer) != EOF) {
+    while (fscanf(file, "%s", buffer) != EOF) {
 
         // allocate memory for a new node
         node *n = malloc(sizeof(node));
