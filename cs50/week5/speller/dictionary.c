@@ -32,6 +32,7 @@ bool check(const char *word)
 {
     // TODO #4
     // iterative search method - O(n)
+    // to recursively search the linked list, must include a node as an argument in the check() function!
 
     // hash word to obtain hash value
     unsigned int INDEX = hash(word);
