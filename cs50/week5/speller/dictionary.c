@@ -20,6 +20,9 @@ const unsigned int N = 26;
 // Hash table
 node *table[N];
 
+// Word count for size()
+unsigned int wordcount = 0;
+
 
 
 
@@ -28,6 +31,15 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO #4
+    // return true if word is in dictionary
+
+    // hash word to obtain has value
+    // access linked list at that index in the hash table
+    // traverse linked list, looking for the word (strcasecmp)
+
+
+
+    // otherwise return false
     return false;
 }
 
@@ -86,6 +98,9 @@ bool load(const char *dictionary)
         // (safe to do so as the word has a finite length, capped at 45)
         fscanf(file, "%s", word);
 
+        // count each word as it loads
+        size();
+
         // copy word into new node
         strcpy(n->word, word);
 
@@ -127,9 +142,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    unsigned int wordcount = 0;
     wordcount++;
-
     return wordcount;
 }
 
