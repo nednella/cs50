@@ -177,7 +177,7 @@ bool unload(void)
     for (int i = 0; i < N; i++) {
 
         // point a cursor at the first node in the linked list
-        node *cursor = table[N];
+        node *cursor = table[i];
 
         // create a temporary node to allow for freeing of memory
         node *temp = cursor;
