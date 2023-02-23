@@ -86,7 +86,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // open dictonary file
-    FILE *file = fopen("./dictionaries/small", "r");
+    FILE *file = fopen("./dictionaries/large", "r");
     if (file == NULL) {
         printf("Error: file not found.\n");
         return false;
@@ -114,8 +114,6 @@ bool load(const char *dictionary)
 
         // copy word into new node
         strcpy(n->word, word);
-
-        printf("\n%s\n", word);
 
         // hash the word in the new node to obtain a hash value
         unsigned int INDEX = hash(n->word);
