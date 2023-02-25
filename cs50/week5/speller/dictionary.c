@@ -83,25 +83,30 @@ bool load(const char *dictionary)
         // use the hash function to obtain a hash value for this word
         unsigned int index = hash(temp->word);
 
-        // insert the node into the hash table as per the assigned hash value
-        temp->next = table[index];
+        // check if this is the first element in the list or not
+        if (table[index] == NULL) {
+            // if true, point temp node to NULL
+            temp->next = NULL;
+        }
 
-        // re-point the linked list to the new node, thereby creating a stacked linked list
+        // else, point temp to the first node of the linked list
+        else {
+            temp->next = table[index];
+        }
+
+        // point header to temp
         table[index] = temp;
 
+        // insert the node into the hash table as per the assigned hash value
+        //temp->next = table[index];
 
+        // re-point the linked list to the new node, thereby creating a stacked linked list
+        //table[index] = temp;
     }
 
-
-
-
-
-
-
-
-
-
-
+    // successfully loaded file
+    fclose(dictionary);
+    return true;
 }
 
 
