@@ -99,8 +99,7 @@ bool load(const char *dictionary)
     // read strings from file 1 at a time, until the end of the file is reached
     while (fscanf(file, "%s", buffer) != EOF) {
 
-        // allocate memory for a new node
-        node *temp = malloc(sizeof(node));
+        node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
             printf("Error: not enough memory available.");
             fclose(file);
@@ -111,26 +110,22 @@ bool load(const char *dictionary)
         fscanf(file, "%s", buffer);
         size();
 
-        // copy word into newly created temp node
-        strcpy(temp->word, buffer);
+        strcpy(temp->word, buffer);             // copy word into newly created temp node
 
-        // use the hash function to obtain a hash value for this word
-        unsigned int index = hash(temp->word);
+        unsigned int index = hash(temp->word);  // obtain a hash value for the given word
 
-        // check if this is the first element in the list or not
-        if (table[index] == NULL) {
-            // if true, point temp node to NULL
-            temp->next = NULL;
+        if (table[index] == NULL) {         // check if this is the first element in the list or not
+            temp->next = NULL;              // if true, point temp node to NULL
         }
-
-        // else, point temp to the first node of the linked list
         else {
-            temp->next = table[index];
+            temp->next = table[index];      // else, point temp to the first node of the linked list
         }
 
-        // point the header back to temp
-        table[index] = temp;
+        table[index] = temp;                // point the header back to temp
     }
+
+
+
 
     // load function test
     for (int i = 0; i < N; i++)    // Check all "buckets"
@@ -139,9 +134,12 @@ bool load(const char *dictionary)
         while (cursor != NULL)     // Check the list until end
         {
             printf("Hash %i: %s\n", i, cursor->word);
-            cursor = cursor->next;    // Advance cursor to next node
+            cursor = cursor->next;     // Advance cursor to next node
         }
     }
+
+
+
 
     // successfully loaded dictionary
     fclose(file);
