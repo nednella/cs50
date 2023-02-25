@@ -54,8 +54,8 @@ bool load(const char *dictionary)
 {
     // TODO
     // open dictonary file
-    FILE *dictionary = fopen("./dictionaries/small", "r");
-    if (dictionary == NULL) {
+    FILE *file = fopen("./dictionaries/small", "r");
+    if (file == NULL) {
         printf("Error: file not found.\n");
         return false;
     }
@@ -64,7 +64,7 @@ bool load(const char *dictionary)
     char buffer[LENGTH + 1];
 
     // read strings from the opened file 1 at a time until the end of the file is reached
-    while (fscanf(dictionary, "%s", buffer) != EOF) {
+    while (fscanf(file, "%s", buffer) != EOF) {
 
         // allocate memory for a new node
         node *temp = malloc(sizeof(node));
@@ -74,7 +74,7 @@ bool load(const char *dictionary)
         }
 
         // read a word from the opened fileusing the "string" conversion, counting as it loads
-        fscanf(dictionary, "%s", buffer);
+        fscanf(file, "%s", buffer);
         size();
 
         // copy word into newly created node
@@ -119,7 +119,7 @@ bool load(const char *dictionary)
 
 
     // successfully loaded file
-    fclose(dictionary);
+    fclose(file);
     return true;
 }
 
