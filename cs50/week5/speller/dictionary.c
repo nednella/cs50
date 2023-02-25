@@ -89,6 +89,7 @@ bool load(const char *dictionary)
     FILE *file = fopen("./dictionaries/large", "r");
     if (file == NULL) {
         printf("Error: file not found.\n");
+        fclose(file);
         return false;
     }
 
@@ -99,27 +100,24 @@ bool load(const char *dictionary)
     while (fscanf(file, "%s", buffer) != EOF) {
 
         // allocate memory for a new node
-        node *n = malloc(sizeof(node));
-        if (n == NULL) {
+        node *temp = malloc(sizeof(node));
+        if (temp == NULL) {
             printf("Error: not enough memory available.");
             fclose(file);
             return false;
         }
 
-        // read a word from the opened file using the "string" conversion, storing it in a character array
-        // (safe to do so as the word has a finite length, capped at 45)
+        // read a word from the opened fileusing the "string" conversion, counting as it loads
         fscanf(file, "%s", buffer);
-
-        // count each word as it loads
         size();
 
-        // copy word into new node
-        strcpy(n->word, buffer);
+        // copy word into newly created temp node
+        strcpy(temp->word, buffer);
 
-        // hash the word in the new node to obtain a hash value
-        unsigned int index = hash(n->word);
+        // use the hash function to obtain a hash value for this word
+        unsigned int index = hash(temp->word);
 
-        // check if there are any elements in the linked list
+        // check if this is the first element in the list or not
         if (table[index] == NULL) {
             // if true, point temp node to NULL
             temp->next = NULL;
@@ -167,16 +165,16 @@ bool unload(void)
         // create a temporary node to allow for freeing of memory
         node *temp = cursor;
 
-        // traverse through each linked list for each hash value until NULL is reached
+        // traverse through each linked list until NULL is reached
         while (cursor != NULL) {
 
             // point cursor to next element in the list
             cursor = cursor->next;
 
-            // free the first element
+            // free the prevous element, where temp is still pointing
             free(temp);
 
-            // point temp to the same element as cursor
+            // update temp to the next element
             temp = cursor;
         }
 
