@@ -7,10 +7,9 @@
 #include <string.h>
 #include <strings.h>
 
-
 #include "dictionary.h"
 
-// Represents a node in a hash table
+// represents a node in a hash table
 typedef struct node
 {
     char word[LENGTH + 1];
@@ -18,44 +17,31 @@ typedef struct node
 }
 node;
 
-// TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
-
-// Hash table
-node *table[N];
-
-// Word count for size()
-unsigned int wordcount = 0;
 
 
+const unsigned int N = 26;      // initialise number of buckets in hash table
+node *table[N];                 // initialise hash table
+unsigned int wordcount = 0;     // initialise word count for size() function
 
 
 
 // Returns true if word is in dictionary, else false
-bool check(const char *word)
-{
-    // TODO #4
+bool check(const char *word) {
+
     // iterative search method - O(n)
     // to recursively search the linked list, must include a node as an argument in the check() function!
 
-    // hash word to obtain hash value
-    unsigned int index = hash(word);
+    unsigned int index = hash(word);    // hash given word to obtain hash value
 
     // access linked list at that index in the hash table
-    node *cursor = table[index]; // create a node pointer (a cursor!) to the first element in the linked list
+    node *cursor = table[index];        // set cursor the head of list
+    while (cursor != NULL) {            // traverse the list until end
 
-    // traverse linked list, looking for the word (strcasecmp)
-    while (cursor != NULL) {
-
-        // check for match
-        if (strcasecmp(word, cursor->word) == 0) { // compare 2 strings, ignoring case (case insensitive), 0 = match
-
-            // match found
-            return true;
+        if (strcasecmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
+            return true;                // match found
         }
 
-        // if no match, traverse the list
-        cursor = cursor->next;
+        cursor = cursor->next;          // if no match, continue traversing
     }
 
     // no match found
@@ -67,8 +53,8 @@ bool check(const char *word)
 
 
 // Hashes word to a number
-unsigned int hash(const char *word)
-{
+unsigned int hash(const char *word) {
+
     // TODO #2: Improve this hash function
 
     // input a word, with alphabetical characters and (possibly) apostrophes
@@ -83,8 +69,8 @@ unsigned int hash(const char *word)
 
 
 // Loads dictionary into memory using a data structure, returning true if successful, else false
-bool load(const char *dictionary)
-{
+bool load(const char *dictionary) {
+
     // open dictonary file
     FILE *file = fopen("./dictionaries/small", "r");
     if (file == NULL) {
@@ -151,8 +137,8 @@ bool load(const char *dictionary)
 
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
-unsigned int size(void)
-{
+unsigned int size(void) {
+
     wordcount++;
     return wordcount;
 }
@@ -162,8 +148,8 @@ unsigned int size(void)
 
 
 // Unloads dictionary from memory, returning true if successful, else false
-bool unload(void)
-{
+bool unload(void) {
+
     // iterate through every hash value inside the hash table
     for (int i = 0; i < N; i++) {
 
