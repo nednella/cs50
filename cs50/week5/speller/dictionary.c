@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 
 
 #include "dictionary.h"
@@ -23,6 +24,9 @@ const unsigned int N = 26;
 // Hash table
 node *table[N];
 
+// Word count for size()
+unsigned int wordcount = 0;
+
 
 
 
@@ -30,7 +34,31 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    // TODO #4
+    // iterative search method - O(n)
+    // to recursively search the linked list, must include a node as an argument in the check() function!
+
+    // hash word to obtain hash value
+    unsigned int INDEX = hash(word);
+
+    // access linked list at that index in the hash table
+    node *cursor = table[INDEX]; // create a node pointer (a cursor!) to the first element in the linked list
+
+    // traverse linked list, looking for the word (strcasecmp)
+    while (cursor != NULL) {
+
+        // check for match
+        if (strcasecmp(word, cursor->word) == 0) { // compare 2 strings, ignoring case (case insensitive), 0 = match
+
+            // match found
+            return true;
+        }
+
+        // if no match, traverse the list
+        cursor = cursor->next;
+    }
+
+    // no match found
     return false;
 }
 
@@ -41,49 +69,57 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Improve this hash function
-    return toupper(word[0]) - 'A';
+    // TODO #2: Improve this hash function
+
+    // input a word, with alphabetical characters and (possibly) apostrophes
+    // output a numerical index value between 0 and N-1 (where N is the number of buckets in the hash table)
+
+    // initially build with just 26 buckets, using the 1st letter of the word
+    return toupper(word[0]) - 'A'; // returns a hash value between 0 and 25
 }
 
 
 
 
 
-// Loads dictionary into memory, returning true if successful, else false
+// Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    // TODO
     // open dictonary file
-    FILE *file = fopen("./dictionaries/small", "r");
+    FILE *file = fopen("./dictionaries/large", "r");
     if (file == NULL) {
         printf("Error: file not found.\n");
         return false;
     }
 
-    // initialise string buffer for temporarily storing each word
+    // initialise a character array for storing a word temporarily
     char buffer[LENGTH + 1];
 
-    // read strings from the opened file 1 at a time until the end of the file is reached
+    // read strings from file 1 at a time, until the end of the file is reached
     while (fscanf(file, "%s", buffer) != EOF) {
 
         // allocate memory for a new node
-        node *temp = malloc(sizeof(node));
-        if (temp == NULL) {
+        node *n = malloc(sizeof(node));
+        if (n == NULL) {
             printf("Error: not enough memory available.");
+            fclose(file);
             return false;
         }
 
-        // read a word from the opened fileusing the "string" conversion, counting as it loads
+        // read a word from the opened file using the "string" conversion, storing it in a character array
+        // (safe to do so as the word has a finite length, capped at 45)
         fscanf(file, "%s", buffer);
+
+        // count each word as it loads
         size();
 
-        // copy word into newly created node
-        strcpy(temp->word, buffer);
+        // copy word into new node
+        strcpy(n->word, buffer);
 
-        // use the hash function to obtain a hash value for this word
-        unsigned int index = hash(temp->word);
+        // hash the word in the new node to obtain a hash value
+        unsigned int index = hash(n->word);
 
-        // check if this is the first element in the list or not
+        // check if there are any elements in the linked list
         if (table[index] == NULL) {
             // if true, point temp node to NULL
             temp->next = NULL;
@@ -91,34 +127,14 @@ bool load(const char *dictionary)
 
         // else, point temp to the first node of the linked list
         else {
-            temp->next = table[index];
+            temp->next = table[INDEX];
         }
 
-        // point header to temp
+        // point the header back to temp
         table[index] = temp;
-
-        // insert the node into the hash table as per the assigned hash value
-        //temp->next = table[index];
-
-        // re-point the linked list to the new node, thereby creating a stacked linked list
-        //table[index] = temp;
     }
 
-    // load function test
-    for (int i = 0; i < N; i++)    // Check all "buckets"
-    {
-        node *cursor = table[i];   // Set cursor to head of list
-        while (cursor != NULL)     // Check the list until end
-        {
-            printf("Hash %i: %s\n", i, cursor->word);
-            cursor = cursor->next;    // Advance cursor to next node
-        }
-    }
-
-
-
-
-    // successfully loaded file
+    // successfully loaded dictionary
     fclose(file);
     return true;
 }
@@ -130,8 +146,8 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
-    return 0;
+    wordcount++;
+    return wordcount;
 }
 
 
@@ -141,6 +157,37 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
+    // TODO #5
+    // iterate through every hash value inside the hash table
+    for (int i = 0; i < N; i++) {
+
+        // point a cursor at the first node in the linked list
+        node *cursor = table[i];
+
+        // create a temporary node to allow for freeing of memory
+        node *temp = cursor;
+
+        // traverse through each linked list for each hash value until NULL is reached
+        while (cursor != NULL) {
+
+            // point cursor to next element in the list
+            cursor = cursor->next;
+
+            // free the first element
+            free(temp);
+
+            // point temp to the same element as cursor
+            temp = cursor;
+        }
+
+        // successfully unloaded dictionary
+        return true;
+    }
+
+    // else unsuccessful
     return false;
 }
+
+
+
+
