@@ -39,10 +39,10 @@ bool check(const char *word)
     // to recursively search the linked list, must include a node as an argument in the check() function!
 
     // hash word to obtain hash value
-    unsigned int INDEX = hash(word);
+    unsigned int index = hash(word);
 
     // access linked list at that index in the hash table
-    node *cursor = table[INDEX]; // create a node pointer (a cursor!) to the first element in the linked list
+    node *cursor = table[index]; // create a node pointer (a cursor!) to the first element in the linked list
 
     // traverse linked list, looking for the word (strcasecmp)
     while (cursor != NULL) {
@@ -86,7 +86,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // open dictonary file
-    FILE *file = fopen("./dictionaries/large", "r");
+    FILE *file = fopen("./dictionaries/small", "r");
     if (file == NULL) {
         printf("Error: file not found.\n");
         fclose(file);
@@ -125,11 +125,22 @@ bool load(const char *dictionary)
 
         // else, point temp to the first node of the linked list
         else {
-            temp->next = table[INDEX];
+            temp->next = table[index];
         }
 
         // point the header back to temp
         table[index] = temp;
+    }
+
+    // load function test
+    for (int i = 0; i < N; i++)    // Check all "buckets"
+    {
+        node *cursor = table[i];   // Set cursor to head of list
+        while (cursor != NULL)     // Check the list until end
+        {
+            printf("Hash %i: %s\n", i, cursor->word);
+            cursor = cursor->next;    // Advance cursor to next node
+        }
     }
 
     // successfully loaded dictionary
