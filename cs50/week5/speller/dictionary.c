@@ -164,27 +164,16 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO #5
     // iterate through every hash value inside the hash table
     for (int i = 0; i < N; i++) {
 
-        // point a cursor at the first node in the linked list
-        node *cursor = table[i];
+        node *cursor = table[i];        // point cursor to head of linked list
+        node *temp = cursor;            // create temporary node to allow freeing of memory
 
-        // create a temporary node to allow for freeing of memory
-        node *temp = cursor;
-
-        // traverse through each linked list until NULL is reached
-        while (cursor != NULL) {
-
-            // point cursor to next element in the list
-            cursor = cursor->next;
-
-            // free the prevous element, where temp is still pointing
-            free(temp);
-
-            // update temp to the next element
-            temp = cursor;
+        while (cursor != NULL) {        // traverse the list until end
+            cursor = cursor->next;  // advance cursor to next node
+            free(temp);             // free the previous element
+            temp = cursor;          // advance temp to the next node
         }
 
         // successfully unloaded dictionary
