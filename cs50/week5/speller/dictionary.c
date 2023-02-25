@@ -104,6 +104,20 @@ bool load(const char *dictionary)
         //table[index] = temp;
     }
 
+    // load function test
+    for (int i = 0; i < N; i++)    // Check all "buckets"
+    {
+        node *cursor = table[i];   // Set cursor to head of list
+        while (cursor != NULL)     // Check the list until end
+        {
+            printf("Hash %i: %s\n", i, cursor->word);
+            cursor = cursor->next;    // Advance cursor to next node
+        }
+    }
+
+
+
+
     // successfully loaded file
     fclose(dictionary);
     return true;
