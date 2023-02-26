@@ -124,6 +124,18 @@ unsigned int size(void) {
 
 
 
+void freenode(node *temp) {
+
+    if (temp->next != NULL) {
+        freenode(temp->next);
+    }
+    freenode(temp);
+}
+
+
+
+
+
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void) {
 
@@ -133,18 +145,25 @@ bool unload(void) {
         // if header contains any nodes
         if (table[i] != NULL) {
 
-            node *cursor = table[i];        // point cursor to head of linked list
-            node *temp = cursor;            // create temporary node to allow freeing of memory
+            freenode(table[i]);
+
+            //node *cursor = table[i];        // point cursor to head of linked list
+            //node *temp = cursor;            // create temporary node to allow freeing of memory
 
             // traverse the list until end
-            while (cursor != NULL) {
-                cursor = cursor->next;      // advance cursor to next node
-                free(temp);                 // free the previous element
-                temp = cursor;              // advance temp to the next node
-            }
+            //while (cursor != NULL) {
+                //cursor = cursor->next;      // advance cursor to next node
+                //free(temp);                 // free the previous element
+                //temp = cursor;              // advance temp to the next node
+            //}
         }
     }
 
     // successfully unloaded dictionary
     return true;
 }
+
+
+
+
+
