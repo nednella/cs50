@@ -19,9 +19,9 @@ node;
 
 
 
+unsigned int wordcount = 0;     // initialise word count for size() function
 const unsigned int N = 26;      // initialise number of buckets in hash table
 node *table[N];                 // initialise hash table
-unsigned int wordcount = 0;     // initialise word count for size() function
 
 
 
@@ -92,7 +92,7 @@ bool load(const char *dictionary) {
             return false;
         }
 
-        size();                                 // count the word being read - string is read whilst evaluating while condition!
+        wordcount++;                            // count the word being read - string is read whilst evaluating while condition!
         strcpy(temp->word, buffer);             // copy word into newly created temp node
         unsigned int index = hash(temp->word);  // obtain a hash value for the given word
 
@@ -134,7 +134,6 @@ bool load(const char *dictionary) {
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void) {
 
-    wordcount++;
     return wordcount;
 }
 
@@ -165,7 +164,3 @@ bool unload(void) {
     // else unsuccessful
     return false;
 }
-
-
-
-
