@@ -83,8 +83,6 @@ bool load(const char *dictionary) {
     // read text file 1 string at a time until end of file
     while (fscanf(file, "%s", buffer) != EOF) {
 
-        //printf("SUCCESS\n");
-
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
             printf("Error: not enough memory available.");
@@ -105,22 +103,7 @@ bool load(const char *dictionary) {
             temp->next = table[index];          // point next to previous node
             table[index] = temp;                // point header to new node
         }
-
-        printf("%s\n", temp->word);
     }
-
-
-    // TEST LOAD FUNCTION
-    //printf("\n");
-    //for (int i = 0; i < N; i++)         // Check all "buckets"
-    //{
-        //node *cursor = table[i];        // Set cursor to head of list
-        //while (cursor != NULL)          // Check the list until end
-        ///{
-            //printf("Hash %i: %s\n", i, cursor->word);
-            //cursor = cursor->next;      // Advance cursor to next node
-        //}
-    //}
 
     // successfully loaded dictionary
     fclose(file);
