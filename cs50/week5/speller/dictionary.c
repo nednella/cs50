@@ -91,7 +91,7 @@ bool load(const char *dictionary) {
         }
 
         // read a word from the opened fileusing the "string" conversion, counting as it loads
-        fscanf(file, "%s", buffer);
+        //fscanf(file, "%s", buffer);
         size();
 
         strcpy(temp->word, buffer);             // copy word into newly created temp node
