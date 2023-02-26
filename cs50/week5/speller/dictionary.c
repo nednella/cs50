@@ -71,7 +71,7 @@ unsigned int hash(const char *word) {
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary) {
 
-    FILE *file = fopen("./dictionaries/large", "r");    // open dictionary text file
+    FILE *file = fopen("./dictionaries/small", "r");    // open dictionary text file
     if (file == NULL) {
         printf("Error: file not found.\n");
         fclose(file);
@@ -103,20 +103,22 @@ bool load(const char *dictionary) {
             temp->next = table[index];          // point next to previous node
             table[index] = temp;                // point header to new node
         }
+
+        printf("%s\n", buffer);
     }
 
 
     // TEST LOAD FUNCTION
-    printf("\n");
-    for (int i = 0; i < N; i++)         // Check all "buckets"
-    {
-        node *cursor = table[i];        // Set cursor to head of list
-        while (cursor != NULL)          // Check the list until end
-        {
-            printf("Hash %i: %s\n", i, cursor->word);
-            cursor = cursor->next;      // Advance cursor to next node
-        }
-    }
+    //printf("\n");
+    //for (int i = 0; i < N; i++)         // Check all "buckets"
+    //{
+        //node *cursor = table[i];        // Set cursor to head of list
+        //while (cursor != NULL)          // Check the list until end
+        ///{
+            //printf("Hash %i: %s\n", i, cursor->word);
+            //cursor = cursor->next;      // Advance cursor to next node
+        //}
+    //}
 
     // successfully loaded dictionary
     fclose(file);
