@@ -130,18 +130,22 @@ bool unload(void) {
     // iterate through every hash value inside the hash table
     for (int i = 0; i < N; i++) {
 
-        node *cursor = table[i];        // point cursor to head of linked list
-        node *temp = cursor;            // create temporary node to allow freeing of memory
+        // if header contains any nodes
+        if (table[i] != NULL) {
 
-        // traverse the list until end
-        while (cursor != NULL) {
-            cursor = cursor->next;      // advance cursor to next node
-            free(temp);                 // free the previous element
-            temp = cursor;              // advance temp to the next node
+            node *cursor = table[i];        // point cursor to head of linked list
+            node *temp = cursor;            // create temporary node to allow freeing of memory
+
+            // traverse the list until end
+            while (cursor != NULL) {
+                cursor = cursor->next;      // advance cursor to next node
+                free(temp);                 // free the previous element
+                temp = cursor;              // advance temp to the next node
+            }
+
+            // successfully unloaded dictionary
+            return true;
         }
-
-        // successfully unloaded dictionary
-        return true;
     }
 
     // else unsuccessful
