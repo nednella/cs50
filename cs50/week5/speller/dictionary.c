@@ -71,7 +71,7 @@ unsigned int hash(const char *word) {
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary) {
 
-    FILE *file = fopen("./dictionaries/small", "r");    // open dictionary text file
+    FILE *file = fopen("./dictionaries/large", "r");    // open dictionary text file
     if (file == NULL) {
         printf("Error: file not found.\n");
         fclose(file);
@@ -81,7 +81,7 @@ bool load(const char *dictionary) {
     char buffer[LENGTH + 1];    // initialise string buffer
 
     // read text file 1 string at a time until end of file
-    while (fgets(buffer, LENGTH, file) == buffer) {
+    while (fscanf(file, "%s", buffer) != EOF) {
 
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
