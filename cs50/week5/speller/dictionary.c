@@ -83,7 +83,7 @@ bool load(const char *dictionary) {
     // read text file 1 string at a time until end of file
     while (fscanf(file, "%s", buffer) != EOF) {
 
-        printf("SUCCESS\n");
+        //printf("SUCCESS\n");
 
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
@@ -106,7 +106,7 @@ bool load(const char *dictionary) {
             table[index] = temp;                // point header to new node
         }
 
-        printf("%s\n", buffer);
+        printf("%s\n", temp->word);
     }
 
 
