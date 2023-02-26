@@ -79,9 +79,10 @@ bool load(const char *dictionary) {
     }
 
     char buffer[LENGTH + 1];    // initialise string buffer
+    int scancheck;              // initialise fscanf check for while loop
 
     // read text file 1 string at a time until end of file
-    do {
+    while ((scancheck = fgetc(file)) != EOF) {
 
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
@@ -90,11 +91,14 @@ bool load(const char *dictionary) {
             return false;
         }
 
-        size();     // count the word being read (fscanf is executed when assessing the while condition)
+        // read next string from text file into buffer
+        fscanf(file, "%s", buffer);
+
+        size();                                 // count the word being read
         strcpy(temp->word, buffer);             // copy word into newly created temp node
         unsigned int index = hash(temp->word);  // obtain a hash value for the given word
 
-        // check if this is the first element in the list or not
+        // check if first element in the linked list
         if (table[index] == NULL) {
             temp->next = NULL;                  // if true, point temp node to NULL
         }
@@ -104,7 +108,7 @@ bool load(const char *dictionary) {
 
         table[index] = temp;                    // point the header back to temp
     }
-    while (fscanf(file, "%s", buffer) != EOF);
+
 
     // TEST LOAD FUNCTION
     //printf("\n");
