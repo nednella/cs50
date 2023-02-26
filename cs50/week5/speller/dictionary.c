@@ -71,18 +71,16 @@ unsigned int hash(const char *word) {
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary) {
 
-    // open dictonary file
-    FILE *file = fopen("./dictionaries/small", "r");
+    FILE *file = fopen("./dictionaries/small", "r");    // open dictionary text file
     if (file == NULL) {
         printf("Error: file not found.\n");
         fclose(file);
         return false;
     }
 
-    // initialise a character array for storing a word temporarily
-    char buffer[LENGTH + 1];
+    char buffer[LENGTH + 1];    // initialise string buffer
 
-    // read strings from file 1 at a time, until the end of the file is reached
+    // read text file 1 string at a time until end of file
     while (fscanf(file, "%s", buffer) != EOF) {
 
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
@@ -100,27 +98,29 @@ bool load(const char *dictionary) {
 
         unsigned int index = hash(temp->word);  // obtain a hash value for the given word
 
-        if (table[index] == NULL) {         // check if this is the first element in the list or not
-            temp->next = NULL;              // if true, point temp node to NULL
+        // check if this is the first element in the list or not
+        if (table[index] == NULL) {
+            temp->next = NULL;                  // if true, point temp node to NULL
         }
         else {
-            temp->next = table[index];      // else, point temp to the first node of the linked list
+            temp->next = table[index];          // else, point temp to the first node of the linked list
         }
 
-        table[index] = temp;                // point the header back to temp
+        table[index] = temp;                    // point the header back to temp
     }
 
 
 
 
-    // load function test
-    for (int i = 0; i < N; i++)    // Check all "buckets"
+    // TEST LOAD FUNCTION
+    printf("\n");
+    for (int i = 0; i < N; i++)         // Check all "buckets"
     {
-        node *cursor = table[i];   // Set cursor to head of list
-        while (cursor != NULL)     // Check the list until end
+        node *cursor = table[i];        // Set cursor to head of list
+        while (cursor != NULL)          // Check the list until end
         {
             printf("Hash %i: %s\n", i, cursor->word);
-            cursor = cursor->next;     // Advance cursor to next node
+            cursor = cursor->next;      // Advance cursor to next node
         }
     }
 
