@@ -81,7 +81,7 @@ bool load(const char *dictionary) {
     char buffer[LENGTH + 1];    // initialise string buffer
 
     // read text file 1 string at a time until end of file
-    while (fscanf(file, "%s", buffer) != EOF) {
+    while (fgets(buffer, 45, file) != EOF) {
 
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
