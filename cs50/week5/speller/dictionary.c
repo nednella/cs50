@@ -82,7 +82,7 @@ bool load(const char *dictionary) {
 
     // read text file 1 string at a time until end of file
     while (fscanf(file, "%s", buffer) != EOF) {
-
+        
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
             printf("Error: not enough memory available.");
@@ -146,10 +146,11 @@ bool unload(void) {
         node *cursor = table[i];        // point cursor to head of linked list
         node *temp = cursor;            // create temporary node to allow freeing of memory
 
-        while (cursor != NULL) {        // traverse the list until end
-            cursor = cursor->next;  // advance cursor to next node
-            free(temp);             // free the previous element
-            temp = cursor;          // advance temp to the next node
+        // traverse the list until end
+        while (cursor != NULL) {
+            cursor = cursor->next;      // advance cursor to next node
+            free(temp);                 // free the previous element
+            temp = cursor;              // advance temp to the next node
         }
 
         // successfully unloaded dictionary
