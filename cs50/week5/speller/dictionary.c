@@ -71,7 +71,7 @@ unsigned int hash(const char *word) {
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary) {
 
-    FILE *file = fopen("./dictionaries/small", "r");    // open dictionary text file
+    FILE *file = fopen("./dictionaries/large", "r");    // open dictionary text file
     if (file == NULL) {
         printf("Error: file not found.\n");
         fclose(file);
@@ -90,12 +90,8 @@ bool load(const char *dictionary) {
             return false;
         }
 
-        // read a word from the opened fileusing the "string" conversion, counting as it loads
-        //fscanf(file, "%s", buffer);
-        size();
-
+        size();     // count the word being read (fscanf is executed when assessing the while condition)
         strcpy(temp->word, buffer);             // copy word into newly created temp node
-
         unsigned int index = hash(temp->word);  // obtain a hash value for the given word
 
         // check if this is the first element in the list or not
@@ -109,23 +105,17 @@ bool load(const char *dictionary) {
         table[index] = temp;                    // point the header back to temp
     }
 
-
-
-
     // TEST LOAD FUNCTION
-    printf("\n");
-    for (int i = 0; i < N; i++)         // Check all "buckets"
-    {
-        node *cursor = table[i];        // Set cursor to head of list
-        while (cursor != NULL)          // Check the list until end
-        {
-            printf("Hash %i: %s\n", i, cursor->word);
-            cursor = cursor->next;      // Advance cursor to next node
-        }
-    }
-
-
-
+    //printf("\n");
+    //for (int i = 0; i < N; i++)         // Check all "buckets"
+    //{
+        //node *cursor = table[i];        // Set cursor to head of list
+        //while (cursor != NULL)          // Check the list until end
+        //{
+            //printf("Hash %i: %s\n", i, cursor->word);
+            //cursor = cursor->next;      // Advance cursor to next node
+        //}
+    //}
 
     // successfully loaded dictionary
     fclose(file);
