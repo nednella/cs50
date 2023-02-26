@@ -129,7 +129,7 @@ void freenode(node *temp) {
     if (temp->next != NULL) {
         freenode(temp->next);
     }
-    freenode(temp);
+    free(temp);
 }
 
 
