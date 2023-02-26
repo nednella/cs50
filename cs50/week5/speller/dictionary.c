@@ -164,7 +164,7 @@ bool unload(void) {
 
 
 
-// Recursive free() function - used in unload()
+// Recursive free() function - used in unload() OPTION 1
 void freenode(node *temp) {
 
     if (temp->next != NULL) {
