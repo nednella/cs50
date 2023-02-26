@@ -17,11 +17,14 @@ typedef struct node
 }
 node;
 
-
-
 unsigned int wordcount = 0;     // initialise word count for size() function
 const unsigned int N = 26;      // initialise number of buckets in hash table
-node *table[N];                 // initialise hash table
+
+// hash table
+node *table[N];
+
+// function prototypes
+void freenode(node *temp);
 
 
 
@@ -124,29 +127,19 @@ unsigned int size(void) {
 
 
 
-void freenode(node *temp) {
-
-    if (temp->next != NULL) {
-        freenode(temp->next);
-    }
-    free(temp);
-}
-
-
-
-
-
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void) {
 
     // iterate through every hash value inside the hash table
     for (int i = 0; i < N; i++) {
 
-        // if header contains any nodes
+        // if header points to any non-NULL elements
         if (table[i] != NULL) {
 
+            // recursively free all nodes
             freenode(table[i]);
 
+            // iteratively free all nodes
             //node *cursor = table[i];        // point cursor to head of linked list
             //node *temp = cursor;            // create temporary node to allow freeing of memory
 
@@ -167,3 +160,11 @@ bool unload(void) {
 
 
 
+// Recursive free() function - used in unload()
+void freenode(node *temp) {
+
+    if (temp->next != NULL) {
+        freenode(temp->next);
+    }
+    free(temp);
+}
