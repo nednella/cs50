@@ -63,8 +63,12 @@ unsigned int hash(const char *word) {
     // input a word, with alphabetical characters and (possibly) apostrophes
     // output a numerical index value between 0 and N-1 (where N is the number of buckets in the hash table)
 
+
+
+
+
     // initially build with just 26 buckets, using the 1st letter of the word
-    return toupper(word[0]) - 'A'; // returns a hash value between 0 and 25
+    return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
 }
 
 
@@ -136,10 +140,10 @@ bool unload(void) {
         // if header points to any non-NULL elements
         if (table[i] != NULL) {
 
-            // recursively free all nodes
+            // OPTION 1 - recursively free all nodes
             freenode(table[i]);
 
-            // iteratively free all nodes
+            // OPTION 2 - iteratively free all nodes
             //node *cursor = table[i];        // point cursor to head of linked list
             //node *temp = cursor;            // create temporary node to allow freeing of memory
 
