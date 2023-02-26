@@ -71,7 +71,7 @@ unsigned int hash(const char *word) {
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary) {
 
-    FILE *file = fopen(dictionary, "r");    // open dictionary text file
+    FILE *file = fopen("./dictionaries/small", "r");    // open dictionary text file
     if (file == NULL) {
         printf("Error: file not found.\n");
         fclose(file);
@@ -79,7 +79,6 @@ bool load(const char *dictionary) {
     }
 
     char buffer[LENGTH + 1];    // initialise string buffer
-    //char scancheck;          // initialise fscanf check for while loop
 
     // read text file 1 string at a time until end of file
     while (fscanf(file, "%s", buffer) != EOF) {
@@ -91,10 +90,7 @@ bool load(const char *dictionary) {
             return false;
         }
 
-        // read next string from text file into buffer
-        //fscanf(file, "%s", buffer);
-
-        size();                                 // count the word being read
+        size();                                 // count the word being read - string is read whilst evaluating while condition!
         strcpy(temp->word, buffer);             // copy word into newly created temp node
         unsigned int index = hash(temp->word);  // obtain a hash value for the given word
 
@@ -111,16 +107,16 @@ bool load(const char *dictionary) {
 
 
     // TEST LOAD FUNCTION
-    //printf("\n");
-    //for (int i = 0; i < N; i++)         // Check all "buckets"
-    //{
-        //node *cursor = table[i];        // Set cursor to head of list
-        //while (cursor != NULL)          // Check the list until end
-        //{
-            //printf("Hash %i: %s\n", i, cursor->word);
-            //cursor = cursor->next;      // Advance cursor to next node
-        //}
-    //}
+    printf("\n");
+    for (int i = 0; i < N; i++)         // Check all "buckets"
+    {
+        node *cursor = table[i];        // Set cursor to head of list
+        while (cursor != NULL)          // Check the list until end
+        {
+            printf("Hash %i: %s\n", i, cursor->word);
+            cursor = cursor->next;      // Advance cursor to next node
+        }
+    }
 
     // successfully loaded dictionary
     fclose(file);
