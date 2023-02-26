@@ -142,12 +142,9 @@ bool unload(void) {
                 free(temp);                 // free the previous element
                 temp = cursor;              // advance temp to the next node
             }
-
-            // successfully unloaded dictionary
-            return true;
         }
     }
 
-    // else unsuccessful
-    return false;
+    // successfully unloaded dictionary
+    return true;
 }
