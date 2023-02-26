@@ -99,19 +99,25 @@ bool load(const char *dictionary) {
         unsigned int index = hash(temp->word);  // obtain a hash value for the given word
 
         // check if first element in the linked list
-        
-
-
-
-
-        if (table[index] == NULL) {
-            temp->next = NULL;                  // if true, point temp node to NULL
+        if (table[index] != NULL) {
+            temp->next = table[index];
+            table[index] = temp;
         }
         else {
-            temp->next = table[index];          // else, point temp to the first node of the linked list
+            table[index] = temp;
         }
 
-        table[index] = temp;                    // point the header back to temp
+
+
+
+        //if (table[index] == NULL) {
+            //temp->next = NULL;                  // if true, point temp node to NULL
+        //}
+        //else {
+            //temp->next = table[index];          // else, point temp to the first node of the linked list
+        //}
+
+        //table[index] = temp;                    // point the header back to temp
     }
 
 
