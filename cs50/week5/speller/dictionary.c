@@ -71,7 +71,7 @@ unsigned int hash(const char *word) {
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary) {
 
-    FILE *file = fopen("./dictionaries/large", "r");    // open dictionary text file
+    FILE *file = fopen(dictionary, "r");    // open dictionary text file
     if (file == NULL) {
         printf("Error: file not found.\n");
         fclose(file);
