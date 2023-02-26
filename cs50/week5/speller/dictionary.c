@@ -79,10 +79,10 @@ bool load(const char *dictionary) {
     }
 
     char buffer[LENGTH + 1];    // initialise string buffer
-    char scancheck;          // initialise fscanf check for while loop
+    //char scancheck;          // initialise fscanf check for while loop
 
     // read text file 1 string at a time until end of file
-    while ((scancheck = fgetc(file)) != EOF) {
+    while (fscanf(file, "%s", buffer) != EOF) {
 
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
@@ -92,7 +92,7 @@ bool load(const char *dictionary) {
         }
 
         // read next string from text file into buffer
-        fscanf(file, "%s", buffer);
+        //fscanf(file, "%s", buffer);
 
         size();                                 // count the word being read
         strcpy(temp->word, buffer);             // copy word into newly created temp node
