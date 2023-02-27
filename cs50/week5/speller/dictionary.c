@@ -97,7 +97,6 @@ unsigned int hash(const char *word) {
 
 
 
-
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary) {
 
