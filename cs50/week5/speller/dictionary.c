@@ -40,7 +40,7 @@ bool check(const char *word) {
     node *cursor = table[h_val];        // set cursor to head of list
     while (cursor != NULL) {            // traverse the list until end
 
-        if (strcasecmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
+        if (strcmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
             return true;                // match found
         }
 
@@ -68,15 +68,15 @@ unsigned int hash(const char *word) {
     //return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
 
     // initialise hash value
-    unsigned int hash_val = 0;
+    unsigned int h_val = 0;
 
     // iterate through each character
     for (int i = 0, n = strlen(word); i < n; i++) {
-        hash_val += (31 * tolower(word[i]));            // multiply every char's (lowercase) ASCII value by 31 and sum for entire string
+        h_val += (31 * tolower(word[i]));            // multiply every char's (lowercase) ASCII value by 31 and sum for entire string
     }
-    hash_val = hash_val % N;                            // ensure hash value is a valid bucket
+    h_val = h_val % N;                            // ensure hash value is a valid bucket
 
-    return hash_val;
+    return h_val;
 }
 
 
@@ -109,7 +109,7 @@ bool load(const char *dictionary) {
             return false;
         }
 
-        wordcount++;                            // count the word being read - string is read whilst evaluating while condition!
+        wordcount++;                            // count the word being read - string is buffered whilst evaluating while condition!
         strcpy(temp->word, buffer);             // copy word into newly created temp node
         unsigned int h_val = hash(temp->word);  // obtain a hash value for the given word
 
