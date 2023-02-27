@@ -65,6 +65,7 @@ unsigned int hash(const char *word) {
 
     // input a word, with alphabetical characters and (possibly) apostrophes
     // output a numerical index value between 0 and N-1 (where N is the number of buckets in the hash table)
+    //return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
 
     // initialise hash value
     unsigned int hash_val = 0;
@@ -76,8 +77,6 @@ unsigned int hash(const char *word) {
     hash_val = hash_val % N;                            // ensure hash value is a valid bucket
 
     return hash_val;
-
-    //return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
 }
 
 
