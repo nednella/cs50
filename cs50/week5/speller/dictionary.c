@@ -111,18 +111,18 @@ bool load(const char *dictionary) {
         }
 
         wordcount++;                            // count the word being read - string is buffered whilst evaluating while condition!
-        strcpy(temp->word, buffer);             // copy word into newly created temp node
-        unsigned int h_val = hash(temp->word);  // obtain a hash value for the given word
-        temp->hash = h_val;                     // store hash value in hash object
+        
+        unsigned int index = hash(temp->word);  // obtain a hash value for the given word
+        temp->hash = index;                     // store hash value in hash object
 
         // check if first element in the linked list
-        if (table[h_val] == NULL) {             // if true
+        if (table[index] == NULL) {             // if true
             temp->next = NULL;                  // NULL "next" pointer of new node
-            table[h_val] = temp;                // point header to new node
+            table[index] = temp;                // point header to new node
         }
         else {                                  // if false
-            temp->next = table[h_val];          // point "next" pointer of new node to previous node
-            table[h_val] = temp;                // point header to new node (stacked list)
+            temp->next = table[index];          // point "next" pointer of new node to previous node
+            table[index] = temp;                // point header to new node (stacked list)
         }
     }
 
