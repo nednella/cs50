@@ -116,8 +116,8 @@ bool load(const char *dictionary) {
         }
 
         wordcount++;                            // count the word being read - string is buffered whilst evaluating while condition!
-        strcpy(temp->word, buffer);             // copy word into newly created temp node
-        unsigned int index = hash(temp->word);  // obtain a hash value for the given word
+        strcpy(temp->word, buffer);             // write word to new node
+        unsigned int index = hash(temp->word);  // obtain a hash value for word
 
         // check if first element in the linked list
         if (table[index] == NULL) {             // if true
