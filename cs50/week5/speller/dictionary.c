@@ -63,8 +63,6 @@ bool check(const char *word) {
 // Hashes word to a number
 unsigned int hash(const char *word) {
 
-    // TODO #2: Improve this hash function
-
     // input a word, with alphabetical characters and (possibly) apostrophes
     // output a numerical index value between 0 and N-1 (where N is the number of buckets in the hash table)
 
