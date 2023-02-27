@@ -71,22 +71,14 @@ unsigned int hash(const char *word) {
 
     // iterate through each character
     for (int i = 0, n = strlen(word); i < n; i++) {
-
-        // check for alphabetical char
-        if (isalpha(word[i]) != 0) {        // if alphabetical
-            hash_val +=
-        }
-        else {
-
-        }
+        hash_val += (31 * tolower(word[i]));            // multiply every char's ASCII value by 31 and sum for entire string
     }
 
+    hash_val = hash_val % N;                            // ensure hash value is a valid bucket
 
+    return hash_val;
 
-
-
-    // initially build with just 26 buckets, using the 1st letter of the word
-    return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
+    //return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
 }
 
 
