@@ -41,6 +41,10 @@ bool check(const char *word) {
     node *cursor = table[h_val];        // set cursor to head of list
     while (cursor != NULL) {            // traverse the list until end
 
+
+        
+
+
         if (strcmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
             return true;                // match found
         }
