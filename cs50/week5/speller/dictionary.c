@@ -37,7 +37,7 @@ bool check(const char *word) {
     unsigned int index = hash(word);    // hash given word to obtain hash value
 
     // access linked list at that index in the hash table
-    node *cursor = table[index];        // set cursor the head of list
+    node *cursor = table[index];        // set cursor to head of list
     while (cursor != NULL) {            // traverse the list until end
 
         if (strcasecmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
