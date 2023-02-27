@@ -74,7 +74,7 @@ unsigned int hash(const char *word) {
 
         // check for alphabetical char
         if (isalpha(word[i]) != 0) {        // if alphabetical
-            hash_val +=
+            hash_val += 
         }
         else {
 
