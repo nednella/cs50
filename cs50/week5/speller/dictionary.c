@@ -13,7 +13,7 @@
 typedef struct node
 {
     char word[LENGTH + 1];
-    unsigned int hash;
+    //unsigned int hash;
     struct node *next;
 }
 node;
@@ -42,8 +42,9 @@ bool check(const char *word) {
     while (cursor != NULL) {            // traverse the list until end
 
 
-        
-
+        /*if (cursor->hash != h_val) {
+            continue;
+        }*/
 
         if (strcmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
             return true;                // match found
@@ -115,10 +116,8 @@ bool load(const char *dictionary) {
         }
 
         wordcount++;                            // count the word being read - string is buffered whilst evaluating while condition!
-
-        unsigned int index = hash(buffer);      // obtain a hash value for the buffered word
-        strcpy(temp->word, buffer);             // store word in new node
-        temp->hash = index;                     // store hash value in new node
+        strcpy(temp->word, buffer);             // copy word into newly created temp node
+        unsigned int index = hash(temp->word);  // obtain a hash value for the given word
 
         // check if first element in the linked list
         if (table[index] == NULL) {             // if true
