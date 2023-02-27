@@ -62,18 +62,13 @@ bool check(const char *word) {
 // Hashes word to a number
 unsigned int hash(const char *word) {
 
-    // input a word, with alphabetical characters and (possibly) apostrophes
-    // output a numerical index value between 0 and N-1 (where N is the number of buckets in the hash table)
-    //return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
-
-    // initialise hash value
-    unsigned int h_val = 0;
+    unsigned int h_val = 0;                             // initialise hash value
 
     // iterate through each character
     for (int i = 0, n = strlen(word); i < n; i++) {
-        h_val += (31 * tolower(word[i]));            // multiply every char's (lowercase) ASCII value by 31 and sum for entire string
+        h_val = (31 * h_val + tolower(word[i]));        // hash function
     }
-    h_val = h_val % N;                            // ensure hash value is a valid bucket
+    h_val = h_val % N;                                  // ensure hash value is a valid bucket
 
     return h_val;
 }
@@ -107,14 +102,14 @@ bool load(const char *dictionary) {
         unsigned int index = hash(temp->word);  // obtain a hash value for word
 
         // check if first element in the linked list
-        if (table[index] == NULL) {             // if true
-            temp->next = NULL;                  // NULL "next" pointer of new node
-            table[index] = temp;                // point header to new node
-        }
-        else {                                  // if false
+        //if (table[index] == NULL) {             // if true
+            //temp->next = NULL;                  // NULL "next" pointer of new node
+            //table[index] = temp;                // point header to new node
+        //}
+        //else {                                  // if false
             temp->next = table[index];          // point "next" pointer of new node to previous node
             table[index] = temp;                // point header to new node (stacked list)
-        }
+        //}
     }
 
     // successfully loaded dictionary
