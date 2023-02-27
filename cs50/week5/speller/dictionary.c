@@ -53,30 +53,19 @@ bool check(const char *word) {
 
 
 
-
-
-
-
-
-
-
 // Hashes word to a number
 unsigned int hash(const char *word) {
 
-    // input a word, with alphabetical characters and (possibly) apostrophes
-    // output a numerical index value between 0 and N-1 (where N is the number of buckets in the hash table)
+    unsigned int h_val = 0;                             // initialise hash value
 
+    // iterate through each character
+    for (int i = 0, n = strlen(word); i < n; i++) {
+        h_val = (31 * h_val + tolower(word[i]));        // hash function
+    }
+    h_val = h_val % N;                                  // ensure hash value is a valid bucket
 
-    // initially build with just 26 buckets, using the 1st letter of the word
-    return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
+    return h_val;
 }
-
-
-
-
-
-
-
 
 
 
@@ -95,6 +84,8 @@ bool load(const char *dictionary) {
     // read text file 1 string at a time until end of file
     while (fscanf(file, "%s", buffer) != EOF) {
 
+        wordcount++;                            // count the word being read - string is read whilst evaluating while condition!
+
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
             printf("Error: not enough memory available.");
@@ -102,7 +93,6 @@ bool load(const char *dictionary) {
             return false;
         }
 
-        wordcount++;                            // count the word being read - string is read whilst evaluating while condition!
         strcpy(temp->word, buffer);             // copy word into newly created temp node
         unsigned int h_val = hash(temp->word);  // obtain a hash value for the given word
 
@@ -124,15 +114,11 @@ bool load(const char *dictionary) {
 
 
 
-
-
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void) {
 
     return wordcount;
 }
-
-
 
 
 
@@ -164,8 +150,6 @@ bool unload(void) {
     // successfully unloaded dictionary
     return true;
 }
-
-
 
 
 
