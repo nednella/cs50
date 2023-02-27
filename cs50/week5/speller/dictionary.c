@@ -71,9 +71,8 @@ unsigned int hash(const char *word) {
 
     // iterate through each character
     for (int i = 0, n = strlen(word); i < n; i++) {
-        hash_val += (31 * tolower(word[i]));            // multiply every char's ASCII value by 31 and sum for entire string
+        hash_val += (31 * tolower(word[i]));            // multiply every char's (lowercase) ASCII value by 31 and sum for entire string
     }
-
     hash_val = hash_val % N;                            // ensure hash value is a valid bucket
 
     return hash_val;
