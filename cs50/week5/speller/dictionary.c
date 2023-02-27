@@ -41,11 +41,6 @@ bool check(const char *word) {
     node *cursor = table[h_val];        // set cursor to head of list
     while (cursor != NULL) {            // traverse the list until end
 
-
-        /*if (cursor->hash != h_val) {
-            continue;
-        }*/
-
         if (strcmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
             return true;                // match found
         }
@@ -101,16 +96,16 @@ bool load(const char *dictionary) {
         strcpy(temp->word, buffer);             // write word to new node
         unsigned int index = hash(temp->word);  // obtain a hash value for word
 
-        /*// check if first element in the linked list
+        // check if first element in the linked list
         if (table[index] == NULL) {             // if true
             temp->next = NULL;                  // NULL "next" pointer of new node
             table[index] = temp;                // point header to new node
-        }*/
+        }
 
-        //else {                                  // if false
+        else {                                  // if false
             temp->next = table[index];          // point "next" pointer of new node to previous node
             table[index] = temp;                // point header to new node (stacked list)
-        //}
+        }
     }
 
     // successfully loaded dictionary
