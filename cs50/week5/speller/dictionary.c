@@ -55,6 +55,11 @@ bool check(const char *word) {
 
 
 
+
+
+
+
+
 // Hashes word to a number
 unsigned int hash(const char *word) {
 
@@ -70,6 +75,11 @@ unsigned int hash(const char *word) {
     // initially build with just 26 buckets, using the 1st letter of the word
     return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
 }
+
+
+
+
+
 
 
 
