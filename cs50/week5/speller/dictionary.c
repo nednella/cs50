@@ -102,13 +102,13 @@ bool load(const char *dictionary) {
         unsigned int index = hash(temp->word);  // obtain a hash value for the given word
 
         // check if first element in the linked list
-        if (table[index] == NULL) {              // if true
-            temp->next = NULL;                  // NULL the next pointer
+        if (table[index] == NULL) {             // if true
+            temp->next = NULL;                  // NULL "next" pointer of new node
             table[index] = temp;                // point header to new node
         }
-        else {                                  // if false (stack list)
-            temp->next = table[index];          // point next to previous node
-            table[index] = temp;                // point header to new node
+        else {                                  // if false
+            temp->next = table[index];          // point "next" pointer of new node to previous node
+            table[index] = temp;                // point header to new node (stacked list)
         }
     }
 
