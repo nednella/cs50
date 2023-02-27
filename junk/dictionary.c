@@ -13,12 +13,13 @@
 typedef struct node
 {
     char word[LENGTH + 1];
+    //unsigned int hash;
     struct node *next;
 }
 node;
 
 unsigned int wordcount = 0;     // initialise word count for size() function
-const unsigned int N = 250;     // initialise number of buckets in hash table
+const unsigned int N = 200000;  // initialise number of buckets in hash table
 
 // hash table
 node *table[N];
@@ -40,7 +41,7 @@ bool check(const char *word) {
     node *cursor = table[h_val];        // set cursor to head of list
     while (cursor != NULL) {            // traverse the list until end
 
-        if (strcasecmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
+        if (strcmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
             return true;                // match found
         }
 
@@ -53,48 +54,19 @@ bool check(const char *word) {
 
 
 
-
-
-
-
-
-
-
 // Hashes word to a number
 unsigned int hash(const char *word) {
 
-    // input a word, with alphabetical characters and (possibly) apostrophes
-    // output a numerical index value between 0 and N-1 (where N is the number of buckets in the hash table)
+    unsigned int h_val = 0;                             // initialise hash value
 
-    // initialise hash value
-    unsigned int hash_val = 0;
-
-    // iterate through first 2 characters of word
-    for (int i = 0; i < 2; i++) {
-
-        // check for alphabetical char
-        if (isalpha(word[i]) != 0) {        // if alphabetical
-            hash_val += 
-        }
-        else {
-
-        }
+    // iterate through each character
+    for (int i = 0, n = strlen(word); i < n; i++) {
+        h_val = (31 * h_val + tolower(word[i]));        // hash function
     }
+    h_val = h_val % N;                                  // ensure hash value is a valid bucket
 
-
-
-
-
-    // initially build with just 26 buckets, using the 1st letter of the word
-    return toupper(word[0]) - 'A';          // returns a hash value between 0 and 25
+    return h_val;
 }
-
-
-
-
-
-
-
 
 
 
@@ -111,8 +83,9 @@ bool load(const char *dictionary) {
     char buffer[LENGTH + 1];    // initialise string buffer
 
     // read text file 1 string at a time until end of file
-    while (fscanf(file, "%s", buffer) != EOF) {
+    while (fscanf(file, "%s", buffer) == 1) {
 
+        wordcount++;                            // count the word being read - string is buffered whilst evaluating while condition!
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
             printf("Error: not enough memory available.");
@@ -120,18 +93,18 @@ bool load(const char *dictionary) {
             return false;
         }
 
-        wordcount++;                            // count the word being read - string is read whilst evaluating while condition!
-        strcpy(temp->word, buffer);             // copy word into newly created temp node
-        unsigned int h_val = hash(temp->word);  // obtain a hash value for the given word
+        strcpy(temp->word, buffer);             // write word to new node
+        unsigned int index = hash(temp->word);  // obtain a hash value for word
 
         // check if first element in the linked list
-        if (table[h_val] == NULL) {             // if true
+        if (table[index] == NULL) {             // if true
             temp->next = NULL;                  // NULL "next" pointer of new node
-            table[h_val] = temp;                // point header to new node
+            table[index] = temp;                // point header to new node
         }
+
         else {                                  // if false
-            temp->next = table[h_val];          // point "next" pointer of new node to previous node
-            table[h_val] = temp;                // point header to new node (stacked list)
+            temp->next = table[index];          // point "next" pointer of new node to previous node
+            table[index] = temp;                // point header to new node (stacked list)
         }
     }
 
@@ -142,15 +115,11 @@ bool load(const char *dictionary) {
 
 
 
-
-
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void) {
 
     return wordcount;
 }
-
-
 
 
 
@@ -182,8 +151,6 @@ bool unload(void) {
     // successfully unloaded dictionary
     return true;
 }
-
-
 
 
 
