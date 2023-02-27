@@ -68,13 +68,15 @@ unsigned int hash(const char *word) {
     // input a word, with alphabetical characters and (possibly) apostrophes
     // output a numerical index value between 0 and N-1 (where N is the number of buckets in the hash table)
 
+    // initialise hash value
+    unsigned int hash_val = 0;
 
     // iterate through first 2 characters of word
     for (int i = 0; i < 2; i++) {
 
         // check for alphabetical char
         if (isalpha(word[i]) != 0) {        // if alphabetical
-
+            hash_val += 
         }
         else {
 
