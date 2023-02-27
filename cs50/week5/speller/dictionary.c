@@ -100,7 +100,7 @@ bool load(const char *dictionary) {
     char buffer[LENGTH + 1];    // initialise string buffer
 
     // read text file 1 string at a time until end of file
-    while (fscanf(file, "%s", buffer) != EOF) {
+    while (fscanf(file, "%s", buffer) == 1) {
 
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
