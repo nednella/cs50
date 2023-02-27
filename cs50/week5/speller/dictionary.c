@@ -59,13 +59,6 @@ bool check(const char *word) {
 
 
 
-
-
-
-
-
-
-
 // Hashes word to a number
 unsigned int hash(const char *word) {
 
@@ -87,12 +80,6 @@ unsigned int hash(const char *word) {
 
 
 
-
-
-
-
-
-
 // Loads dictionary into memory using a data structure, returning true if successful, else false
 bool load(const char *dictionary) {
 
@@ -108,6 +95,7 @@ bool load(const char *dictionary) {
     // read text file 1 string at a time until end of file
     while (fscanf(file, "%s", buffer) == 1) {
 
+        wordcount++;                            // count the word being read - string is buffered whilst evaluating while condition!
         node *temp = malloc(sizeof(node));      // allocate memory for a new node
         if (temp == NULL) {
             printf("Error: not enough memory available.");
@@ -115,7 +103,6 @@ bool load(const char *dictionary) {
             return false;
         }
 
-        wordcount++;                            // count the word being read - string is buffered whilst evaluating while condition!
         strcpy(temp->word, buffer);             // write word to new node
         unsigned int index = hash(temp->word);  // obtain a hash value for word
 
@@ -137,15 +124,11 @@ bool load(const char *dictionary) {
 
 
 
-
-
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void) {
 
     return wordcount;
 }
-
-
 
 
 
@@ -177,8 +160,6 @@ bool unload(void) {
     // successfully unloaded dictionary
     return true;
 }
-
-
 
 
 
