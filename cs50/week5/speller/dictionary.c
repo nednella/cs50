@@ -69,12 +69,12 @@ unsigned int hash(const char *word) {
     // initialise hash value
     unsigned int hash_val = 0;
 
-    // iterate through first 2 characters of word
-    for (int i = 0; i < 2; i++) {
+    // iterate through each character
+    for (int i = 0, n = strlen(word); i < n; i++) {
 
         // check for alphabetical char
         if (isalpha(word[i]) != 0) {        // if alphabetical
-            hash_val += 
+            hash_val +=
         }
         else {
 
