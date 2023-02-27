@@ -18,7 +18,7 @@ typedef struct node
 node;
 
 unsigned int wordcount = 0;     // initialise word count for size() function
-const unsigned int N = 100000;     // initialise number of buckets in hash table
+const unsigned int N = 1500;     // initialise number of buckets in hash table
 
 // hash table
 node *table[N];
