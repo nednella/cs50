@@ -34,10 +34,10 @@ bool check(const char *word) {
     // iterative search method - O(n)
     // to recursively search the linked list, must include a node as an argument in the check() function!
 
-    unsigned int index = hash(word);    // hash given word to obtain hash value
+    unsigned int h_val = hash(word);    // hash given word to obtain hash value
 
     // access linked list at that index in the hash table
-    node *cursor = table[index];        // set cursor to head of list
+    node *cursor = table[h_val];        // set cursor to head of list
     while (cursor != NULL) {            // traverse the list until end
 
         if (strcasecmp(word, cursor->word) == 0) {  // check for match - compare 2 strings case insensitively
@@ -76,7 +76,7 @@ unsigned int hash(const char *word) {
 
         // check for alphabetical char
         if (isalpha(word[i]) != 0) {        // if alphabetical
-            hash_val += 
+            hash_val +=
         }
         else {
 
@@ -124,16 +124,16 @@ bool load(const char *dictionary) {
 
         wordcount++;                            // count the word being read - string is read whilst evaluating while condition!
         strcpy(temp->word, buffer);             // copy word into newly created temp node
-        unsigned int index = hash(temp->word);  // obtain a hash value for the given word
+        unsigned int h_val = hash(temp->word);  // obtain a hash value for the given word
 
         // check if first element in the linked list
-        if (table[index] == NULL) {             // if true
+        if (table[h_val] == NULL) {             // if true
             temp->next = NULL;                  // NULL "next" pointer of new node
-            table[index] = temp;                // point header to new node
+            table[h_val] = temp;                // point header to new node
         }
         else {                                  // if false
-            temp->next = table[index];          // point "next" pointer of new node to previous node
-            table[index] = temp;                // point header to new node (stacked list)
+            temp->next = table[h_val];          // point "next" pointer of new node to previous node
+            table[h_val] = temp;                // point header to new node (stacked list)
         }
     }
 
