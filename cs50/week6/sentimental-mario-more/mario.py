@@ -1,9 +1,9 @@
 
-
-while True:
-    height = int(input("Height: "))
-    if height < 9 and height > 0:
-        break
+try:
+    while True:
+        height = int(input("Height: "))
+        if height < 9 and height > 0:
+            break
 
 
 
