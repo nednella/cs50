@@ -16,20 +16,8 @@ for i in range(height):
             print(" ", end = "")
 
         # print space and then right middle-aligned triangle
-        print(" ", "#" * i, end = "")
-
-
-
-
-    for k in range(i):
-        print("#", end = "")
-
-    # print space between the two triangles
-    print(" ", end = "")
-
-    # print right middle-aligned triangle
-    for l in range(i):
-        print("#", end = "")
+        if j == height:
+            print(" ", "#" * i, end = "")
 
     # return prompt to new line after each row is completed
     print()
