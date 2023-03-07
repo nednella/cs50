@@ -15,6 +15,8 @@ def main():
         print("INVALID")
         sys.exit(1)
 
+    if
+
 
 def valid_Length(card):
     length = int(math.log10(card)) + 1              # determine card length
@@ -41,6 +43,16 @@ def luhn_checkSum(card):
         return True
     else:
         return False
+
+
+def mastercard(card):
+
+
+def visa(card):
+
+
+def amex(card):
+
 
 
 main()
