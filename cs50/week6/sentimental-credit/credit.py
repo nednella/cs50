@@ -7,7 +7,7 @@ def main():
     card = int(input("Card Number: "))              # prompt user for card number
 
 
-    #if valid_Length(card) == False:                # check if card length valid
+    #if valid_Length(card) == False:                 # check if card length valid
         #print("INVALID")
         #sys.exit(1)
 
