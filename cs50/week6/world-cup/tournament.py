@@ -18,7 +18,7 @@ def main():
         reader = csv.DictReader(file)
         teams = dict(reader)
 
-    for keys,values in teams.items()
+    for keys,values in teams.items():
         print(f"Team: {keys}", "Rating: {values}")
 
     #teams = []
