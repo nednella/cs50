@@ -38,15 +38,20 @@ def luhn_Algorithm(card):
     digits = return_Digits(card)                    # convert credit card digits to an indexable list
     digits.reverse()                                # set the list in reverse
 
-    odd_Digits = digits[-1::-2]
-    even_Digits = digits[-2::-2]
+
+    even_Digits = digits[0::2]                      # obtain list of every 2nd digit starting from the 0th digit
+    odd_Digits = digits[1::2]                       # obtain list of every 2nd digit starting from the 1st digit
+
+    print(digits)
+    print(odd_Digits)
+    print(even_Digits)
 
     luhn_Sum = 0
     luhn_Sum += sum(odd_Digits)
-    luhn_Sum +=
+    #luhn_Sum +=
 
-    for i in range(0, (len(digits) + 1) / 2, 2):
-        print(digits[i])
+    #for i in range(0, (len(digits) + 1) / 2, 2):
+        #print(digits[i])
 
 
 def return_Digits(card):
