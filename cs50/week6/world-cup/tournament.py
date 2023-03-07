@@ -16,8 +16,8 @@ def main():
 
     teams = []
     # TODO: Read teams into memory from file
-    file = open(sys.argv[1], "a")
-    reader = csv.DictReader(file)
+    file = open(sys.argv[1], "r")
+    teams = csv.DictReader(file, delimiter=",")
 
 
     counts = {}
