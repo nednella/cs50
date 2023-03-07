@@ -33,7 +33,7 @@ def main():
 
 
 
-        print(reader)
+        print(teams)
 
 
 
