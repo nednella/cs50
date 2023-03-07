@@ -10,7 +10,7 @@ def main():
         print("INVALID")
         sys.exit(1)
 
-
+    card
 
 
 
@@ -32,12 +32,11 @@ def valid_length(card):
         return False
 
 
-# obtain specified digit of the card number
-def get_digit(card, pos):
-    if card < 10:
-        print(card)
-    else:
-        get_digit()
+# obtain credit card in indexable list form
+def digitise(card):
+    nums = []
+    
+
 
 
 
