@@ -49,11 +49,11 @@ def simulate_round(teams):
     winners = []
 
     # Simulate games for all pairs of teams
-    for i in range(0, len(teams), 2):
-        if simulate_game(teams[i], teams[i + 1]):
-            winners.append(teams[i])
-        else:
-            winners.append(teams[i + 1])
+    for i in range(0, len(teams), 2):                   # i iterates in step size of 2, to allow simulation of (i) vs (i + 1)
+        if simulate_game(teams[i], teams[i + 1]):       # if team 1 wins
+            winners.append(teams[i])                        # return winner as team 1
+        else:                                           # else
+            winners.append(teams[i + 1])                    # return winner as team 2
 
     return winners
 
