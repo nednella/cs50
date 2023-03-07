@@ -37,7 +37,10 @@ def valid_length(card):
 
 # perform Luhn's algorithm check on the card
 def luhn_algorithm(card):
-    card_digits = list(map(int, str(card)))         # convert card to an indexable list
+    card_digits = list(map(int, str(card)))         # convert credit card digits to an indexable list
+
+
+    
     length = int(math.log10(card)) + 1              # determine card length
     for i in range(length):
         print(card_digits[i])
