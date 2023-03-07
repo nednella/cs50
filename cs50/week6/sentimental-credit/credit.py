@@ -12,10 +12,7 @@ def main():
         #sys.exit(1)
 
     digits = return_list(card)
-    print(digits[0])
-    print(digits[1])
-    print(digits[2])
-    print(digits[3])
+    
 
 
 
