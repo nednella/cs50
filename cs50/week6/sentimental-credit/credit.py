@@ -7,11 +7,11 @@ def main():
     card = int(input("Card Number: "))              # prompt user for card number
 
 
-    #if valid_length(card) == False:                 # check if length valid
+    #if valid_Length(card) == False:                 # check if length valid
         #print("INVALID")
         #sys.exit(1)
 
-    if luhn_algorithm(card) == False:                     # check if card number valid
+    if luhn_Algorithm(card) == False:                     # check if card number valid
         print("INVALID")
         sys.exit(1)
 
@@ -21,7 +21,7 @@ def main():
 
 
 
-def valid_length(card):
+def valid_Length(card):
     length = int(math.log10(card)) + 1              # determine card length
     if (13 <= length <= 16):                        # check for valid card length (13 to 16 digits)
         return True
@@ -30,14 +30,12 @@ def valid_length(card):
 
 
 # obtain credit card in indexable list form
-#def return_list(card):
-    #tmp = list(map(int, str(card)))
-    #return tmp
+
 
 
 # perform Luhn's algorithm check on the card
-def luhn_algorithm(card):
-    digits = list(map(int, str(card)))              # convert credit card digits to an indexable list
+def luhn_Algorithm(card):
+    digits = return_Digits(card)                    # convert credit card digits to an indexable list
     digits.reverse()                                # set the list in reverse
 
     odd_Digits = digits[-1::-2]
@@ -45,10 +43,15 @@ def luhn_algorithm(card):
 
     luhn_Sum = 0
     luhn_Sum += sum(odd_Digits)
-    luhn_Sum += 
+    luhn_Sum +=
 
     for i in range(0, (len(digits) + 1) / 2, 2):
         print(digits[i])
+
+
+def return_Digits(card):
+    digits = list(map(int, str(card)))
+    return digits
 
 
 main()
