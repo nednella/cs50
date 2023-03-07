@@ -8,11 +8,12 @@ def get_cents():
 
     while True:
         try:
-            cents = int(input("Change owed: "))
+            dollars = float(input("Change owed: "))
         except ValueError:
             continue
         else:
-            return cents
+            if dollars > 0:
+                return dollars
 
 
 
