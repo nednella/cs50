@@ -26,8 +26,13 @@ def main():
     with open(sys.argv[1], "r") as file:
         reader = csv.DictReader(file)
 
-        for item in reader:
-            print(item['team'])
+        for row in reader:
+            team_name = row['team']
+            team_rating = int(row['rating'])
+
+
+
+        print(reader)
 
 
 
