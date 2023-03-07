@@ -4,13 +4,14 @@ import math
 
 def main():
 
-    card = int(input("Card Number: "))          # prompt user for card number
+    card = int(input("Card Number: "))              # prompt user for card number
 
-    if valid_length(card) == False:             # check if valid length
+    length = int(math.log10(card)) + 1              # determine card length
+    if valid_length(length) == False:               # check if length valid
         print("INVALID")
         sys.exit(1)
 
-    card
+
 
 
 
@@ -24,8 +25,7 @@ def main():
 
 
 # check for valid card length (13 to 16 digits)
-def valid_length(card):
-    length = int(math.log10(card)) + 1
+def valid_length(length):
     if (13 <= length <= 16):
         return True
     else:
@@ -35,7 +35,7 @@ def valid_length(card):
 # obtain credit card in indexable list form
 def digitise(card):
     nums = []
-    
+
 
 
 
