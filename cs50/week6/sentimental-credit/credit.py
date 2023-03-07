@@ -11,6 +11,8 @@ def main():
         #print("INVALID")
         #sys.exit(1)
 
+    digits = list(card)
+    print(digits[1])
 
 
 
@@ -34,7 +36,8 @@ def valid_length(length):
 
 # obtain credit card in indexable list form
 def list(card):
-    return digit = list(map(int, str(card)))
+    digit_list = list(map(int, str(card)))
+    return digit_list
 
 
 
