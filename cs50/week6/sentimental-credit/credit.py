@@ -5,7 +5,7 @@ import math
 def main():
 
     card = int(input("Card Number: "))              # prompt user for card number
-    nums = list(map(int, str(card)))                # convert credit card digits to an indexable list
+    card = list(map(int, str(card)))                # convert credit card digits to an indexable list
 
 
     #if valid_Length(card) == False:                 # check if card length valid
