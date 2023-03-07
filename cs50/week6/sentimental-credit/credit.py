@@ -11,8 +11,10 @@ def main():
         #print("INVALID")
         #sys.exit(1)
 
+    if luhn_alg(card)
+
     digits = return_list(card)
-    
+
 
 
 
