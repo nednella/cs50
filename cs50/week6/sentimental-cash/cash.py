@@ -4,32 +4,23 @@ def main():
     # ask what the customer is owed in change
     change = get_payment()
 
-    # calculate number of quarters to give the customer
-    quarters = calc_quarters(change)
-    print(f"Quarters: {quarters}")
-    change = change - (quarters * 0.25)
+    quarters = calc_quarters(change)        # calculate quarters
+    change = change - (quarters * 0.25)     # update remaining change
 
-    # calculate number of dimes to give the customer
-    dimes = calc_dimes(change)
-    print(f"Dimes: {dimes}")
-    change = change - (dimes * 0.1)
+    dimes = calc_dimes(change)              # calculate dimes
+    change = change - (dimes * 0.1)         # update remaining change
 
-    # calculate number of nickels to give the customer
-    nickels = calc_nickels(change)
-    print(f"Nickels: {nickels}")
-    change = change - (nickels * 0.05)
+    nickels = calc_nickels(change)          # calculate nickels
+    change = change - (nickels * 0.05)      # update remaining change
 
-    # calculate number of pennies to give the customer
-    pennies = calc_pennies(change)
-    print(f"Pennies: {pennies}")
-    change = change - (pennies * 0.01)
+    pennies = calc_pennies(change)          # calculate pennies
+    change = change - (pennies * 0.01)      # update remaining change
 
-    # sum coins in the change
+    # calculate total coin quantity and print
     coins = quarters + dimes + nickels + pennies
     print(coins)
 
 
-# prompt user for change owed, returning only a valid number
 def get_payment():
     while True:
         try:
@@ -42,22 +33,22 @@ def get_payment():
 
 
 def calc_quarters(change):
-    quarters = change / 0.25
+    quarters = int(change / 0.25)
     return quarters
 
 
 def calc_dimes(change):
-    dimes = change / 0.1
+    dimes = int(change / 0.1)
     return dimes
 
 
 def calc_nickels(change):
-    nickels = change / 0.05
+    nickels = int(change / 0.05)
     return nickels
 
 
 def calc_pennies(change):
-    pennies = change / 0.01
+    pennies = int(change / 0.01)
     return pennies
 
 
