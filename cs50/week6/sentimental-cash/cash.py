@@ -4,16 +4,16 @@ def main():
 
 
 
-def get_cents():
+def get_payment():
 
     while True:
         try:
-            dollars = float(input("Change owed: "))
+            change = float(input("Change owed: "))
         except ValueError:
             continue
         else:
-            if dollars >= 0:
-                return dollars
+            if change >= 0:
+                return change
 
 
 
