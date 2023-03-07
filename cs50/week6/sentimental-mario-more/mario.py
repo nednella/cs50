@@ -8,11 +8,15 @@ for i in range(height):
 
     # print left middle-aligned triangle
     for j in range(height):
+
+        # start printing # after correct number of spaces
         if j > (height - i):
             print("#", end = "")
         else:
             print(" ", end = "")
 
+        # print space and then right middle-aligned triangle
+        print(" ", "#" * i, end = "")
 
 
 
