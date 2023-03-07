@@ -33,8 +33,8 @@ def valid_length(length):
 
 
 # obtain credit card in indexable list form
-def digitise(card):
-    nums = []
+def list(card):
+    list = []
 
 
 
