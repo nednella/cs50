@@ -1,9 +1,13 @@
 
-while True:
-    height = int(input("Height: "))
-    if height < 9 and height > 0:
-        break
-
+try:
+    while True:
+        height = int(input("Height: "))
+        if height < 9 and height > 0:
+            break
+except ValueError:
+    print(
+        
+    )
 for i in range(height):
 
     # print left middle-aligned triangle
