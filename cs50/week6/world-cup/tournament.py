@@ -26,6 +26,9 @@ def main():
     with open(sys.argv[1], "r") as file:
         reader = csv.DictReader(file)
 
+        for item in reader:
+            print(item['team'])
+
 
 
 
