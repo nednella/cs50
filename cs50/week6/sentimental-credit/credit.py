@@ -35,7 +35,7 @@ def valid_Length(card):
 
 # perform Luhn's algorithm check on the card
 def luhn_Algorithm(card):
-    digits = return_Digits(card)                    # convert credit card digits to an indexable list
+    digits = list(map(int, str(card)))              # convert credit card digits to an indexable list
     digits.reverse()                                # set the list in reverse
 
     even_Digits = digits[0::2]                      # obtain list of every 2nd digit starting from the 0th digit
@@ -48,16 +48,15 @@ def luhn_Algorithm(card):
     luhn_Sum = 0
     luhn_Sum += sum(even_Digits)
     print(luhn_Sum)
-    luhn_Sum += sum(return_Digits(odd_Digits * 2))
-    print(luhn_Sum)
+
+    #luhn_Sum += sum(return_Digits(odd_Digits * 2))
+    #print(luhn_Sum)
 
     #for i in range(0, (len(digits) + 1) / 2, 2):
         #print(digits[i])
 
 
-def return_Digits(card):
-    digits = list(map(int, str(card)))
-    return digits
+
 
 
 main()
