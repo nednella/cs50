@@ -12,7 +12,7 @@ def get_cents():
         except ValueError:
             continue
         else:
-            if dollars > 0:
+            if dollars >= 0:
                 return dollars
 
 
