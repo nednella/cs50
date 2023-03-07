@@ -21,6 +21,7 @@ def main():
 
     # calculate number of pennies to give the customer
     pennies = calc_pennies(change)
+    print(f"Pennies: {pennies}")
     change = change - (pennies * 0.01)
 
     # sum coins in the change
@@ -28,6 +29,7 @@ def main():
     print(coins)
 
 
+# prompt user for change owed, returning only a valid number
 def get_payment():
     while True:
         try:
