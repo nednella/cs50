@@ -49,9 +49,15 @@ def luhn_Algorithm(card):
     #luhn_Sum += sum(even_Digits)
     #print(luhn_Sum)
 
-    for d in odd_Digits:
-        luhn_Sum += sum(divmod(d * 2, 10))
-    print(luhn_Sum)
+    #for d in odd_Digits:
+        #luhn_Sum += sum(divmod(d * 2, 10))
+    #print(luhn_Sum)
+
+    print(f"10: {sum(divmod(10,10))}")
+    print(f"12: {sum(divmod(12,10))}")
+    print(f"15: {sum(divmod(15,10))}")
+    print(f"17: {sum(divmod(17,10))}")
+    print(f"19: {sum(divmod(19,10))}")
 
     #luhn_Sum += sum(sum(divmod(d * 2, 10)) for d in odd_Digits)
     #print(luhn_Sum)
