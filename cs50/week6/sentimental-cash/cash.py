@@ -6,14 +6,17 @@ def main():
 
     # calculate number of quarters to give the customer
     quarters = calc_quarters(change)
+    print(f"Quarters: {quarters}")
     change = change - (quarters * 0.25)
 
     # calculate number of dimes to give the customer
     dimes = calc_dimes(change)
+    print(f"Dimes: {dimes}")
     change = change - (dimes * 0.1)
 
     # calculate number of nickels to give the customer
     nickels = calc_nickels(change)
+    print(f"Nickels: {nickels}")
     change = change - (nickels * 0.05)
 
     # calculate number of pennies to give the customer
