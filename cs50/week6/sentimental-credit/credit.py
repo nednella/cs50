@@ -34,7 +34,7 @@ def valid_length(length):
 
 # obtain credit card in indexable list form
 def list(card):
-    list = []
+    return digit = list(map(int, str(card)))
 
 
 
