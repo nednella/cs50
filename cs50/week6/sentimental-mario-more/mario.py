@@ -6,7 +6,7 @@ try:
             break
 
 except ValueError:
-    continue
+    pass
 
 
 for i in range(height):
