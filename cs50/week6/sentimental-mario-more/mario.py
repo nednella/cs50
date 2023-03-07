@@ -7,7 +7,7 @@ while True:
 for i in range(height):
 
     # print left middle-aligned triangle
-    for j in range(1, height):
+    for j in range(height):
         print(" ", end = "")
 
     for k in range(i):
