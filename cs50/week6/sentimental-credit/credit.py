@@ -4,11 +4,13 @@ import sys
 def main()
 
     # prompt user for input
-    card = input("Card Number: ")
+    card = input("Card Number: ")           # user input in string form
 
-    if valid_length(card) == False:
+    if valid_length(card) == False:         # validate length in string form
         print("INVALID")
         sys.exit(1)
+
+    cc = int(card)                          # convert to integer
 
 
 
