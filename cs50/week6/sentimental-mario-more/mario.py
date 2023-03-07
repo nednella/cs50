@@ -7,17 +7,17 @@ while True:
 for i in range(height):
 
     # print left middle-aligned triangle
-    for j in range((height * 2) + 1):
+    for j in range(height + i + 3):
 
         # start printing # after correct number of spaces
-        if j > (height - i):
-            print("#", end = "")
-        else:
+        if (j == height or j == height + 1 or i + j < height - 1):
             print(" ", end = "")
+        else:
+            print("#", end = "")
 
         # print space and then right middle-aligned triangle
-        if j == height:
-            print(" ", "#" * i, end = "")
+        #if j == height:
+            #print(" ", "#" * i, end = "")
 
     # return prompt to new line after each row is completed
     print()
