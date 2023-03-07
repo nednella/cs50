@@ -2,35 +2,27 @@
 
 def main():
     # ask what the customer is owed in change
-    change = get_payment()
+    change = get_change()
 
     quarters = calc_quarters(change)                # calculate quarters
-    print(f"Quarters: {quarters}")
     change = round(change - (quarters * 0.25), 2)   # update remaining change
-    print(f"Change: {change}")
 
     dimes = calc_dimes(change)                      # calculate dimes
-    print(f"Dimes: {dimes}")
     change = round(change - (dimes * 0.1), 2)       # update remaining change
-    print(f"Change: {change}")
 
 
     nickels = calc_nickels(change)                  # calculate nickels
-    print(f"Nickels: {nickels}")
     change = round(change - (nickels * 0.05), 2)    # update remaining change
-    print(f"Change: {change}")
 
     pennies = calc_pennies(change)                  # calculate pennies
-    print(f"Pennies: {pennies}")
     change = round(change - (pennies * 0.01), 2)    # update remaining change
-    print(f"Change: {change}")
 
     # calculate total coin quantity and print
     coins = quarters + dimes + nickels + pennies
     print(coins)
 
 
-def get_payment():
+def get_change():
     while True:
         try:
             change = float(input("Change owed: "))
