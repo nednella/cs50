@@ -8,10 +8,14 @@ for i in range(height):
 
     # print left middle-aligned triangle
     for j in range(height):
-        if j > 
+        if j > (height - i):
+            print("#", end = "")
+        else:
+            print(" ", end = "")
 
 
-        print(" ", end = "")
+
+
 
     for k in range(i):
         print("#", end = "")
