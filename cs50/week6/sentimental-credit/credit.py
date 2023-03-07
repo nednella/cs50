@@ -41,7 +41,7 @@ def luhn_algorithm(card):
     digits = digits.reverse                         # set the list in reverse
 
     luhn_sum = 0                                    # initialise algorithm summation
-    for i in range(len(digits) / 2, 2):
+    for i in range(0, len(digits) / 2, 2):
 
 
 
