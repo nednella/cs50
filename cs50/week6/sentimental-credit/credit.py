@@ -6,12 +6,12 @@ def main():
 
     card = int(input("Card Number: "))              # prompt user for card number
     card = list(map(int, str(card)))                # convert credit card digits to an indexable list
-    print(len((card)))
+
     card.reverse()
 
-    #if valid_Length(card) == False:                 # check if card length valid
-        #print("INVALID")
-        #sys.exit(1)
+    if valid_Length(card) == False:                 # check if card length valid
+        print("INVALID")
+        sys.exit(1)
 
     if luhn_checkSum(card) == False:                # check if card number valid as per Luhn's algorithm
         print("INVALID")
@@ -21,9 +21,7 @@ def main():
 
 
 def valid_Length(card):
-    print(len((card)))
-    length = int(math.log10(card)) + 1              # determine card length
-    if (13 <= length <= 16):                        # check for valid card length (13 to 16 digits)
+    if (13 <= len(card) <= 16):                      # check for valid card length (13 to 16 digits)
         return True
     else:
         return False
