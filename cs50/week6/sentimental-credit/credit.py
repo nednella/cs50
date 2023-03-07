@@ -1,18 +1,31 @@
+import sys
 
 def main()
 
-    while True:
-        try:
-            # prompt user for input
-            card = input("Card Number: ")
+    # prompt user for input
+    card = input("Card Number: ")
 
-    # check for valid card length (13 - 16 digits)
-    if (len(card) < 13 or len(card) > 16):
+
+    if valid_length(card) == False:
         print("INVALID")
+        sys.exit(1)
 
+
+
+
+
+
+
+
+
+
+
+# check for valid length (13 to 16 digits)
+def valid_length(card)
+    if (len(card) < 13 or len(card) > 16):
+        return False
     else:
-
-
+        reutrn True
 
 
 
