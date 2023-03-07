@@ -18,8 +18,8 @@ def main():
         reader = csv.reader(file)
         teams = list(reader)
 
-    for keys in teams:
-        print(f"Team: {keys}")
+    for i in range(len(teams)):
+        print (f"Team: {teams[i]}")
 
     #teams = []
     # TODO: Read teams into memory from file
