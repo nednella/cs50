@@ -7,7 +7,6 @@ def main():
     card = int(input("Card Number: "))              # prompt user for card number
     card = list(map(int, str(card)))                # convert credit card digits to an indexable list
 
-    print(card)
     card.reverse()
     print(card)
 
@@ -19,7 +18,11 @@ def main():
         print("INVALID")
         sys.exit(1)
 
-def test_func():
+
+
+#def test_func(card):
+    card.reverse()
+
 
 
 
