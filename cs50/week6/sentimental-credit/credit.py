@@ -11,7 +11,7 @@ def main():
         #print("INVALID")
         #sys.exit(1)
 
-    if luhn_Algorithm(card) == False:                     # check if card number valid
+    if luhn_checkSum(card) == False:                     # check if card number valid
         print("INVALID")
         sys.exit(1)
 
@@ -34,26 +34,24 @@ def valid_Length(card):
 
 
 # perform Luhn's algorithm check on the card
-def luhn_Algorithm(card):
+def luhn_checkSum(card):
     digits = list(map(int, str(card)))              # convert credit card digits to an indexable list
     digits.reverse()                                # set the list in reverse
 
     even_Digits = digits[0::2]                      # obtain list of every 2nd digit starting from the 0th digit
     odd_Digits = digits[1::2]                       # obtain list of every 2nd digit starting from the 1st digit
 
-    print(digits)
-    print(odd_Digits)
-    print(even_Digits)
-
-    luhn_Sum = 0
+    luhn_Sum = 0                                    # initialise algorithm sum
     luhn_Sum += sum(even_Digits)
 
+    for d in odd_Digits:
+        luhn_Sum += sum(divmod(d * 2, 10))
 
-    for d in odd_Digits:                            # iterate through list
-        luhn_Sum += sum(divmod(d * 2, 10))              # multiply each digit by 2, splitting values > 10 into individual digits and summing
+    if luhn_Sum % 10 == 0:                          # check if luhn sum is a factor of 10
+        return True
+    else:
+        return False
 
-    print(luhn_Sum)
-    
 
 
 
