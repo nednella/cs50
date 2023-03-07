@@ -7,19 +7,23 @@ def main():
     quarters = calc_quarters(change)        # calculate quarters
     print(f"Quarters: {quarters}")
     change = change - (quarters * 0.25)     # update remaining change
-    print()
+    print(f"Change: {change}")
 
     dimes = calc_dimes(change)              # calculate dimes
     print(f"Dimes: {dimes}")
     change = change - (dimes * 0.1)         # update remaining change
+    print(f"Change: {change}")
+
 
     nickels = calc_nickels(change)          # calculate nickels
     print(f"Nickels: {nickels}")
     change = change - (nickels * 0.05)      # update remaining change
+    print(f"Change: {change}")
 
     pennies = calc_pennies(change)          # calculate pennies
     print(f"Pennies: {pennies}")
     change = change - (pennies * 0.01)      # update remaining change
+    print(f"Change: {change}")
 
     # calculate total coin quantity and print
     coins = quarters + dimes + nickels + pennies
