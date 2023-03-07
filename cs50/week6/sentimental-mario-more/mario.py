@@ -4,11 +4,10 @@ try:
         height = int(input("Height: "))
         if height < 9 and height > 0:
             break
+
 except ValueError:
-    while True:
-        height = int(input("Height: "))
-        if height < 9 and height > 0:
-            break
+    continue
+
 
 for i in range(height):
 
