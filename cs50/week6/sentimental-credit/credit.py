@@ -7,9 +7,6 @@ def main():
     card = int(input("Card Number: "))              # prompt user for card number
     card = list(map(int, str(card)))                # convert credit card digits to an indexable list
 
-    card.reverse()
-    print(card)
-
     #if valid_Length(card) == False:                 # check if card length valid
         #print("INVALID")
         #sys.exit(1)
@@ -17,12 +14,6 @@ def main():
     if luhn_checkSum(card) == False:                # check if card number valid as per Luhn's algorithm
         print("INVALID")
         sys.exit(1)
-
-
-
-#def test_func(card):
-    card.reverse()
-
 
 
 
