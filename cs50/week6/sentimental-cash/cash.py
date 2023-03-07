@@ -1,6 +1,6 @@
 
 
-def main():
+def main()
     # ask what the customer is owed in change
     change = get_change()
 
@@ -22,7 +22,7 @@ def main():
     print(coins)
 
 
-def get_change():
+def get_change()
     while True:
         try:
             change = float(input("Change owed: "))
@@ -33,24 +33,25 @@ def get_change():
                 return change
 
 
-def calc_quarters(change):
+def calc_quarters(change)
     quarters = int(change / 0.25)
     return quarters
 
 
-def calc_dimes(change):
+def calc_dimes(change)
     dimes = int(change / 0.1)
     return dimes
 
 
-def calc_nickels(change):
+def calc_nickels(change)
     nickels = int(change / 0.05)
     return nickels
 
 
-def calc_pennies(change):
+def calc_pennies(change)
     pennies = int(change / 0.01)
     return pennies
 
 
 main()
+
