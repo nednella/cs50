@@ -46,30 +46,14 @@ def luhn_Algorithm(card):
     print(even_Digits)
 
     luhn_Sum = 0
-    #luhn_Sum += sum(even_Digits)
-    #print(luhn_Sum)
+    luhn_Sum += sum(even_Digits)
 
-    for d in odd_Digits:
-        luhn_Sum += sum(divmod(d * 2, 10))
-        print(f"d: {d}")
-        print(f"Luhn: {luhn_Sum}")
-    print(f"Final Value: {luhn_Sum}")
 
-    #print(f"10: {sum(divmod(10,10))}")
-    #print(f"12: {sum(divmod(12,10))}")
-    #print(f"15: {sum(divmod(15,10))}")
-    #print(f"17: {sum(divmod(17,10))}")
-    #print(f"19: {sum(divmod(19,10))}")
+    for d in odd_Digits:                            # iterate through list
+        luhn_Sum += sum(divmod(d * 2, 10))              # multiply each digit by 2, splitting values > 10 into individual digits and summing
 
-    #luhn_Sum += sum(sum(divmod(d * 2, 10)) for d in odd_Digits)
-    #print(luhn_Sum)
-
-    #for d in odd_Digits:
-        #print(f"Odd Digit {d}: {odd_Digits}")
-
-    #for i in range(0, (len(digits) + 1) / 2, 2):
-        #print(digits[i])
-
+    print(luhn_Sum)
+    
 
 
 
