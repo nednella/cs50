@@ -1,16 +1,16 @@
 import sys
 
+
 def main()
 
     # prompt user for input
     card = input("Card Number: ")
 
-
     if valid_length(card) == False:
         print("INVALID")
         sys.exit(1)
 
-
+    
 
 
 
@@ -25,7 +25,7 @@ def valid_length(card)
     if (len(card) < 13 or len(card) > 16):
         return False
     else:
-        reutrn True
+        return True
 
-
+main()
 
