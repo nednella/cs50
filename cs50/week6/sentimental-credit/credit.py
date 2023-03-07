@@ -28,9 +28,10 @@ def valid_Length(card):
 
 def luhn_checkSum(card):
     digits = list(map(int, str(card)))              # convert credit card digits to an indexable list
-
-    even_Digits = digits.reverse[0::2]                      # obtain list of every 2nd digit starting from the 0th digit
-    odd_Digits = digits.reverse[1::2]                       # obtain list of every 2nd digit starting from the 1st digit
+    digits.reverse()                                # reverse the list
+    
+    even_Digits = digits[0::2]                      # obtain list of every 2nd digit starting from the 0th digit
+    odd_Digits = digits[1::2]                       # obtain list of every 2nd digit starting from the 1st digit
 
     luhn_Sum = 0                                    # initialise algorithm sum
     luhn_Sum += sum(even_Digits)
