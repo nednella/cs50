@@ -18,8 +18,8 @@ def main():
         reader = csv.DictReader(file)
         teams = dict(reader)
 
-    for row in header
-        print(f"Team: {}", "Rating: {}")
+    for keys,values in teams.items()
+        print(f"Team: {keys}", "Rating: {values}")
 
     #teams = []
     # TODO: Read teams into memory from file
