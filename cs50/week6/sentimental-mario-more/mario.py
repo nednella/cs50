@@ -7,6 +7,7 @@ while True:
 
 for i in range(height):
 
-    for 
+    for j + 1 in range(height):
+        print(" ", end="")
 
 
