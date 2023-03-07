@@ -49,7 +49,7 @@ def luhn_Algorithm(card):
     #luhn_Sum += sum(even_Digits)
     #print(luhn_Sum)
 
-    luhn_Sum += sum(divmod(odd_Digits * 2, 10))
+    luhn_Sum += sum(sum(divmod(d * 2, 10)) for d in digits)
     print(luhn_Sum)
 
     #for i in range(0, (len(digits) + 1) / 2, 2):
