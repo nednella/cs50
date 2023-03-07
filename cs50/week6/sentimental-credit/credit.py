@@ -37,10 +37,11 @@ def valid_length(card):
 
 # perform Luhn's algorithm check on the card
 def luhn_algorithm(card):
-    nums = list(map(int, str(card)))         # convert credit card digits to an indexable list
-    rev_nums = nums.reverse
+    digits = list(map(int, str(card)))              # convert credit card digits to an indexable list
+    digits = digits.reverse                         # set the list in reverse
 
-    for i in range(len(rev_nums) / 2, 2):
+    luhn_sum = 0                                    # initialise algorithm summation
+    for i in range(len(digits) / 2, 2):
 
 
 
