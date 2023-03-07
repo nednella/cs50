@@ -46,11 +46,11 @@ def luhn_Algorithm(card):
     print(even_Digits)
 
     luhn_Sum = 0
-    luhn_Sum += sum(even_Digits)
-    print(luhn_Sum)
-
-    #luhn_Sum += sum(return_Digits(odd_Digits * 2))
+    #luhn_Sum += sum(even_Digits)
     #print(luhn_Sum)
+
+    luhn_Sum += sum(divmod(odd_Digits * 2, 10))
+    print(luhn_Sum)
 
     #for i in range(0, (len(digits) + 1) / 2, 2):
         #print(digits[i])
