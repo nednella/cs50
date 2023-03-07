@@ -15,11 +15,5 @@ for i in range(height):
         else:
             print("#", end = "")
 
-        # print space and then right middle-aligned triangle
-        #if j == height:
-            #print(" ", "#" * i, end = "")
-
     # return prompt to new line after each row is completed
     print()
-
-
