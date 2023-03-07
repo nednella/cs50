@@ -10,7 +10,7 @@ def main():
         print("INVALID")
         sys.exit(1)
 
-    
+
 
 
 
@@ -34,7 +34,10 @@ def valid_length(card):
 
 # obtain specified digit of the card number
 def get_digit(card, pos):
-    return card // 10**n % 10
+    if card < 10:
+        print(card)
+    else:
+        get_digit()
 
 
 
