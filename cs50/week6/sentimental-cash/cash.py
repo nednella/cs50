@@ -5,19 +5,20 @@ def main():
     change = get_payment()
 
     # calculate number of quarters to give the customer
-    quarters = calc_quarters()
+    quarters = calc_quarters(change)
 
     # calculate number of dimes to give the customer
-    dimes = calc_dimes()
+    dimes = calc_dimes(change)
 
     # calculate number of nickels to give the customer
-    nickels = calc_dimes()
+    nickels = calc_dimes(change)
 
     # calculate number of pennies to give the customer
-    pennies = calc_dimes()
+    pennies = calc_dimes(change)
 
     # sum coins in the change
     coins = quarters + dimes + nickels + pennies
+    print(coins)
 
 
 def get_payment():
@@ -31,20 +32,24 @@ def get_payment():
                 return change
 
 
-def calc_quarters():
+def calc_quarters(change):
+    quarters = change / 0.25
+    return quarters
 
 
-
-def calc_dimes():
-
-
-
-def calc_nickels():
+def calc_dimes(change):
+    dimes = change / 0.1
+    return dimes
 
 
+def calc_nickels(change):
+    nickels = change / 0.05
+    return nickels
 
-def calc_pennies():
 
+def calc_pennies(change):
+    pennies = change / 0.01
+    return pennies
 
 
 main()
