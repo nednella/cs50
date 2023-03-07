@@ -51,7 +51,8 @@ def luhn_Algorithm(card):
 
     for d in odd_Digits:
         luhn_Sum += sum(divmod(d * 2, 10))
-        print(luhn_Sum)
+        print(f"d: {d}")
+        print(f"Luhn: {luhn_Sum}")
     print(f"Final Value: {luhn_Sum}")
 
     #print(f"10: {sum(divmod(10,10))}")
