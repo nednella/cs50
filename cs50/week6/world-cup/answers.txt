@@ -17,7 +17,5 @@ to 10K, 100K and 1M, the program shows that actually, Belgium is most likely to 
 
 Suppose you're charged a fee for each second of compute time your program uses.
 After how many simulations would you call the predictions "good enough"?:
-
-
-
-
+Beyond 100K simulations there is no change in the order of predictions. It's same to assume approx. 100K simulations is the most you will need
+in this scenario, and is approx. 8x less expensive to run (as per the run time) as 1M simulations.
