@@ -28,7 +28,7 @@ def valid_length(card)
         return True
 
 
-def get_digit(card)
+def get_digit(card, pos)
     return card // 10**n % 10
 
 
