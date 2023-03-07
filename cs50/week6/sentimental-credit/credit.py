@@ -7,6 +7,10 @@ def main():
     card = int(input("Card Number: "))              # prompt user for card number
     card = list(map(int, str(card)))                # convert credit card digits to an indexable list
 
+    print(card)
+    card.reverse()
+    print(card)
+
     #if valid_Length(card) == False:                 # check if card length valid
         #print("INVALID")
         #sys.exit(1)
@@ -15,6 +19,7 @@ def main():
         print("INVALID")
         sys.exit(1)
 
+def test_func():
 
 
 
@@ -29,7 +34,6 @@ def valid_Length(card):
 
 def luhn_checkSum(card):
     reverse = card[::-1]                            # reverse the indexable list of credit card digits
-    print(reverse)
 
     even_Digits = reverse[0::2]                     # obtain list of every 2nd digit starting from the 0th digit
     odd_Digits = reverse[1::2]                      # obtain list of every 2nd digit starting from the 1st digit
