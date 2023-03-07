@@ -14,10 +14,17 @@ def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: python tournament.py FILENAME")
 
-    teams = []
+    with open(sys.argv[1], "r") as file:
+        reader = csv.DictReader(file)
+        teams = dict(reader)
+
+    for row in header
+        print(f"Team: {}", "Rating: {}")
+
+    #teams = []
     # TODO: Read teams into memory from file
-    file = open(sys.argv[1], "r")
-    teams = csv.DictReader(file, delimiter=",", lineterminator='\r\n')
+    #file = open(sys.argv[1], "r")
+    #teams = csv.DictReader(file, delimiter=",", lineterminator='\r\n')
 
 
     counts = {}
