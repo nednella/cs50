@@ -65,9 +65,9 @@ def simulate_round(teams):
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
     # TODO
-    while len(teams) > 1:
-        teams = simulate_round(teams)
-    return teams[0]["team"]
+    while len(teams) > 1:                               # while there is more than 1 team in the list
+        teams = simulate_round(teams)                       # update teams list with list of winners
+    return teams[0]["team"]                             # when 1 winner left, return 0th entry in the list, but specifically the value of the team column
 
 
 if __name__ == "__main__":
