@@ -7,7 +7,7 @@ while True:
 for i in range(height):
 
     # print left middle-aligned triangle
-    for j in range(height):
+    for j in range((height * 2) + 1):
 
         # start printing # after correct number of spaces
         if j > (height - i):
