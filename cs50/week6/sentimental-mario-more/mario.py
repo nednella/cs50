@@ -1,30 +1,23 @@
 
 while True:
     height = int(input("Height: "))
-
-    if height > 0 and height < 9:
+    if height < 9 and height > 0:
         break
-
-# initialise counter
-i = 0
-j = i + 1
-k = 0
-l = 0
 
 for i in range(height):
 
     # print left middle-aligned triangle
-    for j in range(height):
+    for j in range(1, height):
         print(" ", end = "")
 
-    for k in range(k <= i):
+    for k in range(i):
         print("#", end = "")
 
     # print space between the two triangles
     print(" ", end = "")
 
     # print right middle-aligned triangle
-    for l in range(l <= i):
+    for l in range(i):
         print("#", end = "")
 
     # return prompt to new line after each row is completed
