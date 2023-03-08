@@ -70,21 +70,26 @@ def main():
 
     # iterate through every row in the DNA database
     for person in dna_Database:
+        match = 0                                           # reset match counter for next person
 
         print(person['name'])
 
         # iterate through every STR in the list of STRs
         for subSeq in subSeqs:
+            print(subSeq)
+            print(person[subSeq])
+            print(results[subSeq])
 
+            
             if int(person[subSeq]) == results[subSeq]:
                 match += 1                                          # if match, add to counter
 
 
         if match == perf_Match:                                 # if perfect match, print person and exit program
             sys.exit(f"Match Found: {person['name']}")
-        else:
-            match = 0                                           # reset match counter for next person
-            continue
+
+
+
 
 
     sys.exit("No Match Found.")
