@@ -5,8 +5,10 @@ import math
 def main():
 
     list = [1, 4, 5]
-    tmp = list[0] + list[1]
-    print(tmp)
+ 
+
+    nums = int(str(list[0]) + str(list[1]))
+    print(nums)
 
     card = int(input("Card Number: "))              # prompt user for card number
     card = list(map(int, str(card)))                # convert credit card digits to an indexable list
@@ -52,6 +54,7 @@ def luhn_checkSum(card):
 
 
 def amex(card):
+    nums = int(str(card[0]) + str(card[1]))
     if len(card) == 15:
         if ((card[0] == 3 and card[1] == 4) or (card[0] == 3 and card[1] == 7)):  ##################### fix this
             return True
