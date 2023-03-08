@@ -21,7 +21,7 @@ def main():
         print(f"Grade {index}")
 
 
-def user_input():                                   # obtain input and return if input is non-blank
+def user_input():                                   # obtain user input and return if input is non-blank
     while True:
         try:
             text = input("Text: ")
