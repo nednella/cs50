@@ -4,6 +4,10 @@ import math
 
 def main():
 
+    list = [1, 4, 5]
+    tmp = list[0] + list[1]
+    print(tmp)
+
     card = int(input("Card Number: "))              # prompt user for card number
     card = list(map(int, str(card)))                # convert credit card digits to an indexable list
 
@@ -14,6 +18,8 @@ def main():
     if luhn_checkSum(card) == False:                # check if card number valid as per Luhn's algorithm
         print("INVALID")
         sys.exit(1)
+
+
 
 
 
@@ -47,19 +53,22 @@ def luhn_checkSum(card):
 
 def amex(card):
     if len(card) == 15:
-        if ((card[0] == 3 and card[1] = 4) or (card[0] == 3 and card[1] == 7)):
+        if ((card[0] == 3 and card[1] == 4) or (card[0] == 3 and card[1] == 7)):  ##################### fix this
+            return True
+    else:
+        return False
 
 
 def visa(card):
-    if len(card) == 13 and card[0] = 4:
+    if len(card) == 13 and card[0] == 4:
         return True
-    elif len(card) == 16 and card[0] = 4:
+    elif len(card) == 16 and card[0] == 4:
         return True
     else:
         return False
 
 
-def mastercard(card)
+#def mastercard(card)
 
 
 
