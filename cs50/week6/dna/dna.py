@@ -68,8 +68,13 @@ def main():
 
 
     # TODO: Check database for matching profiles
+    
     for person in dna_Database:
         match = 0
+
+        for subSeq in subSeqs:
+            if int(person[subSeq]) == results[subSeq]:
+                match += 1
 
 
 
