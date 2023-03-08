@@ -25,6 +25,9 @@ def main():
         dna_Sequence = txt_file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
+    subSeqs = list(dna_Database[0].keys())[1:]
+    print(subSeqs)
+
     dna_strs = []
 
     #agatc = longest_match(dna_Sequence, 'AGATC')                             # find DNA STR match from dna sequence .txt file
