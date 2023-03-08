@@ -8,24 +8,22 @@ def main():
 
     # check if card number valid
     if valid_Length(card) == False or luhn_checkSum(card) == False:
-        print("INVALID")
-        sys.exit(1)
+        sys.exit("INVALID")
 
     # check if card matches required properties of any card provider
     if amex(card) == True:
         print("AMEX")
-        sys.exit(0)
+        sys.exit()
     elif visa(card) == True:
         print("VISA")
-        sys.exit(0)
+        sys.exit()
     elif mastercard(card) == True:
         print("MASTERCARD")
-        sys.exit(0)
+        sys.exit()
 
     # card invalid
     else:
-        print("INVALID")
-        sys.exit(1)
+        sys.exit("INVALID")
 
 
 def user_input():
