@@ -14,22 +14,23 @@ def main():
                 card = list(map(int, str(card)))            # convert credit card digits to an indexable list
                 break
 
-    if valid_Length(card) == False or luhn_checkSum(card) == False:     # check if card valid
+    # check if card number valid
+    if valid_Length(card) == False or luhn_checkSum(card) == False:
         print("INVALID")
         sys.exit(1)
 
-    # check if card matches properties of 
+    # check if card matches required properties of any card provider
     if amex(card) == True:
         print("AMEX")
         sys.exit(0)
-
     elif visa(card) == True:
         print("VISA")
         sys.exit(0)
-
     elif mastercard(card) == True:
         print("MASTERCARD")
         sys.exit(0)
+
+    # card invalid
     else:
         print("INVALID")
         sys.exit(1)
@@ -62,8 +63,7 @@ def luhn_checkSum(card):
 
 def amex(card):
     nums = int(str(card[0]) + str(card[1]))                 # concatenate first two digits of the card
-    if (len(card) == 15 and (nums == 34 or nums == 37)):      # check for AMEX card properties
-        print("HERE")
+    if (len(card) == 15 and (nums == 34 or nums == 37)):    # check for AMEX card properties
         return True
     else:
         return False
