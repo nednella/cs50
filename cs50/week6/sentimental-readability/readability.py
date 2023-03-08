@@ -18,6 +18,26 @@ def main():
 
 
 
+def user_input():
+
+    
+
+
+def letters():
+
+
+
+def words():
+
+
+
+
+def sentences():
+
+
+
+def text_grade():
+
 
 
 main()
