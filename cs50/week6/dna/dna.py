@@ -4,11 +4,11 @@ import sys
 
 def main():
 
-    # TODO: Check for command-line usage
-    #if len(sys.argv) != 3:
-        #sys.exit("USAGE: python dna.py [data.csv] [sequence.txt]")
+    # check for command-line usage
+    if len(sys.argv) != 3:
+        sys.exit("USAGE: python dna.py [data.csv] [sequence.txt]")
 
-    # TODO: Read database file into a variable
+    # read database file into a variable
     dna_Database = []
 
     with open("databases/small.csv", "r") as csv_file:              #sys.argv[1]
@@ -16,20 +16,18 @@ def main():
         for row in db_reader:
             dna_Database.append(row)
 
-
-    # TODO: Read DNA sequence file into a variable
+    # read DNA sequence file into a variable
     with open("sequences/1.txt", "r") as txt_file:                  #sys.argv[1]
         dna_Sequence = txt_file.read()
 
-    # TODO: Find longest match of each STR in DNA sequence
-    results = {}
-
-    subSeqs = list(dna_Database[0].keys())[1:]
+    # find longest match of each STR in DNA sequence
+    results = {}                                            # initialise a results dictionary
+    subSeqs = list(dna_Database[0].keys())[1:]              # obtain list of STRs from the .csv file read in
 
     for subSeq in subSeqs:
         results[subSeq] = longest_match(dna_Sequence, subSeq)
 
-    # TODO: Check database for matching profiles
+    # check database for matching profiles
     match = 0                                               # initialise match counter
     perf_Match = len(subSeqs)                               # all STRs must match for DNA to be identified
 
@@ -46,7 +44,6 @@ def main():
             continue
 
     sys.exit("No Match Found.")
-
 
 
 def longest_match(sequence, subsequence):
