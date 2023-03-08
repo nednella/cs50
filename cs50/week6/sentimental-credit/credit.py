@@ -11,13 +11,10 @@ def main():
             continue
         else:
             if isinstance(card, int) == True:
+                card = list(map(int, str(card)))            # convert credit card digits to an indexable list
                 break
 
-
-
-
-
-    card = list(map(int, str(card)))                # convert credit card digits to an indexable list
+    print(card)
 
 
     if valid_Length(card) == False or luhn_checkSum(card) == False:     # check if card valid
