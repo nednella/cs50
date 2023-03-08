@@ -32,7 +32,6 @@ def main():
     for subSeq in subSeqs:
         results[subSeq] = longest_match(dna_Sequence, subSeq)
 
-    print(subSeqs)
     print(results)
 
 
@@ -66,23 +65,33 @@ def main():
 
 
     # TODO: Check database for matching profiles
-    perf_Match = len(subSeq)                                        # all STRs must match for DNA to be identified
-    match = 0                                                       # initialise match counter
+    perf_Match = len(subSeq)                                # all STRs must match for DNA to be identified
+    match = 0                                               # initialise match counter
 
     # iterate through every row in the DNA database
     for person in dna_Database:
+
+        print(person['name'])
 
         # iterate through every STR in the list of STRs
         for subSeq in subSeqs:
 
             if int(person[subSeq]) == results[subSeq]:
-                match += 1                                                  # if match, add to counter
+                match += 1                                          # if match, add to counter
 
-        if match == perf_Match:                                         # if perfect match, print person and exit program
+
+        if match == perf_Match:                                 # if perfect match, print person and exit program
             sys.exit(f"Match Found: {person['name']}")
-
         else:
-            sys.exit("No Match Found.")
+            match = 0                                           # reset match counter for next person
+            continue
+
+
+    sys.exit("No Match Found.")
+
+
+
+
 
 
 
