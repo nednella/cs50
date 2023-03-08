@@ -29,6 +29,8 @@ def main():
         dna_Sequence = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
+    agatc = aatg, tatc = 0
+
     dna_Sample = [agatc, aatg, tatc]
 
     agatc = int(dna_Sequence.count('AGATC'))
