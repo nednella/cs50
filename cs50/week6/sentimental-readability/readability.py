@@ -16,6 +16,8 @@
 def main():
     text = input("Text: ")
 
+    words = sum(text.split())
+
     letters = count_letters(text)
     words = count_words(text)
     sentences = count_sentences(text)
@@ -45,7 +47,8 @@ def count_letters(text):
 
 # any sequence of characters separated by a space is a word
 def count_words(text):
-    words = sum(text.split())
+    tmp = text
+    words = sum(tmp.split())
     return words
 
 
