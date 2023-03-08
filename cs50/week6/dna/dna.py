@@ -30,8 +30,8 @@ def main():
         results[subSeq] = longest_match(dna_Sequence, subSeq)
 
     # TODO: Check database for matching profiles
-    perf_Match = len(subSeqs)                               # all STRs must match for DNA to be identified
     match = 0                                               # initialise match counter
+    perf_Match = len(subSeqs)                               # all STRs must match for DNA to be identified
 
     for person in dna_Database:                             # iterate through every row in the DNA database
         for subSeq in subSeqs:                                  # iterate through every STR in the list of STRs
