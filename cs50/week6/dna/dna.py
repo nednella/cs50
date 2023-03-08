@@ -11,9 +11,18 @@ def main():
 
 
     # TODO: Read database file into a variable
+    dna = []
+
     with open("databases/small.csv", "r") as file:                           #sys.argv[1]
         reader = csv.DictReader(file)
+        for row in reader:
+            name = row['name']
+            agatc = int(row['AGATC'])
+            aatg = int(row['AATG'])
+            tatc = int(row['TATC'])
+            dna.append({'Name': name, 'AGATC': agatc, 'AATG': aatg, 'TATC': tatc})
 
+    print(dna)
 
     # TODO: Read DNA sequence file into a variable
 
