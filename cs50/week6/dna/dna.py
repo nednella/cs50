@@ -38,12 +38,12 @@ def main():
                 match += 1
 
         if match == perf_Match:                                 # if perfect match, print person and exit program
-            sys.exit(f"Match Found: {person['name']}")
+            sys.exit(person['name'])
         else:                                                   # else, reset match counter for next person and continue
             match = 0
             continue
 
-    sys.exit("No Match Found.")
+    sys.exit("No match")
 
 
 def longest_match(sequence, subsequence):
