@@ -44,13 +44,22 @@ def luhn_checkSum(card):
         return False
 
 
-#def mastercard(card):
+
+def amex(card):
+    if len(card) == 15:
+        if card[0] == 
 
 
-#def visa(card):
+def visa(card):
+    if len(card) == 13 and card[0] = 4:
+        return True
+    elif len(card) == 16 and card[0] = 4:
+        return True
+    else:
+        return False
 
 
-#def amex(card):
+def mastercard(card)
 
 
 
