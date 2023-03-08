@@ -11,7 +11,7 @@ def main():
 
 
     # TODO: Read database file into a variable
-    dna_database = []
+    dna_Database = []
 
     with open("databases/small.csv", "r") as file:                           #sys.argv[1]
         db_reader = csv.DictReader(file)
@@ -20,20 +20,29 @@ def main():
             agatc = int(row['AGATC'])
             aatg = int(row['AATG'])
             tatc = int(row['TATC'])
-            dna_database.append({'Name': name, 'AGATC': agatc, 'AATG': aatg, 'TATC': tatc})
+            dna_Database.append({'Name': name, 'AGATC': agatc, 'AATG': aatg, 'TATC': tatc})
 
     #print(dna_database)
 
     # TODO: Read DNA sequence file into a variable
     with open("sequences/1.txt", "r") as file:                           #sys.argv[1]
-        dna_Seq = file.read()
+        dna_Sequence = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
-    print('TATC' in dna_Seq)
+    dna_Sample = [agatc, aatg, tatc]
 
+    agatc = int(dna_Sequence.count('AGATC'))
+    aatg = int(dna_Sequence.count('AATG'))
+    tatc = int(dna_Sequence.count('TATC'))
 
+    print(dna_Sample)
+
+    print(agatc, aatg, tatc)
 
     # TODO: Check database for matching profiles
+
+
+
 
     return
 
