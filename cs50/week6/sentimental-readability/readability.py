@@ -39,7 +39,6 @@ def main():
 
 
 def count_letters(text):
-
     letters = sum(c.isalpha() for c in text)
     return letters
 
