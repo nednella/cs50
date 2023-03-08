@@ -68,7 +68,8 @@ def main():
 
 
     # TODO: Check database for matching profiles
-    
+    perf_Match = len(subSeq)                                                # all STRs must match for DNA to be identified
+
     for person in dna_Database:
         match = 0
 
@@ -77,8 +78,13 @@ def main():
                 match += 1
 
 
+    if match == perf_Match:
+        sys.exit(f"Match Found: {person['name']}")
 
-    return
+    else:
+        sys.exit("No Match Found.")
+
+
 
 
 
