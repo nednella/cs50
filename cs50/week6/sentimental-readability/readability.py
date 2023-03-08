@@ -19,11 +19,19 @@ def main():
     letters = count_letters(text)
     words = count_words(text)
     sentences = count_sentences(text)
+    grade = cl_index(letters, words, sentences)
 
     print(f"Letters: {letters}")
     print(f"Words: {words}")
     print(f"Sentences: {sentences}")
 
+    if grade < 1:
+            print("Before Grade 1")
+        elif grade > 16:
+            print("Grade 16+")
+        else:
+            grade = int(round(index))           # round float, then cast to an int
+            print(f"Grade {grade}")
 
 
     #spaces = sum(c.isspace() for c in text)
@@ -61,20 +69,10 @@ def count_sentences(text):                  # ASSUMPTION: any occurrence of . ! 
     return sentences
 
 
-def grade(letters, words, sentences):
+def cl_index(letters, words, sentences):
     L = float(letters / words) * 100
     S = float(sentences / words) * 100
-    index = float(0.0588 * L - 0.296 * S - 15.8)
-
-    if index < 1:
-        print("Before Grade 1")
-    elif index > 16:
-        print("Grade 16+")
-    else:
-        grade = int(round(index))       # round float, then cast to an int
-        print(f"Grade {grade}")
-
-    grade = 0
+    grade = float(0.0588 * L - 0.296 * S - 15.8)
     return grade
 
 
