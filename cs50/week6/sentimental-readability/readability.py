@@ -47,7 +47,7 @@ def count_letters(text):
 # any sequence of characters separated by a space is a word
 def count_words(text):
     tmp = text.split()
-    words = sum(tmp)
+    words = tmp.count()
     return words
 
 
