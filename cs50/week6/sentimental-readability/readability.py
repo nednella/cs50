@@ -35,7 +35,13 @@ def main():
 
 
 #def user_input():
-    #text = input("Text: ")
+    while True:
+        try:
+            text = input("Text: ")
+        except
+
+    text = input("Text: ")
+
 
 
 
