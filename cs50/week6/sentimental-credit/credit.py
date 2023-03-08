@@ -52,13 +52,13 @@ def luhn_checkSum(card):
     even_Digits = reverse[0::2]                     # obtain list of every 2nd digit starting from the 0th digit
     odd_Digits = reverse[1::2]                      # obtain list of every 2nd digit starting from the 1st digit
 
-    luhn_Sum = 0                                    # initialise algorithm sum
-    luhn_Sum += sum(even_Digits)
+    checkSum = 0                                    # initialise luhn algorithm sum
+    checkSum += sum(even_Digits)
 
     for d in odd_Digits:
-        luhn_Sum += sum(divmod(d * 2, 10))
+        checkSum += sum(divmod(d * 2, 10))
 
-    if luhn_Sum % 10 == 0:                          # check if luhn sum is a factor of 10
+    if checkSum % 10 == 0:                          # check if checksum is a factor of 10
         return True
     else:
         return False
@@ -66,7 +66,7 @@ def luhn_checkSum(card):
 
 def amex(card):
     nums = int(str(card[0]) + str(card[1]))                 # concatenate first two digits of the card
-    if (len(card) == 15 and (nums == 34 or nums == 37)):    # check for AMEX card properties
+    if len(card) == 15 and (nums == 34 or nums == 37):      # check for AMEX card properties
         return True
     else:
         return False
