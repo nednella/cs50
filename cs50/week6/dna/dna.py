@@ -13,35 +13,37 @@ def main():
     # TODO: Read database file into a variable
     dna_Database = []
 
-    with open("databases/small.csv", "r") as file:                           #sys.argv[1]
+    with open("databases/small.csv", "r") as file:                          #sys.argv[1]
         db_reader = csv.DictReader(file)
         for row in db_reader:
-            name = row['name']
-            agatc = int(row['AGATC'])
-            aatg = int(row['AATG'])
-            tatc = int(row['TATC'])
-            dna_Database.append({'Name': name, 'AGATC': agatc, 'AATG': aatg, 'TATC': tatc})
+            tmp_name = row['name']
+            tmp_agatc = int(row['AGATC'])
+            tmp_aatg = int(row['AATG'])
+            tmp_tatc = int(row['TATC'])
+            dna_Database.append({'Name': tmp_name, 'AGATC': tmp_agatc, 'AATG': tmp_aatg, 'TATC': tmp_tatc})
 
     #print(dna_database)
 
     # TODO: Read DNA sequence file into a variable
-    with open("sequences/1.txt", "r") as file:                           #sys.argv[1]
+    with open("sequences/1.txt", "r") as file:                              #sys.argv[1]
         dna_Sequence = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
-    agatc = aatg, tatc = 0
+    dna_Sample = []
 
-    dna_Sample = [agatc, aatg, tatc]
+    agatc = int(dna_Sequence.count('AGATC'))                                # find DNA STR match from dna sequence .txt file
+    dna_Sample.append(agatc)                                                # append to list
 
-    agatc = int(dna_Sequence.count('AGATC'))
     aatg = int(dna_Sequence.count('AATG'))
+    dna_Sample.append(aatg)
+
     tatc = int(dna_Sequence.count('TATC'))
+    dna_Sample.append(tatc)
 
-    print(dna_Sample)
-
-    print(agatc, aatg, tatc)
+    #print(dna_Sample)
 
     # TODO: Check database for matching profiles
+    
 
 
 
