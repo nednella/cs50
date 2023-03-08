@@ -37,6 +37,7 @@ def user_input():
                 card = list(map(int, str(card)))            # convert credit card digits to an indexable list
                 return card
 
+
 def valid_Length(card):
     if (13 <= len(card) <= 16):                     # check for valid card length (13 to 16 digits)
         return True
