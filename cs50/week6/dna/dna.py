@@ -11,13 +11,13 @@ def main():
     # read database file into a variable
     dna_Database = []
 
-    with open("databases/small.csv", "r") as csv_file:              #sys.argv[1]
+    with open(sys.argv[1], "r") as csv_file:
         db_reader = csv.DictReader(csv_file)
         for row in db_reader:
             dna_Database.append(row)
 
     # read DNA sequence file into a variable
-    with open("sequences/1.txt", "r") as txt_file:                  #sys.argv[1]
+    with open(sys.argv[1], "r") as txt_file:
         dna_Sequence = txt_file.read()
 
     # find longest match of each STR in DNA sequence
@@ -31,7 +31,7 @@ def main():
     match = 0                                               # initialise match counter
     perf_Match = len(subSeqs)                               # all STRs must match for DNA to be identified
 
-    for person in dna_Database:                             # iterate through every row in the DNA database
+    for person in dna_Database:                             # iterate through every row (person) in the DNA database
         for subSeq in subSeqs:                                  # iterate through every STR in the list of STRs
 
             if int(person[subSeq]) == results[subSeq]:              # if match, + 1 to counter
