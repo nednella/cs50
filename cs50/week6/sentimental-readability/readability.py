@@ -14,29 +14,30 @@
 
 
 def main():
+    text = user_input():
 
 
 
 
 def user_input():
 
-    
-
-
-def letters():
 
 
 
-def words():
+def count_letters():
+
+
+
+def count_words():
 
 
 
 
-def sentences():
+def count_sentences():
 
 
 
-def text_grade():
+def grade():
 
 
 
