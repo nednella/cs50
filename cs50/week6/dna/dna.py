@@ -29,7 +29,7 @@ def main():
         dna_Seq = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
-    
+    print('TATC' in dna_Seq)
 
 
 
