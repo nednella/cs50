@@ -31,14 +31,14 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     dna_strs = []
 
-    agatc = longest_match(dna_Sequence, 'AGATC')                            # find DNA STR match from dna sequence .txt file
-    dna_strs.append(agatc)                                                # append to list
+    #agatc = longest_match(dna_Sequence, 'AGATC')                            # find DNA STR match from dna sequence .txt file
+    dna_strs.append(longest_match(dna_Sequence, 'AGATC'))                                                # append to list
 
-    aatg = longest_match(dna_Sequence, 'AATG')
-    dna_strs.append(aatg)
+    #aatg = longest_match(dna_Sequence, 'AATG')
+    dna_strs.append(longest_match(dna_Sequence, 'AATG'))
 
-    tatc = longest_match(dna_Sequence, 'TATC')
-    dna_strs.append(tatc)
+    #tatc = longest_match(dna_Sequence, 'TATC')
+    dna_strs.append(longest_match(dna_Sequence, 'TATC'))
 
 
 
@@ -55,8 +55,8 @@ def main():
     #tatc = int(dna_Sequence.count('TATC'))
     #dna_Sample.append(tatc)
 
-    print(agatc, aatg, tatc)
-    print(dna_Sample)
+    #print(agatc, aatg, tatc)
+    print(dna_strs)
 
     # TODO: Check database for matching profiles
 
