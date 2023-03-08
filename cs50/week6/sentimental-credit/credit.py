@@ -22,6 +22,7 @@ def main():
         sys.exit(1)
 
     if amex(card) == True:
+        print("CHECKPOINT")
         print("AMEX")
         sys.exit(0)
 
@@ -64,7 +65,6 @@ def luhn_checkSum(card):
 
 def amex(card):
     nums = int(str(card[0]) + str(card[1]))                 # concatenate first two digits of the card
-    print(nums)
     if (len(card) == 15 and (nums == 34 or nums == 37)):      # check for AMEX card properties
         print("HERE")
         return True
