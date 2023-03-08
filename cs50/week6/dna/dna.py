@@ -22,23 +22,23 @@ def main():
             tmp_tatc = int(row['TATC'])
             dna_Database.append({'Name': tmp_name, 'AGATC': tmp_agatc, 'AATG': tmp_aatg, 'TATC': tmp_tatc})
 
-    #print(dna_database)
+    print(dna_Database)
 
     # TODO: Read DNA sequence file into a variable
     with open("sequences/1.txt", "r") as file:                              #sys.argv[1]
         dna_Sequence = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
-    dna_Sample = []
+    dna_strs = []
 
     agatc = longest_match(dna_Sequence, 'AGATC')                            # find DNA STR match from dna sequence .txt file
-    dna_Sample.append(agatc)                                                # append to list
+    dna_strs.append(agatc)                                                # append to list
 
     aatg = longest_match(dna_Sequence, 'AATG')
-    dna_Sample.append(aatg)
+    dna_strs.append(aatg)
 
     tatc = longest_match(dna_Sequence, 'TATC')
-    dna_Sample.append(tatc)
+    dna_strs.append(tatc)
 
 
 
@@ -59,7 +59,7 @@ def main():
     print(dna_Sample)
 
     # TODO: Check database for matching profiles
-    
+
 
 
 
