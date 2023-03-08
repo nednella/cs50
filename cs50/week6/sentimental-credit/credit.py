@@ -5,10 +5,13 @@ def main():
 
     # loop for user input until valid input supplied
     while True:
-        Try:
+        try:
             card = int(input("Card Number: "))              # prompt user for card number
-        Except: ValueError
-        
+        except ValueError:
+            continue
+        else:
+            if card 
+
 
 
 
