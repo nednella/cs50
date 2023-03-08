@@ -14,24 +14,21 @@ def main():
                 card = list(map(int, str(card)))            # convert credit card digits to an indexable list
                 break
 
-    print(card)
-
-
     if valid_Length(card) == False or luhn_checkSum(card) == False:     # check if card valid
         print("INVALID")
         sys.exit(1)
 
+    # check if card matches properties of 
     if amex(card) == True:
-        print("CHECKPOINT")
         print("AMEX")
         sys.exit(0)
 
     elif visa(card) == True:
-        print("AMEX")
+        print("VISA")
         sys.exit(0)
 
     elif mastercard(card) == True:
-        print("AMEX")
+        print("MASTERCARD")
         sys.exit(0)
     else:
         print("INVALID")
