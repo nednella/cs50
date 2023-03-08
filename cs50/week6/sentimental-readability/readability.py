@@ -41,24 +41,22 @@ def main():
 
 
 
-# any alphabetical character a-z or A-Z is a letter
-def count_letters(text):
+
+def count_letters(text):                    # ASSUMPTION: any alphabetical character a-z or A-Z is a letter
     letters = sum(c.isalpha() for c in text)
     return letters
 
 
-# any sequence of characters separated by a space is a word
-def count_words(text):
+def count_words(text):                      # ASSUMPTION: any sequence of characters separated by a space is a word
     words = len(text.split())               # split string into a list of words, count length of list
     return words
 
 
-
-
-
-# any occurrence of . ! ? indicates the end of a sentence
-def count_sentences(text):
+def count_sentences(text):                  # ASSUMPTION: any occurrence of . ! ? indicates the end of a sentence
     sentences = 0
+    sentences += text.count('.')
+    sentences += text.count('?')
+    sentences += text.count('!')
     return sentences
 
 
