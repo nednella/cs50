@@ -14,33 +14,32 @@
 
 
 def main():
+    # obtain user input
     text = user_input()
 
+    # determine properties of input string
     letters = count_letters(text)
     words = count_words(text)
     sentences = count_sentences(text)
-    grade = cl_index(letters, words, sentences)
 
-    print(f"Letters: {letters}")
-    print(f"Words: {words}")
-    print(f"Sentences: {sentences}")
+    # determine grade via Coleman-Liau index
+    index = cl_index(letters, words, sentences)
 
-    if grade < 1:
-            print("Before Grade 1")
-        elif grade > 16:
-            print("Grade 16+")
-        else:
-            grade = int(round(index))           # round float, then cast to an int
-            print(f"Grade {grade}")
+    #print(f"Letters: {letters}")
+    #print(f"Words: {words}")
+    #print(f"Sentences: {sentences}")
 
-
-    #spaces = sum(c.isspace() for c in text)
-    #numbers = sum(c.isdigit() for c in text)
-    #print(f"Spaces: {spaces}")
-    #print(f"Numbers: {numbers}")
+    # output text grade
+    if index < 1:
+        print("Before Grade 1")
+    elif index > 16:
+        print("Grade 16+")
+    else:
+        index = int(round(index))               # round float, then cast to an int
+        print(f"Grade {index}")
 
 
-def user_input():                           # obtain input and return if input is non-blank
+def user_input():                               # obtain input and return if input is non-blank
     while True:
         try:
             text = input("Text: ")
@@ -51,17 +50,17 @@ def user_input():                           # obtain input and return if input i
                 return text
 
 
-def count_letters(text):                    # ASSUMPTION: any alphabetical character a-z or A-Z is a letter
+def count_letters(text):                        # ASSUMPTION: any alphabetical character a-z or A-Z is a letter
     letters = sum(c.isalpha() for c in text)
     return letters
 
 
-def count_words(text):                      # ASSUMPTION: any sequence of characters separated by a space is a word
-    words = len(text.split())               # split string into a list of words, count length of list
+def count_words(text):                          # ASSUMPTION: any sequence of characters separated by a space is a word
+    words = len(text.split())                   # split string into a list of words, count length of list
     return words
 
 
-def count_sentences(text):                  # ASSUMPTION: any occurrence of . ! ? indicates the end of a sentence
+def count_sentences(text):                      # ASSUMPTION: any occurrence of . ! ? indicates the end of a sentence
     sentences = 0
     sentences += text.count('.')
     sentences += text.count('?')
@@ -69,11 +68,11 @@ def count_sentences(text):                  # ASSUMPTION: any occurrence of . ! 
     return sentences
 
 
-def cl_index(letters, words, sentences):
+def cl_index(letters, words, sentences):        # calculate Coleman-Liau index
     L = float(letters / words) * 100
     S = float(sentences / words) * 100
-    grade = float(0.0588 * L - 0.296 * S - 15.8)
-    return grade
+    index = float(0.0588 * L - 0.296 * S - 15.8)
+    return index
 
 
 main()
