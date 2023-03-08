@@ -10,4 +10,5 @@ while True:
             break
 
 for i in range(height):
-    
+
+    for j in range(height):
