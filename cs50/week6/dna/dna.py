@@ -56,15 +56,30 @@ def main():
     #dna_Sample.append(tatc)
 
     #print(agatc, aatg, tatc)
-    print(dna_strs)
+    #print(dna_strs)
+
+
+
+
 
     # TODO: Check database for matching profiles
+    #print(dna_Database[0])
+    #print(dna_strs[0])
 
-
+    for row in dna_Database:
+        print(dna_Database(row))
 
 
 
     return
+
+
+
+
+
+
+
+
 
 
 def longest_match(sequence, subsequence):
