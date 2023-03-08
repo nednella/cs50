@@ -3,16 +3,8 @@ import sys
 
 def main():
 
-    # loop for user input until valid input supplied
-    while True:
-        try:
-            card = int(input("Card Number: "))              # prompt user for card number
-        except ValueError:
-            continue
-        else:
-            if isinstance(card, int) == True:
-                card = list(map(int, str(card)))            # convert credit card digits to an indexable list
-                break
+    # obtain user input
+    card = user_input()
 
     # check if card number valid
     if valid_Length(card) == False or luhn_checkSum(card) == False:
@@ -35,6 +27,17 @@ def main():
         print("INVALID")
         sys.exit(1)
 
+
+def user_input():
+    while True:
+        try:
+            card = int(input("Card Number: "))              # prompt user for card number
+        except ValueError:
+            continue
+        else:
+            if isinstance(card, int) == True:
+                card = list(map(int, str(card)))            # convert credit card digits to an indexable list
+                return card
 
 def valid_Length(card):
     if (13 <= len(card) <= 16):                     # check for valid card length (13 to 16 digits)
