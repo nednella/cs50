@@ -16,13 +16,21 @@
 def main():
     text = input("Text: ")
 
-    letters = sum(c.isalpha() for c in text)
-    spaces = sum(c.isspace() for c in text)
-    numbers = sum(c.isdigit() for c in text)
+    letters = count_letters(text)
+    words = count_words(text)
+    sentences = count_sentences(text)
+
 
     print(f"Letters: {letters}")
-    print(f"Spaces: {spaces}")
-    print(f"Numbers: {numbers}")
+    print(f"Words: {words}")
+    print(f"Sentences: {sentences}")
+
+
+
+    #spaces = sum(c.isspace() for c in text)
+    #numbers = sum(c.isdigit() for c in text)
+    #print(f"Spaces: {spaces}")
+    #print(f"Numbers: {numbers}")
 
 
 #def user_input():
@@ -30,20 +38,22 @@ def main():
 
 
 
-def count_letters():
+def count_letters(text):
+
+    letters = sum(c.isalpha() for c in text)
+    return letters
+
+
+def count_words(text):
     return
 
 
-def count_words():
+
+def count_sentences(text):
     return
 
 
-
-def count_sentences():
-    return
-
-
-def grade():
+def grade(text):
     return
 
 
