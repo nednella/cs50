@@ -44,16 +44,19 @@ def count_letters(text):
 
 
 def count_words(text):
-    return
+    words = sum(text.split())
+    return words
 
 
 
 def count_sentences(text):
-    return
+    sentences = 0
+    return sentences
 
 
 def grade(text):
-    return
+    grade = 0
+    return grade
 
 
 main()
