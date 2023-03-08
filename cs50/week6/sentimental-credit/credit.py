@@ -10,7 +10,8 @@ def main():
         except ValueError:
             continue
         else:
-            if card 
+            if isinstance(card, int) == True:
+                break
 
 
 
@@ -79,9 +80,11 @@ def visa(card):
         return False
 
 
-def mastercard(card)
+def mastercard(card):
     nums = int(str(card[0]) + str(card[1]))                 # concatenate first two digits of the card
-    if len(card) == 16 and (nums == 51 or nums == 52 or nums == 53 or nums == 54 or nums == 55)     # check for Mastercard properties
-
+    if len(card) == 16 and (nums == 51 or nums == 52 or nums == 53 or nums == 54 or nums == 55):     # check for Mastercard properties
+        return True
+    else:
+        return False
 
 main()
