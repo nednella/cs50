@@ -25,17 +25,15 @@ def main():
         dna_Sequence = txt_file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
-    subSeqs = list(dna_Database[0].keys())[1:]
-    print(subSeqs)
+    results = {}
 
-    result = {}
+    subSeqs = list(dna_Database[0].keys())[1:]
 
     for subSeq in subSeqs:
-        result[subSeq] = longest_match(dna_Sequence, subSeq)
+        results[subSeq] = longest_match(dna_Sequence, subSeq)
 
-    print(result)
-
-
+    print(subSeqs)
+    print(results)
 
 
     dna_strs = []
@@ -48,10 +46,6 @@ def main():
 
     #tatc = longest_match(dna_Sequence, 'TATC')
     dna_strs.append(longest_match(dna_Sequence, 'TATC'))
-
-
-
-
 
 
 
@@ -72,10 +66,9 @@ def main():
 
 
     # TODO: Check database for matching profiles
-    #print(dna_Database[0])
-    #print(dna_strs[0])
-
-    #print(dna_Database.items())
+    for person in dna_Database:
+        match = 0
+        
 
 
     return
