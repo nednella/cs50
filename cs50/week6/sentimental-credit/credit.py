@@ -32,8 +32,10 @@ def user_input():
             card = int(input("Card Number: "))              # prompt user for card number
         except ValueError:
             continue
+        except TypeError:
+            continue
         else:
-            if isinstance(card, int) == True:
+            if card >= 0 and isinstance(card, int) == True:
                 card = list(map(int, str(card)))            # convert credit card digits to an indexable list
                 return card
 
