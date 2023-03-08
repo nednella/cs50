@@ -38,6 +38,9 @@ def main():
     #text = input("Text: ")
 
 
+
+
+
 # any alphabetical character a-z or A-Z is a letter
 def count_letters(text):
     letters = sum(c.isalpha() for c in text)
@@ -46,9 +49,11 @@ def count_letters(text):
 
 # any sequence of characters separated by a space is a word
 def count_words(text):
-    tmp = text.split()
-    words = tmp.count()
+    words = len(text.split())               # split string into a list of words, count length of list
     return words
+
+
+
 
 
 # any occurrence of . ! ? indicates the end of a sentence
