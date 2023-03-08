@@ -66,9 +66,9 @@ def main():
     #print(dna_Database[0])
     #print(dna_strs[0])
 
-    for row in dna_Database:
-        print(dna_Database[row])
-
+    for k, v in dna_Database():
+        if v in dna_strs:
+            print(k)
 
 
     return
