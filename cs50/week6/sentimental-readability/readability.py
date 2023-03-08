@@ -16,7 +16,13 @@
 def main():
     text = input("Text: ")
 
+    letters = sum(c.isalpha() for c in text)
+    spaces = sum(c.isspace() for c in text)
+    numbers = sum(c.isdigit() for c in text)
 
+    print(f"Letters: {letters}")
+    print(f"Spaces: {spaces}")
+    print(f"Numbers: {numbers}")
 
 
 #def user_input():
