@@ -8,12 +8,10 @@ def main():
     #if len(sys.argv) != 3:
         #sys.exit("USAGE: python dna.py [data.csv] [sequence.txt]")
 
-
-
     # TODO: Read database file into a variable
     dna_Database = []
 
-    with open("databases/small.csv", "r") as csv_file:                       #sys.argv[1]
+    with open("databases/small.csv", "r") as csv_file:              #sys.argv[1]
         db_reader = csv.DictReader(csv_file)
         for row in db_reader:
             dna_Database.append(row)
@@ -23,7 +21,7 @@ def main():
     #print(dna_Database)
 
     # TODO: Read DNA sequence file into a variable
-    with open("sequences/1.txt", "r") as txt_file:                           #sys.argv[1]
+    with open("sequences/1.txt", "r") as txt_file:                  #sys.argv[1]
         dna_Sequence = txt_file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
@@ -40,8 +38,8 @@ def main():
 
     dna_strs = []
 
-    #agatc = longest_match(dna_Sequence, 'AGATC')                             # find DNA STR match from dna sequence .txt file
-    dna_strs.append(longest_match(dna_Sequence, 'AGATC'))                    # append to list
+    #agatc = longest_match(dna_Sequence, 'AGATC')                    # find DNA STR match from dna sequence .txt file
+    dna_strs.append(longest_match(dna_Sequence, 'AGATC'))           # append to list
 
     #aatg = longest_match(dna_Sequence, 'AATG')
     dna_strs.append(longest_match(dna_Sequence, 'AATG'))
@@ -51,8 +49,8 @@ def main():
 
 
 
-    #agatc = int(dna_Sequence.count('AGATC'))                                # find DNA STR match from dna sequence .txt file
-    #dna_Sample.append(agatc)                                                # append to list
+    #agatc = int(dna_Sequence.count('AGATC'))                        # find DNA STR match from dna sequence .txt file
+    #dna_Sample.append(agatc)                                        # append to list
 
     #aatg = int(dna_Sequence.count('AATG'))
     #dna_Sample.append(aatg)
@@ -68,21 +66,23 @@ def main():
 
 
     # TODO: Check database for matching profiles
-    perf_Match = len(subSeq)                                                # all STRs must match for DNA to be identified
+    perf_Match = len(subSeq)                                        # all STRs must match for DNA to be identified
+    match = 0                                                       # initialise match counter
 
+    # iterate through every row in the DNA database
     for person in dna_Database:
-        match = 0
 
+        # iterate through every STR in the list of STRs
         for subSeq in subSeqs:
+
             if int(person[subSeq]) == results[subSeq]:
-                match += 1
+                match += 1                                                  # if match, add to counter
 
+        if match == perf_Match:                                         # if perfect match, print person and exit program
+            sys.exit(f"Match Found: {person['name']}")
 
-    if match == perf_Match:
-        sys.exit(f"Match Found: {person['name']}")
-
-    else:
-        sys.exit("No Match Found.")
+        else:
+            sys.exit("No Match Found.")
 
 
 
