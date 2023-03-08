@@ -18,6 +18,8 @@ def main():
         for row in db_reader:
             dna_Database.append(row)
 
+
+
     #print(dna_Database)
 
     # TODO: Read DNA sequence file into a variable
@@ -68,7 +70,7 @@ def main():
     # TODO: Check database for matching profiles
     for person in dna_Database:
         match = 0
-        
+
 
 
     return
