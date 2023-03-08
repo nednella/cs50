@@ -16,13 +16,9 @@ def main():
     with open("databases/small.csv", "r") as csv_file:                       #sys.argv[1]
         db_reader = csv.DictReader(csv_file)
         for row in db_reader:
-            tmp_name = row['name']
-            tmp_agatc = int(row['AGATC'])
-            tmp_aatg = int(row['AATG'])
-            tmp_tatc = int(row['TATC'])
-            dna_Database.append({'Name': tmp_name, 'AGATC': tmp_agatc, 'AATG': tmp_aatg, 'TATC': tmp_tatc})
+            dna_Database.append(row)
 
-    print(dna_Database)
+    #print(dna_Database)
 
     # TODO: Read DNA sequence file into a variable
     with open("sequences/1.txt", "r") as txt_file:                           #sys.argv[1]
@@ -66,7 +62,7 @@ def main():
     #print(dna_Database[0])
     #print(dna_strs[0])
 
-    print(dna_Database.items())
+    #print(dna_Database.items())
 
 
     return
