@@ -17,9 +17,6 @@ def main():
             dna_Database.append(row)
 
 
-
-    #print(dna_Database)
-
     # TODO: Read DNA sequence file into a variable
     with open("sequences/1.txt", "r") as txt_file:                  #sys.argv[1]
         dna_Sequence = txt_file.read()
@@ -32,78 +29,23 @@ def main():
     for subSeq in subSeqs:
         results[subSeq] = longest_match(dna_Sequence, subSeq)
 
-    print(results)
-
-
-    dna_strs = []
-
-    #agatc = longest_match(dna_Sequence, 'AGATC')                    # find DNA STR match from dna sequence .txt file
-    dna_strs.append(longest_match(dna_Sequence, 'AGATC'))           # append to list
-
-    #aatg = longest_match(dna_Sequence, 'AATG')
-    dna_strs.append(longest_match(dna_Sequence, 'AATG'))
-
-    #tatc = longest_match(dna_Sequence, 'TATC')
-    dna_strs.append(longest_match(dna_Sequence, 'TATC'))
-
-
-
-    #agatc = int(dna_Sequence.count('AGATC'))                        # find DNA STR match from dna sequence .txt file
-    #dna_Sample.append(agatc)                                        # append to list
-
-    #aatg = int(dna_Sequence.count('AATG'))
-    #dna_Sample.append(aatg)
-
-    #tatc = int(dna_Sequence.count('TATC'))
-    #dna_Sample.append(tatc)
-
-    #print(agatc, aatg, tatc)
-    #print(dna_strs)
-
-
-
-
-
     # TODO: Check database for matching profiles
-    perf_Match = len(subSeq)                                # all STRs must match for DNA to be identified
+    perf_Match = len(subSeqs)                               # all STRs must match for DNA to be identified
     match = 0                                               # initialise match counter
 
-    # iterate through every row in the DNA database
-    for person in dna_Database:
-        match = 0                                           # reset match counter for next person
+    for person in dna_Database:                             # iterate through every row in the DNA database
+        for subSeq in subSeqs:                                  # iterate through every STR in the list of STRs
 
-        print(person['name'])
-
-        # iterate through every STR in the list of STRs
-        for subSeq in subSeqs:
-            print(subSeq)
-            print(person[subSeq])
-            print(results[subSeq])
-
-            
-            if int(person[subSeq]) == results[subSeq]:
-                match += 1                                          # if match, add to counter
-
+            if int(person[subSeq]) == results[subSeq]:              # if match, + 1 to counter
+                match += 1
 
         if match == perf_Match:                                 # if perfect match, print person and exit program
             sys.exit(f"Match Found: {person['name']}")
-
-
-
-
+        else:                                                   # else, reset match counter for next person and continue
+            match = 0
+            continue
 
     sys.exit("No Match Found.")
-
-
-
-
-
-
-
-
-
-
-
 
 
 
