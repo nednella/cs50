@@ -3,7 +3,16 @@ import sys
 
 def main():
 
-    card = int(input("Card Number: "))              # prompt user for card number
+    # loop for user input until valid input supplied
+    while True:
+        Try:
+            card = int(input("Card Number: "))              # prompt user for card number
+        Except: ValueError
+        
+
+
+
+
     card = list(map(int, str(card)))                # convert credit card digits to an indexable list
 
 
