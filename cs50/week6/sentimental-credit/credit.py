@@ -47,7 +47,7 @@ def luhn_checkSum(card):
 
 def amex(card):
     if len(card) == 15:
-        if card[0] == 
+        if ((card[0] == 3 and card[1] = 4) or (card[0] == 3 and card[1] == 7)):
 
 
 def visa(card):
