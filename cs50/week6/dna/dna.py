@@ -67,7 +67,7 @@ def main():
     #print(dna_strs[0])
 
     for row in dna_Database:
-        print(dna_Database(row))
+        print(dna_Database[row])
 
 
 
