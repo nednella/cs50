@@ -46,7 +46,6 @@ def valid_Length(card):
 
 def luhn_checkSum(card):
     reverse = card[::-1]                            # reverse the indexable list of credit card digits
-
     even_Digits = reverse[0::2]                     # obtain list of every 2nd digit starting from the 0th digit
     odd_Digits = reverse[1::2]                      # obtain list of every 2nd digit starting from the 1st digit
 
