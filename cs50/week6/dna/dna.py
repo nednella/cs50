@@ -13,8 +13,8 @@ def main():
     # TODO: Read database file into a variable
     dna_Database = []
 
-    with open("databases/small.csv", "r") as file:                          #sys.argv[1]
-        db_reader = csv.DictReader(file)
+    with open("databases/small.csv", "r") as csv_file:                       #sys.argv[1]
+        db_reader = csv.DictReader(csv_file)
         for row in db_reader:
             tmp_name = row['name']
             tmp_agatc = int(row['AGATC'])
@@ -25,14 +25,14 @@ def main():
     print(dna_Database)
 
     # TODO: Read DNA sequence file into a variable
-    with open("sequences/1.txt", "r") as file:                              #sys.argv[1]
-        dna_Sequence = file.read()
+    with open("sequences/1.txt", "r") as txt_file:                           #sys.argv[1]
+        dna_Sequence = txt_file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
     dna_strs = []
 
-    #agatc = longest_match(dna_Sequence, 'AGATC')                            # find DNA STR match from dna sequence .txt file
-    dna_strs.append(longest_match(dna_Sequence, 'AGATC'))                                                # append to list
+    #agatc = longest_match(dna_Sequence, 'AGATC')                             # find DNA STR match from dna sequence .txt file
+    dna_strs.append(longest_match(dna_Sequence, 'AGATC'))                    # append to list
 
     #aatg = longest_match(dna_Sequence, 'AATG')
     dna_strs.append(longest_match(dna_Sequence, 'AATG'))
