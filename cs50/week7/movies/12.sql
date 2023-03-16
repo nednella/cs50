@@ -12,7 +12,7 @@ WHERE person_id = (
     WHERE name = 'Johnny Depp'
 )
 
-AND person_id = (
+OR person_id = (
     SELECT id
     FROM people
     WHERE name = 'Helena Bonham Carter'
