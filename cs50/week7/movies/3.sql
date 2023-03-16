@@ -1,3 +1,4 @@
-SELECT * FROM movies
+SELECT *
+FROM movies
 WHERE year >= '2018'
 ORDER BY title;

@@ -6,5 +6,6 @@ WHERE id IN (
     WHERE movie_id = (
         SELECT id
         FROM movies
-        WHERE title = 'Toy Story'));
-
+        WHERE title = 'Toy Story'
+    )
+);
