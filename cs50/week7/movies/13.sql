@@ -44,11 +44,13 @@ WHERE movie_id IN (
 
 SELECT title
 FROM movies
-WHERE movie_id IN (
-
+WHERE id IN (
+    SELECT movie_id
+    FROM stars
+    WHERE person_id = (
+        SELECT id
+        FROM people
+        WHERE name = 'Kevin Bacon'
+    )
 )
-
-
-selectr
-
 
