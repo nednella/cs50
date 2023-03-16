@@ -11,11 +11,11 @@ while True:
 
 for i in range(height):
 
-    for j in range(height + 1):
+    for j in range(height):
 
-        if j == height:
+        if (i + j) >= (height - 1):
             print("#", end = "")
         else:
             print(" ", end = "")
-            
+
     print()

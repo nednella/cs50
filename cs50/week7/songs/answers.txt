@@ -1,0 +1,11 @@
+Spotify Wrapped presents a user with their 100 most played songs from the past year.
+
+In 2021, Spotify calculated an "Audia Aura" for each user, which is...
+    - a reading of their TWO most PROMINENT MOODS as dictated by their top 100 songs (their Spotify Wrapped playlist)
+
+Suppose Spotify calculates this "Audio Aura" by looking at the average energy, valence and danceability of the songs
+within a persons' Spotify Wrapped playlist.
+
+If 'songs.db' contains a persons' Spotify Wrapped playlist, how would you characterise their "Audio Aura"?
+
+no idea mate
