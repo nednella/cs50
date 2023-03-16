@@ -11,7 +11,3 @@ WHERE id IN (
     )
 )
 ORDER BY birth ASC;
-
-
-
-
