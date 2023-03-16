@@ -9,5 +9,10 @@ FROM stars
 WHERE person_id = (
     SELECT id
     FROM people
-    WHERE name = 'Johnny Depp' OR name = 'Helena Bonham Carter'
-);
+    WHERE name = 'Johnny Depp'
+)
+AND person_id = (
+    SELECT id
+    FROM people
+    WHERE name = 'Helena Bonham Carter'
+)
