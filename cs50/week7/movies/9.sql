@@ -1,4 +1,5 @@
-SELECT name
+SELECT
+DISTINCT name
 FROM people
 WHERE id IN (
     SELECT person_id
