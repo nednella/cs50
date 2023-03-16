@@ -1,2 +1,2 @@
 SELECT title, year FROM movies
-WHERE title LIKe 'Harry Potter%';
+WHERE title LIKE 'Harry Potter%';
