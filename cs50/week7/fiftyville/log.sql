@@ -128,8 +128,8 @@ FROM airports;
 
 -- analyse list of outbound flights from the Fiftyville airport on the day after the theft
 SELECT *
-FROM airports
-JOIN flights ON flights.origin_airport_id = airports.id
+FROM flights
+JOIN airports ON airports.id = flights.origin_airport_id
 WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29;
 
 
