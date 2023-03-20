@@ -79,7 +79,21 @@ WHERE license_plate IN (
 -- ID 686048, name Bruce, phone number (367) 555-5533, passport number 5773159633, license plate 94KL13X
 
 -- check for records of people receiving calls from any of these 4 individuals
-
+SELECT *
+FROM phone_calls
+WHERE caller IN (
+    SELECT phone_number
+    FROM people
+    WHERE license_plate IN (
+        SELECT license_plate
+        FROM bakery_security_logs
+        WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25
+    ) AND phone_number IN (
+        SELECT caller
+        FROM phone_calls
+        WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
+    )
+);
 
 
 
