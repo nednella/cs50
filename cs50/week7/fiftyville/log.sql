@@ -162,35 +162,19 @@ WHERE id = 18 OR id = 36;
 
 
 
-
-
-
-
-
-
-
-
-
--- analyse list of airports where those outbound flights were destined to land
+-- check what flights Bruce and Diana were on
 SELECT *
-FROM airports
-WHERE id IN (
-    SELECT destination_airport_id
-    FROM airports
-    JOIN flights ON flights.origin_airport_id = airports.id
-    WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29
-);
-
-
--- analyse list of flights
+FROM flights
+JOIN airports ON airports.id = destination_airport_id
+WHERE flights.id IN (
+    SELECT
+)
 
 
 
 
 
--- check whether either of the accomplices booked a flight on 29th July 2021 as requested by the thief
-SELECT *
-FROM airports
+
 
 
 
