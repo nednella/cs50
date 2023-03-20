@@ -59,7 +59,7 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60;
 -- there are 9 total phone calls that took place on the day of the theft with less than 1 minute duration
 -- ...
 
--- check for records of people matching any of the 8 license plates, 8 bank accounts and 9 callers from the above queries
+-- check for records of people matching any of the 8 license plates and 9 outbound callers from the above queries
 SELECT *
 FROM people
 WHERE license_plate IN (
@@ -71,6 +71,10 @@ WHERE license_plate IN (
     FROM phone_calls
     WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
 );
+
+-- there are 5 matches for people who's cars left the bakery within 10 minutes of the theft, and who's phone numbers had a call with less than 1 minute duration on the day of the theft:
+-- ID 398010, name Sofia, phone number (130) 555-0289, passport number 1695452385, license plate G412CB7
+-- ID 449774, name Taylor, phone number (286) 555-6063, passport number 1988161715, license plate 1106N58
 
 
 
