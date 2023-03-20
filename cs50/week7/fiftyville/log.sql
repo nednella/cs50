@@ -16,7 +16,7 @@ WHERE year = 2021 AND month = 7 AND day = 28;
 -- check what information is stored in the interviews database on the day of the theft
 SELECT *
 FROM interviews
-WHERE year = 2021 AND month = 7 AND day = 28;
+WHERE year = 2021 AND month = 7 AND day = 28 AND transcript LIKE '%bakery%';
 
 -- witnesses to the CS50 duck theft are:
 -- Ruth (Interview ID 161)     - Within 10 minutes of the theft, she saw thief get into a car in the bakery parking lot.
