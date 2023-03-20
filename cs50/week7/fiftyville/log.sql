@@ -26,6 +26,7 @@ WHERE year = 2021 AND month = 7 AND day = 28;
 
 
 
+
 -----------------------------------------------------------------------------------------------------------------------------------
 -- QUERIES BASED ON WITNESS INTERVIEWS
 
@@ -50,6 +51,7 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street'
 SELECT *
 FROM phone_calls
 WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60;
+
 
 
 
@@ -100,6 +102,7 @@ WHERE phone_number IN (
 
 
 
+
 -----------------------------------------------------------------------------------------------------------------------------------
 -- LIST OF SUSPECTS AND THEIR ACCOMPLICES
 
@@ -112,6 +115,7 @@ WHERE phone_number IN (
     -- ID 514354, name Diana, phone number (770) 555-1861, passport number 3592750733, license plate 322W7JE
 -- ACCOMPLICE 2
     -- ID 847116, name Philip, phone number (725) 555-3243, passport number 3391710505, license plate GW362R6
+
 
 
 
@@ -139,9 +143,17 @@ SELECT *
 FROM people
 WHERE passport_number IN (
     SELECT passport_number
-    FROM flights
-    WHERE
-)
+    FROM passengers
+    WHERE flight_id IN (
+        SELECT flights.id
+        FROM flights
+        JOIN airports ON airports.id = flights.origin_airport_id
+        WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29
+    )
+) AND (name = 'Bruce' OR name = 'Diana');
+
+
+AND (passport_number = 5773159633 OR passport_number = );
 
 
 
