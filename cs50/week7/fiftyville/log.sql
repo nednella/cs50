@@ -11,6 +11,8 @@ WHERE year = 2021 AND month = 7 AND day = 28;
 -- case ID 295 - CS50 duck theft.
 -- 10:15am at the Humprhrey Street bakery. 3 witnesses, all were interviewed.
 
+
+
 -- check what information is stored in the interviews database on the day of the theft
 SELECT *
 FROM interviews
@@ -20,6 +22,12 @@ WHERE year = 2021 AND month = 7 AND day = 28;
 -- Ruth (Interview ID 161)     - Within 10 minutes of the theft, she saw thief get into a car in the bakery parking lot.
 -- Eugene (Interview ID 162)   - He recognised the thief, but doesn't know their name. He saw the thief withdrawing money from the ATM on Leggett Street on the same morning.
 -- Raymond (Interview ID 163)  - Saw the thief call someone and talk for less than 1 minute. Heard the thief state they would take the earliest flight out of Fiftyville tomorrow (29th July 2021), and asked them to buy a plane ticket.
+
+
+
+
+
+-- QUERIES BASED ON WITNESS INTERVIEWS
 
 -- check security camera footage for the date and time of the theft
 SELECT *
@@ -36,6 +44,8 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND m
 -- ID 266, license plate 322W7JE
 -- ID 267, license plate 0NTHK55
 
+
+
 -- check ATM records for the date of the theft
 SELECT *
 FROM atm_transactions
@@ -51,6 +61,9 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street'
 -- ID 313, account number 81061156, amount 30
 -- ID 336, account number 26013199, amount 35
 
+
+
+
 -- check phone calls for the date of the theft, with less than 1 minute duration
 SELECT *
 FROM phone_calls
@@ -58,6 +71,24 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60;
 
 -- there are 9 total phone calls that took place on the day of the theft with less than 1 minute duration
 -- ...
+
+
+
+
+
+-- QUERIES BASED ON INFORMATION FOUND AS A RESULT OF WITNESS INTERVIEWS
+
+-- obtain identities from bank accounts who's account number matches any of the 8 withdrawals
+SELECT *
+FROM people
+JOIN bank_accounts ON person_id = people.id
+WHERE bank_accounts.account_number IN (
+    SELECT account_number
+    FROM atm_transactions
+    WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw'
+);
+
+
 
 -- check for records of people matching any of the 8 license plates and 9 outbound callers from the above queries
 SELECT *
@@ -71,6 +102,10 @@ WHERE license_plate IN (
     FROM phone_calls
     WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
 );
+
+
+
+
 
 -- there are 4 matches for people who's cars left the bakery within 10 minutes of the theft, and who's phone numbers had an outbound call with less than 1 minute duration on the day of the theft:
 -- ID 398010, name Sofia, phone number (130) 555-0289, passport number 1695452385, license plate G412CB7
