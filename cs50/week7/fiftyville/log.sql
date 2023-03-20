@@ -165,7 +165,7 @@ WHERE id = 18 OR id = 36;
 -- check what flights Bruce and Diana were on
 SELECT *
 FROM flights
-JOIN airports ON airports.id = destination_airport_id
+JOIN airports ON airports.id = origin_airport_id
 WHERE flights.id IN (
     SELECT flight_id
     FROM passengers
