@@ -167,8 +167,10 @@ SELECT *
 FROM flights
 JOIN airports ON airports.id = destination_airport_id
 WHERE flights.id IN (
-    SELECT
-)
+    SELECT flight_id
+    FROM passengers
+    WHERE passport_number = '5773159633' OR passport_number = '3592750733'
+);
 
 
 
