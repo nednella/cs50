@@ -122,5 +122,9 @@ WHERE phone_number IN (
 
 
 
--- check whether either of the accomplices booked a flight on 
+-- check whether either of the accomplices booked a flight on 29th July 2021 as requested by the thief
+SELECT *
+FROM airports
+
+
 
