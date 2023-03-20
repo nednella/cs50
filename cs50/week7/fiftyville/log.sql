@@ -154,6 +154,8 @@ WHERE flight_id IN (
 
 
 -- check destination for these flights on 29th July 2021
+-- flight_id 18 went from Fiftyville to Boston on 29th July 2021 at 4pm, landing at Logan International Airport
+-- flight_id 36 went from Fiftyville to New York City on 29th July 2021 at 8:20am, landing at LaGuardia Airport
 SELECT *
 FROM flights
 WHERE id = 18 OR id = 36;
