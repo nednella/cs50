@@ -133,6 +133,24 @@ JOIN flights ON flights.origin_airport_id = airports.id
 WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29;
 
 
+
+-- check passenger lists for SUSPECT name for the outbound flights on 29th July 2021 from Fiftyville airport
+SELECT *
+FROM people
+WHERE passport_number IN (
+    SELECT passport_number
+    FROM flights
+    WHERE
+)
+
+
+
+
+
+
+
+
+
 -- analyse list of airports where those outbound flights were destined to land
 SELECT *
 FROM airports
@@ -144,7 +162,7 @@ WHERE id IN (
 );
 
 
--- analyse list of flights 
+-- analyse list of flights
 
 
 
