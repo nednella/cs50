@@ -138,22 +138,21 @@ WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29;
 
 
 
--- check passenger lists for SUSPECT name for the outbound flights on 29th July 2021 from Fiftyville airport
+-- check passenger lists for SUSPECT passport numbers for the outbound flights on 29th July 2021 from Fiftyville airport
 SELECT *
-FROM people
-WHERE passport_number IN (
-    SELECT passport_number
-    FROM passengers
-    WHERE flight_id IN (
-        SELECT flights.id
-        FROM flights
-        JOIN airports ON airports.id = flights.origin_airport_id
-        WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29
-    )
-) AND (name = 'Bruce' OR name = 'Diana');
+FROM passengers
+JOIN people ON people.passport_number = passengers.passport_number
+WHERE flight_id IN (
+    SELECT flights.id
+     FROM flights
+     JOIN airports ON airports.id = flights.origin_airport_id
+     WHERE airports.abbreviation = 'CSF'
+) AND (people.passport_number = '5773159633' OR people.passport_number = '3592750733');
 
 
-AND (passport_number = 5773159633 OR passport_number = );
+
+
+ AND year = 2021 AND month = 7 AND day = 29
 
 
 
