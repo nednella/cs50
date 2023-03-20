@@ -78,7 +78,7 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60;
 
 -- QUERIES BASED ON INFORMATION FOUND AS A RESULT OF WITNESS INTERVIEWS
 
--- obtain identities from bank accounts who's account number matches any of the 8 withdrawals
+-- obtain identities from those bank accounts where the account number matches any of the 8 withdrawals
 SELECT *
 FROM people
 JOIN bank_accounts ON person_id = people.id
@@ -103,6 +103,9 @@ WHERE license_plate IN (
     WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
 );
 
+
+
+-- check for any matches 
 
 
 
