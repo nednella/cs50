@@ -151,7 +151,7 @@ FROM airports;
     -- the earliest outbound flight from Fiftyville on 29th July 2021 is at 8:20am to LaGuardia Airport in New York City
 SELECT *
 FROM flights
-JOIN airports ON airports.id = flights.destination_airport_id
+JOIN airports ON airports.id = destination_airport_id
 WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29
 ORDER BY hour, minute;
 
