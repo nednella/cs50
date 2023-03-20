@@ -86,78 +86,41 @@ WHERE people.license_plate IN (
 
 -- check the identities of those people who received a call from these 2 individuals on the day of the theft
 SELECT *
-FROM phone_calls
-WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60 AND caller = '(367) 555-5533' OR caller = '(770) 555-1861';
-
-
-
-
-
-
-
-
-
-
--- check for records of people receiving calls from any of these 4 individuals
-SELECT *
-FROM phone_calls
-WHERE caller IN (
-    SELECT phone_number
-    FROM people
-    WHERE license_plate IN (
-        SELECT license_plate
-        FROM bakery_security_logs
-        WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25
-    ) AND phone_number IN (
-        SELECT caller
-        FROM phone_calls
-        WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
-    )
-) AND year = 2021 AND month = 7 AND day = 28 AND duration < 60;
-
--- there are 5 matches for people who received a call from any of the 4 individuals in the query above
--- ...
-
--- check the identities of the 5 people in the previous query
-SELECT *
 FROM people
 WHERE phone_number IN (
-    SELECT receiver
+    SELECT *
     FROM phone_calls
-    WHERE caller IN (
-        SELECT phone_number
-        FROM people
-        WHERE license_plate IN (
-            SELECT license_plate
-            FROM bakery_security_logs
-            WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25
-        ) AND phone_number IN (
-            SELECT caller
-            FROM phone_calls
-            WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
-        )
-    ) AND year = 2021 AND month = 7 AND day = 28 AND duration < 60
+    WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60 AND (caller = '(367) 555-5533' OR caller = '(770) 555-1861')
 );
 
--- the identities of possible people who received a call from the culprit asking to buy a flight ticket for 29th July 2021 are:
--- ID 251693, name Larry, phone number (892) 555-8872, passport number 2312901747, license plate O268ZZ0
--- ID 567218, name jack, phone number (996) 555-8899, passport number 9029462229, license plate 52R0Y8U
--- ID 626361, name Melissa, phone number (717) 555-1342, passport number 7834357192, license plate N/A
--- ID 847116, name Philip, phone number (725) 555-3243, passport number 3391710505, license plate GW362R6,
--- ID 864400, name Robin, phone number (375) 555-8161, passport number N/A, license plate 4V16VO0
+-- there are 2 matches!
+-- ID 847116, name Philip, phone number (725) 555-3243, passport number 3391710505, license plate GW362R6
+-- ID 864400, name Robin, phone number (375) 555-8161, passport number (N/A), license plate 4V16VO0
 
 
 
 
+-----------------------------------------------------------------------------------------------------------------------------------
+-- LIST OF SUSPECTS AND THEIR ACCOMPLICES
+
+-- SUSPECT 1
+    -- ID 686048, name Bruce, phone number (367) 555-5533, passport number 5773159633, license plate 94KL13X
+-- ACCOMPLICE 1
+    -- ID 864400, name Robin, phone number (375) 555-8161, passport number (N/A), license plate 4V16VO0
+
+-- SUSPECT 2
+    -- ID 514354, name Diana, phone number (770) 555-1861, passport number 3592750733, license plate 322W7JE
+-- ACCOMPLICE 2
+    -- ID 847116, name Philip, phone number (725) 555-3243, passport number 3391710505, license plate GW362R6
 
 
 
 
+-----------------------------------------------------------------------------------------------------------------------------------
+--
 
 
 
 
-
-
-
+-- check whether either of the accomplices booked a flight on 
 
