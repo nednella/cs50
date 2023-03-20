@@ -90,9 +90,26 @@ WHERE people.license_plate IN (
 SELECT *
 FROM people
 WHERE phone_number IN (
-    SELECT *
+    SELECT receiver
     FROM phone_calls
-    WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60 AND (caller = '(367) 555-5533' OR caller = '(770) 555-1861')
+    WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60 AND caller IN (
+        SELECT phone_number
+        FROM people
+        JOIN bank_accounts ON bank_accounts.person_id = people.id
+        WHERE people.license_plate IN (
+            SELECT license_plate
+            FROM bakery_security_logs
+            WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25
+        ) AND bank_accounts.account_number IN (
+            SELECT account_number
+            FROM atm_transactions
+            WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw'
+        ) AND people.phone_number IN (
+            SELECT caller
+            FROM phone_calls
+            WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
+        )
+    )
 );
 
 -- there are 2 matches!
