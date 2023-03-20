@@ -121,10 +121,10 @@ WHERE phone_number IN (
 
 
 -----------------------------------------------------------------------------------------------------------------------------------
---
+-- FLIGHTS
 
 -- analyse list of airports in the database
--- ID 8, abbreviation CSF, full_name Fiftyville Regional Airport, city Fiftyville
+    -- ID 8, abbreviation CSF, full_name Fiftyville Regional Airport, city Fiftyville
 SELECT *
 FROM airports;
 
@@ -139,8 +139,8 @@ WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29;
 
 
 -- check passenger lists for SUSPECT passport numbers for the outbound flights on 29th July 2021 from Fiftyville airport
--- Diana was on flight_id 18 in seat 4C
--- Bruce was on flight_id 36 in seat 4A
+    -- Diana was on flight_id 18 in seat 4C
+    -- Bruce was on flight_id 36 in seat 4A
 SELECT *
 FROM passengers
 JOIN people ON people.passport_number = passengers.passport_number
@@ -154,8 +154,8 @@ WHERE flight_id IN (
 
 
 -- check destination for these flights on 29th July 2021
--- flight_id 18 went from Fiftyville to Boston on 29th July 2021 at 4pm, landing at Logan International Airport
--- flight_id 36 went from Fiftyville to New York City on 29th July 2021 at 8:20am, landing at LaGuardia Airport
+    -- flight_id 18 went from Fiftyville to Boston on 29th July 2021 at 4pm, landing at Logan International Airport
+    -- flight_id 36 went from Fiftyville to New York City on 29th July 2021 at 8:20am, landing at LaGuardia Airport
 SELECT *
 FROM flights
 WHERE id = 18 OR id = 36;
