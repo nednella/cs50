@@ -26,14 +26,14 @@ WHERE year = 2021 AND month = 7 AND day = 28;
 
 
 
-
+-----------------------------------------------------------------------------------------------------------------------------------
 -- QUERIES BASED ON WITNESS INTERVIEWS
 
 -- check security camera footage for the date and time of the theft
 -- within 10 minutes of the theft (10:15am), there were 8 cars that left the bakery parking lot
 SELECT *
 FROM bakery_security_logs
-WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25;
+WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25 AND activity = 'exit';
 
 
 
@@ -54,27 +54,13 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60;
 
 
 
-
+-----------------------------------------------------------------------------------------------------------------------------------
 -- QUERIES BASED ON INFORMATION FOUND AS A RESULT OF WITNESS INTERVIEWS
 
--- obtain identities from those bank accounts where the account number matches any of the 8 withdrawals
-SELECT *
-FROM people
-JOIN bank_accounts ON person_id = people.id
-WHERE bank_accounts.account_number IN (
-    SELECT account_number
-    FROM atm_transactions
-    WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw'
-);
-
 -- obtain identities of those that match:
--- 1. the 8 license plates recorded leaving the 
+-- 1. the 8 license plates recorded leaving the parking lot within 10 minutes of the theft
 -- 2. the 8 ATM records on the morning of the theft
 -- 3. the 9 outgoing phone calls on the day of the theft with less than 1 minute duration
-
-
-
-
 SELECT *
 FROM people
 JOIN bank_accounts ON bank_accounts.person_id = people.id
@@ -92,37 +78,25 @@ WHERE people.license_plate IN (
     WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
 );
 
-
-
-
-
-
-
--- check for records of people matching any of the 8 license plates and 9 outbound callers from the above queries
-SELECT *
-FROM people
-WHERE license_plate IN (
-    SELECT license_plate
-    FROM bakery_security_logs
-    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25
-) AND phone_number IN (
-    SELECT caller
-    FROM phone_calls
-    WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
-);
-
-
-
--- check for any matches
-
-
-
-
--- there are 4 matches for people who's cars left the bakery within 10 minutes of the theft, and who's phone numbers had an outbound call with less than 1 minute duration on the day of the theft:
--- ID 398010, name Sofia, phone number (130) 555-0289, passport number 1695452385, license plate G412CB7
--- ID 514354, name Diana, phone number (770) 555-1861, passport number 3592750733, license plate 322W7JE
--- ID 560886, name Kelsey, phone number (499) 555-9472, passport number 8294398571, license plate 0NTHK55
+-- there are 2 matches!
 -- ID 686048, name Bruce, phone number (367) 555-5533, passport number 5773159633, license plate 94KL13X
+-- ID 514354, name Diana, phone number (770) 555-1861, passport number 3592750733, license plate 322W7JE
+
+
+
+-- check the identities of those people who received a call from these 2 individuals on the day of the theft
+SELECT *
+FROM phone_calls
+WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60 AND caller = '(367) 555-5533' OR caller = '(770) 555-1861';
+
+
+
+
+
+
+
+
+
 
 -- check for records of people receiving calls from any of these 4 individuals
 SELECT *
