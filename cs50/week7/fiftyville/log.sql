@@ -119,7 +119,29 @@ WHERE phone_number IN (
 -----------------------------------------------------------------------------------------------------------------------------------
 --
 
+-- analyse list of airports in the database
+SELECT *
+FROM airports;
 
+-- ID 8, abbreviation CSF, full_name Fiftyville Regional Airport, city Fiftyville
+
+
+-- analyse list of outbound flights from the Fiftyville airport on the day after the theft
+SELECT *
+FROM airports
+JOIN flights ON flights.origin_airport_id = airports.id
+WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29;
+
+
+-- analyse list of airports where those outbound flights were destined to land
+SELECT *
+FROM airports
+WHERE id IN (
+    SELECT destination_airport_id
+    FROM airports
+    JOIN flights ON flights.origin_airport_id = airports.id
+    WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29
+);
 
 
 -- check whether either of the accomplices booked a flight on 29th July 2021 as requested by the thief
