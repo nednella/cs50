@@ -39,7 +39,7 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10;
 -- check ATM records for the date of the theft
 SELECT *
 FROM atm_transactions
-WHERE year = 2021 AND month = 7 AND day = 28;
+WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Humphrey Lane' AND transaction_type = 'withdraw';
 
 
 
