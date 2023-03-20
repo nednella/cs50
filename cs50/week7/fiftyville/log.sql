@@ -124,10 +124,10 @@ WHERE phone_number IN (
 --
 
 -- analyse list of airports in the database
+-- ID 8, abbreviation CSF, full_name Fiftyville Regional Airport, city Fiftyville
 SELECT *
 FROM airports;
 
--- ID 8, abbreviation CSF, full_name Fiftyville Regional Airport, city Fiftyville
 
 
 -- analyse list of outbound flights from the Fiftyville airport on the day after the theft
@@ -139,6 +139,8 @@ WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29;
 
 
 -- check passenger lists for SUSPECT passport numbers for the outbound flights on 29th July 2021 from Fiftyville airport
+-- Diana was on flight_id 18 in seat 4C
+-- Bruce was on flight_id 36 in seat 4A
 SELECT *
 FROM passengers
 JOIN people ON people.passport_number = passengers.passport_number
@@ -146,13 +148,18 @@ WHERE flight_id IN (
     SELECT flights.id
      FROM flights
      JOIN airports ON airports.id = flights.origin_airport_id
-     WHERE airports.abbreviation = 'CSF'
+     WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29
 ) AND (people.passport_number = '5773159633' OR people.passport_number = '3592750733');
 
 
 
+-- check destination for these flights on 29th July 2021
+SELECT *
+FROM flights
+WHERE id = 18 OR id = 36;
 
- AND year = 2021 AND month = 7 AND day = 29
+
+
 
 
 
