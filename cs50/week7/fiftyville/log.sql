@@ -67,14 +67,17 @@ WHERE bank_accounts.account_number IN (
     WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw'
 );
 
+-- obtain identities of those that match:
+-- 1. the 8 license plates recorded leaving the 
+-- 2. the 8 ATM records on the morning of the theft
+-- 3. the 9 outgoing phone calls on the day of the theft with less than 1 minute duration
 
 
 
-SELECT DISTINCT people.id, people.name, people.phone_number, people.passport_number, people.license_plate
+
+SELECT *
 FROM people
-JOIN bakery_security_logs ON bakery_security_logs.license_plate = people.license_plate
 JOIN bank_accounts ON bank_accounts.person_id = people.id
-JOIN phone_calls ON phone_calls.caller = people.phone_number
 WHERE people.license_plate IN (
     SELECT license_plate
     FROM bakery_security_logs
@@ -88,22 +91,6 @@ WHERE people.license_plate IN (
     FROM phone_calls
     WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
 );
-
-
-SELECT *
-FROM people
-WHERE license_plate IN (
-    SELECT license_plate
-    FROM bakery_security_logs
-    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25;
-) AND account_number IN (
-    SELECT account_number
-    FROM atm_transactions
-    WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw'
-) AND phone_number IN (
-
-)
-
 
 
 
