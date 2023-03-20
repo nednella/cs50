@@ -91,7 +91,7 @@ WHERE bank_accounts.account_number IN (
 
 
 
-SELECT *
+SELECT people.id, people.name, people.phone_number, passport_number, license_plate
 FROM people
 JOIN bakery_security_logs ON bakery_security_logs.license_plate = people.license_plate
 JOIN bank_accounts ON bank_accounts.person_id = people.id
@@ -100,7 +100,7 @@ WHERE people.license_plate IN (
     SELECT license_plate
     FROM bakery_security_logs
     WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25
-) AND people.account_number IN (
+) AND bank_accounts.account_number IN (
     SELECT account_number
     FROM atm_transactions
     WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw'
