@@ -149,53 +149,63 @@ FROM airports;
 
 -- analyse list of outbound flights from the Fiftyville airport on the day after the theft
     -- the earliest outbound flight from Fiftyville on 29th July 2021 is at 8:20am to LaGuardia Airport in New York City
-SELECT *
+SELECT flight.id
 FROM flights
 JOIN airports ON airports.id = destination_airport_id
-WHERE  year = 2021 AND month = 7 AND day = 29
-ORDER BY hour, minute;
+WHERE origin_airport_id = 8 AND year = 2021 AND month = 7 AND day = 29
+ORDER BY hour, minute
+LIMIT 1;
 
 
 
--- analyse passenger list for the SUSPECTS on the e
-
-
-
-
-
--- check passenger lists for SUSPECT passport numbers for the outbound flights on 29th July 2021 from Fiftyville airport
-    -- Diana was on flight_id 18 in seat 4C
-    -- Bruce was on flight_id 36 in seat 4A
+-- analyse the passenger list for the earliest flight from the previous query
 SELECT *
-FROM passengers
-JOIN people ON people.passport_number = passengers.passport_number
-WHERE flight_id IN (
+FROM people
+JOIN passengers ON passengers.passport_number = people.passport_number
+WHERE passengers.flight_id IN (
     SELECT flights.id
-     FROM flights
-     JOIN airports ON airports.id = flights.origin_airport_id
-     WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29
-) AND (people.passport_number = '5773159633' OR people.passport_number = '3592750733');
-
-
-
--- check destination for these flights on 29th July 2021
-    -- flight_id 18 went from Fiftyville to Boston on 29th July 2021 at 4pm, landing at Logan International Airport
-    -- flight_id 36 went from Fiftyville to New York City on 29th July 2021 at 8:20am, landing at LaGuardia Airport
-SELECT *
-FROM flights
-WHERE id = 18 OR id = 36;
-
-
-
--- check what flights Bruce and Diana were on
-SELECT *
-FROM flights
-JOIN airports ON airports.id = origin_airport_id
-WHERE flights.id IN (
-    SELECT flight_id
-    FROM passengers
-    WHERE passport_number = '5773159633' OR passport_number = '3592750733'
+    FROM flights
+    JOIN airports ON airports.id = destination_airport_id
+    WHERE origin_airport_id = 8 AND year = 2021 AND month = 7 AND day = 29
+    ORDER BY hour, minute
+    LIMIT 1
 );
+
+
+
+-- check for a match between suspects and the passenger list
+SELECT *
+FROM people
+JOIN passengers ON passengers.passport_number = people.passport_number
+WHERE passengers.flight_id IN (
+    SELECT flights.id
+    FROM flights
+    JOIN airports ON airports.id = destination_airport_id
+    WHERE origin_airport_id = 8 AND year = 2021 AND month = 7 AND day = 29
+    ORDER BY hour, minute
+    LIMIT 1
+) AND people.id IN (
+    SELECT people.id
+    FROM people
+    JOIN bank_accounts ON bank_accounts.person_id = people.id
+    WHERE people.license_plate IN (
+        SELECT license_plate
+        FROM bakery_security_logs
+        WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25
+    ) AND bank_accounts.account_number IN (
+        SELECT account_number
+        FROM atm_transactions
+        WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw'
+    ) AND people.phone_number IN (
+        SELECT caller
+        FROM phone_calls
+        WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
+    )
+);
+
+
+
+-- 1 match found, thief and accomplice identified
 
 
 
