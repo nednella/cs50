@@ -15,4 +15,7 @@ WHERE year = 2021 AND month = 7 AND day = 28;
 -- case ID 295 - CS50 duck theft.
 -- 10:15am at the Humprhrey Street bakery. 3 witnesses, all were interviewed.
 
--- 
+--
+SELECT *
+FROM interviews
+WHERE year = 2021 AND month = 7 AND day = 28;
