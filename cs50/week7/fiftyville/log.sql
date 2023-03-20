@@ -59,7 +59,18 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60;
 -- there are 9 total phone calls that took place on the day of the theft with less than 1 minute duration
 -- ...
 
--- 
+-- check for records of people matching any of the 8 license plates, 8 bank accounts and 9 callers from the above queries
+SELECT *
+FROM people
+WHERE license_plate IN (
+    SELECT license_plate
+    FROM bakery_security_logs
+    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10
+) AND phone_number IN (
+    SELECT caller
+    FROM phone_calls
+    WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
+);
 
 
 
