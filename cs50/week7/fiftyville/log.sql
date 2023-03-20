@@ -30,47 +30,26 @@ WHERE year = 2021 AND month = 7 AND day = 28;
 -- QUERIES BASED ON WITNESS INTERVIEWS
 
 -- check security camera footage for the date and time of the theft
+-- within 10 minutes of the theft (10:15am), there were 8 cars that left the bakery parking lot
 SELECT *
 FROM bakery_security_logs
 WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25;
 
--- within 10 minutes of the theft (10:15am), there were 8 cars that left the bakery parking lot:
--- ID 260, license plate 5P2BI95
--- ID 261, license plate 94KL13X
--- ID 262, license plate 6P58WS2
--- ID 263, license plate 4328GD8
--- ID 264, license plate G412CB7
--- ID 265, license plate L93JTIZ
--- ID 266, license plate 322W7JE
--- ID 267, license plate 0NTHK55
-
 
 
 -- check ATM records for the date of the theft
+-- there are 8 total withdrawal transactions that match the information in Eugene's interview
 SELECT *
 FROM atm_transactions
 WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw';
 
--- there are 8 total withdrawal transactions that match the information in Eugene's interview
--- ID 246, account number 28500762, amount 48
--- ID 264, account number 28296815, amount 20
--- ID 266, account number 76054385, amount 60
--- ID 267, account number 49610011, amount 50
--- ID 269, account number 16153065, amount 80
--- ID 288, account number 25506511, amount 20
--- ID 313, account number 81061156, amount 30
--- ID 336, account number 26013199, amount 35
-
-
 
 
 -- check phone calls for the date of the theft, with less than 1 minute duration
+-- there are 9 total phone calls that took place on the day of the theft with less than 1 minute duration
 SELECT *
 FROM phone_calls
 WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60;
-
--- there are 9 total phone calls that took place on the day of the theft with less than 1 minute duration
--- ...
 
 
 
