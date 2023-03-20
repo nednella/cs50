@@ -148,12 +148,17 @@ FROM airports;
 
 
 -- analyse list of outbound flights from the Fiftyville airport on the day after the theft
-    -- the earliest outbound flight from Fiftyville on 29th July 2021 is at 8:20am
-SELECT *
+    -- the earliest outbound flight from Fiftyville on 29th July 2021 is at 8:20am to LaGuardia Airport in New York City
+SELECT flights.id, flights.destination_airport_id AS 'destination', flights.hour, flights.minute, airports.full_name, airports.city
 FROM flights
-JOIN airports ON airports.id = flights.origin_airport_id
+JOIN airports ON airports.id = flights.destination_airport_id
 WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29
 ORDER BY hour, minute;
+
+
+
+-- analyse passenger list for the SUSPECTS on the e
+
 
 
 
