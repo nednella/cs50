@@ -24,7 +24,7 @@ WHERE year = 2021 AND month = 7 AND day = 28;
 -- check security camera footage for the date and time of the theft
 SELECT *
 FROM bakery_security_logs
-WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10;
+WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25;
 
 -- within 10 minutes of the theft (10:15am), there were 8 cars that left the bakery parking lot:
 -- ID 260, license plate 5P2BI95
@@ -65,16 +65,32 @@ FROM people
 WHERE license_plate IN (
     SELECT license_plate
     FROM bakery_security_logs
-    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10
+    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25
 ) AND phone_number IN (
     SELECT caller
     FROM phone_calls
     WHERE year = 2021 AND month = 7 AND day = 28 AND duration < 60
 );
 
--- there are 5 matches for people who's cars left the bakery within 10 minutes of the theft, and who's phone numbers had a call with less than 1 minute duration on the day of the theft:
+-- there are 4 matches for people who's cars left the bakery within 10 minutes of the theft, and who's phone numbers had a call with less than 1 minute duration on the day of the theft:
 -- ID 398010, name Sofia, phone number (130) 555-0289, passport number 1695452385, license plate G412CB7
--- ID 449774, name Taylor, phone number (286) 555-6063, passport number 1988161715, license plate 1106N58
+-- ID 514354, name Diana, phone number (770) 555-1861, passport number 3592750733, license plate 322W7JE
+-- ID 560886, name Kelsey, phone number (499) 555-9472, passport number 8294398571, license plate 0NTHK55
+-- ID 686048, name Bruce, phone number (367) 555-5533, passport number 5773159633, license plate 94KL13X
+
+-- check for records of people receiving calls from any of these 4 individuals
+
+
+
+
+
+
+
+SELECT *
+FROM people
+WHERE phone_number IN (
+
+)
 
 
 
