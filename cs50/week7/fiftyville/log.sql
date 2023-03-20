@@ -91,7 +91,7 @@ WHERE bank_accounts.account_number IN (
 
 
 
-SELECT people.id, people.name, people.phone_number, passport_number, license_plate
+SELECT DISTINCT people.id, people.name, people.phone_number, people.passport_number, people.license_plate
 FROM people
 JOIN bakery_security_logs ON bakery_security_logs.license_plate = people.license_plate
 JOIN bank_accounts ON bank_accounts.person_id = people.id
