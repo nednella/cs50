@@ -152,7 +152,7 @@ FROM airports;
 SELECT *
 FROM flights
 JOIN airports ON airports.id = destination_airport_id
-WHERE airports.abbreviation = 'CSF' AND year = 2021 AND month = 7 AND day = 29
+WHERE  year = 2021 AND month = 7 AND day = 29
 ORDER BY hour, minute;
 
 
