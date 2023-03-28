@@ -7,7 +7,7 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            documentQuerySelector('q1')
+            document.addEventListener('DOM)
 
 
 
@@ -27,12 +27,11 @@
                 <hr>
                 <h3>What is the average ratio of humans to ants on Earth?</h3>
                 <!-- TODO: Add multiple choice question here -->
-                <form id="q1">
-                    <button class="incorrect">500k</button>
-                    <button class="incorrect">1.4m</button>
-                    <button class="correct">2.5m</button>
-                    <button class="incorrect">7.1m</button>
-                </form>
+                <button class="incorrect">500k</button>
+                <button class="incorrect">1.4m</button>
+                <button class="correct">2.5m</button>
+                <button class="incorrect">7.1m</button>
+
                 <p id="q1feedback"></p>
             </div>
 
@@ -41,10 +40,9 @@
                 <hr>
                 <h3>How many grooves can be found on a single standard LP vinyl record?</h3>
                 <!-- TODO: Add free response question here -->
-                <form id="q2">
-                    <input autcomplete="off" type="text">
-                    <button type="Submit">Check Answer</button>
-                </form>
+                <input autcomplete="off" type="text">
+                <button id="check">Check Answer</button>
+
                 <p id="q2feedback"></p>
             </div>
         </div>
