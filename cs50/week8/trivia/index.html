@@ -30,24 +30,17 @@
 
                 // for free response question
                 document.querySelector('#check').addEventListener('click', function() {
-                    let input = document.querySelector('input');
-                    if (input.value === "1") {
+                    let input = document.querySelector('input');                    // returns element where user has entered response
+                    if (input.value === "1") {                                      // if response is correct
                         input.style.backgroundColour = 'green';
                         document.querySelector('#q2feedback').innerHTML = "Correct!";
                     }
-                    else {
+                    else {                                                          // else the response is incorrect
                         input.style.backgroundColour = 'red';
                         document.querySelector('#q2feedback').innerHTML = "Inorrect";
                     }
                 });
             });
-
-
-
-
-
-
-
         </script>
     </head>
     <body>
