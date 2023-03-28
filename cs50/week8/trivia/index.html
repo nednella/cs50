@@ -15,15 +15,15 @@
                 // if correct answer selected
                 let correct = document.querySelector(.'correct');                   // returns the element that has the class "correct"
                 correct.addEventListener('click', function() {                      // add event listener for button click
-                    correct.style.backgroundColour = 'green';                           // set button colour to green
+                    correct.style.backgroundColor = 'green';                            // set button colour to green
                     document.querySelector('#q1feedback').innerHTML = 'Correct!';       // display text in black <p> field
                 });
 
                 // if incorrect answer selected
                 let incorrects = document.querySelectorAll('.incorrect');           // returns an array of elements that have class "incorrect"
                 for (let i = 0; i < incorrects.length; i++) {                       // loop through array of elements
-                    incorrects[i]/addEventListener('click', function() {                // add event listener for button click
-                        incorrects[i].style.backgroundColour = 'red';                   // set button colour to red
+                    incorrects[i].addEventListener('click', function() {                // add event listener for button click
+                        incorrects[i].style.backgroundColor = 'red';                    // set button colour to red
                         document.querySelector('#q2feedback').innerHTML = 'Incorrect';  // display text in black <p> field
                     });
                 }
@@ -32,12 +32,12 @@
                 document.querySelector('#check').addEventListener('click', function() {
                     let input = document.querySelector('input');                    // returns element where user has entered response
                     if (input.value === "1") {                                      // if response is correct
-                        input.style.backgroundColour = 'green';
+                        input.style.backgroundColor = 'green';
                         document.querySelector('#q2feedback').innerHTML = "Correct!";
                     }
                     else {                                                          // else the response is incorrect
-                        input.style.backgroundColour = 'red';
-                        document.querySelector('#q2feedback').innerHTML = "Inorrect";
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#q2feedback').innerHTML = "Incorrect";
                     }
                 });
             });
