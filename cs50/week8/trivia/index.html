@@ -6,39 +6,33 @@
         <link href="styles.css" rel="stylesheet">
         <title>Trivia!</title>
         <script>
-            // TODO: Add code to check answers to questions
 
-            // run script once page is loaded
-            window.addEventListener("load", function() {
-                // for multiple choice question
-                // if correct answer selected
-                let correct = document.querySelector(.'correct');                   // returns the element that has the class "correct"
-                correct.addEventListener('click', function() {                      // add event listener for button click
-                    correct.style.backgroundColor = 'green';                            // set button colour to green
-                    document.querySelector('#q1feedback').innerHTML = 'Correct!';       // display text in black <p> field
+            document.addEventListener('DOMContentLoaded', function(){
+
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function(){
+                        correct.style.backgroundColor = 'green';
+                        document.querySelector('#feedback1').innerHTML = 'Correct!';
                 });
 
-                // if incorrect answer selected
-                let incorrects = document.querySelectorAll('.incorrect');           // returns an array of elements that have class "incorrect"
-                for (let i = 0; i < incorrects.length; i++) {                       // loop through array of elements
-                    incorrects[i].addEventListener('click', function() {                // add event listener for button click
-                        incorrects[i].style.backgroundColor = 'red';                    // set button colour to red
-                        document.querySelector('#q2feedback').innerHTML = 'Incorrect';  // display text in black <p> field
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i<incorrects.length; i++){
+                    incorrects[i].addEventListener('click', function(){
+                    incorrects[i].style.backgroundColor = 'red';
+                    document.querySelector('#feedback1').innerHTML = 'Incorrect!';
                     });
-                }
+                 }
 
-                // for free response question
-                document.querySelector('#check').addEventListener('click', function() {
-                    let input = document.querySelector('input');                    // returns element where user has entered response
-                    if (input.value === "1") {                                      // if response is correct
+              document.querySelector('#check').addEventListener('click', function(){
+                    let input = document.querySelector('input');
+                    if (input.value === 'Switzerland'){
                         input.style.backgroundColor = 'green';
-                        document.querySelector('#q2feedback').innerHTML = "Correct!";
+                        document.querySelector('#feedback2').innerHTML = 'Correct!';
+                    } else {
+                       input.style.backgroundColor = 'red';
+                       document.querySelector('#feedback2').innerHTML = 'Incorrect';
                     }
-                    else {                                                          // else the response is incorrect
-                        input.style.backgroundColor = 'red';
-                        document.querySelector('#q2feedback').innerHTML = "Incorrect";
-                    }
-                });
+                 });
             });
         </script>
     </head>
