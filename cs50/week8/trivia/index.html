@@ -10,6 +10,8 @@
 
             // run script once page is loaded
             document.addEventListener('DOMContentLoaded', function() {
+
+                // for multiple choice question
                 // if correct answer selected
                 let correct = document.querySelector(.'correct');                   // returns the element that has the class "correct"
                 correct.addEventListener('click', function() {                      // add event listener for button click
@@ -26,9 +28,18 @@
                     });
                 }
 
-
-
-
+                // for free response question
+                document.querySelector('#check').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value === "1") {
+                        input.style.backgroundColour = 'green';
+                        document.querySelector('#q2feedback').innerHTML = "Correct!";
+                    }
+                    else {
+                        input.style.backgroundColour = 'red';
+                        document.querySelector('#q2feedback').innerHTML = "Inorrect";
+                    }
+                });
             });
 
 
