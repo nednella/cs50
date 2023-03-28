@@ -11,18 +11,18 @@
             // run script once page is loaded
             document.addEventListener('DOMContentLoaded', function() {
                 // if correct answer selected
-                let correct = document.querySelector(.'correct');
-                correct.addEventListener('click', function() {
-                    correct.style.backgroundColour = 'green';
-                    document.querySelector('#q1feedback').innerHTML = 'Correct!';
+                let correct = document.querySelector(.'correct');                   // returns the element that has the class "correct"
+                correct.addEventListener('click', function() {                      // add event listener for button click
+                    correct.style.backgroundColour = 'green';                           // set button colour to green
+                    document.querySelector('#q1feedback').innerHTML = 'Correct!';       // display text in black <p> field
                 });
 
                 // if incorrect answer selected
-                let incorrects = document.querySelectorAll('.incorrect');
-                for (let i = 0; i < incorrects.length; i++) {
-                    incorrects[i]/addEventListener('click', function() {
-                        incorrects[i].style.backgroundColour = 'red';
-                        document.querySelector('#q2feedback').innerHTML = 'Incorrect';
+                let incorrects = document.querySelectorAll('.incorrect');           // returns an array of elements that have class "incorrect"
+                for (let i = 0; i < incorrects.length; i++) {                       // loop through array of elements
+                    incorrects[i]/addEventListener('click', function() {                // add event listener for button click
+                        incorrects[i].style.backgroundColour = 'red';                   // set button colour to red
+                        document.querySelector('#q2feedback').innerHTML = 'Incorrect';  // display text in black <p> field
                     });
                 }
 
