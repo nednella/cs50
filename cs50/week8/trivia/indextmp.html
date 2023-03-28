@@ -12,7 +12,7 @@
             document.addEventListener('DOMContentLoaded', function(){
                 // for multiple choice question
                 // if correct answer selected
-                let correct = document.querySelector(.'correct');                   // returns the element that has the class "correct"
+                let correct = document.querySelector('.correct');                   // returns the element that has the class "correct"
                 correct.addEventListener('click', function(){                       // add event listener for button click
                     correct.style.backgroundColor = 'green';                            // set button colour to green
                     document.querySelector('#q1feedback').innerHTML = 'Correct!';       // display text in black <p> field
