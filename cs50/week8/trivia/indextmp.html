@@ -9,11 +9,11 @@
             // TODO: Add code to check answers to questions
 
             // run script once page is loaded
-            window.addEventListener("load", function() {
+            document.addEventListener('DOMContentLoaded', function(){
                 // for multiple choice question
                 // if correct answer selected
                 let correct = document.querySelector(.'correct');                   // returns the element that has the class "correct"
-                correct.addEventListener('click', function() {                      // add event listener for button click
+                correct.addEventListener('click', function(){                       // add event listener for button click
                     correct.style.backgroundColor = 'green';                            // set button colour to green
                     document.querySelector('#q1feedback').innerHTML = 'Correct!';       // display text in black <p> field
                 });
@@ -28,7 +28,7 @@
                 }
 
                 // for free response question
-                document.querySelector('#check').addEventListener('click', function() {
+                document.querySelector('#check').addEventListener('click', function(){
                     let input = document.querySelector('input');                    // returns element where user has entered response
                     if (input.value === "1") {                                      // if response is correct
                         input.style.backgroundColor = 'green';
