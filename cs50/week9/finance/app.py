@@ -121,14 +121,12 @@ def register():
 
         if not username:
             return apology("must provide username", 403)
-
         elif not password:
             return apology("must provide password", 403)
-
         elif password != confirmation:
             return apology("passwords must match", 403)
-
         else:
+            # TODO: insert check for existing username here
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
             return redirect("/login")
 
