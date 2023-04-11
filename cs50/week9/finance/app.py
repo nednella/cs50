@@ -108,6 +108,11 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
+    if request.method == "POST":
+
+
+
+
     return apology("TODO")
 
 
@@ -118,7 +123,7 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
-        
+
         if not username:
             return apology("must provide username", 403)
         elif not password:
