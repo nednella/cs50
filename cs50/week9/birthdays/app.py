@@ -18,6 +18,9 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///birthdays.db")
 
+# password
+PW = "admin123"
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -56,8 +59,9 @@ def index():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        session["name"] = request.form.get("name")
-        return redirect("/")
+        if PW == request.form.get("password"):
+            session["name"] = request.form.get("name")
+            return redirect("/")
     return render_template("login.html")
 
 @app.route("/logout")
