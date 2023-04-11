@@ -119,16 +119,18 @@ def register():
         pass = request.form.get("password")
         conf = request.form.get("confirmation")
 
-        if not any([user, pass, conf]):
+        if not user:
             return apology("must provide username", )
 
-        if pass != conf:
-            return apology()
+        elif not pass:
+            return apology("must provide password", )
 
+        elif pass != conf:
+            return apology("passwords must match", )
 
-        db.execute("")
-
-        return redirect("login.html")
+        else:
+            db.execute(INSERT INTO users)
+            return redirect("login.html")
 
     return render_template("register.html")
 
