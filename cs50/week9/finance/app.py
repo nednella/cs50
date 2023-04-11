@@ -117,6 +117,10 @@ def register():
     if input.method == "POST":
         user = request.form.get("username")
         pass = request.form.get("password")
+        conf = request.form.get("confirmation")
+
+        if not user 
+
         db.execute("")
 
         return redirect("login.html")
