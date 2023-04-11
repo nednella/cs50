@@ -109,7 +109,7 @@ def logout():
 def quote():
     """Get stock quote."""
     if request.method == "POST":
-        request.form.get("symbol")
+        symbol = request.form.get("symbol")
 
 
 
