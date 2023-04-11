@@ -18,7 +18,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///birthdays.db")
 
-# password
+# hard-coded password
 PW = "admin123"
 
 @app.after_request
