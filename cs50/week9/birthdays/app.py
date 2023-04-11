@@ -35,24 +35,16 @@ def index():
     if not session.get("name"):
         return redirect("/login")
 
+    # if user submits data via "Add Birthday"
     if request.method == "POST":
-
-        # obtain users entry
         name = request.form.get("name")
         month = request.form.get("month")
         day = request.form.get("day")
-
-        # execute entry via SQL query
         db.execute("INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)", name, month, day)
-
-        # confirm entry
         return redirect("/")
 
     else:
-        # obtain birthdays from db via SQL query
         birthdays = db.execute("SELECT * FROM birthdays")
-
-        # return db
         return render_template("index.html", birthdays=birthdays)
 
 
@@ -64,6 +56,7 @@ def login():
             return redirect("/")
     return render_template("login.html")
 
+
 @app.route("/logout")
 def logout():
     session["name"] = None
@@ -72,12 +65,8 @@ def logout():
 
 @app.route("/deregister", methods=["POST"])
 def deregister():
-
-    # obtain id from button press
     id = request.form.get("id")
     if id:
         db.execute("DELETE FROM birthdays WHERE id = ?", id)
-
-    # confirm deletion
     return redirect("/")
 
