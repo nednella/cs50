@@ -48,8 +48,8 @@ def deregister():
 
     # obtain id from button press
     id = request.form.get("id")
-        if id:
-            db.execute("DELETE FROM birthdays WHERE id = ?", id)
+    if id:
+        db.execute("DELETE FROM birthdays WHERE id = ?", id)
 
     # confirm deletion
     return redirect("/")
