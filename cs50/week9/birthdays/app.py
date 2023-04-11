@@ -28,6 +28,9 @@ def after_request(response):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    if not session.get("name"):
+        return redirect("/login")
+
     if request.method == "POST":
 
         # obtain users entry
@@ -47,6 +50,12 @@ def index():
 
         # return db
         return render_template("index.html", birthdays=birthdays)
+
+
+@app.route("/login")
+def login():
+    
+
 
 
 @app.route("/deregister", methods=["POST"])
