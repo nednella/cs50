@@ -115,21 +115,21 @@ def quote():
 def register():
     """Register user"""
     if input.method == "POST":
-        user = request.form.get("username")
-        pass = request.form.get("password")
-        conf = request.form.get("confirmation")
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
 
-        if not user:
+        if not username:
             return apology("must provide username", )
 
-        elif not pass:
+        elif not password:
             return apology("must provide password", )
 
-        elif pass != conf:
+        elif password != confirmation:
             return apology("passwords must match", )
 
         else:
-            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", user, )
+            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", user, generate_password_hash(password))
             return redirect("login.html")
 
     return render_template("register.html")
