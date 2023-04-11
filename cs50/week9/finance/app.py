@@ -120,13 +120,13 @@ def register():
         confirmation = request.form.get("confirmation")
 
         if not username:
-            return apology("must provide username", )
+            return apology("must provide username", 403)
 
         elif not password:
-            return apology("must provide password", )
+            return apology("must provide password", 403)
 
         elif password != confirmation:
-            return apology("passwords must match", )
+            return apology("passwords must match", 403)
 
         else:
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
