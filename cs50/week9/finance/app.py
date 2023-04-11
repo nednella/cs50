@@ -119,7 +119,10 @@ def register():
         pass = request.form.get("password")
         conf = request.form.get("confirmation")
 
-        if not user 
+        if not (user or pass or conf):
+            return apology
+
+        if 
 
         db.execute("")
 
