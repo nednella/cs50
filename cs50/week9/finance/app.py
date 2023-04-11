@@ -117,7 +117,11 @@ def register():
     if input.method == "POST":
         user = request.form.get("username")
         pass = request.form.get("password")
-    return apology("TODO")
+        db.execute("")
+
+        return redirect("login.html")
+
+    return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
