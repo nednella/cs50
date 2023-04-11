@@ -129,7 +129,7 @@ def register():
             return apology("passwords must match", )
 
         else:
-            db.execute(INSERT INTO users)
+            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", user, )
             return redirect("login.html")
 
     return render_template("register.html")
