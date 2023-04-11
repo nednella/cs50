@@ -43,8 +43,9 @@ def index():
         # return db
         return render_template("index.html", birthdays=birthdays)
 
-@app.route("/deregister")
+@app.route("/deregister", methods=["POST"])
 def deregister():
-    abc
-    abc
+
+    # execute via SQL query
+    db.execute("DELETE FROM birthdays WHERE id = ?", id)
 
