@@ -29,10 +29,15 @@ def after_request(response):
 def index():
     if request.method == "POST":
 
-        # TODO: Add the user's entry into the database
+        # obtain users entry
+        name = request.form.get("name")
+        month = request.form.get("month")
+        day = request.form.get("day")
 
-        # db.execute here to add birthday to SQL database
+        # execute entry via SQL query
+        db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", name, month, day)
 
+        # confirm entry
         return redirect("/")
 
     else:
