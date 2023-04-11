@@ -56,7 +56,7 @@ def index():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        session["name"] = get.request.form("username")
+        session["name"] = request.form.get("username")
     return render_template("login.html")
 
 @app.route("/logout")
