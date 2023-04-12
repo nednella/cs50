@@ -136,9 +136,11 @@ def register():
         elif password != confirmation:
             return apology("passwords must match", 403)
         else:
-            # TODO: insert check for existing username here
-            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
-            return redirect("/login")
+            try:
+                db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
+                return redirect("/")
+            except:
+                return apology("Username has already been registered. Please try another.", 403)
 
     return render_template("register.html")
 
