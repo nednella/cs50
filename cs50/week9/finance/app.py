@@ -62,13 +62,12 @@ def buy():
         if not quote:
             return apology("must enter a valid symbol")
 
-        userID = session["user_id"]
-        userRow = db.execute("SELECT * FROM users WHERE id = ?", userID)
-        userCash = userRow[0]["cash"]
-
         stockPrice = quote["price"]
         purchasePrice = stockPrice * shares
 
+        userID = session["user_id"]
+        userRow = db.execute("SELECT * FROM users WHERE id = ?", userID)
+        userCash = userRow[0]["cash"]
         if userCash < purchasePrice:
             return apology("wallet does not contain enough cash")
 
@@ -77,7 +76,6 @@ def buy():
         db.execute("INSERT INTO transactions() VALUES()", )
 
         return redirect("/")
-
     return render_template("buy.html")
 
 
