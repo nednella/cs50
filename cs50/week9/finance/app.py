@@ -63,7 +63,7 @@ def buy():
             return apology("must enter a valid symbol")
 
         # TODO: obtain users id to perform a lookup on their available cash
-        user_cash = db.execute("SELECT cash FROM users WHERE id = ?", )
+        user_cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
         # TODO: compare current cash to quote.price * shares. if cash <, reutrn apology and abort purchase
 
