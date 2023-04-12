@@ -62,12 +62,19 @@ def buy():
         if not quote:
             return apology("must enter a valid symbol")
 
-        # TODO: obtain users id to perform a lookup on their available cash
-        user_cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        userID = session["user_id"]
+        userRow = db.execute("SELECT * FROM users WHERE id = ?", userID)
+        userCash = userRow[0]["cash"]
 
-        # TODO: compare current cash to quote.price * shares. if cash <, reutrn apology and abort purchase
+        stockPrice = quote["price"]
+        purchasePrice = stockPrice * shares
 
+        if userCash < purchasePrice:
+            return apology("wallet does not contain enough cash")
 
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", userCash - purchasePrice, userID)
+        # TODO: create transactions table and update table with transaction
+        db.execute("INSERT INTO transactions() VALUES()", )
 
         return redirect("/")
 
