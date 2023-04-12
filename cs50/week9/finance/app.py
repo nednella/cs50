@@ -144,7 +144,7 @@ def quote():
             return apology("must enter a valid symbol")
 
         # TODO: obtain users id to perform a lookup on their available cash
-        cash = db.execute("SELECT cash FROM users WHERE id = ?", id)
+        user_cash = db.execute("SELECT cash FROM users WHERE id = ?", id)
 
         # TODO: compare current cash to quote.price * shares. if cash <, reutrn apology and abort purchase
 
