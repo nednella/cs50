@@ -48,8 +48,29 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        return redirect("/")
+        symbol = request.form.get("symbol")
+        shares = request.form.get("shares")
 
+        if not symbol:
+            return apology("must enter a symbol")
+        if not shares:
+            return apology("must enter a quantity of stock to purchase")
+
+        quote = lookup(symbol)
+        if not quote:
+            return apology("must enter a valid symbol")
+
+
+
+
+
+
+
+
+
+
+
+        return redirect("/")
 
     return render_template("buy.html")
 
@@ -116,11 +137,11 @@ def quote():
     if request.method == "POST":
         symbol = request.form.get("symbol")
         if not symbol:
-            return apology("must enter a symbol", 403)
+            return apology("must enter a symbol")
 
         quote = lookup(symbol)
         if not quote:
-            return apology("must enter a valid symbol", 403)
+            return apology("must enter a valid symbol")
 
         return render_template("quoted.html", quote=quote)
     return render_template("quote.html")
