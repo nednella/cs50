@@ -72,7 +72,7 @@ def buy():
             return apology("wallet does not contain enough cash")
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?", userCash - purchasePrice, userID)
-        # TODO: create transactions table and update table with transaction
+        # TODO: create transactions table and update table with transaction in line 76
         db.execute("INSERT INTO transactions() VALUES()", )
 
         return redirect("/")
