@@ -116,9 +116,8 @@ def quote():
         quote = lookup(symbol)
         if not quote:
             return apology("Please enter a valid symbol!", 403)
-        
-        return render_template("quoted.html", quote=quote)
 
+        return render_template("quoted.html", quote=quote)
     return render_template("quote.html")
 
 
