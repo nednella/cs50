@@ -55,13 +55,15 @@ def buy():
             return apology("must enter a symbol")
         if not shares:
             return apology("must enter a quantity of stock to purchase")
+        if not shares > 0:
+            return apology("must enter a valid quantity of stock to purchase")
 
         quote = lookup(symbol)
         if not quote:
             return apology("must enter a valid symbol")
 
         # TODO: obtain users id to perform a lookup on their available cash
-        user_cash = db.execute("SELECT cash FROM users WHERE id = ?", id)
+        user_cash = db.execute("SELECT cash FROM users WHERE id = ?", )
 
         # TODO: compare current cash to quote.price * shares. if cash <, reutrn apology and abort purchase
 
