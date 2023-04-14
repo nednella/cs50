@@ -22,6 +22,7 @@
                     <td>{{ row["company"] }}</td>
                     <td> {{row["shares"] }}</td>
                     <td> {{row["price"] }}</td>
+                    <td> {{  row["shares"] * row["price"] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
