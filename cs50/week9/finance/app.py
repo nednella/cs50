@@ -54,8 +54,6 @@ def index():
         portfolioValue += row["price"] * row["shares"]
     totalValue = portfolioValue + userCash
 
-
-
     return render_template("index.html", userPortfolio=userPortfolio, userCash=userCash, portfolioValue=portfolioValue, totalValue=totalValue, usd=usd)
 
 
@@ -211,4 +209,56 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
+    # if user input
+    if request.method == "POST":
+
+        # obtain user input
+        symbol = request.form.get("symbol").upper()
+        shares = int(request.form.get("shares"))
+
+        # user input validation
+
+
     return apology("TODO")
+
+
+
+# user input
+    if request.method == "POST":
+
+        # obtain user input
+        symbol = request.form.get("symbol").upper()
+        shares = int(request.form.get("shares"))
+
+        # user input validation
+        if not symbol:
+            return apology("must enter a symbol")
+        if not shares:
+            return apology("must enter a quantity of stock to purchase")
+        if not shares > 0:
+            return apology("must enter a valid quantity of stock to purchase")
+
+        # API call
+        quote = lookup(symbol)
+        if not quote:
+            return apology("must enter a valid symbol")
+
+        # purchase validation
+        userId = session["user_id"]
+        userInfo = db.execute("SELECT * FROM users WHERE id = ?", userId)
+        userCash = userInfo[0]["cash"]
+        purchasePrice = quote["price"] * shares
+        if userCash < purchasePrice:
+            return apology("wallet does not contain enough cash")
+
+        # database execution
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", userCash - purchasePrice, userId)
+        db.execute("INSERT INTO transactions(user_id, type, company, symbol, price, shares, date) VALUES(?, ?, ?, ?, ?, ?, ?)",
+        userId, "Buy", quote["name"], quote["symbol"], quote["price"], shares, datetime.now())
+
+        #purchase successful
+        flash("Purchase successful!")
+        return redirect("/")
+
+    # no user input
+    return render_template("buy.html")
