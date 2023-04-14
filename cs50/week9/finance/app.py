@@ -175,7 +175,7 @@ def quote():
             return apology("must enter a valid symbol")
 
         # quote successful
-        return render_template("quoted.html", quote=quote)
+        return render_template("quoted.html", quote=quote, usd=usd)
 
     # no user input
     return render_template("quote.html")
