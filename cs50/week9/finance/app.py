@@ -5,6 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
 
 from helpers import apology, login_required, lookup, usd
 
@@ -40,17 +41,34 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+    # obtain user information
+    userId = session["user_id"]
+    userInfo = db.execute("SELECT * FROM users WHERE id = ?", userId)
+    userCash = userInfo[0]["cash"]
+
+    # obtain user transactions
+    transactionsDb = db.execute("SELECT * FROM transactions WHERE user_id = ?", userId)
+
+    # database calls to present portfolio
+
+
+
+
+    return render_template("index.html")
 
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
     """Buy shares of stock"""
+    # user input
     if request.method == "POST":
-        symbol = request.form.get("symbol")
-        shares = request.form.get("shares")
 
+        # obtain user input
+        symbol = request.form.get("symbol")
+        shares = int(request.form.get("shares"))
+
+        # user input validation
         if not symbol:
             return apology("must enter a symbol")
         if not shares:
@@ -58,24 +76,30 @@ def buy():
         if not shares > 0:
             return apology("must enter a valid quantity of stock to purchase")
 
+        # API call
         quote = lookup(symbol)
         if not quote:
             return apology("must enter a valid symbol")
 
+        # purchase validation
         stockPrice = quote["price"]
         purchasePrice = stockPrice * shares
-
-        userID = session["user_id"]
-        userRow = db.execute("SELECT * FROM users WHERE id = ?", userID)
-        userCash = userRow[0]["cash"]
+        userId = session["user_id"]
+        userInfo = db.execute("SELECT * FROM users WHERE id = ?", userId)
+        userCash = userInfo[0]["cash"]
         if userCash < purchasePrice:
             return apology("wallet does not contain enough cash")
 
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", userCash - purchasePrice, userID)
-        # TODO: create transactions table and update table with transaction in line 76
-        db.execute("INSERT INTO transactions() VALUES()", )
+        # database execution
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", userCash - purchasePrice, userId)
+        db.execute("INSERT INTO transactions(user_id, type, symbol, price, shares, date) VALUES(?, ?, ?, ?, ?, ?)",
+        userId, "buy", quote["symbol"], quote["price"], shares, datetime.now())
 
+        #purchase successful
+        flash("Purchase successful!")
         return redirect("/")
+
+    # no user input
     return render_template("buy.html")
 
 
