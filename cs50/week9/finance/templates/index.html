@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Symbol</th>
@@ -25,13 +25,14 @@
                     <td>{{ usd(row["shares"] * row["price"]) }}</td>
                 </tr>
             {% endfor %}
+
+        </tbody>
+        <tfoot>
             <tr>
                 <td>CASH</td>
                 <td colspan="3"></td>
                 <td>{{ usd(userCash) }}</td>
             </tr>
-        </tbody>
-        <tfoot>
             <tr>
                 <td colspan="4"></td>
                 <td><strong>{{ usd(totalValue) }}</strong></td>
