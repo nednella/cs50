@@ -20,17 +20,20 @@
                 <tr>
                     <td>{{ row["symbol"] }}</td>
                     <td>{{ row["company"] }}</td>
-                    <td> {{row["shares"] }}</td>
-                    <td> {{row["price"] }}</td>
-                    <td> {{  row["shares"] * row["price"] }}</td>
+                    <td>{{ row["shares"] }}</td>
+                    <td>{{ usd(row["price"]) }}</td>
+                    <td>{{ usd(row["shares"] * row["price"]) }}</td>
                 </tr>
             {% endfor %}
+            <tr>
+                <td>CASH</td>
+                <td colspan="3"></td>
+                <td>{{ usd(userCash) }}</td>
+            </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td colspan="4">{{ usd(totalValue) }}</td>
             </tr>
         </tfoot>
     </table>
