@@ -12,13 +12,14 @@
                 <th>Name</th>
                 <th>Shares</th>
                 <th>Price</th>
-                <th>Total</th>
+                <th>TOTAL</th>
             </tr>
         </thead>
         <tbody>
             {% for row in database %}
                 <tr>
                     <td>{{ row["symbol"] }}</td>
+                    <td>{{ row["company"] }}</td>
                     <td> {{row["shares"] }}</td>
                     <td> {{row["price"] }}</td>
                 </tr>
