@@ -65,7 +65,7 @@ def buy():
     if request.method == "POST":
 
         # obtain user input
-        symbol = request.form.get("symbol")
+        symbol = request.form.get("symbol").upper()
         shares = int(request.form.get("shares"))
 
         # user input validation
