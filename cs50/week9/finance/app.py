@@ -47,17 +47,16 @@ def index():
 
     # obtain user portfolio
     userPortfolio = db.execute("SELECT company, symbol, price, SUM(shares) AS shares FROM transactions WHERE user_id = ? GROUP BY symbol", userId)
-    return userPortfolio["price"]
 
-    # # total value
-    # portfolioValue = 0
-    # for row in userPortfolio:
-    #     portfolioValue += userPortfolio["price"] * userPortfolio["shares"]
-    # totalValue = portfolioValue + userCash
-
+    # total value
+    portfolioValue = 0
+    for row in userPortfolio:
+        portfolioValue += row["price"] * row["shares"]
+    totalValue = portfolioValue + userCash
 
 
-    # return render_template("index.html", userPortfolio=userPortfolio, userCash=userCash, portfolioValue=portfolioValue, totalValue=totalValue, usd=usd)
+
+    return render_template("index.html", userPortfolio=userPortfolio, userCash=userCash, portfolioValue=portfolioValue, totalValue=totalValue, usd=usd)
 
 
 @app.route("/buy", methods=["GET", "POST"])
