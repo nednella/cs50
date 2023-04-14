@@ -18,11 +18,11 @@
         <tbody>
             {% for row in userPortfolio %}
                 <tr>
-                    <td scope="row">{{ row["symbol"] }}</td>
-                    <td scope="row">{{ row["company"] }}</td>
-                    <td scope="row">{{ row["shares"] }}</td>
-                    <td scope="row">{{ usd(row["price"]) }}</td>
-                    <td scope="row">{{ usd(row["shares"] * row["price"]) }}</td>
+                    <td>{{ row["symbol"] }}</td>
+                    <td>{{ row["company"] }}</td>
+                    <td>{{ row["shares"] }}</td>
+                    <td>{{ usd(row["price"]) }}</td>
+                    <td>{{ usd(row["shares"] * row["price"]) }}</td>
                 </tr>
             {% endfor %}
 
