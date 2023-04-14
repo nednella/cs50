@@ -82,11 +82,10 @@ def buy():
             return apology("must enter a valid symbol")
 
         # purchase validation
-        stockPrice = quote["price"]
-        purchasePrice = stockPrice * shares
         userId = session["user_id"]
         userInfo = db.execute("SELECT * FROM users WHERE id = ?", userId)
         userCash = userInfo[0]["cash"]
+        purchasePrice = quote["price"] * shares
         if userCash < purchasePrice:
             return apology("wallet does not contain enough cash")
 
