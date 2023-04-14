@@ -94,7 +94,7 @@ def buy():
         db.execute("INSERT INTO transactions(user_id, type, company, symbol, price, shares, date) VALUES(?, ?, ?, ?, ?, ?, ?)",
                    userId, "Buy", quote["name"], quote["symbol"], quote["price"], shares, datetime.now())
 
-        #purchase successful
+        # purchase successful
         flash("Purchase successful")
         return redirect("/")
 
