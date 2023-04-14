@@ -66,7 +66,10 @@ def buy():
 
         # obtain user input
         symbol = request.form.get("symbol").upper()
-        shares = int(request.form.get("shares"))
+        try:
+            shares = int(request.form.get("shares"))
+        except:
+            return apology("shares must be a positive integer")
 
         # user input validation
         if not symbol:
@@ -83,8 +86,7 @@ def buy():
 
         # purchase validation
         userId = session["user_id"]
-        userInfo = db.execute("SELECT * FROM users WHERE id = ?", userId)
-        userCash = userInfo[0]["cash"]
+        userCash = db.execute("SELECT * FROM users WHERE id = ?", userId)[0]["cash"]
         purchasePrice = quote["price"] * shares
         if userCash < purchasePrice:
             return apology("wallet does not contain enough cash")
