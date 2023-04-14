@@ -220,8 +220,21 @@ def sell():
         shares = int(request.form.get("shares"))
 
         # user input validation
+        if not symbol:
+            return apology("must select a stock")
+        if not shares:
+            return apology("must enter a quantiy fo stock")
+        if shares < 0:
+            return apology("must enter a valid quantity of stock to sell")
 
+        # API call
+        stockName = lookup(symbol)["name"]
+        stockPrice = lookup(symbol)["price"]
 
+        # database execution
+        stockOwned = db.execute("SELECT SUM(shares) AS shares FROM transactions WHERE user_id = ? AND symbol = ? GROUP BY symbol", userId, symbol)[0]["shares"]
+        if stockOwned < shares:
+            return apology("you do not that quantity of the stock being sold")
 
 
     symbols = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol", userId)
@@ -229,20 +242,6 @@ def sell():
 
 
 
-# user input
-    if request.method == "POST":
-
-        # obtain user input
-        symbol = request.form.get("symbol").upper()
-        shares = int(request.form.get("shares"))
-
-        # user input validation
-        if not symbol:
-            return apology("must enter a symbol")
-        if not shares:
-            return apology("must enter a quantity of stock to purchase")
-        if not shares > 0:
-            return apology("must enter a valid quantity of stock to purchase")
 
         # API call
         quote = lookup(symbol)
