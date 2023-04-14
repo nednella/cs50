@@ -113,6 +113,7 @@ def history():
     userId = session["user_id"]
     userTransactions = db.execute("SELECT symbol, shares, price, date FROM transactions WHERE user_id = ?", userId)
 
+    # return history page
     return render_template("history.html", history=userTransactions, usd=usd)
 
 
