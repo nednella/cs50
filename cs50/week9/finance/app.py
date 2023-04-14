@@ -43,7 +43,7 @@ def index():
     """Show portfolio of stocks"""
     # obtain user information
     userId = session["user_id"]
-    userCash = float(db.execute("SELECT * FROM users WHERE id = ?", userId)[0]["cash"])
+    userCash = db.execute("SELECT * FROM users WHERE id = ?", userId)[0]["cash"]
 
     # obtain user portfolio
     userPortfolio = db.execute("SELECT company, symbol, price, SUM(shares) AS shares FROM transactions WHERE user_id = ? GROUP BY symbol", userId)
@@ -51,8 +51,7 @@ def index():
     # total value
     portfolioValue = 0
     for row in userPortfolio:
-        portfolioValue += float(userPortfolio["price"]) * float(userPortfolio["shares"])
-
+        portfolioValue += userPortfolio["price"] * userPortfolio["shares"]
     totalValue = portfolioValue + userCash
 
 
