@@ -92,10 +92,10 @@ def buy():
         # database execution
         db.execute("UPDATE users SET cash = ? WHERE id = ?", userCash - purchasePrice, userId)
         db.execute("INSERT INTO transactions(user_id, type, company, symbol, price, shares, date) VALUES(?, ?, ?, ?, ?, ?, ?)",
-        userId, "Buy", quote["name"], quote["symbol"], quote["price"], shares, datetime.now())
+                   userId, "Buy", quote["name"], quote["symbol"], quote["price"], shares, datetime.now())
 
         #purchase successful
-        flash("Purchase successful!")
+        flash("Purchase successful")
         return redirect("/")
 
     # no user input
@@ -228,42 +228,24 @@ def sell():
             return apology("must enter a valid quantity of stock to sell")
 
         # API call
-        stockName = lookup(symbol)["name"]
-        stockPrice = lookup(symbol)["price"]
+        quote = lookup(symbol)
 
-        # database execution
+        # sale validation
         stockOwned = db.execute("SELECT SUM(shares) AS shares FROM transactions WHERE user_id = ? AND symbol = ? GROUP BY symbol", userId, symbol)[0]["shares"]
         if stockOwned < shares:
-            return apology("you do not that quantity of the stock being sold")
-
-
-    symbols = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol", userId)
-    return render_template("sell.html", symbols=symbols)
-
-
-
-
-        # API call
-        quote = lookup(symbol)
-        if not quote:
-            return apology("must enter a valid symbol")
-
-        # purchase validation
-        userId = session["user_id"]
-        userInfo = db.execute("SELECT * FROM users WHERE id = ?", userId)
-        userCash = userInfo[0]["cash"]
-        purchasePrice = quote["price"] * shares
-        if userCash < purchasePrice:
-            return apology("wallet does not contain enough cash")
+            return apology("you do not own enough shares")
 
         # database execution
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", userCash - purchasePrice, userId)
+        userCash = db.execute("SELECT * FROM users WHERE id = ?", userId)[0]["cash"]
+        userSale = quote["price"] * shares
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", userCash + userSale, userId)
         db.execute("INSERT INTO transactions(user_id, type, company, symbol, price, shares, date) VALUES(?, ?, ?, ?, ?, ?, ?)",
-        userId, "Buy", quote["name"], quote["symbol"], quote["price"], shares, datetime.now())
+                   userId, "Sell", quote["name"], quote["symbol"], quote["price"], -shares, datetime.now())
 
-        #purchase successful
-        flash("Purchase successful!")
+        # sale successful
+        flash("Sale successful")
         return redirect("/")
 
     # no user input
-    return render_template("buy.html")
+    symbols = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol", userId)
+    return render_template("sell.html", symbols=symbols)
