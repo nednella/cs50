@@ -162,15 +162,23 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
+    # if user input
     if request.method == "POST":
+
+        # obtain user input
         symbol = request.form.get("symbol")
         if not symbol:
             return apology("must enter a symbol")
 
+        # API call
         quote = lookup(symbol)
         if not quote:
             return apology("must enter a valid symbol")
+
+        # quote successful
         return render_template("quoted.html", quote=quote)
+
+    # no user input
     return render_template("quote.html")
 
 
