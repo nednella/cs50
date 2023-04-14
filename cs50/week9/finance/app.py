@@ -209,6 +209,9 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
+    # obtain user information
+    userId = session["user_id"]
+
     # if user input
     if request.method == "POST":
 
@@ -219,7 +222,10 @@ def sell():
         # user input validation
 
 
-    return apology("TODO")
+
+
+    symbols = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol", userId)
+    return render_template("sell.html", symbols=symbols)
 
 
 
