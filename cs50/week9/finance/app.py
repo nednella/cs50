@@ -48,8 +48,10 @@ def index():
     # obtain user portfolio
     userPortfolio = db.execute("SELECT company, symbol, price, SUM(shares) AS shares FROM transactions WHERE user_id = ? GROUP BY symbol", userId)
 
-    # database calls to present portfolio
-
+    # total value
+    portfolioValue = 0
+    for row in userPortfolio:
+        
 
 
 
