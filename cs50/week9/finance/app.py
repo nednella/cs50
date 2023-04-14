@@ -92,8 +92,8 @@ def buy():
 
         # database execution
         db.execute("UPDATE users SET cash = ? WHERE id = ?", userCash - purchasePrice, userId)
-        db.execute("INSERT INTO transactions(user_id, type, symbol, price, shares, date) VALUES(?, ?, ?, ?, ?, ?)",
-        userId, "Buy", quote["symbol"], quote["price"], shares, datetime.now())
+        db.execute("INSERT INTO transactions(user_id, type, company, symbol, price, shares, date) VALUES(?, ?, ?, ?, ?, ?, ?)",
+        userId, "Buy", quote["name"], quote["symbol"], quote["price"], shares, datetime.now())
 
         #purchase successful
         flash("Purchase successful!")
