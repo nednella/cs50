@@ -51,11 +51,13 @@ def index():
     # total value
     portfolioValue = 0
     for row in userPortfolio:
-        
+        portfolioValue += userPortfolio["price"] * userPortfolio["shares"]
+
+    totalValue = portfolioValue + userCash
 
 
 
-    return render_template("index.html", portfolio=userPortfolio, cash=userCash, usd=usd)
+    return render_template("index.html", userPortfolio=userPortfolio, userCash=userCash, portfolioValue=portfolioValue, totalValue=totalValue, usd=usd)
 
 
 @app.route("/buy", methods=["GET", "POST"])
