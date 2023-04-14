@@ -7,8 +7,8 @@
 {% block main %}
     <form action="/sell" method="post">
         <div class="mb-3">
-            <select name="symbol">
-                <option selected="selected" disabled>Select Stock</option>
+            <select class="form-select mx-auto w-auto" name="symbol">
+                <option disabled selected>Select Stock</option>
                 {% for symbol in symbols %}
                     <option value="{{ symbol["symbol"] }}">{{ symbol["symbol"] }}</option>
                 {% endfor %}
