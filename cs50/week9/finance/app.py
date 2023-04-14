@@ -47,6 +47,7 @@ def index():
 
     # obtain user portfolio
     userPortfolio = db.execute("SELECT company, symbol, price, SUM(shares) AS shares FROM transactions WHERE user_id = ? GROUP BY symbol", userId)
+    return userPortfolio["price"]
 
     # total value
     portfolioValue = 0
